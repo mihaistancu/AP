@@ -2,11 +2,11 @@
 {
     public class SpyMessageBroker: MessageBroker
     {
-        public bool WasCalled { get; set; }
+        public ProcessingRequest Received { get; set; }
 
         public override void Send(ProcessingRequest request)
         {
-            WasCalled = true;    
+            Received = request;    
         }
     }
 }

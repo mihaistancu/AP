@@ -9,14 +9,17 @@ namespace AP.Tests
         public void CallsMessageBrokerForNextProcessingStep()
         {
             var broker = new SpyMessageBroker();
-            var pipeline = new Pipeline();
+            
+            var pipeline = new MockPipeline();
+            pipeline.Next = new ProcessingRequest();
+            pipeline.Next.Step = "step2";
             pipeline.Set(broker);
 
             var processingRequest = new ProcessingRequest();
-            processingRequest.Step = "step";
+            processingRequest.Step = "step1";
             pipeline.Done(processingRequest);
 
-            Assert.IsTrue(broker.WasCalled);
+            Assert.AreEqual("step2", broker.Received.Step);
         }
     }
 }

@@ -4,10 +4,10 @@ namespace AP
 {
     public abstract class MessageBroker
     {
-        protected IPipeline pipeline;
+        protected Pipeline pipeline;
         private Dictionary<string, IHandler> handlers = new Dictionary<string, IHandler>();
 
-        public void Set(IPipeline pipeline)
+        public void Set(Pipeline pipeline)
         {
             this.pipeline = pipeline;
         }

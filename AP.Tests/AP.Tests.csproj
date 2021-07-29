@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="MessageBrokerTests.cs" />
     <Compile Include="MockMessageBroker.cs" />
+    <Compile Include="SpyPipeline.cs" />
     <Compile Include="MockPipeline.cs" />
     <Compile Include="PipelineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

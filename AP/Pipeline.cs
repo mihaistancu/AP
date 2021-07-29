@@ -1,6 +1,6 @@
 ﻿namespace AP
 {
-    public class Pipeline: IPipeline
+    public abstract class Pipeline
     {
         MessageBroker broker;
 
@@ -9,9 +9,12 @@
             this.broker = broker;
         }
 
-        public void Done(ProcessingRequest request)
+        public abstract ProcessingRequest GetNext(ProcessingRequest request);
+
+        public virtual void Done(ProcessingRequest request)
         {
-            broker.Send(request);
+            var next = GetNext(request);
+            broker.Send(next);
         }
     }
 }

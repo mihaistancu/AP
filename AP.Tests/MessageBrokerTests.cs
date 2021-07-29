@@ -5,13 +5,13 @@ namespace AP.Tests
     [TestClass]
     public class MessageBrokerTests
     {
-        private MockPipeline pipeline;
+        private SpyPipeline pipeline;
         private MockMessageBroker broker;
 
         [TestInitialize]
         public void Initialize()
         {
-            pipeline = new MockPipeline();
+            pipeline = new SpyPipeline();
             broker = new MockMessageBroker();
             broker.Set(pipeline);
         }

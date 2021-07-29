@@ -1,12 +1,12 @@
 ﻿namespace AP.Tests
 {
-    public class MockPipeline: IPipeline
+    public class MockPipeline : Pipeline
     {
-        public bool WasCalled { get; private set; }
+        public ProcessingRequest Next { get; set; }
 
-        public void Done(ProcessingRequest request)
+        public override ProcessingRequest GetNext(ProcessingRequest request)
         {
-            WasCalled = true;
+            return Next;
         }
     }
 }
