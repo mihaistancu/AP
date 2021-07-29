@@ -14,19 +14,6 @@ namespace AP.Tests
         }
 
         [TestMethod]
-        public void CanTriggerProcessingStep()
-        {
-            var handler = new SpyHandler();
-            broker.Setup("step", handler);
-
-            var request = new ProcessingRequest();
-            request.Step = "step";
-            broker.Send(request);
-
-            Assert.IsTrue(handler.WasCalled);
-        }
-
-        [TestMethod]
         public void CanTriggerDifferentProcessingSteps()
         {
             var handler1 = new SpyHandler();
