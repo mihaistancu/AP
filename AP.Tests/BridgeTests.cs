@@ -4,11 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AP.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class BridgeTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CanCreateBridge()
         {
+            var bridge = new Bridge();
         }
     }
 }
