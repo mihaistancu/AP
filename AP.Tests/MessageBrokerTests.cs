@@ -5,20 +5,23 @@ namespace AP.Tests
     [TestClass]
     public class MessageBrokerTests
     {
+        private MockPipeline pipeline;
         private MockMessageBroker broker;
 
         [TestInitialize]
         public void Initialize()
         {
-            broker = new MockMessageBroker();
+            pipeline = new MockPipeline();
+            broker = new MockMessageBroker(pipeline);
         }
 
         [TestMethod]
         public void CanTriggerDifferentProcessingSteps()
         {
             var handler1 = new SpyHandler();
-            var handler2 = new SpyHandler();
             broker.Setup("step1", handler1);
+
+            var handler2 = new SpyHandler();
             broker.Setup("step2", handler2);
 
             var request1 = new ProcessingRequest();
@@ -31,6 +34,19 @@ namespace AP.Tests
 
             Assert.IsTrue(handler1.WasCalled);
             Assert.IsTrue(handler2.WasCalled);
+        }
+
+        [TestMethod]
+        public void CallsPipelineToMoveToNextStep()
+        {   
+            var handler = new SpyHandler();
+            broker.Setup("step", handler);
+            
+            var request = new ProcessingRequest();
+            request.Step = "step";
+            broker.Send(request);
+
+            Assert.IsTrue(pipeline.WasCalled);
         }
     }
 }
