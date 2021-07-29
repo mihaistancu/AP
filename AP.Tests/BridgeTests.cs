@@ -7,9 +7,13 @@ namespace AP.Tests
     public class BridgeTests
     {
         [TestMethod]
-        public void CanCreateBridge()
+        public void CanSendProcessingRequest()
         {
             var bridge = new Bridge();
+
+            var request = new ProcessingRequest();
+
+            bridge.Send(request);
         }
     }
 }
