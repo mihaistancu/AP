@@ -1,10 +1,10 @@
 ﻿namespace AP
 {
-    public class Bridge
+    public abstract class MessageBroker
     {
         private IHandler handler;
 
-        public Bridge()
+        public MessageBroker()
         {
         }
 
@@ -13,9 +13,9 @@
             handler.Handle(request);
         }
 
-        public void Setup(string v, IHandler step)
+        public void Setup(string step, IHandler handler)
         {
-            this.handler = step;    
+            this.handler = handler;
         }
     }
 }
