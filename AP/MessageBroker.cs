@@ -7,7 +7,12 @@ namespace AP
         protected IPipeline pipeline;
         private Dictionary<string, IHandler> handlers = new Dictionary<string, IHandler>();
 
-        public void Send(ProcessingRequest request)
+        public void Set(IPipeline pipeline)
+        {
+            this.pipeline = pipeline;
+        }
+
+        public virtual void Send(ProcessingRequest request)
         {
             var handler = handlers[request.Step];
             handler.Handle(request);

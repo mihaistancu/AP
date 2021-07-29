@@ -12,7 +12,8 @@ namespace AP.Tests
         public void Initialize()
         {
             pipeline = new MockPipeline();
-            broker = new MockMessageBroker(pipeline);
+            broker = new MockMessageBroker();
+            broker.Set(pipeline);
         }
 
         [TestMethod]
