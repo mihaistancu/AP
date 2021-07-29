@@ -6,16 +6,18 @@ namespace AP.Tests
     public class MessageBrokerTests
     {
         [TestMethod]
-        public void CanTriggerScan()
+        public void CanTriggerProcessingStep()
         {
             var handler = new SpyHandler();
-            var bridge = new MockMessageBroker();
-            bridge.Setup("step", handler);
+            var broker = new MockMessageBroker();
+            broker.Setup("step", handler);
 
             var request = new ProcessingRequest();
-            bridge.Send(request);
+            broker.Send(request);
 
             Assert.IsTrue(handler.WasCalled);
         }
+
+
     }
 }
