@@ -5,5 +5,7 @@
         public ProcessingRequest()
         {
         }
+
+        public string Step { get; set; }
     }
 }
