@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AP.Tests
 {
@@ -7,13 +6,16 @@ namespace AP.Tests
     public class BridgeTests
     {
         [TestMethod]
-        public void CanSendProcessingRequest()
+        public void CanTriggerScan()
         {
+            var handler = new SpyHandler();
             var bridge = new Bridge();
+            bridge.Setup("step", handler);
 
             var request = new ProcessingRequest();
-
             bridge.Send(request);
+
+            Assert.IsTrue(handler.WasCalled);
         }
     }
 }

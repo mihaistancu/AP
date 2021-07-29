@@ -1,16 +1,21 @@
-﻿using System;
-
-namespace AP
+﻿namespace AP
 {
     public class Bridge
     {
+        private IHandler handler;
+
         public Bridge()
         {
         }
 
         public void Send(ProcessingRequest request)
         {
-            throw new NotImplementedException();
+            handler.Handle(request);
+        }
+
+        public void Setup(string v, IHandler step)
+        {
+            this.handler = step;    
         }
     }
 }
