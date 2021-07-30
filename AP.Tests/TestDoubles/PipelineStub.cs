@@ -1,6 +1,6 @@
-﻿namespace AP.Tests
+﻿namespace AP.Tests.TestDoubles
 {
-    public class MockPipeline : Pipeline
+    public class PipelineStub : Pipeline
     {
         public ProcessingRequest Next { get; set; }
 

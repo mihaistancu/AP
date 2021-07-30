@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AP.Tests.TestDoubles;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AP.Tests
 {
@@ -8,9 +9,9 @@ namespace AP.Tests
         [TestMethod]
         public void CallsMessageBrokerForNextProcessingStep()
         {
-            var broker = new SpyMessageBroker();
+            var broker = new MessageBrokerSpy();
             
-            var pipeline = new MockPipeline();
+            var pipeline = new PipelineStub();
             pipeline.Next = new ProcessingRequest();
             pipeline.Next.Step = "step2";
             pipeline.Set(broker);

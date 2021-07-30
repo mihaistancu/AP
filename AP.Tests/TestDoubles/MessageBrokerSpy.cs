@@ -1,12 +1,12 @@
-﻿namespace AP.Tests
+﻿namespace AP.Tests.TestDoubles
 {
-    public class SpyMessageBroker: MessageBroker
+    public class MessageBrokerSpy : MessageBroker
     {
         public ProcessingRequest Received { get; set; }
 
         public override void Send(ProcessingRequest request)
         {
-            Received = request;    
+            Received = request;
         }
     }
 }

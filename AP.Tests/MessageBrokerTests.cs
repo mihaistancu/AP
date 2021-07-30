@@ -1,28 +1,29 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AP.Tests.TestDoubles;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AP.Tests
 {
     [TestClass]
     public class MessageBrokerTests
     {
-        private SpyPipeline pipeline;
-        private MockMessageBroker broker;
+        private PipelineSpy pipeline;
+        private MessageBrokerDummy broker;
 
         [TestInitialize]
         public void Initialize()
         {
-            pipeline = new SpyPipeline();
-            broker = new MockMessageBroker();
+            pipeline = new PipelineSpy();
+            broker = new MessageBrokerDummy();
             broker.Set(pipeline);
         }
 
         [TestMethod]
         public void CanTriggerDifferentProcessingSteps()
         {
-            var handler1 = new SpyHandler();
+            var handler1 = new HandlerSpy();
             broker.Setup("step1", handler1);
 
-            var handler2 = new SpyHandler();
+            var handler2 = new HandlerSpy();
             broker.Setup("step2", handler2);
 
             var request1 = new ProcessingRequest();
@@ -40,7 +41,7 @@ namespace AP.Tests
         [TestMethod]
         public void CallsPipelineToMoveToNextStep()
         {   
-            var handler = new SpyHandler();
+            var handler = new HandlerSpy();
             broker.Setup("step", handler);
             
             var request = new ProcessingRequest();
