@@ -11,14 +11,14 @@ namespace AP.Tests
         {
             var broker = new MessageBrokerSpy();
             
-            var pipeline = new PipelineStub();
-            pipeline.Next = new ProcessingRequest();
-            pipeline.Next.Step = "step2";
-            pipeline.Set(broker);
+            var workflow = new WorkflowStub();
+            workflow.Next = new ProcessingRequest();
+            workflow.Next.Step = "step2";
+            workflow.Set(broker);
 
             var processingRequest = new ProcessingRequest();
             processingRequest.Step = "step1";
-            pipeline.Done(processingRequest);
+            workflow.Done(processingRequest);
 
             Assert.AreEqual("step2", broker.Received.Step);
         }

@@ -4,19 +4,19 @@ namespace AP
 {
     public abstract class MessageBroker
     {
-        protected Workflow pipeline;
+        protected Workflow workflow;
         private Dictionary<string, IHandler> handlers = new Dictionary<string, IHandler>();
 
-        public void Set(Workflow pipeline)
+        public void Set(Workflow workflow)
         {
-            this.pipeline = pipeline;
+            this.workflow = workflow;
         }
 
         public virtual void Send(ProcessingRequest request)
         {
             var handler = handlers[request.Step];
             handler.Handle(request);
-            pipeline.Done(request);
+            workflow.Done(request);
         }
 
         public void Setup(string step, IHandler handler)

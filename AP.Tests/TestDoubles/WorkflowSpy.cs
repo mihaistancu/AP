@@ -1,6 +1,6 @@
 ﻿namespace AP.Tests.TestDoubles
 {
-    public class PipelineSpy : Workflow
+    public class WorkflowSpy : Workflow
     {
         public bool WasCalled { get; private set; }
 

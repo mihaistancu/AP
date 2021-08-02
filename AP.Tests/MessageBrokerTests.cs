@@ -6,15 +6,15 @@ namespace AP.Tests
     [TestClass]
     public class MessageBrokerTests
     {
-        private PipelineSpy pipeline;
+        private WorkflowSpy workflow;
         private MessageBrokerDummy broker;
 
         [TestInitialize]
         public void Initialize()
         {
-            pipeline = new PipelineSpy();
+            workflow = new WorkflowSpy();
             broker = new MessageBrokerDummy();
-            broker.Set(pipeline);
+            broker.Set(workflow);
         }
 
         [TestMethod]
@@ -39,7 +39,7 @@ namespace AP.Tests
         }
 
         [TestMethod]
-        public void CallsPipelineToMoveToNextStep()
+        public void CallsWorkflowToMoveToNextStep()
         {   
             var handler = new HandlerSpy();
             broker.Setup("step", handler);
@@ -48,7 +48,7 @@ namespace AP.Tests
             request.Step = "step";
             broker.Send(request);
 
-            Assert.IsTrue(pipeline.WasCalled);
+            Assert.IsTrue(workflow.WasCalled);
         }
     }
 }
