@@ -1,6 +1,5 @@
 ﻿using AP.Tests.TestDoubles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
 
 namespace AP.Tests
 {
@@ -8,21 +7,21 @@ namespace AP.Tests
     public class PipelineTests
     {
         [TestMethod]
-        public void CanCallDifferentOperations()
+        public void CanTriggerDifferentProcessingSteps()
         {
             var pipeline = new Pipeline();
 
-            var operation1 = new OperationSpy();
-            pipeline.Add(operation1);
+            var handler1 = new HandlerSpy();
+            pipeline.Add(handler1);
 
-            var operation2 = new OperationSpy();
-            pipeline.Add(operation2);
+            var handler2 = new HandlerSpy();
+            pipeline.Add(handler2);
 
-            var stream = new MemoryStream();
-            pipeline.Process(stream);
+            var message = new Message();
+            pipeline.Process(message);
 
-            Assert.IsTrue(operation1.WasCalled);
-            Assert.IsTrue(operation2.WasCalled);
+            Assert.IsTrue(handler1.WasCalled);
+            Assert.IsTrue(handler2.WasCalled);
         }
     }
 }

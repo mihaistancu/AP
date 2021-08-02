@@ -1,22 +1,21 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 
 namespace AP
 {
     public class Pipeline
     {
-        private List<IOperation> operations = new List<IOperation>();
+        private List<IHandler> handlers = new List<IHandler>();
 
-        public void Add(IOperation operation)
+        public void Add(IHandler handler)
         {
-            operations.Add(operation);
+            handlers.Add(handler);
         }
 
-        public void Process(Stream stream)
+        public void Process(Message message)
         {
-            foreach(var operation in operations)
+            foreach(var handler in handlers)
             {
-                operation.Process(stream);
+                handler.Handle(message);
             }
         }
     }

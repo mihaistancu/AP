@@ -15,7 +15,7 @@ namespace AP
         public virtual void Send(ProcessingRequest request)
         {
             var handler = handlers[request.Step];
-            handler.Handle(request);
+            handler.Handle(request.Message);
             workflow.Done(request);
         }
 

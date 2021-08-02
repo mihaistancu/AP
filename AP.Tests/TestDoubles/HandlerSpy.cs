@@ -4,7 +4,7 @@
     {
         public bool WasCalled { get; private set; }
 
-        public void Handle(ProcessingRequest request)
+        public void Handle(Message message)
         {
             WasCalled = true;
         }

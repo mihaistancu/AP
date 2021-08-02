@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageBrokerTests.cs" />
-    <Compile Include="TestDoubles\OperationSpy.cs" />
     <Compile Include="PipelineTests.cs" />
     <Compile Include="TestDoubles\MessageBrokerDummy.cs" />
     <Compile Include="TestDoubles\WorkflowSpy.cs" />

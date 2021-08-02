@@ -2,6 +2,6 @@
 {
     public interface IHandler
     {
-        void Handle(ProcessingRequest request);
+        void Handle(Message message);
     }
 }
