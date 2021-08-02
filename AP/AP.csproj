@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageBroker.cs" />
+    <Compile Include="IOperation.cs" />
+    <Compile Include="Pipeline.cs" />
     <Compile Include="Workflow.cs" />
     <Compile Include="ProcessingRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
