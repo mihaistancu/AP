@@ -1,6 +1,6 @@
 ﻿namespace AP.Tests.TestDoubles
 {
-    public class PipelineStub : Pipeline
+    public class PipelineStub : Workflow
     {
         public ProcessingRequest Next { get; set; }
 

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AP.Tests
 {
     [TestClass]
-    public class PipelineTests
+    public class WorkflowTests
     {
         [TestMethod]
         public void CallsMessageBrokerForNextProcessingStep()

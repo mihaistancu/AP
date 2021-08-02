@@ -1,6 +1,6 @@
 ﻿namespace AP
 {
-    public abstract class Pipeline
+    public abstract class Workflow
     {
         MessageBroker broker;
 
