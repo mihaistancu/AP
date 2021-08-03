@@ -1,6 +1,6 @@
 ﻿namespace AP.Receiver.Handlers
 {
-    public class TlsCertificateCheck : IHandler
+    public class SignatureCheckHandler : IHandler
     {
         public bool Handle(Message message)
         {

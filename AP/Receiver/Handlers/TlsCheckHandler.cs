@@ -1,6 +1,6 @@
 ﻿namespace AP.Receiver.Handlers
 {
-    public class Decryption : IHandler
+    public class TlsCheckHandler : IHandler
     {
         public bool Handle(Message message)
         {

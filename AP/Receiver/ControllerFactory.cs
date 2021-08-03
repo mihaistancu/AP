@@ -1,7 +1,6 @@
 ﻿using AP.Processing;
-using AP.Receiver.Pipelines;
+using AP.Receiver.Handlers;
 using AP.Receiver.Responders;
-using System.Collections.Generic;
 
 namespace AP.Receiver
 {
@@ -9,44 +8,61 @@ namespace AP.Receiver
     {
         private Workflow workflow;
 
+        private IHandler tlsCheck = new TlsCheckHandler();
+        private IHandler decryption = new DecryptionHandler();
+        private IHandler signatureCheck = new SignatureCheckHandler();
+        private IHandler validation = new ValidationHandler();
+        private IHandler persistence = new PersistenceHandler();
+
+        private IResponder errorOnly = new ErrorOnlyResponder();
+        private IResponder receiptAndError = new ReceiptAndErrorResponder();
+
+        private Pipeline businessInbound;
+        private Pipeline nonBusinessInbound;
+
         public ControllerFactory(Workflow workflow)
         {
             this.workflow = workflow;
+
+            businessInbound = new Pipeline();
+            businessInbound.Add(tlsCheck);
+            businessInbound.Add(decryption);
+            businessInbound.Add(validation);
+            businessInbound.Add(persistence);
+
+            nonBusinessInbound = new Pipeline();
+            nonBusinessInbound.Add(tlsCheck);
+            nonBusinessInbound.Add(signatureCheck);
+            nonBusinessInbound.Add(validation);
+            nonBusinessInbound.Add(persistence);
         }
 
         public Controller Create(UseCase useCase, Channel channel)
         {
-            var pipeline = pipelines[useCase][channel];
-            var responder = responders[useCase];
+            var pipeline = GetPipeline(useCase, channel);
+            var responder = GetResponder(useCase);
             return new Controller(pipeline, workflow, responder);
         }
 
-        private Dictionary<UseCase, Dictionary<Channel, Pipeline>> pipelines =
-            new Dictionary<UseCase, Dictionary<Channel, Pipeline>>
+        private Pipeline GetPipeline(UseCase useCase, Channel channel)
+        {
+            if (useCase == UseCase.Business && channel == Channel.Inbound)
             {
-                {
-                    UseCase.Business,
-                    new Dictionary<Channel, Pipeline>()
-                    {
-                        { Channel.Inbound, new BusinessInboundPipeline() },
-                        { Channel.Outbox, new BusinessOutboxPipeline() }
-                    }
-                },
-                {
-                    UseCase.System,
-                    new Dictionary<Channel, Pipeline>()
-                    {
-                        { Channel.Inbound, new SystemInboundPipeline() },
-                        { Channel.Outbox, new SystemOutboxPipeline() }
-                    }
-                }
-            };
+                return businessInbound;
+            }
+            return nonBusinessInbound;
+        }
 
-        private Dictionary<UseCase, IResponder> responders = 
-            new Dictionary<UseCase, IResponder>
+        private IResponder GetResponder(UseCase useCase)
+        {
+            if (useCase == UseCase.System)
             {
-                { UseCase.Business, new ReceiptAndErrorResponder() },
-                { UseCase.System, new ErrorOnlyResponder() },
-            };
+                return receiptAndError;
+            }
+            else
+            {
+                return errorOnly;
+            }
+        }
     }
 }

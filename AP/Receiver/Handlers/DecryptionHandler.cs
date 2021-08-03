@@ -1,6 +1,6 @@
 ﻿namespace AP.Receiver.Handlers
 {
-    public class Persistence : IHandler
+    public class DecryptionHandler : IHandler
     {
         public bool Handle(Message message)
         {

@@ -1,6 +1,6 @@
 ﻿namespace AP.Receiver.Handlers
 {
-    public class Validation : IHandler
+    public class PersistenceHandler : IHandler
     {
         public bool Handle(Message message)
         {

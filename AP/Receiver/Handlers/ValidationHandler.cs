@@ -1,6 +1,6 @@
 ﻿namespace AP.Receiver.Handlers
 {
-    public class SignatureCheck : IHandler
+    public class ValidationHandler : IHandler
     {
         public bool Handle(Message message)
         {
