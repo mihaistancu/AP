@@ -7,7 +7,7 @@ namespace AP.Tests.TestDoubles
     {
         public string OkMessage { get; set; }
 
-        public string Ok()
+        public string Receipt()
         {
             return OkMessage;    
         }

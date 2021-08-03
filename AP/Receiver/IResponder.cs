@@ -4,7 +4,7 @@ namespace AP.Receiver
 {
     public interface IResponder
     {
-        string Ok();
+        string Receipt();
         string Error(Exception exception);
     }
 }

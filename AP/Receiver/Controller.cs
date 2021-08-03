@@ -28,7 +28,7 @@ namespace AP.Receiver
             }
             
             workflow.Start(message);
-            return responder.Ok();
+            return responder.Receipt();
         }
     }
 }

@@ -52,6 +52,13 @@
     <Compile Include="Processing\Workflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receiver\IHandler.cs" />
+    <Compile Include="Receiver\Pipelines\SystemInboundPipeline.cs" />
+    <Compile Include="Receiver\Pipelines\SystemOutboxPipeline.cs" />
+    <Compile Include="Receiver\Pipelines\BusinessOutboxPipeline.cs" />
+    <Compile Include="Receiver\Pipelines\BusinessInboundPipeline.cs" />
+    <Compile Include="Receiver\Responders\ErrorOnlyResponder.cs" />
+    <Compile Include="Receiver\Responders\ReceiptAndErrorResponder.cs" />
+    <Compile Include="Receiver\Router.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
