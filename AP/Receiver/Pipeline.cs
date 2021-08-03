@@ -11,7 +11,7 @@ namespace AP.Receiver
             handlers.Add(handler);
         }
 
-        public void Process(Message message)
+        public virtual void Process(Message message)
         {
             foreach (var handler in handlers)
             {

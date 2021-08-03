@@ -48,7 +48,7 @@ namespace AP.Tests
             input.ProcessingStep = "step";
             broker.Send(input);
 
-            Assert.IsTrue(workflow.WasCalled);
+            Assert.IsTrue(workflow.DoneWasCalled);
         }
     }
 }

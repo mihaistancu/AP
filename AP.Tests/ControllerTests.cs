@@ -7,19 +7,34 @@ namespace AP.Tests
     [TestClass]
     public class ControllerTests
     {
+        private PipelineSpy pipeline;
+        private WorkflowSpy workflow;
+        private Controller controller;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            pipeline = new PipelineSpy();
+            workflow = new WorkflowSpy();
+            controller = new Controller(pipeline, workflow);
+        }
+
         [TestMethod]
         public void CallsPipeline()
         {
-            var pipeline = new Pipeline();
-
-            var handler = new HandlerSpy();
-            pipeline.Add(handler);
-            var controller = new Controller(pipeline);
-
             var message = new Message();
             controller.Handle(message);
 
-            Assert.IsTrue(handler.WasCalled);
+            Assert.IsTrue(pipeline.WasCalled);
+        }
+
+        [TestMethod]
+        public void CallsWorkflow()
+        {
+            var message = new Message();
+            controller.Handle(message);
+
+            Assert.IsTrue(workflow.StartWasCalled);
         }
     }
 }
