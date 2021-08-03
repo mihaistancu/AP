@@ -2,6 +2,6 @@
 {
     public interface IHandler
     {
-        void Handle(Message message);
+        bool Handle(Message message);
     }
 }

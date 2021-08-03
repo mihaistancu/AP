@@ -15,7 +15,9 @@ namespace AP
         {
             foreach(var handler in handlers)
             {
-                handler.Handle(message);
+                bool canContinue = handler.Handle(message);
+
+                if (!canContinue) break;
             }
         }
     }
