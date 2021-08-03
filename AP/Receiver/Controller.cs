@@ -1,7 +1,6 @@
 ﻿using AP.Processing;
-using AP.Receiver;
 
-namespace AP
+namespace AP.Receiver
 {
     public class Controller
     {
