@@ -1,4 +1,4 @@
-﻿namespace AP
+﻿namespace AP.Processing
 {
     public interface IWorker
     {

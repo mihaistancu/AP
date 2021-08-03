@@ -1,4 +1,5 @@
-﻿using AP.Tests.TestDoubles;
+﻿using AP.Receiver;
+using AP.Tests.TestDoubles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AP.Tests

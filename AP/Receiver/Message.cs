@@ -1,4 +1,4 @@
-﻿namespace AP
+﻿namespace AP.Receiver
 {
     public class Message
     {

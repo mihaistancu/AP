@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AP
+namespace AP.Processing
 {
     public abstract class MessageBroker
     {

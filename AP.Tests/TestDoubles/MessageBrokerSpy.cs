@@ -1,4 +1,6 @@
-﻿namespace AP.Tests.TestDoubles
+﻿using AP.Processing;
+
+namespace AP.Tests.TestDoubles
 {
     public class MessageBrokerSpy : MessageBroker
     {

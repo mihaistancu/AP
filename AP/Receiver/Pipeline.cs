@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AP
+namespace AP.Receiver
 {
     public class Pipeline
     {
@@ -13,7 +13,7 @@ namespace AP
 
         public void Process(Message message)
         {
-            foreach(var handler in handlers)
+            foreach (var handler in handlers)
             {
                 bool canContinue = handler.Handle(message);
 

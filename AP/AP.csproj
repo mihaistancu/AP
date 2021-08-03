@@ -41,15 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IWorker.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="MessageBroker.cs" />
-    <Compile Include="Pipeline.cs" />
-    <Compile Include="WorkerInput.cs" />
-    <Compile Include="WorkerOutput.cs" />
-    <Compile Include="Workflow.cs" />
+    <Compile Include="Processing\IWorker.cs" />
+    <Compile Include="Receiver\Message.cs" />
+    <Compile Include="Processing\MessageBroker.cs" />
+    <Compile Include="Receiver\Pipeline.cs" />
+    <Compile Include="Processing\WorkerInput.cs" />
+    <Compile Include="Processing\WorkerOutput.cs" />
+    <Compile Include="Processing\Workflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IHandler.cs" />
+    <Compile Include="Receiver\IHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

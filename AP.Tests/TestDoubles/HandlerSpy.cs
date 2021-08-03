@@ -1,4 +1,6 @@
-﻿namespace AP.Tests.TestDoubles
+﻿using AP.Receiver;
+
+namespace AP.Tests.TestDoubles
 {
     public class HandlerSpy : IHandler
     {
