@@ -58,7 +58,7 @@
     <Compile Include="Receiver\Pipelines\BusinessInboundPipeline.cs" />
     <Compile Include="Receiver\Responders\ErrorOnlyResponder.cs" />
     <Compile Include="Receiver\Responders\ReceiptAndErrorResponder.cs" />
-    <Compile Include="Receiver\Router.cs" />
+    <Compile Include="Receiver\ControllerFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

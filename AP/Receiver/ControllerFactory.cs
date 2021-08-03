@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace AP.Receiver
 {
-    public class Router
+    public class ControllerFactory
     {
         private Workflow workflow;
 
-        public Router(Workflow workflow)
+        public ControllerFactory(Workflow workflow)
         {
             this.workflow = workflow;
         }
@@ -33,12 +33,11 @@ namespace AP.Receiver
                 { UseCase.System, new ErrorOnlyResponder() },
             };
 
-        public void Route(Message message)
+        public Controller Create(UseCase useCase, Channel channel)
         {
-            var pipeline = pipelines[message.UseCase][message.Channel];
-            var responder = responders[message.UseCase];
-            var controller = new Controller(pipeline, workflow, responder);
-            controller.Handle(message);
+            var pipeline = pipelines[useCase][channel];
+            var responder = responders[useCase];
+            return new Controller(pipeline, workflow, responder);
         }
     }
 }
