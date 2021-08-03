@@ -52,6 +52,7 @@
     <Compile Include="ControllerTests.cs" />
     <Compile Include="MessageBrokerTests.cs" />
     <Compile Include="PipelineTests.cs" />
+    <Compile Include="TestDoubles\ResponderStub.cs" />
     <Compile Include="TestDoubles\PipelineSpy.cs" />
     <Compile Include="TestDoubles\WorkerOutputDummy .cs" />
     <Compile Include="TestDoubles\WorkerInputDummy .cs" />

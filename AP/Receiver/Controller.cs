@@ -6,17 +6,20 @@ namespace AP.Receiver
     {
         private Pipeline pipeline;
         private Workflow workflow;
+        private IResponder responder;
 
-        public Controller(Pipeline pipeline, Workflow workflow)
+        public Controller(Pipeline pipeline, Workflow workflow, IResponder responder)
         {
             this.pipeline = pipeline;
             this.workflow = workflow;
+            this.responder = responder;
         }
 
-        public void Handle(Message message)
+        public string Handle(Message message)
         {
             pipeline.Process(message);
             workflow.Start(message);
+            return responder.Ok();
         }
     }
 }

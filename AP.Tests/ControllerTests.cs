@@ -9,20 +9,23 @@ namespace AP.Tests
     {
         private PipelineSpy pipeline;
         private WorkflowSpy workflow;
+        private ResponderStub responder;
         private Controller controller;
+        private Message message;
 
         [TestInitialize]
         public void Initialize()
         {
             pipeline = new PipelineSpy();
             workflow = new WorkflowSpy();
-            controller = new Controller(pipeline, workflow);
+            responder = new ResponderStub();
+            controller = new Controller(pipeline, workflow, responder);
+            message = new Message();
         }
 
         [TestMethod]
         public void CallsPipeline()
         {
-            var message = new Message();
             controller.Handle(message);
 
             Assert.IsTrue(pipeline.ProcessWasCalled);
@@ -31,10 +34,19 @@ namespace AP.Tests
         [TestMethod]
         public void CallsWorkflow()
         {
-            var message = new Message();
             controller.Handle(message);
 
             Assert.IsTrue(workflow.StartWasCalled);
+        }
+
+        [TestMethod]
+        public void ReturnsResponse()
+        {
+            responder.Response = "response";
+
+            var response = controller.Handle(message);
+
+            Assert.AreEqual("response", response);
         }
     }
 }
