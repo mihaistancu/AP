@@ -51,7 +51,10 @@
   <ItemGroup>
     <Compile Include="MessageBrokerTests.cs" />
     <Compile Include="PipelineTests.cs" />
+    <Compile Include="TestDoubles\WorkerOutputDummy .cs" />
+    <Compile Include="TestDoubles\WorkerInputDummy .cs" />
     <Compile Include="TestDoubles\MessageBrokerDummy.cs" />
+    <Compile Include="TestDoubles\WorkerSpy.cs" />
     <Compile Include="TestDoubles\WorkflowSpy.cs" />
     <Compile Include="TestDoubles\WorkflowStub.cs" />
     <Compile Include="WorkflowTests.cs" />

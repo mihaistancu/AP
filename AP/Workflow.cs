@@ -9,12 +9,12 @@
             this.broker = broker;
         }
 
-        public abstract ProcessingRequest GetNext(ProcessingRequest request);
+        public abstract WorkerInput GetNext(WorkerOutput output);
 
-        public virtual void Done(ProcessingRequest request)
+        public virtual void Done(WorkerOutput output)
         {
-            var next = GetNext(request);
-            broker.Send(next);
+            var input = GetNext(output);
+            broker.Send(input);
         }
     }
 }

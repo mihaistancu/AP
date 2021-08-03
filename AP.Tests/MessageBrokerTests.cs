@@ -20,33 +20,33 @@ namespace AP.Tests
         [TestMethod]
         public void CanTriggerDifferentProcessingSteps()
         {
-            var handler1 = new HandlerSpy();
-            broker.Setup("step1", handler1);
+            var worker1 = new WorkerSpy();
+            broker.Setup("step1", worker1);
 
-            var handler2 = new HandlerSpy();
-            broker.Setup("step2", handler2);
+            var worker2 = new WorkerSpy();
+            broker.Setup("step2", worker2);
 
-            var request1 = new ProcessingRequest();
-            request1.Step = "step1";
-            broker.Send(request1);
+            var input1 = new WorkerInputDummy ();
+            input1.ProcessingStep = "step1";
+            broker.Send(input1);
 
-            var request2 = new ProcessingRequest();
-            request2.Step = "step2";
-            broker.Send(request2);
+            var input2 = new WorkerInputDummy ();
+            input2.ProcessingStep = "step2";
+            broker.Send(input2);
 
-            Assert.IsTrue(handler1.WasCalled);
-            Assert.IsTrue(handler2.WasCalled);
+            Assert.IsTrue(worker1.WasCalled);
+            Assert.IsTrue(worker2.WasCalled);
         }
 
         [TestMethod]
         public void CallsWorkflowToMoveToNextStep()
         {   
-            var handler = new HandlerSpy();
-            broker.Setup("step", handler);
+            var worker = new WorkerSpy();
+            broker.Setup("step", worker);
             
-            var request = new ProcessingRequest();
-            request.Step = "step";
-            broker.Send(request);
+            var input = new WorkerInputDummy ();
+            input.ProcessingStep = "step";
+            broker.Send(input);
 
             Assert.IsTrue(workflow.WasCalled);
         }

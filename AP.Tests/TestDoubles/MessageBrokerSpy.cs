@@ -2,11 +2,11 @@
 {
     public class MessageBrokerSpy : MessageBroker
     {
-        public ProcessingRequest Received { get; set; }
+        public WorkerInput Received { get; set; }
 
-        public override void Send(ProcessingRequest request)
+        public override void Send(WorkerInput input)
         {
-            Received = request;
+            Received = input;
         }
     }
 }

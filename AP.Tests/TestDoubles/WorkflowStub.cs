@@ -2,9 +2,9 @@
 {
     public class WorkflowStub : Workflow
     {
-        public ProcessingRequest Next { get; set; }
+        public WorkerInput Next { get; set; }
 
-        public override ProcessingRequest GetNext(ProcessingRequest request)
+        public override WorkerInput GetNext(WorkerOutput output)
         {
             return Next;
         }

@@ -12,15 +12,15 @@ namespace AP.Tests
             var broker = new MessageBrokerSpy();
             
             var workflow = new WorkflowStub();
-            workflow.Next = new ProcessingRequest();
-            workflow.Next.Step = "step2";
+            workflow.Next = new WorkerInputDummy ();
+            workflow.Next.ProcessingStep = "step2";
             workflow.Set(broker);
 
-            var processingRequest = new ProcessingRequest();
-            processingRequest.Step = "step1";
-            workflow.Done(processingRequest);
+            var output = new WorkerOutputDummy ();
+            output.ProcessingStep = "step1";
+            workflow.Done(output);
 
-            Assert.AreEqual("step2", broker.Received.Step);
+            Assert.AreEqual("step2", broker.Received.ProcessingStep);
         }
     }
 }

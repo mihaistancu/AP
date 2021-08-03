@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IWorker.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageBroker.cs" />
     <Compile Include="Pipeline.cs" />
+    <Compile Include="WorkerInput.cs" />
+    <Compile Include="WorkerOutput.cs" />
     <Compile Include="Workflow.cs" />
-    <Compile Include="ProcessingRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IHandler.cs" />
   </ItemGroup>

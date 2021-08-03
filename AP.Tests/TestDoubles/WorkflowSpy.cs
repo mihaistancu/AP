@@ -4,14 +4,14 @@
     {
         public bool WasCalled { get; private set; }
 
-        public override void Done(ProcessingRequest request)
+        public override void Done(WorkerOutput output)
         {
             WasCalled = true;
         }
 
-        public override ProcessingRequest GetNext(ProcessingRequest request)
+        public override WorkerInput GetNext(WorkerOutput output)
         {
-            return request;
+            return null;
         }
     }
 }

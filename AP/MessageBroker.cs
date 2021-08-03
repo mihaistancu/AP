@@ -5,23 +5,23 @@ namespace AP
     public abstract class MessageBroker
     {
         protected Workflow workflow;
-        private Dictionary<string, IHandler> handlers = new Dictionary<string, IHandler>();
+        private Dictionary<string, IWorker> workers = new Dictionary<string, IWorker>();
 
         public void Set(Workflow workflow)
         {
             this.workflow = workflow;
         }
 
-        public virtual void Send(ProcessingRequest request)
+        public virtual void Send(WorkerInput input)
         {
-            var handler = handlers[request.Step];
-            handler.Handle(request.Message);
-            workflow.Done(request);
+            var worker = workers[input.ProcessingStep];
+            var output = worker.Process(input);
+            workflow.Done(output);
         }
 
-        public void Setup(string step, IHandler handler)
+        public void Setup(string step, IWorker worker)
         {
-            handlers[step] = handler;
+            workers[step] = worker;
         }
     }
 }
