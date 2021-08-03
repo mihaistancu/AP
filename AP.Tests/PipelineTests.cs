@@ -27,8 +27,8 @@ namespace AP.Tests
             var message = new Message();
             pipeline.Process(message);
 
-            Assert.IsTrue(handler1.WasCalled);
-            Assert.IsTrue(handler2.WasCalled);
+            Assert.IsTrue(handler1.HandleWasCalled);
+            Assert.IsTrue(handler2.HandleWasCalled);
         }
 
         [TestMethod]
@@ -46,8 +46,8 @@ namespace AP.Tests
             var message = new Message();
             pipeline.Process(message);
 
-            Assert.IsTrue(handler1.WasCalled);
-            Assert.IsFalse(handler2.WasCalled);
+            Assert.IsTrue(handler1.HandleWasCalled);
+            Assert.IsFalse(handler2.HandleWasCalled);
         }
     }
 }

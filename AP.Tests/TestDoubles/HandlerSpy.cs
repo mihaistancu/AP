@@ -4,7 +4,7 @@ namespace AP.Tests.TestDoubles
 {
     public class HandlerSpy : IHandler
     {
-        public bool WasCalled { get; private set; }
+        public bool HandleWasCalled { get; private set; }
         public bool Returns { get; set; }
 
         public HandlerSpy()
@@ -14,7 +14,7 @@ namespace AP.Tests.TestDoubles
 
         public bool Handle(Message message)
         {
-            WasCalled = true;
+            HandleWasCalled = true;
             return Returns;
         }
     }

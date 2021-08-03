@@ -25,7 +25,7 @@ namespace AP.Tests
             var message = new Message();
             controller.Handle(message);
 
-            Assert.IsTrue(pipeline.WasCalled);
+            Assert.IsTrue(pipeline.ProcessWasCalled);
         }
 
         [TestMethod]

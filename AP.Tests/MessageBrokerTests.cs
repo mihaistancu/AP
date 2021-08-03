@@ -34,8 +34,8 @@ namespace AP.Tests
             input2.ProcessingStep = "step2";
             broker.Send(input2);
 
-            Assert.IsTrue(worker1.WasCalled);
-            Assert.IsTrue(worker2.WasCalled);
+            Assert.IsTrue(worker1.ProcessWasCalled);
+            Assert.IsTrue(worker2.ProcessWasCalled);
         }
 
         [TestMethod]
