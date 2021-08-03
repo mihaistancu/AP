@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Receiver\Handlers\Persistence.cs" />
+    <Compile Include="Receiver\Handlers\Validation.cs" />
+    <Compile Include="Receiver\Handlers\SignatureCheck.cs" />
+    <Compile Include="Receiver\Handlers\Decryption.cs" />
+    <Compile Include="Receiver\Handlers\TlsCertificateCheck.cs" />
     <Compile Include="Receiver\IResponder.cs" />
     <Compile Include="Receiver\Controller.cs" />
     <Compile Include="Processing\IWorker.cs" />
