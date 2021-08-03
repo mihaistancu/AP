@@ -14,6 +14,13 @@ namespace AP.Receiver
             this.workflow = workflow;
         }
 
+        public Controller Create(UseCase useCase, Channel channel)
+        {
+            var pipeline = pipelines[useCase][channel];
+            var responder = responders[useCase];
+            return new Controller(pipeline, workflow, responder);
+        }
+
         private Dictionary<UseCase, Dictionary<Channel, Pipeline>> pipelines =
             new Dictionary<UseCase, Dictionary<Channel, Pipeline>>
             {
@@ -21,7 +28,16 @@ namespace AP.Receiver
                     UseCase.Business,
                     new Dictionary<Channel, Pipeline>()
                     {
-                        { Channel.Inbound, new BusinessInboundPipeline() }
+                        { Channel.Inbound, new BusinessInboundPipeline() },
+                        { Channel.Outbox, new BusinessOutboxPipeline() }
+                    }
+                },
+                {
+                    UseCase.System,
+                    new Dictionary<Channel, Pipeline>()
+                    {
+                        { Channel.Inbound, new SystemInboundPipeline() },
+                        { Channel.Outbox, new SystemOutboxPipeline() }
                     }
                 }
             };
@@ -32,12 +48,5 @@ namespace AP.Receiver
                 { UseCase.Business, new ReceiptAndErrorResponder() },
                 { UseCase.System, new ErrorOnlyResponder() },
             };
-
-        public Controller Create(UseCase useCase, Channel channel)
-        {
-            var pipeline = pipelines[useCase][channel];
-            var responder = responders[useCase];
-            return new Controller(pipeline, workflow, responder);
-        }
     }
 }
