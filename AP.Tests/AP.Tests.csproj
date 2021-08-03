@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControllerTests.cs" />
     <Compile Include="MessageBrokerTests.cs" />
     <Compile Include="PipelineTests.cs" />
     <Compile Include="TestDoubles\WorkerOutputDummy .cs" />
