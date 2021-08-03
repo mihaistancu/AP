@@ -1,4 +1,5 @@
 ﻿using AP.Processing;
+using System;
 
 namespace AP.Receiver
 {
@@ -17,7 +18,15 @@ namespace AP.Receiver
 
         public string Handle(Message message)
         {
-            pipeline.Process(message);
+            try
+            {
+                pipeline.Process(message);
+            }
+            catch(Exception exception)
+            {
+                return responder.Error(exception);
+            }
+            
             workflow.Start(message);
             return responder.Ok();
         }

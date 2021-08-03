@@ -1,4 +1,5 @@
 ﻿using AP.Receiver;
+using System;
 
 namespace AP.Tests.TestDoubles
 {
@@ -6,8 +7,14 @@ namespace AP.Tests.TestDoubles
     {
         public bool ProcessWasCalled { get; private set; }
 
+        public bool ThrowException { get; set; }
+
         public override void Process(Message message)
         {
+            if (ThrowException)
+            {
+                throw new Exception();
+            }
             ProcessWasCalled = true;
         }
     }

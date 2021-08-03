@@ -42,11 +42,22 @@ namespace AP.Tests
         [TestMethod]
         public void ReturnsResponse()
         {
-            responder.Response = "response";
+            responder.OkMessage = "response";
 
             var response = controller.Handle(message);
 
             Assert.AreEqual("response", response);
+        }
+
+        [TestMethod]
+        public void ReturnsErrorOnException()
+        {
+            pipeline.ThrowException = true;
+            responder.ErrorMessage = "error";
+
+            var response = controller.Handle(message);
+
+            Assert.AreEqual("error", response);
         }
     }
 }
