@@ -1,10 +1,10 @@
 ﻿using AP.Receiver.Handlers;
 
-namespace AP.Receiver.Pipelines
+namespace AP.Receiver.Channels.System
 {
-    public class BusinessOutboxPipeline: Pipeline
+    public class SystemPipeline : Pipeline
     {
-        public BusinessOutboxPipeline(
+        public SystemPipeline(
             TlsCheckHandler tlsCheck,
             SignatureCheckHandler signatureCheck,
             ValidationHandler validation,

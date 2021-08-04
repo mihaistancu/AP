@@ -1,8 +1,7 @@
 ﻿using AP.Processing;
-using AP.Receiver.Pipelines;
 using AP.Receiver.Responders;
 
-namespace AP.Receiver.Controllers
+namespace AP.Receiver.Channels.Business.Outbox
 {
     public class BusinessOutboxController : Controller
     {

@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Receiver\Controllers\SystemController.cs" />
-    <Compile Include="Receiver\Controllers\BusinessOutboxController.cs" />
-    <Compile Include="Receiver\Controllers\BusinessInboundController.cs" />
+    <Compile Include="Receiver\Channels\System\SystemController.cs" />
+    <Compile Include="Receiver\Channels\Business\Outbox\BusinessOutboxController.cs" />
+    <Compile Include="Receiver\Channels\Business\Inbound\BusinessInboundController.cs" />
     <Compile Include="Receiver\Handlers\PersistenceHandler.cs" />
     <Compile Include="Receiver\Handlers\ValidationHandler.cs" />
     <Compile Include="Receiver\Handlers\SignatureCheckHandler.cs" />
@@ -60,11 +60,12 @@
     <Compile Include="Processing\Workflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receiver\IHandler.cs" />
-    <Compile Include="Receiver\Pipelines\SystemPipeline.cs" />
-    <Compile Include="Receiver\Pipelines\BusinessOutboxPipeline.cs" />
-    <Compile Include="Receiver\Pipelines\BusinessInboundPipeline.cs" />
+    <Compile Include="Receiver\Channels\System\SystemPipeline.cs" />
+    <Compile Include="Receiver\Channels\Business\Outbox\BusinessOutboxPipeline.cs" />
+    <Compile Include="Receiver\Channels\Business\Inbound\BusinessInboundPipeline.cs" />
     <Compile Include="Receiver\Responders\ErrorOnlyResponder.cs" />
     <Compile Include="Receiver\Responders\ReceiptAndErrorResponder.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

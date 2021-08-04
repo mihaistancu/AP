@@ -1,17 +1,17 @@
 ﻿using AP.Receiver.Handlers;
 
-namespace AP.Receiver.Pipelines
+namespace AP.Receiver.Channels.Business.Outbox
 {
-    public class BusinessInboundPipeline: Pipeline
+    public class BusinessOutboxPipeline : Pipeline
     {
-        public BusinessInboundPipeline(
+        public BusinessOutboxPipeline(
             TlsCheckHandler tlsCheck,
-            DecryptionHandler decryption,
+            SignatureCheckHandler signatureCheck,
             ValidationHandler validation,
             PersistenceHandler persistence)
         {
             Add(tlsCheck);
-            Add(decryption);
+            Add(signatureCheck);
             Add(validation);
             Add(persistence);
         }
