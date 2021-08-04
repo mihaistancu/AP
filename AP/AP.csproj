@@ -57,9 +57,11 @@
     <Compile Include="Processing\Workflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receiver\IHandler.cs" />
+    <Compile Include="Receiver\PipelineFactory.cs" />
+    <Compile Include="Receiver\ResponderFactory.cs" />
     <Compile Include="Receiver\Responders\ErrorOnlyResponder.cs" />
     <Compile Include="Receiver\Responders\ReceiptAndErrorResponder.cs" />
-    <Compile Include="Receiver\ControllerFactory.cs" />
+    <Compile Include="Receiver\Endpoint.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
