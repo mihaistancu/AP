@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Processing\Workers\ArchivingWorker.cs" />
+    <Compile Include="Processing\Workers\DeliveryWorker.cs" />
+    <Compile Include="Processing\Workers\ValidationWorker.cs" />
+    <Compile Include="Processing\Workers\AntimalwareWorker.cs" />
     <Compile Include="Receiver\Channels\System\SystemController.cs" />
     <Compile Include="Receiver\Channels\Business\Outbox\BusinessOutboxController.cs" />
     <Compile Include="Receiver\Channels\Business\Inbound\BusinessInboundController.cs" />
