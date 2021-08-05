@@ -37,18 +37,5 @@ namespace AP.Tests
             Assert.IsTrue(worker1.ProcessWasCalled);
             Assert.IsTrue(worker2.ProcessWasCalled);
         }
-
-        [TestMethod]
-        public void CallsWorkflowToMoveToNextStep()
-        {   
-            var worker = new WorkerSpy();
-            broker.Setup("step", worker);
-            
-            var input = new WorkerInputDummy ();
-            input.ProcessingStep = "step";
-            broker.Send(input);
-
-            Assert.IsTrue(workflow.DoneWasCalled);
-        }
     }
 }

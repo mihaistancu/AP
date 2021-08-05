@@ -2,9 +2,8 @@
 {
     public class ArchivingWorker : IWorker
     {
-        public WorkerOutput Process(WorkerInput input)
+        public void Process(WorkerInput input, Workflow workflow)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

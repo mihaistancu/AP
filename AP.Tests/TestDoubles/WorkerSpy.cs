@@ -6,10 +6,9 @@ namespace AP.Tests.TestDoubles
     {
         public bool ProcessWasCalled { get; private set; }
 
-        public WorkerOutput Process(WorkerInput input)
+        public void Process(WorkerInput input, Workflow workflow)
         {
             ProcessWasCalled = true;
-            return null;
         }
     }
 }

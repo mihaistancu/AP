@@ -15,8 +15,7 @@ namespace AP.Processing
         public virtual void Send(WorkerInput input)
         {
             var worker = workers[input.ProcessingStep];
-            var output = worker.Process(input);
-            workflow.Done(output);
+            worker.Process(input, workflow);
         }
 
         public void Setup(string step, IWorker worker)

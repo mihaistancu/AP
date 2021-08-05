@@ -2,6 +2,6 @@
 {
     public interface IWorker
     {
-        WorkerOutput Process(WorkerInput input);
+        void Process(WorkerInput input, Workflow workflow);
     }
 }
