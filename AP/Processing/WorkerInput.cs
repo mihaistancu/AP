@@ -1,6 +1,6 @@
 ﻿namespace AP.Processing
 {
-    public abstract class WorkerInput
+    public class WorkerInput
     {
         public string ProcessingStep { get; set; }
     }

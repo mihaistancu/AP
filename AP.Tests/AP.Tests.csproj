@@ -54,8 +54,6 @@
     <Compile Include="PipelineTests.cs" />
     <Compile Include="TestDoubles\ResponderStub.cs" />
     <Compile Include="TestDoubles\PipelineSpy.cs" />
-    <Compile Include="TestDoubles\WorkerOutputDummy .cs" />
-    <Compile Include="TestDoubles\WorkerInputDummy .cs" />
     <Compile Include="TestDoubles\MessageBrokerDummy.cs" />
     <Compile Include="TestDoubles\WorkerSpy.cs" />
     <Compile Include="TestDoubles\WorkflowSpy.cs" />
