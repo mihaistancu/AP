@@ -2,11 +2,11 @@
 
 namespace AP.Processing
 {
-    public class Sequence
+    public class WorkerSequence
     {
         private IWorker[] workers;
 
-        public Sequence(params IWorker[] workers)
+        public WorkerSequence(params IWorker[] workers)
         {
             this.workers = workers;
         }
@@ -18,12 +18,13 @@ namespace AP.Processing
 
         public bool IsLast(IWorker worker)
         {
-            return SameType(workers[workers.Length - 1], worker);
+            IWorker last = workers[workers.Length - 1];
+            return SameType(last, worker);
         }
 
         public IWorker GetNext(IWorker worker)
         {
-            var index = Array.FindIndex(workers, w => SameType(w, worker));
+            int index = Array.FindIndex(workers, w => SameType(w, worker));
             return workers[index + 1];
         }
 

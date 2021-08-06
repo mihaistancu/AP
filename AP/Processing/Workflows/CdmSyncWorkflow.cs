@@ -12,7 +12,7 @@ namespace AP.Processing.Sequences
             CdmSubscriptionExportWorker cdmSubscriptionExport,
             DeliveryWorker delivery,
             ArchivingWorker archiving)
-            : base(broker, new Sequence(antimalware, validation, cdmImport, cdmSubscriptionExport, delivery, archiving))
+            : base(broker, new WorkerSequence(antimalware, validation, cdmImport, cdmSubscriptionExport, delivery, archiving))
         {
         }
     }

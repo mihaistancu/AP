@@ -11,7 +11,7 @@ namespace AP.Processing.Sequences
             CdmVersionReportWorker cdmVersionReport,
             DeliveryWorker delivery,
             ArchivingWorker archiving)
-            : base(broker, new Sequence(antimalware, validation, cdmVersionReport, delivery, archiving))
+            : base(broker, new WorkerSequence(antimalware, validation, cdmVersionReport, delivery, archiving))
         {
         }
     }

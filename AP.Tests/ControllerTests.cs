@@ -42,11 +42,11 @@ namespace AP.Tests
         [TestMethod]
         public void ReturnsResponse()
         {
-            responder.ReceiptMessage = "response";
+            responder.ReceiptMessage = "receipt";
 
             var response = controller.Handle(message);
 
-            Assert.AreEqual("response", response);
+            Assert.AreEqual("receipt", response);
         }
 
         [TestMethod]

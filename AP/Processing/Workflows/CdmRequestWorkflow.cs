@@ -11,7 +11,7 @@ namespace AP.Processing.Sequences
             CdmRequestExportWorker cdmRequestExport,
             DeliveryWorker delivery,
             ArchivingWorker archiving)
-            : base(broker, new Sequence(antimalware, validation, cdmRequestExport, delivery, archiving))
+            : base(broker, new WorkerSequence(antimalware, validation, cdmRequestExport, delivery, archiving))
         {
         }
     }

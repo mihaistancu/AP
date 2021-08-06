@@ -10,7 +10,7 @@ namespace AP.Processing.Sequences
             ValidationWorker validation,
             DeliveryWorker delivery,
             ArchivingWorker archiving) 
-            : base(broker, new Sequence(antimalware, validation, delivery, archiving))
+            : base(broker, new WorkerSequence(antimalware, validation, delivery, archiving))
         {
         }
     }

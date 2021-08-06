@@ -3,9 +3,9 @@
     public class LinearWorkflow: IWorkflow
     {
         private IMessageBroker broker;
-        private Sequence sequence;
+        private WorkerSequence sequence;
 
-        public LinearWorkflow(IMessageBroker broker, Sequence sequence)
+        public LinearWorkflow(IMessageBroker broker, WorkerSequence sequence)
         {
             this.broker = broker;
             this.sequence = sequence;

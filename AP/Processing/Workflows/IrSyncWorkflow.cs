@@ -12,7 +12,7 @@ namespace AP.Processing.Sequences
             IrSubscriptionExportWorker irSubscriptionExport,
             DeliveryWorker delivery,
             ArchivingWorker archiving)
-            : base(broker, new Sequence(antimalware, validation, irImport, irSubscriptionExport, delivery, archiving))
+            : base(broker, new WorkerSequence(antimalware, validation, irImport, irSubscriptionExport, delivery, archiving))
         {
         }
     }

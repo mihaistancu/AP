@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace AP.Receiver
+﻿namespace AP.Receiver
 {
     public class Pipeline
     {
-        private List<IHandler> handlers = new List<IHandler>();
+        private IHandler[] handlers;
 
-        public void Add(IHandler handler)
+        public Pipeline(params IHandler[] handlers)
         {
-            handlers.Add(handler);
+            this.handlers = handlers;
         }
 
         public virtual void Process(Message message)
