@@ -4,7 +4,7 @@
     {
         public string Step => "Delivery";
 
-        public void Process(WorkerInput input, Workflow workflow)
+        public void Process(WorkerInput input, IWorkflow workflow)
         {
         }
     }

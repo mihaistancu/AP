@@ -2,29 +2,20 @@
 
 namespace AP.Tests.TestDoubles
 {
-    public class WorkflowSpy : Workflow
+    public class WorkflowSpy : IWorkflow
     {
         public bool DoneWasCalled { get; private set; }
-        public bool StartWasCalled { get; private set; }
 
-        public override void Done(WorkerOutput output)
+        public void Done(IWorker worker, WorkerOutput output)
         {
             DoneWasCalled = true;
         }
 
-        public override void Start(Message message)
+        public bool StartWasCalled { get; private set; }
+
+        public void Start(Message message)
         {
             StartWasCalled = true;
-        }
-
-        public override WorkerInput GetFirst(Message message)
-        {
-            return null;
-        }
-
-        public override WorkerInput GetNext(WorkerOutput output)
-        {
-            return null;
         }
     }
 }

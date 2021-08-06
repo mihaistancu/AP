@@ -2,6 +2,6 @@
 {
     public class WorkerOutput
     {
-        public string ProcessingStep { get; set; }
+        public string Step { get; set; }
     }
 }

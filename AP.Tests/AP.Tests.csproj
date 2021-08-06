@@ -50,15 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControllerTests.cs" />
-    <Compile Include="MessageBrokerTests.cs" />
     <Compile Include="PipelineTests.cs" />
     <Compile Include="TestDoubles\ResponderStub.cs" />
     <Compile Include="TestDoubles\PipelineSpy.cs" />
-    <Compile Include="TestDoubles\MessageBrokerDummy.cs" />
     <Compile Include="TestDoubles\WorkerSpy.cs" />
     <Compile Include="TestDoubles\WorkflowSpy.cs" />
-    <Compile Include="TestDoubles\WorkflowStub.cs" />
-    <Compile Include="WorkflowTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDoubles\HandlerSpy.cs" />
     <Compile Include="TestDoubles\MessageBrokerSpy.cs" />

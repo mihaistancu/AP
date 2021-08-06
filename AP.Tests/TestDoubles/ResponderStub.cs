@@ -5,11 +5,11 @@ namespace AP.Tests.TestDoubles
 {
     public class ResponderStub : IResponder
     {
-        public string OkMessage { get; set; }
+        public string ReceiptMessage { get; set; }
 
         public string Receipt()
         {
-            return OkMessage;    
+            return ReceiptMessage;    
         }
 
         public string ErrorMessage { get; set; }

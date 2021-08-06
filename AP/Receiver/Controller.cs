@@ -6,10 +6,10 @@ namespace AP.Receiver
     public class Controller
     {
         private Pipeline pipeline;
-        private Workflow workflow;
+        private IWorkflow workflow;
         private IResponder responder;
 
-        public Controller(Pipeline pipeline, Workflow workflow, IResponder responder)
+        public Controller(Pipeline pipeline, IWorkflow workflow, IResponder responder)
         {
             this.pipeline = pipeline;
             this.workflow = workflow;

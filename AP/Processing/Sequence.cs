@@ -11,20 +11,25 @@ namespace AP.Processing
             this.workers = workers;
         }
 
-        public string GetFirst()
+        public IWorker GetFirst()
         {
-            return workers[0].Step;
+            return workers[0];
         }
 
-        public bool IsLast(string step)
+        public bool IsLast(IWorker worker)
         {
-            return workers[workers.Length - 1].Step == step;
+            return SameType(workers[workers.Length - 1], worker);
         }
 
-        public string GetNext(string step)
+        public IWorker GetNext(IWorker worker)
         {
-            var index = Array.FindIndex(workers, w => w.Step == step);
-            return workers[index + 1].Step;
+            var index = Array.FindIndex(workers, w => SameType(w, worker));
+            return workers[index + 1];
+        }
+
+        private bool SameType<T,U>(T a, U b)
+        {
+            return typeof(T) == typeof(U);
         }
     }
 }

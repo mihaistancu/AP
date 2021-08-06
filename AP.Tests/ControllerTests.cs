@@ -42,7 +42,7 @@ namespace AP.Tests
         [TestMethod]
         public void ReturnsResponse()
         {
-            responder.OkMessage = "response";
+            responder.ReceiptMessage = "response";
 
             var response = controller.Handle(message);
 

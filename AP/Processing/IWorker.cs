@@ -3,6 +3,6 @@
     public interface IWorker
     {
         string Step { get; }
-        void Process(WorkerInput input, Workflow workflow);
+        void Process(WorkerInput input, IWorkflow workflow);
     }
 }

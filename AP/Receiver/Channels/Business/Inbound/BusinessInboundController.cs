@@ -5,7 +5,7 @@ namespace AP.Receiver.Channels.Business.Inbound
 {
     public class BusinessInboundController : Controller
     {
-        public BusinessInboundController(BusinessInboundPipeline pipeline, Workflow workflow, ErrorOnlyResponder responder) : base(pipeline, workflow, responder)
+        public BusinessInboundController(BusinessInboundPipeline pipeline, LinearWorkflow workflow, ErrorOnlyResponder responder) : base(pipeline, workflow, responder)
         {
         }
     }

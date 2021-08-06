@@ -2,13 +2,13 @@
 
 namespace AP.Tests.TestDoubles
 {
-    public class MessageBrokerSpy : MessageBroker
+    public class MessageBrokerSpy : IMessageBroker
     {
-        public WorkerInput Received { get; set; }
+        public WorkerInput InputReceived { get; set; }
 
-        public override void Send(WorkerInput input)
+        public void Send(WorkerInput input, IWorker worker, IWorkflow workflow)
         {
-            Received = input;
+            
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AP.Tests.TestDoubles
 
         public string Step { get; set; }
 
-        public void Process(WorkerInput input, Workflow workflow)
+        public void Process(WorkerInput input, IWorkflow workflow)
         {
             ProcessWasCalled = true;
         }

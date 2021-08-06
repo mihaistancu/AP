@@ -4,7 +4,7 @@
     {
         public string Step => "CdmImport";
 
-        public void Process(WorkerInput input, Workflow workflow)
+        public void Process(WorkerInput input, IWorkflow workflow)
         {
         }
     }

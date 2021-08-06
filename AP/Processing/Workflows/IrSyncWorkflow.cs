@@ -2,16 +2,17 @@
 
 namespace AP.Processing.Sequences
 {
-    public class IrSyncSequence: Sequence
+    public class IrSyncWorkflow: LinearWorkflow
     {
-        public IrSyncSequence(
+        public IrSyncWorkflow(
+            IMessageBroker broker,
             AntimalwareWorker antimalware,
             ValidationWorker validation,
             IrImportWorker irImport,
             IrSubscriptionExportWorker irSubscriptionExport,
             DeliveryWorker delivery,
             ArchivingWorker archiving)
-            : base(antimalware, validation, irImport, irSubscriptionExport, delivery, archiving)
+            : base(broker, new Sequence(antimalware, validation, irImport, irSubscriptionExport, delivery, archiving))
         {
         }
     }

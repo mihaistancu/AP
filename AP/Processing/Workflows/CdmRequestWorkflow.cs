@@ -2,15 +2,16 @@
 
 namespace AP.Processing.Sequences
 {
-    public class CdmRequestSequence: Sequence
+    public class CdmRequestWorkflow: LinearWorkflow
     {
-        public CdmRequestSequence(
+        public CdmRequestWorkflow(
+            IMessageBroker broker,
             AntimalwareWorker antimalware,
             ValidationWorker validation,
             CdmRequestExportWorker cdmRequestExport,
             DeliveryWorker delivery,
             ArchivingWorker archiving)
-            : base(antimalware, validation, cdmRequestExport, delivery, archiving)
+            : base(broker, new Sequence(antimalware, validation, cdmRequestExport, delivery, archiving))
         {
         }
     }
