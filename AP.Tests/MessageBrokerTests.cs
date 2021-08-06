@@ -28,11 +28,11 @@ namespace AP.Tests
             broker.Setup("step2", worker2);
 
             var input1 = new WorkerInput();
-            input1.ProcessingStep = "step1";
+            input1.Step = "step1";
             broker.Send(input1);
 
             var input2 = new WorkerInput();
-            input2.ProcessingStep = "step2";
+            input2.Step = "step2";
             broker.Send(input2);
 
             Assert.IsTrue(worker1.ProcessWasCalled);

@@ -1,6 +1,4 @@
-﻿using AP.Receiver;
-
-namespace AP.Processing
+﻿namespace AP.Processing
 {
     public abstract class Workflow
     {

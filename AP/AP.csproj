@@ -41,8 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Processing\Sequence.cs" />
+    <Compile Include="Processing\Sequences\CdmVersionSequence.cs" />
+    <Compile Include="Processing\Sequences\CdmSyncSequence.cs" />
+    <Compile Include="Processing\Sequences\CdmRequestSequence.cs" />
+    <Compile Include="Processing\Sequences\IrRequestSequence.cs" />
+    <Compile Include="Processing\Sequences\IrSyncSequence.cs" />
+    <Compile Include="Processing\Sequences\BusinessSequence.cs" />
     <Compile Include="Processing\Workers\ArchivingWorker.cs" />
+    <Compile Include="Processing\Workers\CdmVersionReportWorker.cs" />
     <Compile Include="Processing\Workers\DeliveryWorker.cs" />
+    <Compile Include="Processing\Workers\CdmImportWorker.cs" />
+    <Compile Include="Processing\Workers\CdmSubscriptionExportWorker.cs" />
+    <Compile Include="Processing\Workers\CdmRequestExportWorker.cs" />
+    <Compile Include="Processing\Workers\IrSubscriptionExportWorker.cs" />
+    <Compile Include="Processing\Workers\IrRequestExportWorker.cs" />
+    <Compile Include="Processing\Workers\IrImportWorker.cs" />
     <Compile Include="Processing\Workers\ValidationWorker.cs" />
     <Compile Include="Processing\Workers\AntimalwareWorker.cs" />
     <Compile Include="Receiver\Channels\System\SystemController.cs" />
@@ -56,8 +70,8 @@
     <Compile Include="Receiver\IResponder.cs" />
     <Compile Include="Receiver\Controller.cs" />
     <Compile Include="Processing\IWorker.cs" />
-    <Compile Include="Receiver\Message.cs" />
     <Compile Include="Processing\MessageBroker.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Receiver\Pipeline.cs" />
     <Compile Include="Processing\WorkerInput.cs" />
     <Compile Include="Processing\WorkerOutput.cs" />

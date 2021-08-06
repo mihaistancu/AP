@@ -14,14 +14,14 @@ namespace AP.Tests
             
             var workflow = new WorkflowStub();
             workflow.Next = new WorkerInput();
-            workflow.Next.ProcessingStep = "step2";
+            workflow.Next.Step = "step2";
             workflow.Set(broker);
 
             var output = new WorkerOutput();
             output.ProcessingStep = "step1";
             workflow.Done(output);
 
-            Assert.AreEqual("step2", broker.Received.ProcessingStep);
+            Assert.AreEqual("step2", broker.Received.Step);
         }
     }
 }

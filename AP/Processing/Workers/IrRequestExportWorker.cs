@@ -1,8 +1,8 @@
 ﻿namespace AP.Processing.Workers
 {
-    public class ArchivingWorker : IWorker
+    public class IrRequestExportWorker : IWorker
     {
-        public string Step => "Archiving";
+        public string Step => "IrRequestExport";
 
         public void Process(WorkerInput input, Workflow workflow)
         {

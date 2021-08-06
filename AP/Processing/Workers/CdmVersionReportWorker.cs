@@ -1,8 +1,8 @@
 ﻿namespace AP.Processing.Workers
 {
-    public class ArchivingWorker : IWorker
+    public class CdmVersionReportWorker : IWorker
     {
-        public string Step => "Archiving";
+        public string Step => "CdmVersion";
 
         public void Process(WorkerInput input, Workflow workflow)
         {

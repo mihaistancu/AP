@@ -1,5 +1,4 @@
 ﻿using AP.Processing;
-using AP.Receiver;
 
 namespace AP.Tests.TestDoubles
 {
