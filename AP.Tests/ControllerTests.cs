@@ -8,7 +8,7 @@ namespace AP.Tests
     public class ControllerTests
     {
         private PipelineSpy pipeline;
-        private WorkflowSpy workflow;
+        private MessageBrokerSpy broker;
         private ResponderStub responder;
         private Controller controller;
         private Message message;
@@ -17,9 +17,9 @@ namespace AP.Tests
         public void Initialize()
         {
             pipeline = new PipelineSpy();
-            workflow = new WorkflowSpy();
+            broker = new MessageBrokerSpy();
             responder = new ResponderStub();
-            controller = new Controller(pipeline, workflow, responder);
+            controller = new Controller(pipeline, broker, responder);
             message = new Message();
         }
 
@@ -36,7 +36,7 @@ namespace AP.Tests
         {
             controller.Handle(message);
 
-            Assert.IsTrue(workflow.StartWasCalled);
+            Assert.AreEqual(message, broker.SentMessage);
         }
 
         [TestMethod]

@@ -10,5 +10,12 @@ namespace AP.Tests.TestDoubles
         {
             CalledWorker = worker;
         }
+
+        public Message SentMessage { get; set; }
+
+        public void Send(Message message)
+        {
+            SentMessage = message;
+        }
     }
 }

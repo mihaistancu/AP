@@ -11,11 +11,11 @@ namespace AP.Receiver.Channels.System
             SignatureCheckHandler signatureCheck,
             ValidationHandler validation,
             PersistenceHandler persistence,
-            IWorkflow workflow, 
+            IMessageBroker broker, 
             ReceiptAndErrorResponder responder) 
             : base(
                   new Pipeline(tlsCheck, signatureCheck, validation, persistence), 
-                  workflow, 
+                  broker, 
                   responder)
         {
         }

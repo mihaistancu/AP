@@ -6,13 +6,13 @@ namespace AP.Receiver
     public class Controller
     {
         private Pipeline pipeline;
-        private IWorkflow workflow;
+        private IMessageBroker broker;
         private IResponder responder;
 
-        public Controller(Pipeline pipeline, IWorkflow workflow, IResponder responder)
+        public Controller(Pipeline pipeline, IMessageBroker broker, IResponder responder)
         {
             this.pipeline = pipeline;
-            this.workflow = workflow;
+            this.broker = broker;
             this.responder = responder;
         }
 
@@ -27,7 +27,7 @@ namespace AP.Receiver
                 return responder.Error(exception);
             }
             
-            workflow.Start(message);
+            broker.Send(message);
             return responder.Receipt();
         }
     }
