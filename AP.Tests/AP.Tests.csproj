@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControllerTests.cs" />
+    <Compile Include="WorkflowTests.cs" />
+    <Compile Include="TestDoubles\MessageBrokerSpy.cs" />
     <Compile Include="PipelineTests.cs" />
     <Compile Include="TestDoubles\ResponderStub.cs" />
     <Compile Include="TestDoubles\PipelineSpy.cs" />
