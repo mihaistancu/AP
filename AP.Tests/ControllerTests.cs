@@ -32,7 +32,7 @@ namespace AP.Tests
         }
 
         [TestMethod]
-        public void CallsWorkflow()
+        public void CallsBroker()
         {
             controller.Handle(message);
 
