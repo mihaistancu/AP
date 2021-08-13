@@ -7,6 +7,8 @@
         public void Process(WorkerInput input, IWorkflow workflow)
         {
             System.Console.WriteLine("Archiving");
+
+            workflow.Done(this, new WorkerOutput());
         }
     }
 }

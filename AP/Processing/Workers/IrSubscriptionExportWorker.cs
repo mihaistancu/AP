@@ -7,6 +7,8 @@
         public void Process(WorkerInput input, IWorkflow workflow)
         {
             System.Console.WriteLine("IrSubscriptionExport");
+
+            workflow.Done(this, new WorkerOutput());
         }
     }
 }
