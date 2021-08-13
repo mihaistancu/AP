@@ -11,7 +11,6 @@ namespace AP.Tests
         private WorkerSequence sequence;
         private IWorker worker1;
         private IWorker worker2;
-        private IWorker worker3;
         private LinearWorkflow workflow;
         
         [TestInitialize]
@@ -19,10 +18,9 @@ namespace AP.Tests
         {
             broker = new MessageBrokerSpy();
             Context.MessageBroker = broker;
-            worker1 = new WorkerSpy();
-            worker2 = new WorkerSpy();
-            worker3 = new WorkerSpy();
-            sequence = new WorkerSequence(worker1, worker2, worker3);
+            worker1 = new WorkerSpy1();
+            worker2 = new WorkerSpy2();
+            sequence = new WorkerSequence(worker1, worker2);
             workflow = new LinearWorkflow(sequence);
         }
 
@@ -38,16 +36,14 @@ namespace AP.Tests
         public void DoneSendsWorkToNextWorker()
         {
             workflow.Done(worker1, new WorkerOutput());
-            Assert.AreEqual(worker2, broker.CalledWorker);
 
-            workflow.Done(worker2, new WorkerOutput());
-            Assert.AreEqual(worker3, broker.CalledWorker);
+            Assert.AreEqual(worker2, broker.CalledWorker);
         }
 
         [TestMethod]
         public void DoneStopsWhenSequenceIsOver()
         {
-            workflow.Done(worker3, new WorkerOutput());
+            workflow.Done(worker2, new WorkerOutput());
 
             Assert.IsNull(broker.CalledWorker);
         }

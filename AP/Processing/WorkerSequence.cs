@@ -24,7 +24,7 @@ namespace AP.Processing
 
         public IWorker GetNext(IWorker worker)
         {
-            int index = Array.FindIndex(workers, w => w == worker);
+            int index = Array.FindIndex(workers, w => w.GetType() == worker.GetType());
             return workers[index + 1];
         }
     }

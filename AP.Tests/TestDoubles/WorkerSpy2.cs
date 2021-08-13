@@ -2,7 +2,7 @@
 
 namespace AP.Tests.TestDoubles
 {
-    public class WorkerSpy : IWorker
+    public class WorkerSpy2 : IWorker
     {
         public bool ProcessWasCalled { get; private set; }
 

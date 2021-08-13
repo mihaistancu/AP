@@ -76,10 +76,10 @@ namespace AP.Processing.RabbitMQ
             var body = Encoding.UTF8.GetBytes(message);
 
             sendChannel.BasicPublish(
-            exchange: "",
-            routingKey: "hello2",
-            basicProperties: null,
-            body: body);
+                exchange: "",
+                routingKey: "hello",
+                basicProperties: null,
+                body: body);
         }
 
         public void Dispose()
