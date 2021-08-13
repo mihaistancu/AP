@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Processing\Context.cs" />
     <Compile Include="Processing\IWorkflow.cs" />
     <Compile Include="Processing\WorkerSequence.cs" />
     <Compile Include="Processing\Workflows\CdmVersionWorkflow.cs" />

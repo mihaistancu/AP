@@ -1,16 +1,15 @@
 ﻿using AP.Processing.Workers;
 
-namespace AP.Processing.Sequences
+namespace AP.Processing.Workflows
 {
-    public class BusinessWorkflow: LinearWorkflow
+    public class BusinessWorkflow : LinearWorkflow
     {
         public BusinessWorkflow(
-            IMessageBroker broker,
             AntimalwareWorker antimalware,
             ValidationWorker validation,
             DeliveryWorker delivery,
-            ArchivingWorker archiving) 
-            : base(broker, new WorkerSequence(antimalware, validation, delivery, archiving))
+            ArchivingWorker archiving)
+            : base(new WorkerSequence(antimalware, validation, delivery, archiving))
         {
         }
     }

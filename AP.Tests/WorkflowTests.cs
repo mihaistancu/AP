@@ -18,11 +18,12 @@ namespace AP.Tests
         public void Initialize()
         {
             broker = new MessageBrokerSpy();
+            Context.MessageBroker = broker;
             worker1 = new WorkerSpy();
             worker2 = new WorkerSpy();
             worker3 = new WorkerSpy();
             sequence = new WorkerSequence(worker1, worker2, worker3);
-            workflow = new LinearWorkflow(broker, sequence);
+            workflow = new LinearWorkflow(sequence);
         }
 
         [TestMethod]

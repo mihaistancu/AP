@@ -1,4 +1,5 @@
-﻿using AP.Receiver;
+﻿using AP.Processing;
+using AP.Receiver;
 using AP.Tests.TestDoubles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,8 +8,8 @@ namespace AP.Tests
     [TestClass]
     public class ControllerTests
     {
-        private PipelineSpy pipeline;
         private MessageBrokerSpy broker;
+        private PipelineSpy pipeline;
         private ResponderStub responder;
         private Controller controller;
         private Message message;
@@ -16,10 +17,11 @@ namespace AP.Tests
         [TestInitialize]
         public void Initialize()
         {
-            pipeline = new PipelineSpy();
             broker = new MessageBrokerSpy();
+            Context.MessageBroker = broker;
+            pipeline = new PipelineSpy();
             responder = new ResponderStub();
-            controller = new Controller(pipeline, broker, responder);
+            controller = new Controller(pipeline, responder);
             message = new Message();
         }
 

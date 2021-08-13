@@ -6,13 +6,11 @@ namespace AP.Receiver
     public class Controller
     {
         private Pipeline pipeline;
-        private IMessageBroker broker;
         private IResponder responder;
 
-        public Controller(Pipeline pipeline, IMessageBroker broker, IResponder responder)
+        public Controller(Pipeline pipeline, IResponder responder)
         {
             this.pipeline = pipeline;
-            this.broker = broker;
             this.responder = responder;
         }
 
@@ -27,7 +25,7 @@ namespace AP.Receiver
                 return responder.Error(exception);
             }
             
-            broker.Send(message);
+            Context.MessageBroker.Send(message);
             return responder.Receipt();
         }
     }

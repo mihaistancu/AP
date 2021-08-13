@@ -1,5 +1,4 @@
-﻿using AP.Processing;
-using AP.Receiver.Handlers;
+﻿using AP.Receiver.Handlers;
 using AP.Receiver.Responders;
 
 namespace AP.Receiver.Controllers
@@ -11,11 +10,9 @@ namespace AP.Receiver.Controllers
             DecryptionHandler decryption,
             ValidationHandler validation,
             PersistenceHandler persistence,
-            IMessageBroker broker,
             ErrorOnlyResponder responder)
             : base(
                   new Pipeline(tlsCheck, decryption, validation, persistence),
-                  broker,
                   responder)
         {
         }
