@@ -6,32 +6,18 @@ namespace AP.Processing.RabbitMQ
 {
     public class MessageBroker : IMessageBroker
     {
-        private Dictionary<string, IWorkflow> routes;
+        private readonly WorkflowStore workflowStore;
 
-        public MessageBroker(
-            BusinessWorkflow business,
-            CdmRequestWorkflow cdmRequest,
-            CdmSyncWorkflow cdmSync,
-            CdmVersionWorkflow cdmVersion,
-            IrRequestWorkflow irRequest,
-            IrSyncWorkflow irSync)
+        public MessageBroker(WorkflowStore workflowStore)
         {
-            routes = new Dictionary<string, IWorkflow>
-            {
-                { "business", business },
-                { "cdmrequest", cdmRequest },
-                { "cdmsync", cdmSync },
-                { "cdmversion", cdmVersion },
-                { "irrequest", irRequest },
-                { "irsync", irSync }
-            };
+            this.workflowStore = workflowStore;
         }
-
+        
         public void Send(Message message)
         {
             Task.Run(() => 
             {
-                var workflow = routes[message.Content];
+                var workflow = workflowStore.Get(message.Content);
                 workflow.Start(message);
             });
         }
