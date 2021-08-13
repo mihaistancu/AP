@@ -4,6 +4,7 @@
     {
         public bool Handle(Message message)
         {
+            System.Console.WriteLine("Decryption");
             return true;
         }
     }
