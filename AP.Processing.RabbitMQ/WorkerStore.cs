@@ -22,23 +22,33 @@ namespace AP.Processing.RabbitMQ
         {
             workers = new Dictionary<string, IWorker>
             {
-                {"antimalware", antimalware },
-                {"archiving", archiving },
-                {"cdmImport", cdmImport },
-                {"cdmRequestExport", cdmRequestExport },
-                {"cdmSubscriptionExport", cdmSubscriptionExport },
-                {"cdmVersionReport", cdmVersionReport },
-                {"delivery", delivery },
-                {"irImport", irImport },
-                {"irRequestExport", irRequestExport },
-                {"irSubscriptionExport", irSubscriptionExport },
-                {"validation", validation }
+                {Id(antimalware), antimalware },
+                {Id(archiving), archiving },
+                {Id(cdmImport), cdmImport },
+                {Id(cdmRequestExport), cdmRequestExport },
+                {Id(cdmSubscriptionExport), cdmSubscriptionExport },
+                {Id(cdmVersionReport), cdmVersionReport },
+                {Id(delivery), delivery },
+                {Id(irImport), irImport },
+                {Id(irRequestExport), irRequestExport },
+                {Id(irSubscriptionExport), irSubscriptionExport },
+                {Id(validation), validation }
             };
         }
 
-        public IWorker Get(string key)
+        public IWorker GetWorker(string id)
         {
-            return workers[key];
+            return workers[id];
+        }
+
+        public string GetKey(IWorker worker)
+        {
+            return Id(worker);
+        }
+
+        private string Id(IWorker worker)
+        {
+            return worker.GetType().Name;
         }
     }
 }

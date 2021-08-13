@@ -17,18 +17,28 @@ namespace AP.Processing.RabbitMQ
         {
             workflows = new Dictionary<string, IWorkflow>
             {
-                { "business", business },
-                { "cdmrequest", cdmRequest },
-                { "cdmsync", cdmSync },
-                { "cdmversion", cdmVersion },
-                { "irrequest", irRequest },
-                { "irsync", irSync }
+                { Id(business), business },
+                { Id(cdmRequest), cdmRequest },
+                { Id(cdmSync), cdmSync },
+                { Id(cdmVersion), cdmVersion },
+                { Id(irRequest), irRequest },
+                { Id(irSync), irSync }
             };
         }
 
-        public IWorkflow Get(string key)
+        public IWorkflow GetWorkflow(string key)
         {
             return workflows[key];
+        }
+
+        public string GetKey(IWorkflow workflow)
+        {
+            return Id(workflow);
+        }
+
+        private string Id(IWorkflow workflow)
+        {
+            return workflow.GetType().Name;
         }
     }
 }

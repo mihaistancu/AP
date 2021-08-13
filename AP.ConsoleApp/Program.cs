@@ -11,7 +11,10 @@ namespace AP.ConsoleApp
         static void Main(string[] args)
         {
             var container = new UnityContainer();
-            Context.MessageBroker = container.Resolve<MessageBroker>();
+            var broker = container.Resolve<MessageBroker>();
+            broker.Connect();
+            Context.MessageBroker = broker;
+
             var server = container.Resolve<Server>();
             
             using (server.Start())
