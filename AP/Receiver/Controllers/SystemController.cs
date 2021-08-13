@@ -2,7 +2,7 @@
 using AP.Receiver.Handlers;
 using AP.Receiver.Responders;
 
-namespace AP.Receiver.Channels.System
+namespace AP.Receiver.Controllers
 {
     public class SystemController : Controller
     {
@@ -11,11 +11,11 @@ namespace AP.Receiver.Channels.System
             SignatureCheckHandler signatureCheck,
             ValidationHandler validation,
             PersistenceHandler persistence,
-            IMessageBroker broker, 
-            ReceiptAndErrorResponder responder) 
+            IMessageBroker broker,
+            ReceiptAndErrorResponder responder)
             : base(
-                  new Pipeline(tlsCheck, signatureCheck, validation, persistence), 
-                  broker, 
+                  new Pipeline(tlsCheck, signatureCheck, validation, persistence),
+                  broker,
                   responder)
         {
         }

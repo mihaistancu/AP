@@ -2,15 +2,6 @@
 {
     public class Message
     {
-    }
-
-    public enum UseCase
-    {
-        Business,
-        IrSync,
-        CdmSync,
-        IrRequest,
-        CdmRequest, 
-        CdmVersion
+        public byte[] Content { get; set; }
     }
 }

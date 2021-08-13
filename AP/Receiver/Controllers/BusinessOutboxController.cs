@@ -2,7 +2,7 @@
 using AP.Receiver.Handlers;
 using AP.Receiver.Responders;
 
-namespace AP.Receiver.Channels.Business.Outbox
+namespace AP.Receiver.Controllers
 {
     public class BusinessOutboxController : Controller
     {
@@ -11,11 +11,11 @@ namespace AP.Receiver.Channels.Business.Outbox
             SignatureCheckHandler signatureCheck,
             ValidationHandler validation,
             PersistenceHandler persistence,
-            IMessageBroker broker, 
-            ErrorOnlyResponder responder) 
+            IMessageBroker broker,
+            ErrorOnlyResponder responder)
             : base(
                   new Pipeline(tlsCheck, signatureCheck, validation, persistence),
-                  broker, 
+                  broker,
                   responder)
         {
         }

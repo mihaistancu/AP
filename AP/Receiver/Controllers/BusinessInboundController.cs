@@ -2,7 +2,7 @@
 using AP.Receiver.Handlers;
 using AP.Receiver.Responders;
 
-namespace AP.Receiver.Channels.Business.Inbound
+namespace AP.Receiver.Controllers
 {
     public class BusinessInboundController : Controller
     {
