@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Receiver.WebApi", "AP.Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Processing.RabbitMQ", "AP.Processing.RabbitMQ\AP.Processing.RabbitMQ.csproj", "{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.ConsoleApp", "AP.ConsoleApp\AP.ConsoleApp.csproj", "{24423105-889B-4721-AF52-0F9D2E29DB16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24423105-889B-4721-AF52-0F9D2E29DB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24423105-889B-4721-AF52-0F9D2E29DB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24423105-889B-4721-AF52-0F9D2E29DB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24423105-889B-4721-AF52-0F9D2E29DB16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
