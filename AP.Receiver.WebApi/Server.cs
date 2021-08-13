@@ -46,11 +46,10 @@ namespace AP.Receiver.WebApi
 
         private Message Parse(IOwinRequest request)
         {
-            var memoryStream = new MemoryStream();
-            request.Body.CopyTo(memoryStream);
+            var reader = new StreamReader(request.Body);
             return new Message
             {
-                Content = memoryStream.ToArray()
+                Content = reader.ReadToEnd()
             };
         }
     }

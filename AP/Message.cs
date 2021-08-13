@@ -2,6 +2,6 @@
 {
     public class Message
     {
-        public byte[] Content { get; set; }
+        public string Content { get; set; }
     }
 }
