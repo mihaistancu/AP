@@ -2,8 +2,6 @@
 {
     public class IrRequestExportWorker : IWorker
     {
-        public string Step => "IrRequestExport";
-
         public void Process(WorkerInput input, IWorkflow workflow)
         {
             System.Console.WriteLine("IrRequestExport");

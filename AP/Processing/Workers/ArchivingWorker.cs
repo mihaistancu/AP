@@ -2,8 +2,6 @@
 {
     public class ArchivingWorker : IWorker
     {
-        public string Step => "Archiving";
-
         public void Process(WorkerInput input, IWorkflow workflow)
         {
             System.Console.WriteLine("Archiving");

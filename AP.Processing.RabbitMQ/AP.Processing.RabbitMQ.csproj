@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="MessageBroker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkerStore.cs" />
     <Compile Include="WorkflowStore.cs" />
   </ItemGroup>
   <ItemGroup>
