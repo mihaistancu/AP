@@ -3,6 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Hosting;
 using Owin;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -10,18 +11,19 @@ namespace AP.Receiver.WebApi
 {
     public class Server
     {
-        private readonly BusinessInboundController businessInbound;
-        private readonly BusinessOutboxController businessOutbox;
-        private readonly SystemController system;
+        private Dictionary<string, Controller> routes;
 
         public Server(
             BusinessInboundController businessInbound,
             BusinessOutboxController businessOutbox,
             SystemController system)
         {
-            this.businessInbound = businessInbound;
-            this.businessOutbox = businessOutbox;
-            this.system = system;
+            routes = new Dictionary<string, Controller>
+            {
+                {"/Business/Inbound", businessInbound },
+                {"/Business/Outbox", businessOutbox },
+                {"/System", system }
+            };
         }
 
         public IDisposable Start()
@@ -37,7 +39,7 @@ namespace AP.Receiver.WebApi
         private async Task Handle(IOwinContext context)
         {
             var message = Parse(context.Request);
-            var controller = GetController(context.Request.Uri.AbsolutePath);
+            var controller = routes[context.Request.Uri.AbsolutePath];
             var result = controller.Handle(message);
             await context.Response.WriteAsync(result);
         }
@@ -50,23 +52,6 @@ namespace AP.Receiver.WebApi
             {
                 Content = memoryStream.ToArray()
             };
-        }
-
-        private Controller GetController(string path)
-        {
-            if (path.Contains("Business\\Inbound"))
-            {
-                return businessInbound;
-            }
-            if (path.Contains("Business\\Outbox"))
-            {
-                return businessOutbox;
-            }
-            if (path.Contains("System"))
-            {
-                return system;
-            }
-            throw new Exception("No controller matches route");
         }
     }
 }

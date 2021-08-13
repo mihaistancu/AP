@@ -6,12 +6,12 @@ namespace AP.Receiver.Responders
     {
         public string Error(Exception exception)
         {
-            throw new NotImplementedException();
+            return "error";
         }
 
         public string Receipt()
         {
-            throw new NotImplementedException();
+            return "receipt";
         }
     }
 }
