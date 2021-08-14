@@ -2,11 +2,11 @@
 {
     public class IrSubscriptionExportWorker : IWorker
     {
-        public void Process(Work work, IWorkflow workflow)
+        public void Process(Work work)
         {
             System.Console.WriteLine("IrSubscriptionExport");
 
-            workflow.Done(work);
+            work.Workflow.Done(work);
         }
     }
 }

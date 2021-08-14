@@ -2,11 +2,11 @@
 {
     public class ArchivingWorker : IWorker
     {
-        public void Process(Work work, IWorkflow workflow)
+        public void Process(Work work)
         {
             System.Console.WriteLine("Archiving");
 
-            workflow.Done(work);
+            work.Workflow.Done(work);
         }
     }
 }

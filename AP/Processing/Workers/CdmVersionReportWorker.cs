@@ -2,11 +2,11 @@
 {
     public class CdmVersionReportWorker : IWorker
     {
-        public void Process(Work work, IWorkflow workflow)
+        public void Process(Work work)
         {
             System.Console.WriteLine("CdmVersion");
 
-            workflow.Done(work);
+            work.Workflow.Done(work);
         }
     }
 }

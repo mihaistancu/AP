@@ -2,11 +2,11 @@
 {
     public class IrRequestExportWorker : IWorker
     {
-        public void Process(Work work, IWorkflow workflow)
+        public void Process(Work work)
         {
             System.Console.WriteLine("IrRequestExport");
 
-            workflow.Done(work);
+            work.Workflow.Done(work);
         }
     }
 }

@@ -2,11 +2,11 @@
 {
     public class ValidationWorker : IWorker
     {
-        public void Process(Work work, IWorkflow workflow)
+        public void Process(Work work)
         {
             System.Console.WriteLine("Validation");
 
-            workflow.Done(work);
+            work.Workflow.Done(work);
         }
     }
 }

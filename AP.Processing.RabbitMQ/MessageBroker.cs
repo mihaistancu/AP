@@ -45,9 +45,9 @@ namespace AP.Processing.RabbitMQ
 
         private async Task OnReceived(object sender, BasicDeliverEventArgs e)
         {
-            var input = serializer.Deserialize(e.Body.ToArray());
+            var work = serializer.Deserialize(e.Body.ToArray());
             await Task.Delay(250);
-            input.Worker.Process(input, input.Workflow);
+            work.Worker.Process(work);
         }
 
         public void Send(Message message)

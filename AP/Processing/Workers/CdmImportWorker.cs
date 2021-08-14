@@ -2,11 +2,11 @@
 {
     public class CdmImportWorker : IWorker
     {
-        public void Process(Work work, IWorkflow workflow)
+        public void Process(Work work)
         {
             System.Console.WriteLine("CdmImport");
 
-            workflow.Done(work);
+            work.Workflow.Done(work);
         }
     }
 }
