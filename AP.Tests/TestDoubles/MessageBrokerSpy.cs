@@ -6,9 +6,9 @@ namespace AP.Tests.TestDoubles
     {
         public IWorker CalledWorker { get; private set; }
 
-        public void Send(WorkerInput input, IWorker worker, IWorkflow workflow)
+        public void Send(Work input)
         {
-            CalledWorker = worker;
+            CalledWorker = input.Worker;
         }
 
         public Message SentMessage { get; set; }

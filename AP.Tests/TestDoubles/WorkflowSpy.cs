@@ -6,7 +6,7 @@ namespace AP.Tests.TestDoubles
     {
         public bool DoneWasCalled { get; private set; }
 
-        public void Done(IWorker worker, WorkerOutput output)
+        public void Done(Work work)
         {
             DoneWasCalled = true;
         }

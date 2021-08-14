@@ -26,9 +26,9 @@ namespace AP.Processing.RabbitMQ
             };
         }
 
-        public IWorkflow GetWorkflow(string key)
+        public IWorkflow GetWorkflow(string id)
         {
-            return workflows[key];
+            return workflows[id];
         }
 
         public string GetKey(IWorkflow workflow)

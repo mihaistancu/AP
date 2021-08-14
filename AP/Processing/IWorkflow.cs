@@ -2,7 +2,7 @@
 {
     public interface IWorkflow
     {
-        void Done(IWorker worker, WorkerOutput output);
+        void Done(Work work);
         void Start(Message message);
     }
 }

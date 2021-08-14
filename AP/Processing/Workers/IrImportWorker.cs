@@ -2,11 +2,11 @@
 {
     public class IrImportWorker : IWorker
     {
-        public void Process(WorkerInput input, IWorkflow workflow)
+        public void Process(Work work, IWorkflow workflow)
         {
             System.Console.WriteLine("IrImport");
 
-            workflow.Done(this, new WorkerOutput());
+            workflow.Done(work);
         }
     }
 }

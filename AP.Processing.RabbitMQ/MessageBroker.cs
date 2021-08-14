@@ -1,7 +1,6 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AP.Processing.RabbitMQ
@@ -9,30 +8,24 @@ namespace AP.Processing.RabbitMQ
     public class MessageBroker : IMessageBroker, IDisposable
     {
         private readonly WorkflowStore workflowStore;
-        private readonly WorkerStore workerStore;
+        private readonly Serializer serializer;
 
         public MessageBroker(
             WorkflowStore workflowStore,
-            WorkerStore workerStore)
+            Serializer serializer)
         {
             this.workflowStore = workflowStore;
-            this.workerStore = workerStore;
+            this.serializer = serializer;
         }
 
-        private IConnection receiveConnection;
+        private IConnection connection;
         private IModel receiveChannel;
-
-        private IConnection sendConnection;
-        private IModel sendChannel;
                
         public void Connect()
         {
             var factory = new ConnectionFactory() { DispatchConsumersAsync = true };
-            receiveConnection = factory.CreateConnection();
-            receiveChannel = receiveConnection.CreateModel();
-
-            sendConnection = factory.CreateConnection();
-            sendChannel = sendConnection.CreateModel();
+            connection = factory.CreateConnection();
+            receiveChannel = connection.CreateModel();
 
             receiveChannel.QueueDeclare(
                 queue: "hello",
@@ -42,7 +35,7 @@ namespace AP.Processing.RabbitMQ
                 arguments: null);
 
             var consumer = new AsyncEventingBasicConsumer(receiveChannel);
-            consumer.Received += OnReceived; ;
+            consumer.Received += OnReceived;
 
             receiveChannel.BasicConsume(
                 queue: "hello",
@@ -52,14 +45,9 @@ namespace AP.Processing.RabbitMQ
 
         private async Task OnReceived(object sender, BasicDeliverEventArgs e)
         {
-            var body = e.Body.ToArray();
-            var message = Encoding.UTF8.GetString(body);
-            var tokens = message.Split('.');
-            var workflow = workflowStore.GetWorkflow(tokens[0]);
-            var worker = workerStore.GetWorker(tokens[1]);
-            var input = new WorkerInput();
+            var input = serializer.Deserialize(e.Body.ToArray());
             await Task.Delay(250);
-            worker.Process(input, workflow);
+            input.Worker.Process(input, input.Workflow);
         }
 
         public void Send(Message message)
@@ -68,26 +56,23 @@ namespace AP.Processing.RabbitMQ
             workflow.Start(message);
         }
 
-        public void Send(WorkerInput input, IWorker worker, IWorkflow workflow)
+        public void Send(Work input)
         {
-            var workerKey = workerStore.GetKey(worker);
-            var workflowKey = workflowStore.GetKey(workflow);
-            var message = $"{workflowKey}.{workerKey}";
-            var body = Encoding.UTF8.GetBytes(message);
-
-            sendChannel.BasicPublish(
-                exchange: "",
-                routingKey: "hello",
-                basicProperties: null,
-                body: body);
+            var body = serializer.Serialize(input);
+            using (var sendChannel = connection.CreateModel())
+            {
+                sendChannel.BasicPublish(
+                    exchange: "",
+                    routingKey: "hello",
+                    basicProperties: null,
+                    body: body);
+            }
         }
 
         public void Dispose()
         {
-            receiveConnection.Dispose();
+            connection.Dispose();
             receiveChannel.Dispose();
-            sendConnection.Dispose();
-            sendChannel.Dispose();
         }
     }
 }

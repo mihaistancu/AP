@@ -9,21 +9,23 @@
             this.sequence = sequence;
         }
 
-        public void Done(IWorker current, WorkerOutput output)
+        public void Done(Work work)
         {
-            if (!sequence.IsLast(current))
+            if (!sequence.IsLast(work.Worker))
             {
-                var input = new WorkerInput();
-                var next = sequence.GetNext(current);
-                Context.MessageBroker.Send(input, next, this);
+                work.Worker = sequence.GetNext(work.Worker);
+                Context.MessageBroker.Send(work);
             }
         }
 
         public void Start(Message message)
         {
-            var input = new WorkerInput();
-            var worker = sequence.GetFirst();
-            Context.MessageBroker.Send(input, worker, this);
+            var input = new Work
+            {
+                Worker = sequence.GetFirst(),
+                Workflow = this
+            };
+            Context.MessageBroker.Send(input);
         }
     }
 }

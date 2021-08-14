@@ -2,11 +2,11 @@
 {
     public class CdmRequestExportWorker : IWorker
     {
-        public void Process(WorkerInput input, IWorkflow workflow)
+        public void Process(Work work, IWorkflow workflow)
         {
             System.Console.WriteLine("CdmRequestExport");
 
-            workflow.Done(this, new WorkerOutput());
+            workflow.Done(work);
         }
     }
 }
