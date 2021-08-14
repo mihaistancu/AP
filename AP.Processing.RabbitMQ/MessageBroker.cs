@@ -7,14 +7,11 @@ namespace AP.Processing.RabbitMQ
 {
     public class MessageBroker : IMessageBroker, IDisposable
     {
-        private readonly WorkflowStore workflowStore;
         private readonly Serializer serializer;
 
         public MessageBroker(
-            WorkflowStore workflowStore,
             Serializer serializer)
         {
-            this.workflowStore = workflowStore;
             this.serializer = serializer;
         }
 

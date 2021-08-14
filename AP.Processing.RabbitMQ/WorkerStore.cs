@@ -41,7 +41,7 @@ namespace AP.Processing.RabbitMQ
             return workers[id];
         }
 
-        public string GetKey(IWorker worker)
+        public string GetId(IWorker worker)
         {
             return Id(worker);
         }
