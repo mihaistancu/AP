@@ -8,7 +8,6 @@ namespace AP.Tests
     [TestClass]
     public class ControllerTests
     {
-        private MessageBrokerSpy broker;
         private PipelineSpy pipeline;
         private ResponderStub responder;
         private Controller controller;
@@ -17,8 +16,6 @@ namespace AP.Tests
         [TestInitialize]
         public void Initialize()
         {
-            broker = new MessageBrokerSpy();
-            Context.MessageBroker = broker;
             pipeline = new PipelineSpy();
             responder = new ResponderStub();
             controller = new Controller(pipeline, responder);
@@ -32,15 +29,7 @@ namespace AP.Tests
 
             Assert.IsTrue(pipeline.ProcessWasCalled);
         }
-
-        [TestMethod]
-        public void CallsBroker()
-        {
-            controller.Handle(message);
-
-            Assert.AreEqual(message, broker.SentMessage);
-        }
-
+        
         [TestMethod]
         public void ReturnsResponse()
         {

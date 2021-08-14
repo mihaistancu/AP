@@ -1,4 +1,5 @@
-﻿using AP.Receiver.Controllers;
+﻿using AP.Processing;
+using AP.Receiver.Controllers;
 using Microsoft.Owin;
 using Microsoft.Owin.Hosting;
 using Owin;
@@ -12,11 +13,13 @@ namespace AP.Receiver.WebApi
     public class Server
     {
         private Dictionary<string, Controller> routes;
+        private readonly WorkflowFactory factory;
 
         public Server(
             BusinessInboundController businessInbound,
             BusinessOutboxController businessOutbox,
-            SystemController system)
+            SystemController system,
+            WorkflowFactory factory)
         {
             routes = new Dictionary<string, Controller>
             {
@@ -24,6 +27,7 @@ namespace AP.Receiver.WebApi
                 {"/Business/Outbox", businessOutbox },
                 {"/System", system }
             };
+            this.factory = factory;
         }
 
         public IDisposable Start()
@@ -41,15 +45,19 @@ namespace AP.Receiver.WebApi
             var message = Parse(context.Request);
             var controller = routes[context.Request.Uri.AbsolutePath];
             var result = controller.Handle(message);
+            var workflow = factory.Get(message.SedType);
+            workflow.Start(message);
             await context.Response.WriteAsync(result);
         }
 
         private Message Parse(IOwinRequest request)
         {
             var reader = new StreamReader(request.Body);
+            var content = reader.ReadToEnd();
             return new Message
             {
-                Content = reader.ReadToEnd()
+                SedType = content,
+                Content = content
             };
         }
     }

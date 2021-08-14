@@ -1,5 +1,4 @@
-﻿using AP.Processing;
-using System;
+﻿using System;
 
 namespace AP.Receiver
 {
@@ -25,7 +24,6 @@ namespace AP.Receiver
                 return responder.Error(exception);
             }
             
-            Context.MessageBroker.Send(message);
             return responder.Receipt();
         }
     }
