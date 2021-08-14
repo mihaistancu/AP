@@ -49,13 +49,7 @@ namespace AP.Processing.RabbitMQ
             await Task.Delay(250);
             work.Worker.Process(work);
         }
-
-        public void Send(Message message)
-        {
-            var workflow = workflowStore.GetWorkflow(message.Content);
-            workflow.Start(message);
-        }
-
+        
         public void Send(Work input)
         {
             var body = serializer.Serialize(input);

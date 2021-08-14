@@ -31,7 +31,7 @@ namespace AP.Tests
         }
         
         [TestMethod]
-        public void ReturnsResponse()
+        public void ReturnsReceipt()
         {
             responder.ReceiptMessage = "receipt";
 
