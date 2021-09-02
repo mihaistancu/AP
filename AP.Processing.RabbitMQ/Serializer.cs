@@ -17,9 +17,9 @@ namespace AP.Processing.RabbitMQ
 
         public byte[] Serialize(Work input)
         {
-            var workerKey = workerStore.GetId(input.Worker);
-            var workflowKey = workflowStore.GetId(input.Workflow);
-            var message = $"{workflowKey}.{workerKey}";
+            var workerId = workerStore.Id(input.Worker);
+            var workflowId = workflowStore.Id(input.Workflow);
+            var message = $"{workflowId}.{workerId}";
             return Encoding.UTF8.GetBytes(message);
         }
 
