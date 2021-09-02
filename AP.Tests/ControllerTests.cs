@@ -1,5 +1,4 @@
-﻿using AP.Processing;
-using AP.Receiver;
+﻿using AP.Receiver;
 using AP.Tests.TestDoubles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -9,6 +8,8 @@ namespace AP.Tests
     public class ControllerTests
     {
         private PipelineSpy pipeline;
+        private WorkflowFactoryStub factory;
+        private WorkflowSpy workflow;
         private ResponderStub responder;
         private Controller controller;
         private Message message;
@@ -18,7 +19,10 @@ namespace AP.Tests
         {
             pipeline = new PipelineSpy();
             responder = new ResponderStub();
-            controller = new Controller(pipeline, responder);
+            factory = new WorkflowFactoryStub();
+            workflow = new WorkflowSpy();
+            factory.Workflow = workflow;
+            controller = new Controller(pipeline, responder, factory);
             message = new Message();
         }
 
@@ -30,6 +34,14 @@ namespace AP.Tests
             Assert.IsTrue(pipeline.ProcessWasCalled);
         }
         
+        [TestMethod]
+        public void CallsWorkflow()
+        {
+            controller.Handle(message);
+
+            Assert.IsTrue(workflow.StartWasCalled);
+        }
+
         [TestMethod]
         public void ReturnsReceipt()
         {

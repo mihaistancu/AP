@@ -2,7 +2,7 @@
 
 namespace AP.Processing
 {
-    public class WorkflowFactory
+    public class WorkflowFactory: IWorkflowFactory
     {
         private readonly BusinessWorkflow business;
         private readonly CdmRequestWorkflow cdmRequest;

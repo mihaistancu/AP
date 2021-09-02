@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ControllerTests.cs" />
     <Compile Include="TestDoubles\WorkerSpy2.cs" />
+    <Compile Include="TestDoubles\WorkflowFactoryStub.cs" />
     <Compile Include="WorkflowTests.cs" />
     <Compile Include="TestDoubles\MessageBrokerSpy.cs" />
     <Compile Include="PipelineTests.cs" />

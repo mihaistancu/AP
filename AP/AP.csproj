@@ -75,6 +75,7 @@
     <Compile Include="Processing\IWorker.cs" />
     <Compile Include="Processing\IMessageBroker.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="Processing\IWorkflowFactory.cs" />
     <Compile Include="Receiver\Pipeline.cs" />
     <Compile Include="Processing\Work.cs" />
     <Compile Include="Processing\LinearWorkflow.cs" />

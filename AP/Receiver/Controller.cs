@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP.Processing;
+using System;
 
 namespace AP.Receiver
 {
@@ -6,11 +7,13 @@ namespace AP.Receiver
     {
         private Pipeline pipeline;
         private IResponder responder;
+        private IWorkflowFactory factory;
 
-        public Controller(Pipeline pipeline, IResponder responder)
+        public Controller(Pipeline pipeline, IResponder responder, IWorkflowFactory factory)
         {
             this.pipeline = pipeline;
             this.responder = responder;
+            this.factory = factory;
         }
 
         public string Handle(Message message)
@@ -18,6 +21,8 @@ namespace AP.Receiver
             try
             {
                 pipeline.Process(message);
+                var workflow = factory.Get(message.SedType);
+                workflow.Start(message);
             }
             catch(Exception exception)
             {
