@@ -1,34 +1,25 @@
-﻿using AP.Receiver.Controllers;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Microsoft.Owin.Hosting;
 using Owin;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace AP.Receiver.WebApi
 {
     public class Server
     {
-        private Dictionary<string, Controller> routes;
+        private readonly Router router;
+        private readonly Parser parser;
 
-        public Server(
-            BusinessInboundController businessInbound,
-            BusinessOutboxController businessOutbox,
-            SystemController system)
+        public Server(Router router, Parser parser)
         {
-            routes = new Dictionary<string, Controller>
-            {
-                {"/Business/Inbound", businessInbound },
-                {"/Business/Outbox", businessOutbox },
-                {"/System", system }
-            };
+            this.router = router;
+            this.parser = parser;
         }
 
-        public IDisposable Start()
+        public IDisposable Start(string url)
         {
-            return WebApp.Start("http://localhost:9000", OnStart);
+            return WebApp.Start(url, OnStart);
         }
 
         private void OnStart(IAppBuilder appBuilder)
@@ -37,22 +28,11 @@ namespace AP.Receiver.WebApi
         }
 
         private async Task Handle(IOwinContext context)
-        {
-            var message = Parse(context.Request);
-            var controller = routes[context.Request.Uri.AbsolutePath];
-            var result = controller.Handle(message);
+        {   
+            var url = context.Request.Uri.AbsolutePath;
+            var message = parser.Parse(context.Request.Body);
+            var result = router.Route(url, message);
             await context.Response.WriteAsync(result);
-        }
-
-        private Message Parse(IOwinRequest request)
-        {
-            var reader = new StreamReader(request.Body);
-            var content = reader.ReadToEnd();
-            return new Message
-            {
-                SedType = content,
-                Content = content
-            };
         }
     }
 }

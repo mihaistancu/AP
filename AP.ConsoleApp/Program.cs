@@ -17,7 +17,7 @@ namespace AP.ConsoleApp
                 Context.MessageBroker = broker;
 
                 var server = container.Resolve<Server>();
-                using (server.Start())
+                using (server.Start("http://localhost:9000"))
                 {
                     Console.WriteLine("Press [enter] to stop");
                     Console.ReadLine();
