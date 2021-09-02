@@ -1,4 +1,5 @@
-﻿using RabbitMQ.Client;
+﻿using AP.Processing.RabbitMQ.Serialization;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
 using System.Threading.Tasks;
@@ -9,8 +10,7 @@ namespace AP.Processing.RabbitMQ
     {
         private readonly Serializer serializer;
 
-        public MessageBroker(
-            Serializer serializer)
+        public MessageBroker(Serializer serializer)
         {
             this.serializer = serializer;
         }

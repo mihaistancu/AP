@@ -1,6 +1,7 @@
-﻿using System.Text;
+﻿using AP.Processing.RabbitMQ.Serialization.Stores;
+using System.Text;
 
-namespace AP.Processing.RabbitMQ
+namespace AP.Processing.RabbitMQ.Serialization
 {
     public class Serializer
     {
@@ -29,8 +30,8 @@ namespace AP.Processing.RabbitMQ
             var tokens = message.Split('.');
             return new Work
             {
-                Workflow = workflowStore.GetWorkflow(tokens[0]),
-                Worker = workerStore.GetWorker(tokens[1])
+                Workflow = workflowStore.Get(tokens[0]),
+                Worker = workerStore.Get(tokens[1])
             };
         }
     }
