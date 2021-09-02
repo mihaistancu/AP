@@ -6,17 +6,14 @@ namespace AP.Receiver.Controllers
 {
     public class SystemController : Controller
     {
-        public SystemController(
-            TlsCheckHandler tlsCheck,
-            SignatureCheckHandler signatureCheck,
-            ValidationHandler validation,
-            PersistenceHandler persistence,
-            ReceiptAndErrorResponder responder,
-            WorkflowFactory factory)
-            : base(
-                  new Pipeline(tlsCheck, signatureCheck, validation, persistence),
-                  responder,
-                  factory)
+        public SystemController(IStore store): base(
+            new Pipeline(
+                store.Get<TlsCheckHandler>(),
+                store.Get<SignatureCheckHandler>(),
+                store.Get<ValidationHandler>(),
+                store.Get<PersistenceHandler>()),
+            store.Get<ReceiptAndErrorResponder>(),
+            store.Get<WorkflowFactory>())
         {
         }
     }

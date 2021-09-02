@@ -8,7 +8,6 @@ namespace AP.Tests
     public class WorkflowTests
     {
         private MessageBrokerSpy broker;
-        private WorkerSequence sequence;
         private IWorker worker1;
         private IWorker worker2;
         private LinearWorkflow workflow;
@@ -20,8 +19,7 @@ namespace AP.Tests
             Context.MessageBroker = broker;
             worker1 = new WorkerSpy1();
             worker2 = new WorkerSpy2();
-            sequence = new WorkerSequence(worker1, worker2);
-            workflow = new LinearWorkflow(sequence);
+            workflow = new LinearWorkflow(worker1, worker2);
         }
 
         [TestMethod]

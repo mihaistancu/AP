@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace AP.Processing.RabbitMQ.Serialization
 {
-    public class Store<T>
+    public class Map<T>
     {
         private Dictionary<string, T> map;
 
-        public Store(params T[] items)
+        public Map(params T[] items)
         {
             map = items.ToDictionary(i => Id(i), i => i);
         }

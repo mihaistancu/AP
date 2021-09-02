@@ -4,9 +4,9 @@
     {
         private WorkerSequence sequence;
 
-        public LinearWorkflow(WorkerSequence sequence)
+        public LinearWorkflow(params IWorker[] workers)
         {
-            this.sequence = sequence;
+            sequence = new WorkerSequence(workers);
         }
 
         public void Done(Work work)

@@ -4,13 +4,12 @@ namespace AP.Processing.Workflows
 {
     public class CdmRequestWorkflow : LinearWorkflow
     {
-        public CdmRequestWorkflow(
-            AntimalwareWorker antimalware,
-            ValidationWorker validation,
-            CdmRequestExportWorker cdmRequestExport,
-            DeliveryWorker delivery,
-            ArchivingWorker archiving)
-            : base(new WorkerSequence(antimalware, validation, cdmRequestExport, delivery, archiving))
+        public CdmRequestWorkflow(IStore store): base(
+            store.Get<AntimalwareWorker>(),
+            store.Get<ValidationWorker>(),
+            store.Get<CdmRequestExportWorker>(),
+            store.Get<DeliveryWorker>(),
+            store.Get<ArchivingWorker>())
         {
         }
     }

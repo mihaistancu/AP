@@ -2,7 +2,6 @@
 using AP.Processing.RabbitMQ;
 using AP.Receiver.WebApi;
 using System;
-using Unity;
 
 namespace AP.ConsoleApp
 {
@@ -10,13 +9,13 @@ namespace AP.ConsoleApp
     {
         static void Main(string[] args)
         {
-            using (var container = new UnityContainer())
-            using (var broker = container.Resolve<MessageBroker>())
+            using (var store = new Store())
+            using (var broker = store.Get<MessageBroker>())
             {
                 broker.Connect();
                 Context.MessageBroker = broker;
 
-                var server = container.Resolve<Server>();
+                var server = store.Get<Server>();
                 using (server.Start("http://localhost:9000"))
                 {
                     Console.WriteLine("Press [enter] to stop");

@@ -6,17 +6,14 @@ namespace AP.Receiver.Controllers
 {
     public class BusinessOutboxController : Controller
     {
-        public BusinessOutboxController(
-            TlsCheckHandler tlsCheck,
-            SignatureCheckHandler signatureCheck,
-            ValidationHandler validation,
-            PersistenceHandler persistence,
-            ErrorOnlyResponder responder,
-            WorkflowFactory factory)
-            : base(
-                  new Pipeline(tlsCheck, signatureCheck, validation, persistence),
-                  responder, 
-                  factory)
+        public BusinessOutboxController(IStore store): base(
+            new Pipeline(
+                store.Get<TlsCheckHandler>(),
+                store.Get<SignatureCheckHandler>(),
+                store.Get<ValidationHandler>(),
+                store.Get<PersistenceHandler>()),
+            store.Get<ErrorOnlyResponder>(), 
+            store.Get<WorkflowFactory>())
         {
         }
     }

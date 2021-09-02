@@ -1,25 +1,25 @@
-﻿using AP.Processing.RabbitMQ.Serialization.Stores;
+﻿using AP.Processing.RabbitMQ.Serialization.Maps;
 using System.Text;
 
 namespace AP.Processing.RabbitMQ.Serialization
 {
     public class Serializer
     {
-        private readonly WorkflowStore workflowStore;
-        private readonly WorkerStore workerStore;
+        private readonly WorkflowMap workflowMap;
+        private readonly WorkerMap workerMap;
 
         public Serializer(
-            WorkflowStore workflowStore,
-            WorkerStore workerStore)
+            WorkflowMap workflowMap,
+            WorkerMap workerMap)
         {
-            this.workflowStore = workflowStore;
-            this.workerStore = workerStore;
+            this.workflowMap = workflowMap;
+            this.workerMap = workerMap;
         }
 
         public byte[] Serialize(Work input)
         {
-            var workerId = workerStore.Id(input.Worker);
-            var workflowId = workflowStore.Id(input.Workflow);
+            var workerId = workerMap.Id(input.Worker);
+            var workflowId = workflowMap.Id(input.Workflow);
             var message = $"{workflowId}.{workerId}";
             return Encoding.UTF8.GetBytes(message);
         }
@@ -30,8 +30,8 @@ namespace AP.Processing.RabbitMQ.Serialization
             var tokens = message.Split('.');
             return new Work
             {
-                Workflow = workflowStore.Get(tokens[0]),
-                Worker = workerStore.Get(tokens[1])
+                Workflow = workflowMap.Get(tokens[0]),
+                Worker = workerMap.Get(tokens[1])
             };
         }
     }

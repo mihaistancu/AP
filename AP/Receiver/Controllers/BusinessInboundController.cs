@@ -6,17 +6,14 @@ namespace AP.Receiver.Controllers
 {
     public class BusinessInboundController : Controller
     {
-        public BusinessInboundController(
-            TlsCheckHandler tlsCheck,
-            DecryptionHandler decryption,
-            ValidationHandler validation,
-            PersistenceHandler persistence,
-            ErrorOnlyResponder responder,
-            WorkflowFactory factory)
-            : base(
-                  new Pipeline(tlsCheck, decryption, validation, persistence),
-                  responder,
-                  factory)
+        public BusinessInboundController(IStore store): base(
+            new Pipeline(
+                store.Get<TlsCheckHandler>(),
+                store.Get<DecryptionHandler>(),
+                store.Get<ValidationHandler>(),
+                store.Get<PersistenceHandler>()),
+            store.Get<ErrorOnlyResponder>(),
+            store.Get<WorkflowFactory>())
         {
         }
     }
