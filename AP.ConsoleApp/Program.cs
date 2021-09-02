@@ -1,5 +1,4 @@
-﻿using AP.Processing;
-using AP.Processing.RabbitMQ;
+﻿using AP.Processing.RabbitMQ;
 using AP.Receiver.WebApi;
 using System;
 
@@ -13,8 +12,7 @@ namespace AP.ConsoleApp
             using (var broker = store.Get<MessageBroker>())
             {
                 broker.Connect();
-                Context.MessageBroker = broker;
-
+                
                 var server = store.Get<Server>();
                 using (server.Start("http://localhost:9000"))
                 {

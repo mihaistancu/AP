@@ -1,16 +1,15 @@
-﻿using AP.Processing.RabbitMQ.Serialization.Maps;
-using System.Text;
+﻿using System.Text;
 
 namespace AP.Processing.RabbitMQ.Serialization
 {
     public class Serializer
     {
-        private readonly WorkflowMap workflowMap;
-        private readonly WorkerMap workerMap;
+        private readonly Map<IWorkflow> workflowMap;
+        private readonly Map<IWorker> workerMap;
 
         public Serializer(
-            WorkflowMap workflowMap,
-            WorkerMap workerMap)
+            Map<IWorkflow> workflowMap,
+            Map<IWorker> workerMap)
         {
             this.workflowMap = workflowMap;
             this.workerMap = workerMap;

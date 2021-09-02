@@ -16,10 +16,9 @@ namespace AP.Tests
         public void Initialize()
         {
             broker = new MessageBrokerSpy();
-            Context.MessageBroker = broker;
             worker1 = new WorkerSpy1();
             worker2 = new WorkerSpy2();
-            workflow = new LinearWorkflow(worker1, worker2);
+            workflow = new LinearWorkflow(broker, worker1, worker2);
         }
 
         [TestMethod]

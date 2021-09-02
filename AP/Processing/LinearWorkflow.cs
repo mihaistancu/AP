@@ -2,11 +2,13 @@
 {
     public class LinearWorkflow: IWorkflow
     {
+        private readonly IMessageBroker broker;
         private WorkerSequence sequence;
 
-        public LinearWorkflow(params IWorker[] workers)
+        public LinearWorkflow(IMessageBroker broker, params IWorker[] workers)
         {
-            sequence = new WorkerSequence(workers);
+            this.sequence = new WorkerSequence(workers);
+            this.broker = broker;
         }
 
         public void Done(Work work)
@@ -14,18 +16,18 @@
             if (!sequence.IsLast(work.Worker))
             {
                 work.Worker = sequence.GetNext(work.Worker);
-                Context.MessageBroker.Send(work);
+                broker.Send(work);
             }
         }
 
         public void Start(Message message)
         {
-            var input = new Work
+            var work = new Work
             {
                 Worker = sequence.GetFirst(),
                 Workflow = this
             };
-            Context.MessageBroker.Send(input);
+            broker.Send(work);
         }
     }
 }
