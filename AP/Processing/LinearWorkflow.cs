@@ -24,6 +24,7 @@
         {
             var work = new Work
             {
+                Message = message,
                 Worker = sequence.GetFirst(),
                 Workflow = this
             };

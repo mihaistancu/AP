@@ -1,4 +1,5 @@
 ﻿using AP.Processing.Workers;
+using AP.Processing.Workers.Antimalware;
 
 namespace AP.Processing.Workflows
 {

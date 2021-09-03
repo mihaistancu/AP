@@ -44,6 +44,8 @@
     <Compile Include="IStore.cs" />
     <Compile Include="Processing\IWorkflow.cs" />
     <Compile Include="Processing\WorkerSequence.cs" />
+    <Compile Include="Processing\Workers\Antimalware\AntimalwareWorker.cs" />
+    <Compile Include="Processing\Workers\Antimalware\IScanner.cs" />
     <Compile Include="Processing\WorkflowFactory.cs" />
     <Compile Include="Processing\Workflows\CdmVersionWorkflow.cs" />
     <Compile Include="Processing\Workflows\CdmSyncWorkflow.cs" />
@@ -61,7 +63,6 @@
     <Compile Include="Processing\Workers\IrRequestExportWorker.cs" />
     <Compile Include="Processing\Workers\IrImportWorker.cs" />
     <Compile Include="Processing\Workers\ValidationWorker.cs" />
-    <Compile Include="Processing\Workers\AntimalwareWorker.cs" />
     <Compile Include="Receiver\Controllers\SystemController.cs" />
     <Compile Include="Receiver\Controllers\BusinessOutboxController.cs" />
     <Compile Include="Receiver\Controllers\BusinessInboundController.cs" />
