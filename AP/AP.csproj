@@ -57,7 +57,6 @@
     <Compile Include="Processing\Workflows\IrRequestWorkflow.cs" />
     <Compile Include="Processing\Workflows\IrSyncWorkflow.cs" />
     <Compile Include="Processing\Workflows\BusinessWorkflow.cs" />
-    <Compile Include="Processing\Workers\ArchivingWorker.cs" />
     <Compile Include="Processing\Workers\CdmVersionReportWorker.cs" />
     <Compile Include="Processing\Workers\DeliveryWorker.cs" />
     <Compile Include="Processing\Workers\CdmImportWorker.cs" />

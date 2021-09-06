@@ -11,8 +11,7 @@ namespace AP.Processing.Workflows
             store.Get<ValidationWorker>(),
             store.Get<CdmImportWorker>(),
             store.Get<CdmSubscriptionExportWorker>(),
-            store.Get<DeliveryWorker>(),
-            store.Get<ArchivingWorker>())
+            store.Get<DeliveryWorker>())
         {
         }
     }

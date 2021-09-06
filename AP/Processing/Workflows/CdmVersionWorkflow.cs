@@ -10,8 +10,7 @@ namespace AP.Processing.Workflows
             store.Get<AntimalwareWorker>(),
             store.Get<ValidationWorker>(),
             store.Get<CdmVersionReportWorker>(),
-            store.Get<DeliveryWorker>(),
-            store.Get<ArchivingWorker>())
+            store.Get<DeliveryWorker>())
         {
         }
     }
