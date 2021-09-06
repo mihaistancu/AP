@@ -3,6 +3,6 @@
     public interface IWorkflow
     {
         void Done(Work work);
-        void Start(Message message);
+        void Start(Work work);
     }
 }

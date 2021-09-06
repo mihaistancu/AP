@@ -5,11 +5,11 @@ namespace AP.Processing.RabbitMQ.Serialization
     public class Serializer
     {
         private readonly Map<IWorkflow> workflowMap;
-        private readonly Map<IWorker> workerMap;
+        private readonly Map<Worker> workerMap;
 
         public Serializer(
             Map<IWorkflow> workflowMap,
-            Map<IWorker> workerMap)
+            Map<Worker> workerMap)
         {
             this.workflowMap = workflowMap;
             this.workerMap = workerMap;
@@ -19,7 +19,7 @@ namespace AP.Processing.RabbitMQ.Serialization
         {
             var workerId = workerMap.Id(input.Worker);
             var workflowId = workflowMap.Id(input.Workflow);
-            var message = $"{workflowId}.{workerId}";
+            var message = $"{workflowId}.{workerId}.{input.Message}";
             return Encoding.UTF8.GetBytes(message);
         }
 
@@ -30,7 +30,12 @@ namespace AP.Processing.RabbitMQ.Serialization
             return new Work
             {
                 Workflow = workflowMap.Get(tokens[0]),
-                Worker = workerMap.Get(tokens[1])
+                Worker = workerMap.Get(tokens[1]),
+                Message = new Message
+                {
+                    Content = tokens[2],
+                    SedType = tokens[2]
+                }
             };
         }
     }

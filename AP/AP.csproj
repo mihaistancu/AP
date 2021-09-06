@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IStore.cs" />
+    <Compile Include="Processing\AsyncProcessor.cs" />
+    <Compile Include="Processing\ExceptionHandler.cs" />
+    <Compile Include="Processing\IAsyncProcessor.cs" />
     <Compile Include="Processing\IWorkflow.cs" />
     <Compile Include="Processing\WorkerSequence.cs" />
     <Compile Include="Processing\Workers\Antimalware\AntimalwareWorker.cs" />
@@ -73,10 +76,9 @@
     <Compile Include="Receiver\Handlers\TlsCheckHandler.cs" />
     <Compile Include="Receiver\IResponder.cs" />
     <Compile Include="Receiver\Controller.cs" />
-    <Compile Include="Processing\IWorker.cs" />
+    <Compile Include="Processing\Worker.cs" />
     <Compile Include="Processing\IMessageBroker.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="Processing\IWorkflowFactory.cs" />
     <Compile Include="Receiver\Pipeline.cs" />
     <Compile Include="Processing\Work.cs" />
     <Compile Include="Processing\LinearWorkflow.cs" />

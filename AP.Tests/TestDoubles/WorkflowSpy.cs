@@ -13,7 +13,7 @@ namespace AP.Tests.TestDoubles
 
         public bool StartWasCalled { get; private set; }
 
-        public void Start(Message message)
+        public void Start(Work work)
         {
             StartWasCalled = true;
         }

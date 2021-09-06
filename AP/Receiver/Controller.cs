@@ -7,13 +7,13 @@ namespace AP.Receiver
     {
         private Pipeline pipeline;
         private IResponder responder;
-        private IWorkflowFactory factory;
+        private IAsyncProcessor processor;
 
-        public Controller(Pipeline pipeline, IResponder responder, IWorkflowFactory factory)
+        public Controller(Pipeline pipeline, IResponder responder, IAsyncProcessor processor)
         {
             this.pipeline = pipeline;
             this.responder = responder;
-            this.factory = factory;
+            this.processor = processor;
         }
 
         public string Handle(Message message)
@@ -21,8 +21,7 @@ namespace AP.Receiver
             try
             {
                 pipeline.Process(message);
-                var workflow = factory.Get(message.SedType);
-                workflow.Start(message);
+                processor.Process(message);
             }
             catch(Exception exception)
             {

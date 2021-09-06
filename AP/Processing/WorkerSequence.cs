@@ -4,25 +4,25 @@ namespace AP.Processing
 {
     public class WorkerSequence
     {
-        private IWorker[] workers;
+        private Worker[] workers;
 
-        public WorkerSequence(params IWorker[] workers)
+        public WorkerSequence(params Worker[] workers)
         {
             this.workers = workers;
         }
 
-        public IWorker GetFirst()
+        public Worker GetFirst()
         {
             return workers[0];
         }
 
-        public bool IsLast(IWorker worker)
+        public bool IsLast(Worker worker)
         {
-            IWorker last = workers[workers.Length - 1];
+            Worker last = workers[workers.Length - 1];
             return last == worker;
         }
 
-        public IWorker GetNext(IWorker worker)
+        public Worker GetNext(Worker worker)
         {
             int index = Array.FindIndex(workers, w => w.GetType() == worker.GetType());
             return workers[index + 1];

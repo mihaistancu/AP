@@ -13,7 +13,7 @@ namespace AP.Receiver.Controllers
                 store.Get<ValidationHandler>(),
                 store.Get<PersistenceHandler>()),
             store.Get<ErrorOnlyResponder>(),
-            store.Get<WorkflowFactory>())
+            store.Get<AsyncProcessor>())
         {
         }
     }

@@ -5,7 +5,7 @@
         private readonly IMessageBroker broker;
         private WorkerSequence sequence;
 
-        public LinearWorkflow(IMessageBroker broker, params IWorker[] workers)
+        public LinearWorkflow(IMessageBroker broker, params Worker[] workers)
         {
             this.sequence = new WorkerSequence(workers);
             this.broker = broker;
@@ -20,14 +20,9 @@
             }
         }
 
-        public void Start(Message message)
+        public void Start(Work work)
         {
-            var work = new Work
-            {
-                Message = message,
-                Worker = sequence.GetFirst(),
-                Workflow = this
-            };
+            work.Worker = sequence.GetFirst();
             broker.Send(work);
         }
     }

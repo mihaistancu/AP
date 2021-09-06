@@ -44,7 +44,7 @@ namespace AP.Processing.RabbitMQ
         {
             var work = serializer.Deserialize(e.Body.ToArray());
             await Task.Delay(250);
-            work.Worker.Process(work);
+            work.Worker.TryDo(work);
         }
         
         public void Send(Work input)

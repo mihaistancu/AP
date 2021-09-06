@@ -1,8 +1,8 @@
 ﻿namespace AP.Processing.Workers
 {
-    public class CdmRequestExportWorker : IWorker
+    public class CdmRequestExportWorker : Worker
     {
-        public void Process(Work work)
+        public override void Do(Work work)
         {
             System.Console.WriteLine("CdmRequestExport");
 

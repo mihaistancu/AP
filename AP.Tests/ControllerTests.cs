@@ -8,9 +8,8 @@ namespace AP.Tests
     public class ControllerTests
     {
         private PipelineSpy pipeline;
-        private WorkflowFactoryStub factory;
-        private WorkflowSpy workflow;
         private ResponderStub responder;
+        private AsyncProcessorSpy processor;
         private Controller controller;
         private Message message;
 
@@ -19,10 +18,8 @@ namespace AP.Tests
         {
             pipeline = new PipelineSpy();
             responder = new ResponderStub();
-            factory = new WorkflowFactoryStub();
-            workflow = new WorkflowSpy();
-            factory.Workflow = workflow;
-            controller = new Controller(pipeline, responder, factory);
+            processor = new AsyncProcessorSpy();
+            controller = new Controller(pipeline, responder, processor);
             message = new Message();
         }
 
@@ -35,11 +32,11 @@ namespace AP.Tests
         }
         
         [TestMethod]
-        public void CallsWorkflow()
+        public void CallsAsyncProcessor()
         {
             controller.Handle(message);
 
-            Assert.IsTrue(workflow.StartWasCalled);
+            Assert.IsTrue(processor.ProcessWasCalled);
         }
 
         [TestMethod]

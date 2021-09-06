@@ -1,5 +1,7 @@
 ﻿using AP.Processing;
 using AP.Processing.RabbitMQ;
+using AP.Processing.Workers.Antimalware;
+using AP.Processing.Workers.Antimalware.Amsi;
 using System;
 using Unity;
 
@@ -15,6 +17,7 @@ namespace AP.ConsoleApp
             container.RegisterInstance<IStore>(this);
             container.RegisterType<IMessageBroker, MessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<MessageBroker>(TypeLifetime.Singleton);
+            container.RegisterType<IScanner, AmsiScanner>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()

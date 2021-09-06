@@ -71,6 +71,10 @@
       <Project>{b5fa51c6-5ddb-4e52-8a56-2dbf6b6c1282}</Project>
       <Name>AP.Processing.RabbitMQ</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Processing.Workers.Antimalware.Amsi\AP.Processing.Workers.Antimalware.Amsi.csproj">
+      <Project>{387b1707-0e51-47e6-b079-94861ea7e04c}</Project>
+      <Name>AP.Processing.Workers.Antimalware.Amsi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Receiver.WebApi\AP.Receiver.WebApi.csproj">
       <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
       <Name>AP.Receiver.WebApi</Name>

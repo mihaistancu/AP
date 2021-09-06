@@ -1,12 +1,19 @@
-﻿namespace AP.Processing.Workers
+﻿using System;
+
+namespace AP.Processing.Workers
 {
-    public class DeliveryWorker : IWorker
+    public class DeliveryWorker : Worker
     {
-        public void Process(Work work)
+        public override void Do(Work work)
         {
             System.Console.WriteLine("Delivery");
 
             work.Workflow.Done(work);
+        }
+
+        public override void Handle(Exception exception, Work work)
+        {
+            
         }
     }
 }

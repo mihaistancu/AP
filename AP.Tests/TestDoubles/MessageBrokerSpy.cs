@@ -4,7 +4,7 @@ namespace AP.Tests.TestDoubles
 {
     public class MessageBrokerSpy : IMessageBroker
     {
-        public IWorker CalledWorker { get; private set; }
+        public Worker CalledWorker { get; private set; }
 
         public void Send(Work input)
         {

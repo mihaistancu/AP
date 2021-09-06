@@ -8,8 +8,8 @@ namespace AP.Tests
     public class WorkflowTests
     {
         private MessageBrokerSpy broker;
-        private IWorker worker1;
-        private IWorker worker2;
+        private Worker worker1;
+        private Worker worker2;
         private LinearWorkflow workflow;
         
         [TestInitialize]
@@ -24,7 +24,7 @@ namespace AP.Tests
         [TestMethod]
         public void StartSendsWorkToFirstWorker()
         {
-            workflow.Start(new Message());
+            workflow.Start(new Work());
 
             Assert.AreEqual(worker1, broker.CalledWorker);
         }

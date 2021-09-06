@@ -2,15 +2,13 @@
 
 namespace AP.Tests.TestDoubles
 {
-    public class WorkerSpy1 : IWorker
+    public class WorkerSpy1 : Worker
     {
-        public bool ProcessWasCalled { get; private set; }
+        public bool DoWasCalled { get; private set; }
 
-        public string Step { get; set; }
-
-        public void Process(Work work)
+        public override void Do(Work work)
         {
-            ProcessWasCalled = true;
+            DoWasCalled = true;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace AP.Processing
 {
-    public class WorkflowFactory: IWorkflowFactory
+    public class WorkflowFactory
     {
         private readonly IStore store;
 

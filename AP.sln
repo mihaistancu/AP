@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Processing.RabbitMQ", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.ConsoleApp", "AP.ConsoleApp\AP.ConsoleApp.csproj", "{24423105-889B-4721-AF52-0F9D2E29DB16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Processing.Workers.Antimalware.Amsi", "AP.Processing.Workers.Antimalware.Amsi\AP.Processing.Workers.Antimalware.Amsi.csproj", "{387B1707-0E51-47E6-B079-94861EA7E04C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{24423105-889B-4721-AF52-0F9D2E29DB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24423105-889B-4721-AF52-0F9D2E29DB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24423105-889B-4721-AF52-0F9D2E29DB16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{387B1707-0E51-47E6-B079-94861EA7E04C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387B1707-0E51-47E6-B079-94861EA7E04C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387B1707-0E51-47E6-B079-94861EA7E04C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387B1707-0E51-47E6-B079-94861EA7E04C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
