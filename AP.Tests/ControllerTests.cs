@@ -8,8 +8,8 @@ namespace AP.Tests
     public class ControllerTests
     {
         private ProcessorSpy syncProcessor;
-        private SignalStub signal;
         private ProcessorSpy asyncProcessor;
+        private SignalStub signal;
         private Controller controller;
         private Message message;
 
@@ -17,9 +17,9 @@ namespace AP.Tests
         public void Initialize()
         {
             syncProcessor = new ProcessorSpy();
-            signal = new SignalStub();
             asyncProcessor = new ProcessorSpy();
-            controller = new Controller(syncProcessor, signal, asyncProcessor);
+            signal = new SignalStub();
+            controller = new Controller(syncProcessor, asyncProcessor, signal);
             message = new Message();
         }
 

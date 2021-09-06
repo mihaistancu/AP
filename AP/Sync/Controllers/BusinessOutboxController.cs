@@ -7,10 +7,10 @@ namespace AP.Sync.Controllers
     public class BusinessOutboxController : Controller
     {
         public BusinessOutboxController(
-            SignatureCheckPipeline pipeline,
-            ErrorOnlySignal responder,
-            AsyncProcessor processor)
-            : base(pipeline, responder, processor)
+            SignatureCheckPipeline syncProcessor,
+            AsyncProcessor asyncProcessor,
+            ErrorOnlySignal signal)
+            : base(syncProcessor, asyncProcessor, signal)
         {
         }
     }

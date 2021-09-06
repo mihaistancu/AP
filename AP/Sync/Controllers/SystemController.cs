@@ -7,10 +7,10 @@ namespace AP.Sync.Controllers
     public class SystemController : Controller
     {
         public SystemController(
-            SignatureCheckPipeline pipeline,
-            ReceiptAndErrorSignal responder,
-            AsyncProcessor processor)
-            : base(pipeline, responder, processor)
+            SignatureCheckPipeline syncProcessor,
+            AsyncProcessor asyncProcessor,
+            ReceiptAndErrorSignal signal)
+            : base(syncProcessor, asyncProcessor, signal)
         {
         }
     }

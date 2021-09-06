@@ -7,10 +7,10 @@ namespace AP.Sync.Controllers
     public class BusinessInboundController : Controller
     {
         public BusinessInboundController(
-            DecryptionPipeline pipeline,
-            ErrorOnlySignal responder,
-            AsyncProcessor processor)
-            : base(pipeline, responder, processor)
+            DecryptionPipeline syncProcessor,
+            AsyncProcessor asyncProcessor, 
+            ErrorOnlySignal signal)
+            : base(syncProcessor, asyncProcessor, signal)
         {
         }
     }

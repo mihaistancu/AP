@@ -5,14 +5,14 @@ namespace AP.Sync
     public class Controller
     {
         private IProcessor syncProcessor;
-        private ISignal responder;
         private IProcessor asyncProcessor;
+        private ISignal signal;
 
-        public Controller(IProcessor syncProcessor, ISignal signal, IProcessor asyncProcessor)
+        public Controller(IProcessor syncProcessor, IProcessor asyncProcessor, ISignal signal)
         {
             this.syncProcessor = syncProcessor;
-            responder = signal;
             this.asyncProcessor = asyncProcessor;
+            this.signal = signal;
         }
 
         public string Handle(Message message)
@@ -24,10 +24,10 @@ namespace AP.Sync
             }
             catch (Exception exception)
             {
-                return responder.Error(exception);
+                return signal.Error(exception);
             }
 
-            return responder.Receipt();
+            return signal.Receipt();
         }
     }
 }
