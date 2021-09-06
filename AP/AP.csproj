@@ -85,6 +85,8 @@
     <Compile Include="Processing\LinearWorkflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receiver\IHandler.cs" />
+    <Compile Include="Receiver\Pipelines\SignatureCheckPipeline.cs" />
+    <Compile Include="Receiver\Pipelines\DecryptionPipeline.cs" />
     <Compile Include="Receiver\Responders\ErrorOnlyResponder.cs" />
     <Compile Include="Receiver\Responders\ReceiptAndErrorResponder.cs" />
   </ItemGroup>
