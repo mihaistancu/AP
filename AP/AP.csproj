@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Async\AsyncProcessor.cs" />
     <Compile Include="Async\ExceptionHandler.cs" />
+    <Compile Include="Async\Workers\Validation\IDocumentValidator.cs" />
     <Compile Include="IProcessor.cs" />
     <Compile Include="Async\IWorkflow.cs" />
     <Compile Include="Async\WorkerSequence.cs" />

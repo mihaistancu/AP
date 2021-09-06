@@ -5,6 +5,8 @@ using AP.Middleware.RabbitMQ.Serialization;
 using AP.Antimalware.Amsi;
 using System;
 using Unity;
+using AP.Async.Workers.Validation;
+using AP.Validation;
 
 namespace AP.Host.Console
 {
@@ -19,6 +21,7 @@ namespace AP.Host.Console
             container.RegisterType<IMessageBroker, MessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<MessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<IScanner, AmsiScanner>(TypeLifetime.Singleton);
+            container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()
