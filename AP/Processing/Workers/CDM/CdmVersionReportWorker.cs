@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Workers
+﻿namespace AP.Processing.Workers.CDM
 {
     public class CdmVersionReportWorker : Worker
     {

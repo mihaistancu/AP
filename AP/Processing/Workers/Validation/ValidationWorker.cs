@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Workers
+﻿namespace AP.Processing.Workers.Validation
 {
     public class ValidationWorker : Worker
     {

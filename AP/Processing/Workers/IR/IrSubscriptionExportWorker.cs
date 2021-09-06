@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Workers
+﻿namespace AP.Processing.Workers.IR
 {
     public class IrSubscriptionExportWorker : Worker
     {

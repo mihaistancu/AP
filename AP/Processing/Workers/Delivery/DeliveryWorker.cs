@@ -1,19 +1,19 @@
 ﻿using System;
 
-namespace AP.Processing.Workers
+namespace AP.Processing.Workers.Delivery
 {
     public class DeliveryWorker : Worker
     {
         public override void Do(Work work)
         {
-            System.Console.WriteLine("Delivery");
+            Console.WriteLine("Delivery");
 
             work.Workflow.Done(work);
         }
 
         public override void Handle(Exception exception, Work work)
         {
-            
+
         }
     }
 }
