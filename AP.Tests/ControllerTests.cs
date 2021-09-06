@@ -7,28 +7,28 @@ namespace AP.Tests
     [TestClass]
     public class ControllerTests
     {
-        private PipelineSpy pipeline;
-        private ResponderStub responder;
-        private AsyncProcessorSpy processor;
+        private ProcessorSpy syncProcessor;
+        private SignalStub signal;
+        private ProcessorSpy asyncProcessor;
         private Controller controller;
         private Message message;
 
         [TestInitialize]
         public void Initialize()
         {
-            pipeline = new PipelineSpy();
-            responder = new ResponderStub();
-            processor = new AsyncProcessorSpy();
-            controller = new Controller(pipeline, responder, processor);
+            syncProcessor = new ProcessorSpy();
+            signal = new SignalStub();
+            asyncProcessor = new ProcessorSpy();
+            controller = new Controller(syncProcessor, signal, asyncProcessor);
             message = new Message();
         }
 
         [TestMethod]
-        public void CallsPipeline()
+        public void CallsSyncProcessor()
         {
             controller.Handle(message);
 
-            Assert.IsTrue(pipeline.ProcessWasCalled);
+            Assert.IsTrue(syncProcessor.ProcessWasCalled);
         }
         
         [TestMethod]
@@ -36,13 +36,13 @@ namespace AP.Tests
         {
             controller.Handle(message);
 
-            Assert.IsTrue(processor.ProcessWasCalled);
+            Assert.IsTrue(asyncProcessor.ProcessWasCalled);
         }
 
         [TestMethod]
         public void ReturnsReceipt()
         {
-            responder.ReceiptMessage = "receipt";
+            signal.ReceiptMessage = "receipt";
 
             var response = controller.Handle(message);
 
@@ -50,10 +50,21 @@ namespace AP.Tests
         }
 
         [TestMethod]
-        public void ReturnsErrorOnException()
+        public void ReturnsErrorWhenSyncProcessorFails()
         {
-            pipeline.ThrowException = true;
-            responder.ErrorMessage = "error";
+            syncProcessor.ThrowException = true;
+            signal.ErrorMessage = "error";
+
+            var response = controller.Handle(message);
+
+            Assert.AreEqual("error", response);
+        }
+
+        [TestMethod]
+        public void ReturnsErrorWhenAsyncProcessorFails()
+        {
+            asyncProcessor.ThrowException = true;
+            signal.ErrorMessage = "error";
 
             var response = controller.Handle(message);
 

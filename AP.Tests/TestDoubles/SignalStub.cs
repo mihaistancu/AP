@@ -3,7 +3,7 @@ using System;
 
 namespace AP.Tests.TestDoubles
 {
-    public class ResponderStub : ISignal
+    public class SignalStub : ISignal
     {
         public string ReceiptMessage { get; set; }
 
