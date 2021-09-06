@@ -19,7 +19,7 @@ namespace AP.Processing.RabbitMQ.Serialization
         {
             var workerId = workerMap.Id(input.Worker);
             var workflowId = workflowMap.Id(input.Workflow);
-            var message = $"{workflowId}.{workerId}.{input.Message}";
+            var message = $"{workflowId}.{workerId}.{input.Message.Content}";
             return Encoding.UTF8.GetBytes(message);
         }
 

@@ -1,11 +1,9 @@
 ﻿using System;
 
-namespace AP
+namespace AP.Processing.RabbitMQ.Serialization
 {
     public interface IStore
     {
-        T Get<T>();
-
         T Get<T>(Type type);
     }
 }

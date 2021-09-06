@@ -13,7 +13,7 @@ namespace AP.Processing.RabbitMQ.Serialization
         public Map(IStore store)
         {
             this.store = store;
-            var assembly = Assembly.GetAssembly(typeof(IStore));
+            var assembly = Assembly.GetAssembly(typeof(Message));
             var types = assembly.GetTypes().Where(t => typeof(T).IsAssignableFrom(t));
             map = types.ToDictionary(t => t.Name, t => t);
         }

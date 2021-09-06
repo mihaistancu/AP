@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IStore.cs" />
     <Compile Include="Processing\AsyncProcessor.cs" />
     <Compile Include="Processing\ExceptionHandler.cs" />
     <Compile Include="Processing\IAsyncProcessor.cs" />

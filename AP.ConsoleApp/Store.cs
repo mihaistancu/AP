@@ -1,5 +1,6 @@
 ﻿using AP.Processing;
 using AP.Processing.RabbitMQ;
+using AP.Processing.RabbitMQ.Serialization;
 using AP.Processing.Workers.Antimalware;
 using AP.Processing.Workers.Antimalware.Amsi;
 using System;

@@ -4,23 +4,39 @@ namespace AP.Processing
 {
     public class WorkflowFactory
     {
-        private readonly IStore store;
+        private readonly IrSyncWorkflow irSync;
+        private readonly IrRequestWorkflow irRequest;
+        private readonly CdmSyncWorkflow cdmSync;
+        private readonly CdmRequestWorkflow cdmRequest;
+        private readonly CdmVersionWorkflow cdmVersion;
+        private readonly BusinessWorkflow business;
 
-        public WorkflowFactory(IStore store)
+        public WorkflowFactory(
+            IrSyncWorkflow irSync,
+            IrRequestWorkflow irRequest,
+            CdmSyncWorkflow cdmSync,
+            CdmRequestWorkflow cdmRequest,
+            CdmVersionWorkflow cdmVersion,
+            BusinessWorkflow business)
         {
-            this.store = store;
+            this.irSync = irSync;
+            this.irRequest = irRequest;
+            this.cdmSync = cdmSync;
+            this.cdmRequest = cdmRequest;
+            this.cdmVersion = cdmVersion;
+            this.business = business;
         }
 
         public IWorkflow Get(string sedType)
         {
             switch (sedType)
             {
-                case "SYN001": return store.Get<IrSyncWorkflow>();
-                case "SYN002": return store.Get<IrRequestWorkflow>();
-                case "SYN003": return store.Get<CdmSyncWorkflow>();
-                case "SYN004": return store.Get<CdmRequestWorkflow>();
-                case "SYN005": return store.Get<CdmVersionWorkflow>();
-                default: return store.Get<BusinessWorkflow>();
+                case "SYN001": return irSync;
+                case "SYN002": return irRequest;
+                case "SYN003": return cdmSync;
+                case "SYN004": return cdmRequest;
+                case "SYN005": return cdmVersion;
+                default: return business;
             }
         }
     }
