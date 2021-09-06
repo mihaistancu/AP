@@ -5,11 +5,12 @@ namespace AP.Processing.Workflows
 {
     public class BusinessWorkflow : LinearWorkflow
     {
-        public BusinessWorkflow(IStore store) : base(
-            store.Get<IMessageBroker>(),
-            store.Get<AntimalwareWorker>(),
-            store.Get<ValidationWorker>(),
-            store.Get<DeliveryWorker>())
+        public BusinessWorkflow(
+            IMessageBroker broker,
+            AntimalwareWorker antimalware,
+            ValidationWorker validation,
+            DeliveryWorker delivery) 
+            : base(broker, antimalware, validation, delivery)
         {
         }
     }

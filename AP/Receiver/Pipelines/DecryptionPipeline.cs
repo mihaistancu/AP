@@ -4,11 +4,12 @@ namespace AP.Receiver.Pipelines
 {
     public class DecryptionPipeline: Pipeline
     {
-        public DecryptionPipeline(IStore store): base(
-            store.Get<TlsCheckHandler>(),
-            store.Get<DecryptionHandler>(),
-            store.Get<ValidationHandler>(),
-            store.Get<PersistenceHandler>())
+        public DecryptionPipeline(
+            TlsCheckHandler tlsCheck,
+            DecryptionHandler decryption,
+            ValidationHandler validation,
+            PersistenceHandler persistence)
+            : base(tlsCheck, decryption, validation, persistence)
         {
         }
     }

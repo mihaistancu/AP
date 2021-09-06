@@ -4,11 +4,12 @@ namespace AP.Receiver.Pipelines
 {
     public class SignatureCheckPipeline : Pipeline
     {
-        public SignatureCheckPipeline(IStore store): base(
-            store.Get<TlsCheckHandler>(),
-            store.Get<SignatureCheckHandler>(),
-            store.Get<ValidationHandler>(),
-            store.Get<PersistenceHandler>())
+        public SignatureCheckPipeline(
+            TlsCheckHandler tlsCheck,
+            SignatureCheckHandler signatureCheck,
+            ValidationHandler validation,
+            PersistenceHandler persistence)
+            : base(tlsCheck, signatureCheck, validation, persistence)
         {
         }
     }

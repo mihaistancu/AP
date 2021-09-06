@@ -5,12 +5,13 @@ namespace AP.Processing.Workflows
 {
     public class CdmVersionWorkflow : LinearWorkflow
     {
-        public CdmVersionWorkflow(IStore store): base(
-            store.Get<IMessageBroker>(),
-            store.Get<AntimalwareWorker>(),
-            store.Get<ValidationWorker>(),
-            store.Get<CdmVersionReportWorker>(),
-            store.Get<DeliveryWorker>())
+        public CdmVersionWorkflow(
+            IMessageBroker broker,
+            AntimalwareWorker antimalware,
+            ValidationWorker validation,
+            CdmVersionReportWorker cdmVersionReport,
+            DeliveryWorker delivery)
+            : base(broker, antimalware, validation, cdmVersionReport, delivery)
         {
         }
     }

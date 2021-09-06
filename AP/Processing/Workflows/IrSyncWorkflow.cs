@@ -5,13 +5,14 @@ namespace AP.Processing.Workflows
 {
     public class IrSyncWorkflow : LinearWorkflow
     {
-        public IrSyncWorkflow(IStore store): base(
-            store.Get<IMessageBroker>(),
-            store.Get<AntimalwareWorker>(),
-            store.Get<ValidationWorker>(),
-            store.Get<IrImportWorker>(),
-            store.Get<IrSubscriptionExportWorker>(),
-            store.Get<DeliveryWorker>())
+        public IrSyncWorkflow(
+            IMessageBroker broker,
+            AntimalwareWorker antimalware,
+            ValidationWorker validation,
+            IrImportWorker irImport,
+            IrSubscriptionExportWorker irSubscriptionExport,
+            DeliveryWorker delivery)
+            : base(broker, antimalware, validation, irImport, irSubscriptionExport, delivery)
         {
         }
     }

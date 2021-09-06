@@ -6,10 +6,11 @@ namespace AP.Receiver.Controllers
 {
     public class SystemController : Controller
     {
-        public SystemController(IStore store): base(
-            store.Get<SignatureCheckPipeline>(),
-            store.Get<ReceiptAndErrorResponder>(),
-            store.Get<AsyncProcessor>())
+        public SystemController(
+            SignatureCheckPipeline pipeline,
+            ReceiptAndErrorResponder responder,
+            AsyncProcessor processor)
+            : base(pipeline, responder, processor)
         {
         }
     }

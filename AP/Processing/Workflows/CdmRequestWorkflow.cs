@@ -5,12 +5,13 @@ namespace AP.Processing.Workflows
 {
     public class CdmRequestWorkflow : LinearWorkflow
     {
-        public CdmRequestWorkflow(IStore store): base(
-            store.Get<IMessageBroker>(),
-            store.Get<AntimalwareWorker>(),
-            store.Get<ValidationWorker>(),
-            store.Get<CdmRequestExportWorker>(),
-            store.Get<DeliveryWorker>())
+        public CdmRequestWorkflow(
+            IMessageBroker broker,
+            AntimalwareWorker antimalware,
+            ValidationWorker validation,
+            CdmRequestExportWorker cdmRequestExport,
+            DeliveryWorker delivery)
+            : base(broker, antimalware, validation, cdmRequestExport, delivery)
         {
         }
     }

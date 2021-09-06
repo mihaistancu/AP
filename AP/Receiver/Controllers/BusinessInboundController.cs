@@ -6,10 +6,11 @@ namespace AP.Receiver.Controllers
 {
     public class BusinessInboundController : Controller
     {
-        public BusinessInboundController(IStore store): base(
-            store.Get<DecryptionPipeline>(),
-            store.Get<ErrorOnlyResponder>(),
-            store.Get<AsyncProcessor>())
+        public BusinessInboundController(
+            DecryptionPipeline pipeline,
+            ErrorOnlyResponder responder,
+            AsyncProcessor processor)
+            : base(pipeline, responder, processor)
         {
         }
     }

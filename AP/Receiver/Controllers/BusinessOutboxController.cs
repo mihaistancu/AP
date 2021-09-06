@@ -6,10 +6,11 @@ namespace AP.Receiver.Controllers
 {
     public class BusinessOutboxController : Controller
     {
-        public BusinessOutboxController(IStore store): base(
-            store.Get<SignatureCheckPipeline>(),
-            store.Get<ErrorOnlyResponder>(), 
-            store.Get<AsyncProcessor>())
+        public BusinessOutboxController(
+            SignatureCheckPipeline pipeline,
+            ErrorOnlyResponder responder,
+            AsyncProcessor processor)
+            : base(pipeline, responder, processor)
         {
         }
     }
