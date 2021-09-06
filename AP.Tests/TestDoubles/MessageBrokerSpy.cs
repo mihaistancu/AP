@@ -1,4 +1,4 @@
-﻿using AP.Processing;
+﻿using AP.Async;
 
 namespace AP.Tests.TestDoubles
 {

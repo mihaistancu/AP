@@ -1,4 +1,4 @@
-﻿using AP.Processing;
+﻿using AP.Async;
 using AP.Tests.TestDoubles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

@@ -1,4 +1,4 @@
-﻿using AP.Receiver;
+﻿using AP.Sync;
 using AP.Tests.TestDoubles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

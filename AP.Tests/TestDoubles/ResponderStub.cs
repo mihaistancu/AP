@@ -1,9 +1,9 @@
-﻿using AP.Receiver;
+﻿using AP.Sync;
 using System;
 
 namespace AP.Tests.TestDoubles
 {
-    public class ResponderStub : IResponder
+    public class ResponderStub : ISignal
     {
         public string ReceiptMessage { get; set; }
 

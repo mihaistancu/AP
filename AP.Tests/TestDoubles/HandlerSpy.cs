@@ -1,4 +1,4 @@
-﻿using AP.Receiver;
+﻿using AP.Sync;
 
 namespace AP.Tests.TestDoubles
 {

@@ -1,8 +1,6 @@
-﻿using AP.Processing;
-
-namespace AP.Tests.TestDoubles
+﻿namespace AP.Tests.TestDoubles
 {
-    public class AsyncProcessorSpy : IAsyncProcessor
+    public class AsyncProcessorSpy : IProcessor
     {
         public bool ProcessWasCalled { get; private set; }
 
