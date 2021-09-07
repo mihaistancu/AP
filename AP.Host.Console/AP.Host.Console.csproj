@@ -71,6 +71,10 @@
       <Project>{387b1707-0e51-47e6-b079-94861ea7e04c}</Project>
       <Name>AP.Antimalware.Amsi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Delivery\AP.Delivery.csproj">
+      <Project>{f0663955-6a27-42c7-bacc-3f7461b87367}</Project>
+      <Name>AP.Delivery</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
       <Project>{b5fa51c6-5ddb-4e52-8a56-2dbf6b6c1282}</Project>
       <Name>AP.Middleware.RabbitMQ</Name>

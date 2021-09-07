@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Async\AsyncProcessor.cs" />
     <Compile Include="Async\ExceptionHandler.cs" />
+    <Compile Include="Async\Workers\Delivery\IRouter.cs" />
     <Compile Include="Async\Workers\Validation\IDocumentValidator.cs" />
     <Compile Include="IProcessor.cs" />
     <Compile Include="Async\IWorkflow.cs" />
@@ -71,7 +72,8 @@
     <Compile Include="Sync\Controllers\BusinessOutboxController.cs" />
     <Compile Include="Sync\Controllers\BusinessInboundController.cs" />
     <Compile Include="Sync\Handlers\PersistenceHandler.cs" />
-    <Compile Include="Sync\Handlers\ValidationHandler.cs" />
+    <Compile Include="Sync\Handlers\Validation\IEnvelopeValidator.cs" />
+    <Compile Include="Sync\Handlers\Validation\ValidationHandler.cs" />
     <Compile Include="Sync\Handlers\DecryptionHandler.cs" />
     <Compile Include="Sync\Handlers\TlsCheckHandler.cs" />
     <Compile Include="Sync\ISignal.cs" />

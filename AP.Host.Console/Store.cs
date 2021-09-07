@@ -7,6 +7,8 @@ using System;
 using Unity;
 using AP.Async.Workers.Validation;
 using AP.Validation;
+using AP.Sync.Handlers.Validation;
+using AP.Async.Workers.Delivery;
 
 namespace AP.Host.Console
 {
@@ -22,6 +24,8 @@ namespace AP.Host.Console
             container.RegisterType<MessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<IScanner, AmsiScanner>(TypeLifetime.Singleton);
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
+            container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
+            container.RegisterType<IRouter, Delivery.Router>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()
