@@ -1,4 +1,4 @@
-﻿namespace AP.Async.Workers.IR
+﻿namespace AP.Async.Workers.IR.Import
 {
     public interface IIrParser
     {

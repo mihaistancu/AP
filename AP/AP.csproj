@@ -44,7 +44,7 @@
     <Compile Include="Async\AsyncProcessor.cs" />
     <Compile Include="Async\ExceptionHandler.cs" />
     <Compile Include="Async\Workers\Delivery\IRouter.cs" />
-    <Compile Include="Async\Workers\IR\IIrParser.cs" />
+    <Compile Include="Async\Workers\IR\Import\IIrParser.cs" />
     <Compile Include="Async\Workers\IR\IIrStorage.cs" />
     <Compile Include="Async\Workers\IR\IrData.cs" />
     <Compile Include="Async\Workers\Validation\IDocumentValidator.cs" />
@@ -66,9 +66,9 @@
     <Compile Include="Async\Workers\CDM\CdmImportWorker.cs" />
     <Compile Include="Async\Workers\CDM\CdmSubscriptionExportWorker.cs" />
     <Compile Include="Async\Workers\CDM\CdmRequestExportWorker.cs" />
-    <Compile Include="Async\Workers\IR\IrSubscriptionExportWorker.cs" />
-    <Compile Include="Async\Workers\IR\IrRequestExportWorker.cs" />
-    <Compile Include="Async\Workers\IR\IrImportWorker.cs" />
+    <Compile Include="Async\Workers\IR\Export\IrSubscriptionExportWorker.cs" />
+    <Compile Include="Async\Workers\IR\Export\IrRequestExportWorker.cs" />
+    <Compile Include="Async\Workers\IR\Import\IrImportWorker.cs" />
     <Compile Include="Async\Workers\Validation\ValidationWorker.cs" />
     <Compile Include="Sync\Handlers\SignatureCheckHandler.cs" />
     <Compile Include="Sync\Controllers\SystemController.cs" />

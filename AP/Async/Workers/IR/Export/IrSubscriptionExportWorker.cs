@@ -1,4 +1,4 @@
-﻿namespace AP.Async.Workers.IR
+﻿namespace AP.Async.Workers.IR.Export
 {
     public class IrSubscriptionExportWorker : Worker
     {

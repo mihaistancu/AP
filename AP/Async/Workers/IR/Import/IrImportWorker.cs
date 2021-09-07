@@ -1,4 +1,6 @@
-﻿namespace AP.Async.Workers.IR
+﻿using AP.Async.Workers.IR.Import;
+
+namespace AP.Async.Workers.IR
 {
     public class IrImportWorker : Worker
     {
