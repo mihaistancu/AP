@@ -1,6 +1,8 @@
-﻿namespace AP.Async.Workers.CDM.Import
+﻿using System.Collections.Generic;
+
+namespace AP.Async.Workers.CDM.Import
 {
-    public class CdmImportWorker : Worker
+    public class CdmImportWorker : IWorker
     {
         private readonly ICdmParser parser;
         private readonly ICdmStorage storage;
@@ -11,14 +13,14 @@
             this.storage = storage;
         }
 
-        public override void Do(Work work)
+        public IEnumerable<Message> Handle(Message message)
         {
             System.Console.WriteLine("CdmImport");
 
-            var data = parser.Parse(work.Message);
+            var data = parser.Parse(message);
             storage.Save(data);
 
-            work.Workflow.Next(work);
+            yield return message;
         }
     }
 }

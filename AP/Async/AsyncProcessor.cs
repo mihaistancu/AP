@@ -15,14 +15,11 @@
         {
             var workflow = factory.Get(message.SedType);
 
-            var work = new Work
-            {
-                Message = message,
-                Workflow = workflow,
+            var context = new Context
+            {   
                 ExceptionHandler = exceptionHandler
             };
-
-            workflow.Start(work);
+            workflow.Start(context, message);
         }
     }
 }

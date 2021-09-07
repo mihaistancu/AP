@@ -1,6 +1,8 @@
-﻿namespace AP.Async.Workers.CDM.Report
+﻿using System.Collections.Generic;
+
+namespace AP.Async.Workers.CDM.Report
 {
-    public class CdmVersionReportWorker : Worker
+    public class CdmVersionReportWorker : IWorker
     {
         private readonly ICdmReportBuilder builder;
 
@@ -9,13 +11,13 @@
             this.builder = builder;
         }
 
-        public override void Do(Work work)
+        public IEnumerable<Message> Handle(Message message)
         {
             System.Console.WriteLine("CdmVersion");
 
             var newMessage = builder.Build();
 
-            work.Workflow.Next(work, new[] { newMessage });
+            yield return newMessage;
         }
     }
 }

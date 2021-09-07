@@ -4,8 +4,7 @@ namespace AP.Async
 {
     public interface IWorkflow
     {
-        void Start(Work work);
-        void Next(Work work);
-        void Next(Work work, IEnumerable<Message> newMessages);
+        void Start(Context context, Message message);
+        void Next(Context context, IEnumerable<Message> messages);
     }
 }

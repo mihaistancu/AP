@@ -1,8 +1,9 @@
 ﻿using AP.Async.Workers.IR.Import;
+using System.Collections.Generic;
 
 namespace AP.Async.Workers.IR
 {
-    public class IrImportWorker : Worker
+    public class IrImportWorker : IWorker
     {
         private IIrParser parser;
         private IIrStorage storage;
@@ -13,14 +14,14 @@ namespace AP.Async.Workers.IR
             this.storage = storage;
         }
 
-        public override void Do(Work work)
+        public IEnumerable<Message> Handle(Message message)
         {
             System.Console.WriteLine("IrImport");
 
-            var data = parser.Parse(work.Message.Blob);
+            var data = parser.Parse(message.Blob);
             storage.Save(data);
 
-            work.Workflow.Next(work);
+            yield return message;
         }
     }
 }

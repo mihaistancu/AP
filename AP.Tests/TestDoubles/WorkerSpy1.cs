@@ -1,14 +1,16 @@
 ﻿using AP.Async;
+using System.Collections.Generic;
 
 namespace AP.Tests.TestDoubles
 {
-    public class WorkerSpy1 : Worker
+    public class WorkerSpy1 : IWorker
     {
-        public bool DoWasCalled { get; private set; }
+        public bool HandleWasCalled { get; private set; }
 
-        public override void Do(Work work)
+        public IEnumerable<Message> Handle(Message message)
         {
-            DoWasCalled = true;
+            HandleWasCalled = true;
+            yield return message;
         }
     }
 }

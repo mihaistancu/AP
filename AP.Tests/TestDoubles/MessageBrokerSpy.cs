@@ -1,21 +1,15 @@
 ﻿using AP.Async;
+using System.Collections.Generic;
 
 namespace AP.Tests.TestDoubles
 {
     public class MessageBrokerSpy : IMessageBroker
     {
-        public Worker CalledWorker { get; private set; }
-
-        public void Send(Work input)
+        public IWorker CalledWorker { get; private set; }
+        
+        public void Send(Context context, IEnumerable<Message> messages)
         {
-            CalledWorker = input.Worker;
-        }
-
-        public Message SentMessage { get; set; }
-
-        public void Send(Message message)
-        {
-            SentMessage = message;
+            CalledWorker = context.Worker;
         }
     }
 }

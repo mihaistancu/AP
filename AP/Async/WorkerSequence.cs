@@ -4,25 +4,25 @@ namespace AP.Async
 {
     public class WorkerSequence
     {
-        private Worker[] workers;
+        private IWorker[] workers;
 
-        public WorkerSequence(params Worker[] workers)
+        public WorkerSequence(params IWorker[] workers)
         {
             this.workers = workers;
         }
 
-        public Worker GetFirst()
+        public IWorker GetFirst()
         {
             return workers[0];
         }
 
-        public bool IsLast(Worker worker)
+        public bool IsLast(IWorker worker)
         {
-            Worker last = workers[workers.Length - 1];
-            return last == worker;
+            IWorker last = workers[workers.Length - 1];
+            return last.GetType() == worker.GetType();
         }
 
-        public Worker GetNext(Worker worker)
+        public IWorker GetNext(IWorker worker)
         {
             int index = Array.FindIndex(workers, w => w.GetType() == worker.GetType());
             return workers[index + 1];

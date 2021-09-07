@@ -1,6 +1,8 @@
-﻿namespace AP.Async.Workers.Validation
+﻿using System.Collections.Generic;
+
+namespace AP.Async.Workers.Validation
 {
-    public class ValidationWorker : Worker
+    public class ValidationWorker : IWorker
     {
         private readonly IDocumentValidator validator;
 
@@ -9,13 +11,13 @@
             this.validator = validator;
         }
 
-        public override void Do(Work work)
+        public IEnumerable<Message> Handle(Message message)
         {
             System.Console.WriteLine("Validation");
 
-            validator.Validate(work.Message);
+            validator.Validate(message);
 
-            work.Workflow.Next(work);
+            yield return message;
         }
     }
 }

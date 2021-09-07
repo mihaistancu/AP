@@ -44,14 +44,14 @@ namespace AP.Middleware.RabbitMQ
 
         private async Task OnReceived(object sender, BasicDeliverEventArgs e)
         {
-            var work = serializer.Deserialize(e.Body.ToArray());
+            var (context, message) = serializer.Deserialize(e.Body.ToArray());
             await Task.Delay(250);
-            work.Worker.TryDo(work);
+            context.Handle(message);
         }
 
-        public void Send(Work input)
+        public void Send(Context context, Message message)
         {
-            var body = serializer.Serialize(input);
+            var body = serializer.Serialize(context, message);
             using (var sendChannel = connection.CreateModel())
             {
                 sendChannel.BasicPublish(
@@ -62,12 +62,11 @@ namespace AP.Middleware.RabbitMQ
             }
         }
 
-        public void Send(Work input, IEnumerable<Message> batch)
+        public void Send(Context context, IEnumerable<Message> batch)
         {
             foreach (var message in batch)
             {
-                input.Message = message;
-                Send(input);
+                Send(context, message);
             }
         }
 

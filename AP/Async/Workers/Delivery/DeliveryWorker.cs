@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AP.Async.Workers.Delivery
 {
-    public class DeliveryWorker : Worker
+    public class DeliveryWorker : IWorker
     {
         private readonly IRouter router;
 
@@ -11,18 +12,14 @@ namespace AP.Async.Workers.Delivery
             this.router = router;
         }
 
-        public override void Do(Work work)
+        public IEnumerable<Message> Handle(Message message)
         {
+            Console.WriteLine("hello");
             Console.WriteLine("Delivery");
 
-            router.Route(work.Message);
+            router.Route(message);
 
-            work.Workflow.Next(work);
-        }
-
-        public override void Handle(Exception exception, Work work)
-        {
-
+            yield return message;
         }
     }
 }

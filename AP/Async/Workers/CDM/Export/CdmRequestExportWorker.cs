@@ -1,6 +1,8 @@
-﻿namespace AP.Async.Workers.CDM.Export
+﻿using System.Collections.Generic;
+
+namespace AP.Async.Workers.CDM.Export
 {
-    public class CdmRequestExportWorker : Worker
+    public class CdmRequestExportWorker : IWorker
     {
         private readonly ICdmExportBuilder builder;
 
@@ -9,14 +11,14 @@
             this.builder = builder;
         }
 
-        public override void Do(Work work)
+        public IEnumerable<Message> Handle(Message message)
         {
             System.Console.WriteLine("CdmRequestExport");
 
-            builder.UseRequest(work.Message);
+            builder.UseRequest(message);
             var newMessages = builder.Build();
 
-            work.Workflow.Next(work, newMessages);
+            return newMessages;
         }
     }
 }

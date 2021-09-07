@@ -1,6 +1,8 @@
-﻿namespace AP.Async.Workers.IR.Export
+﻿using System.Collections.Generic;
+
+namespace AP.Async.Workers.IR.Export
 {
-    public class IrSubscriptionExportWorker : Worker
+    public class IrSubscriptionExportWorker : IWorker
     {
         private IIrExportBuilder builder;
 
@@ -9,14 +11,14 @@
             this.builder = builder;
         }
 
-        public override void Do(Work work)
+        public IEnumerable<Message> Handle(Message message)
         {
             System.Console.WriteLine("IrSubscriptionExport");
 
             builder.UseSubscriptions();
             var newMessages = builder.Build();
 
-            work.Workflow.Next(work, newMessages);
+            return newMessages;
         }
     }
 }

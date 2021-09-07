@@ -7,31 +7,25 @@ namespace AP.Async
         private readonly IMessageBroker broker;
         private WorkerSequence sequence;
 
-        public LinearWorkflow(IMessageBroker broker, params Worker[] workers)
+        public LinearWorkflow(IMessageBroker broker, params IWorker[] workers)
         {
             sequence = new WorkerSequence(workers);
             this.broker = broker;
         }
 
-        public void Start(Work work)
+        public void Start(Context context, Message message)
         {
-            work.Worker = sequence.GetFirst();
-            broker.Send(work);
+            context.Worker = sequence.GetFirst();
+            broker.Send(context, new[] { message });
         }
-
-        public void Next(Work work)
+        
+        public void Next(Context context, IEnumerable<Message> messages)
         {
-            if (!sequence.IsLast(work.Worker))
+            if (!sequence.IsLast(context.Worker))
             {
-                work.Worker = sequence.GetNext(work.Worker);
-                broker.Send(work);
+                context.Worker = sequence.GetNext(context.Worker);
+                broker.Send(context, messages);
             }
-        }
-
-        public void Next(Work work, IEnumerable<Message> newMessages)
-        {       
-            work.Worker = sequence.GetNext(work.Worker);
-            broker.Send(work, newMessages);
         }
     }
 }
