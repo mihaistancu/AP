@@ -75,6 +75,10 @@
       <Project>{f0663955-6a27-42c7-bacc-3f7461b87367}</Project>
       <Name>AP.Delivery</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.IR\AP.IR.csproj">
+      <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
+      <Name>AP.IR</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
       <Project>{b5fa51c6-5ddb-4e52-8a56-2dbf6b6c1282}</Project>
       <Name>AP.Middleware.RabbitMQ</Name>

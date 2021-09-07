@@ -2,9 +2,21 @@
 {
     public class IrImportWorker : Worker
     {
+        private IIrParser parser;
+        private IIrStorage storage;
+
+        public IrImportWorker(IIrParser parser, IIrStorage storage)
+        {
+            this.parser = parser;
+            this.storage = storage;
+        }
+
         public override void Do(Work work)
         {
             System.Console.WriteLine("IrImport");
+
+            var data = parser.Parse(work.Message.Blob);
+            storage.Save(data);
 
             work.Workflow.Done(work);
         }

@@ -44,6 +44,9 @@
     <Compile Include="Async\AsyncProcessor.cs" />
     <Compile Include="Async\ExceptionHandler.cs" />
     <Compile Include="Async\Workers\Delivery\IRouter.cs" />
+    <Compile Include="Async\Workers\IR\IIrParser.cs" />
+    <Compile Include="Async\Workers\IR\IIrStorage.cs" />
+    <Compile Include="Async\Workers\IR\IrData.cs" />
     <Compile Include="Async\Workers\Validation\IDocumentValidator.cs" />
     <Compile Include="IProcessor.cs" />
     <Compile Include="Async\IWorkflow.cs" />

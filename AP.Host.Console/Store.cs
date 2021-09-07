@@ -9,6 +9,8 @@ using AP.Async.Workers.Validation;
 using AP.Validation;
 using AP.Sync.Handlers.Validation;
 using AP.Async.Workers.Delivery;
+using AP.IR;
+using AP.Async.Workers.IR;
 
 namespace AP.Host.Console
 {
@@ -26,6 +28,8 @@ namespace AP.Host.Console
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
             container.RegisterType<IRouter, Delivery.Router>(TypeLifetime.Singleton);
+            container.RegisterType<IIrParser, IrParser>(TypeLifetime.Singleton);
+            container.RegisterType<IIrStorage, IrStorage>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()
