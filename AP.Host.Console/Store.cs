@@ -31,6 +31,7 @@ namespace AP.Host.Console
             container.RegisterType<IRouter, Delivery.Router>(TypeLifetime.Singleton);
             container.RegisterType<IIrParser, IrParser>(TypeLifetime.Singleton);
             container.RegisterType<IIrStorage, IrStorage>(TypeLifetime.Singleton);
+            container.RegisterType<IIrMessageBuilder, IrMessageBuilder>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()

@@ -2,9 +2,19 @@
 {
     public class IrSubscriptionExportWorker : Worker
     {
+        private IIrMessageBuilder builder;
+
+        public IrSubscriptionExportWorker(IIrMessageBuilder builder)
+        {
+            this.builder = builder;
+        }
+
         public override void Do(Work work)
         {
             System.Console.WriteLine("IrSubscriptionExport");
+
+            builder.UseSubscriptions();
+            work.Message = builder.Build();
 
             work.Workflow.Done(work);
         }
