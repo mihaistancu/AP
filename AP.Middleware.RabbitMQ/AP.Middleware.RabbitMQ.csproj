@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageBroker.cs" />
+    <Compile Include="RabbitMqMessageBroker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\IStore.cs" />
     <Compile Include="Serialization\Serializer.cs" />

@@ -28,8 +28,8 @@ namespace AP.Host.Console
         {
             container = new UnityContainer();
             container.RegisterInstance<IStore>(this);
-            container.RegisterType<IMessageBroker, MessageBroker>(TypeLifetime.Singleton);
-            container.RegisterType<MessageBroker>(TypeLifetime.Singleton);
+            container.RegisterType<MessageBroker, RabbitMqMessageBroker>(TypeLifetime.Singleton);
+            container.RegisterType<RabbitMqMessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<IScanner, AmsiScanner>(TypeLifetime.Singleton);
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);

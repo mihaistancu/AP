@@ -14,7 +14,6 @@ namespace AP.Async.Workers.Delivery
 
         public IEnumerable<Message> Handle(Message message)
         {
-            Console.WriteLine("hello");
             Console.WriteLine("Delivery");
 
             router.Route(message);

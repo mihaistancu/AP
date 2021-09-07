@@ -8,7 +8,7 @@ namespace AP.Host.Console
         static void Main(string[] args)
         {
             using (var store = new Store())
-            using (var broker = store.Get<MessageBroker>())
+            using (var broker = store.Get<RabbitMqMessageBroker>())
             {
                 broker.Connect();
 

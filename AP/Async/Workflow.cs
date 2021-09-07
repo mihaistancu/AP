@@ -2,11 +2,11 @@
 
 namespace AP.Async
 {
-    public class WorkerSequence
+    public class Workflow
     {
         private IWorker[] workers;
 
-        public WorkerSequence(params IWorker[] workers)
+        public Workflow(params IWorker[] workers)
         {
             this.workers = workers;
         }

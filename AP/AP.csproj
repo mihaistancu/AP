@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Async\AsyncProcessor.cs" />
     <Compile Include="Async\ExceptionHandler.cs" />
+    <Compile Include="Async\MessageBroker.cs" />
     <Compile Include="Async\IWorker.cs" />
     <Compile Include="Async\Workers\CDM\CdmData.cs" />
     <Compile Include="Async\Workers\CDM\Export\ICdmExportBuilder.cs" />
@@ -56,8 +57,7 @@
     <Compile Include="Async\Workers\IR\IrData.cs" />
     <Compile Include="Async\Workers\Validation\IDocumentValidator.cs" />
     <Compile Include="IProcessor.cs" />
-    <Compile Include="Async\IWorkflow.cs" />
-    <Compile Include="Async\WorkerSequence.cs" />
+    <Compile Include="Async\Workflow.cs" />
     <Compile Include="Async\Workers\Antimalware\AntimalwareWorker.cs" />
     <Compile Include="Async\Workers\Antimalware\IScanner.cs" />
     <Compile Include="Async\Workers\Antimalware\VirusDetectedException.cs" />
@@ -88,11 +88,9 @@
     <Compile Include="Sync\Handlers\TlsCheckHandler.cs" />
     <Compile Include="Sync\ISignal.cs" />
     <Compile Include="Sync\Controller.cs" />
-    <Compile Include="Async\IMessageBroker.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Sync\Pipeline.cs" />
     <Compile Include="Async\Context.cs" />
-    <Compile Include="Async\LinearWorkflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sync\IHandler.cs" />
     <Compile Include="Sync\Pipelines\SignatureCheckPipeline.cs" />

@@ -8,7 +8,7 @@ namespace AP.Tests
     public class PipelineTests
     {
         [TestMethod]
-        public void CanTriggerDifferentProcessingSteps()
+        public void CallsGivenHandlers()
         {
             var handler1 = new HandlerSpy();
             var handler2 = new HandlerSpy();

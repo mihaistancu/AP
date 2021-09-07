@@ -3,12 +3,12 @@
     public class AsyncProcessor : IProcessor
     {
         private readonly WorkflowFactory factory;
-        private readonly ExceptionHandler exceptionHandler;
+        private readonly MessageBroker broker;
 
-        public AsyncProcessor(WorkflowFactory factory, ExceptionHandler exceptionHandler)
+        public AsyncProcessor(WorkflowFactory factory, MessageBroker broker)
         {
             this.factory = factory;
-            this.exceptionHandler = exceptionHandler;
+            this.broker = broker;
         }
 
         public void Process(Message message)
@@ -17,9 +17,10 @@
 
             var context = new Context
             {   
-                ExceptionHandler = exceptionHandler
+                Worker = workflow.GetFirst(),
+                Workflow = workflow
             };
-            workflow.Start(context, message);
+            broker.Send(context, new[] { message });
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AP.Tests.TestDoubles
 {
-    public class WorkflowSpy : IWorkflow
+    public class WorkflowSpy : Workflow
     {
         public bool NextWasCalled { get; private set; }
 

@@ -5,15 +5,14 @@ using AP.Async.Workers.Validation;
 
 namespace AP.Async.Workflows
 {
-    public class CdmVersionWorkflow : LinearWorkflow
+    public class CdmVersionWorkflow : Workflow
     {
         public CdmVersionWorkflow(
-            IMessageBroker broker,
             AntimalwareWorker antimalware,
             ValidationWorker validation,
             CdmVersionReportWorker cdmVersionReport,
             DeliveryWorker delivery)
-            : base(broker, antimalware, validation, cdmVersionReport, delivery)
+            : base(antimalware, validation, cdmVersionReport, delivery)
         {
         }
     }

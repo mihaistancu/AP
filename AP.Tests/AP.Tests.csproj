@@ -52,7 +52,6 @@
     <Compile Include="ControllerTests.cs" />
     <Compile Include="TestDoubles\ProcessorSpy.cs" />
     <Compile Include="TestDoubles\WorkerSpy2.cs" />
-    <Compile Include="WorkflowTests.cs" />
     <Compile Include="TestDoubles\MessageBrokerSpy.cs" />
     <Compile Include="PipelineTests.cs" />
     <Compile Include="TestDoubles\SignalStub.cs" />

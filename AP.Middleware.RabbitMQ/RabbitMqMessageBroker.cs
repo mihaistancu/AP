@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ
 {
-    public class MessageBroker : IMessageBroker, IDisposable
-    {
+    public class RabbitMqMessageBroker : MessageBroker, IDisposable
+    {   
         private readonly Serializer serializer;
 
-        public MessageBroker(Serializer serializer)
+        public RabbitMqMessageBroker(
+            Serializer serializer, 
+            ExceptionHandler exceptionHandler)
+            : base(exceptionHandler)
         {
             this.serializer = serializer;
         }
@@ -46,7 +49,7 @@ namespace AP.Middleware.RabbitMQ
         {
             var (context, message) = serializer.Deserialize(e.Body.ToArray());
             await Task.Delay(250);
-            context.Handle(message);
+            Handle(context, message);
         }
 
         public void Send(Context context, Message message)
@@ -62,7 +65,7 @@ namespace AP.Middleware.RabbitMQ
             }
         }
 
-        public void Send(Context context, IEnumerable<Message> batch)
+        public override void Send(Context context, IEnumerable<Message> batch)
         {
             foreach (var message in batch)
             {

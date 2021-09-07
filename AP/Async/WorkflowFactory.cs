@@ -27,7 +27,7 @@ namespace AP.Async
             this.business = business;
         }
 
-        public IWorkflow Get(string sedType)
+        public Workflow Get(string sedType)
         {
             switch (sedType)
             {

@@ -4,14 +4,13 @@ using AP.Async.Workers.Validation;
 
 namespace AP.Async.Workflows
 {
-    public class BusinessWorkflow : LinearWorkflow
+    public class BusinessWorkflow : Workflow
     {
         public BusinessWorkflow(
-            IMessageBroker broker,
             AntimalwareWorker antimalware,
             ValidationWorker validation,
             DeliveryWorker delivery)
-            : base(broker, antimalware, validation, delivery)
+            : base(antimalware, validation, delivery)
         {
         }
     }

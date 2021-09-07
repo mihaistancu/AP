@@ -5,11 +5,11 @@ namespace AP.Middleware.RabbitMQ.Serialization
 {
     public class Serializer
     {
-        private readonly Map<IWorkflow> workflowMap;
+        private readonly Map<Workflow> workflowMap;
         private readonly Map<IWorker> workerMap;
 
         public Serializer(
-            Map<IWorkflow> workflowMap,
+            Map<Workflow> workflowMap,
             Map<IWorker> workerMap)
         {
             this.workflowMap = workflowMap;
