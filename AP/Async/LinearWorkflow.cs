@@ -1,4 +1,6 @@
-﻿namespace AP.Async
+﻿using System.Collections.Generic;
+
+namespace AP.Async
 {
     public class LinearWorkflow : IWorkflow
     {
@@ -11,6 +13,12 @@
             this.broker = broker;
         }
 
+        public void Start(Work work)
+        {
+            work.Worker = sequence.GetFirst();
+            broker.Send(work);
+        }
+
         public void Next(Work work)
         {
             if (!sequence.IsLast(work.Worker))
@@ -20,10 +28,15 @@
             }
         }
 
-        public void Start(Work work)
-        {
-            work.Worker = sequence.GetFirst();
-            broker.Send(work);
+        public void Next(Work work, IEnumerable<Message> newMessages)
+        {       
+            work.Worker = sequence.GetNext(work.Worker);
+
+            foreach (var message in newMessages)
+            {
+                work.Message = message;
+                broker.Send(work);
+            }
         }
     }
 }

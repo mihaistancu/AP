@@ -1,9 +1,11 @@
-﻿namespace AP
+﻿using System.Collections.Generic;
+
+namespace AP
 {
     public interface IIrMessageBuilder
     {
         void UseRequest(Message message);
-        Message Build();
+        List<Message> Build();
         void UseSubscriptions();
     }
 }

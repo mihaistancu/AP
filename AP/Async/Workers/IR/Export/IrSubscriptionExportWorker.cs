@@ -14,9 +14,9 @@
             System.Console.WriteLine("IrSubscriptionExport");
 
             builder.UseSubscriptions();
-            work.Message = builder.Build();
+            var newMessages = builder.Build();
 
-            work.Workflow.Next(work);
+            work.Workflow.Next(work, newMessages);
         }
     }
 }

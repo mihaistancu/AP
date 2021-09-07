@@ -14,9 +14,9 @@
             System.Console.WriteLine("IrRequestExport");
 
             builder.UseRequest(work.Message);
-            work.Message = builder.Build();
+            var newMessages = builder.Build();
 
-            work.Workflow.Next(work);
+            work.Workflow.Next(work, newMessages);
         }
     }
 }

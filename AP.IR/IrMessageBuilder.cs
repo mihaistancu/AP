@@ -1,4 +1,6 @@
-﻿namespace AP.IR
+﻿using System.Collections.Generic;
+
+namespace AP.IR
 {
     public class IrMessageBuilder : IIrMessageBuilder
     {
@@ -12,12 +14,15 @@
             
         }
 
-        public Message Build()
+        public List<Message> Build()
         {
-            return new Message
-            {
-                SedType = "SYN001",
-                Content = "SYN001"
+            return new List<Message>
+            { 
+                new Message
+                {
+                    SedType = "SYN001",
+                    Content = "SYN001"
+                }
             };
         }
     }
