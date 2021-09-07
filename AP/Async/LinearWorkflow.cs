@@ -31,12 +31,7 @@ namespace AP.Async
         public void Next(Work work, IEnumerable<Message> newMessages)
         {       
             work.Worker = sequence.GetNext(work.Worker);
-
-            foreach (var message in newMessages)
-            {
-                work.Message = message;
-                broker.Send(work);
-            }
+            broker.Send(work, newMessages);
         }
     }
 }

@@ -22,6 +22,11 @@ namespace AP.IR
                 {
                     SedType = "SYN001",
                     Content = "SYN001"
+                },
+                new Message
+                {
+                    SedType = "SYN001",
+                    Content = "SYN001"
                 }
             };
         }

@@ -3,6 +3,7 @@ using AP.Middleware.RabbitMQ.Serialization;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ
@@ -58,6 +59,15 @@ namespace AP.Middleware.RabbitMQ
                     routingKey: "hello",
                     basicProperties: null,
                     body: body);
+            }
+        }
+
+        public void Send(Work input, IEnumerable<Message> batch)
+        {
+            foreach (var message in batch)
+            {
+                input.Message = message;
+                Send(input);
             }
         }
 
