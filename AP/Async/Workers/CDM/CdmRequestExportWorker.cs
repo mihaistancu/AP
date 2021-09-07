@@ -6,7 +6,7 @@
         {
             System.Console.WriteLine("CdmRequestExport");
 
-            work.Workflow.Done(work);
+            work.Workflow.Next(work);
         }
     }
 }

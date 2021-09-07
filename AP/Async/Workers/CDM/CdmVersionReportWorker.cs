@@ -6,7 +6,7 @@
         {
             System.Console.WriteLine("CdmVersion");
 
-            work.Workflow.Done(work);
+            work.Workflow.Next(work);
         }
     }
 }

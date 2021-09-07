@@ -6,7 +6,7 @@
         {
             System.Console.WriteLine("CdmImport");
 
-            work.Workflow.Done(work);
+            work.Workflow.Next(work);
         }
     }
 }

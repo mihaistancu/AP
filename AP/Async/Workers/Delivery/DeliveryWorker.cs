@@ -17,7 +17,7 @@ namespace AP.Async.Workers.Delivery
 
             router.Route(work.Message);
 
-            work.Workflow.Done(work);
+            work.Workflow.Next(work);
         }
 
         public override void Handle(Exception exception, Work work)

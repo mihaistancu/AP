@@ -11,7 +11,7 @@
             this.broker = broker;
         }
 
-        public void Done(Work work)
+        public void Next(Work work)
         {
             if (!sequence.IsLast(work.Worker))
             {

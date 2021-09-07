@@ -2,7 +2,7 @@
 {
     public interface IWorkflow
     {
-        void Done(Work work);
+        void Next(Work work);
         void Start(Work work);
     }
 }

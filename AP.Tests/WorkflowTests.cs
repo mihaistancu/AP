@@ -32,7 +32,7 @@ namespace AP.Tests
         [TestMethod]
         public void DoneSendsWorkToNextWorker()
         {
-            workflow.Done(new Work { Worker = worker1 });
+            workflow.Next(new Work { Worker = worker1 });
 
             Assert.AreEqual(worker2, broker.CalledWorker);
         }
@@ -40,7 +40,7 @@ namespace AP.Tests
         [TestMethod]
         public void DoneStopsWhenSequenceIsOver()
         {
-            workflow.Done(new Work { Worker = worker2 });
+            workflow.Next(new Work { Worker = worker2 });
 
             Assert.IsNull(broker.CalledWorker);
         }

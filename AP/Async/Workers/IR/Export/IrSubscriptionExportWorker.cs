@@ -16,7 +16,7 @@
             builder.UseSubscriptions();
             work.Message = builder.Build();
 
-            work.Workflow.Done(work);
+            work.Workflow.Next(work);
         }
     }
 }

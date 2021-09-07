@@ -16,7 +16,7 @@
             builder.UseRequest(work.Message);
             work.Message = builder.Build();
 
-            work.Workflow.Done(work);
+            work.Workflow.Next(work);
         }
     }
 }

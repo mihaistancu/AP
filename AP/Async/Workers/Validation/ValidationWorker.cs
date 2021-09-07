@@ -15,7 +15,7 @@
 
             validator.Validate(work.Message);
 
-            work.Workflow.Done(work);
+            work.Workflow.Next(work);
         }
     }
 }

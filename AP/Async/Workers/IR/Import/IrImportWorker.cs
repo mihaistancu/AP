@@ -20,7 +20,7 @@ namespace AP.Async.Workers.IR
             var data = parser.Parse(work.Message.Blob);
             storage.Save(data);
 
-            work.Workflow.Done(work);
+            work.Workflow.Next(work);
         }
     }
 }
