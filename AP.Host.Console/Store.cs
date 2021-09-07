@@ -12,6 +12,11 @@ using AP.Async.Workers.Delivery;
 using AP.IR;
 using AP.Async.Workers.IR;
 using AP.Async.Workers.IR.Import;
+using AP.Async.Workers.CDM.Import;
+using AP.CDM;
+using AP.Async.Workers.CDM;
+using AP.Async.Workers.CDM.Export;
+using AP.Async.Workers.CDM.Report;
 
 namespace AP.Host.Console
 {
@@ -31,7 +36,11 @@ namespace AP.Host.Console
             container.RegisterType<IRouter, Delivery.Router>(TypeLifetime.Singleton);
             container.RegisterType<IIrParser, IrParser>(TypeLifetime.Singleton);
             container.RegisterType<IIrStorage, IrStorage>(TypeLifetime.Singleton);
-            container.RegisterType<IIrMessageBuilder, IrMessageBuilder>(TypeLifetime.Singleton);
+            container.RegisterType<IIrExportBuilder, IrExportBuilder>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmParser, CdmParser>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmStorage, CdmStorage>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmExportBuilder, CdmExportBuilder>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmReportBuilder, CdmReportBuilder>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()

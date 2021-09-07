@@ -2,9 +2,9 @@
 {
     public class IrSubscriptionExportWorker : Worker
     {
-        private IIrMessageBuilder builder;
+        private IIrExportBuilder builder;
 
-        public IrSubscriptionExportWorker(IIrMessageBuilder builder)
+        public IrSubscriptionExportWorker(IIrExportBuilder builder)
         {
             this.builder = builder;
         }

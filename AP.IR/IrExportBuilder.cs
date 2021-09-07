@@ -2,7 +2,7 @@
 
 namespace AP.IR
 {
-    public class IrMessageBuilder : IIrMessageBuilder
+    public class IrExportBuilder : IIrExportBuilder
     {
         public void UseRequest(Message message)
         {

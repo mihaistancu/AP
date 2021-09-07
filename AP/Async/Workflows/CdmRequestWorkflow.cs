@@ -1,5 +1,5 @@
 ﻿using AP.Async.Workers.Antimalware;
-using AP.Async.Workers.CDM;
+using AP.Async.Workers.CDM.Export;
 using AP.Async.Workers.Delivery;
 using AP.Async.Workers.Validation;
 

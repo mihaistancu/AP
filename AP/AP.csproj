@@ -43,8 +43,13 @@
   <ItemGroup>
     <Compile Include="Async\AsyncProcessor.cs" />
     <Compile Include="Async\ExceptionHandler.cs" />
+    <Compile Include="Async\Workers\CDM\CdmData.cs" />
+    <Compile Include="Async\Workers\CDM\Export\ICdmExportBuilder.cs" />
+    <Compile Include="Async\Workers\CDM\ICdmStorage.cs" />
+    <Compile Include="Async\Workers\CDM\Import\ICdmParser.cs" />
+    <Compile Include="Async\Workers\CDM\Report\ICdmReportBuilder.cs" />
     <Compile Include="Async\Workers\Delivery\IRouter.cs" />
-    <Compile Include="Async\Workers\IR\Export\IIrMessageBuilder.cs" />
+    <Compile Include="Async\Workers\IR\Export\IIrExportBuilder.cs" />
     <Compile Include="Async\Workers\IR\Import\IIrParser.cs" />
     <Compile Include="Async\Workers\IR\IIrStorage.cs" />
     <Compile Include="Async\Workers\IR\IrData.cs" />
@@ -62,11 +67,11 @@
     <Compile Include="Async\Workflows\IrRequestWorkflow.cs" />
     <Compile Include="Async\Workflows\IrSyncWorkflow.cs" />
     <Compile Include="Async\Workflows\BusinessWorkflow.cs" />
-    <Compile Include="Async\Workers\CDM\CdmVersionReportWorker.cs" />
+    <Compile Include="Async\Workers\CDM\Report\CdmVersionReportWorker.cs" />
     <Compile Include="Async\Workers\Delivery\DeliveryWorker.cs" />
-    <Compile Include="Async\Workers\CDM\CdmImportWorker.cs" />
-    <Compile Include="Async\Workers\CDM\CdmSubscriptionExportWorker.cs" />
-    <Compile Include="Async\Workers\CDM\CdmRequestExportWorker.cs" />
+    <Compile Include="Async\Workers\CDM\Import\CdmImportWorker.cs" />
+    <Compile Include="Async\Workers\CDM\Export\CdmSubscriptionExportWorker.cs" />
+    <Compile Include="Async\Workers\CDM\Export\CdmRequestExportWorker.cs" />
     <Compile Include="Async\Workers\IR\Export\IrSubscriptionExportWorker.cs" />
     <Compile Include="Async\Workers\IR\Export\IrRequestExportWorker.cs" />
     <Compile Include="Async\Workers\IR\Import\IrImportWorker.cs" />

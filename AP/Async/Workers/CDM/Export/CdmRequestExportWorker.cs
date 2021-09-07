@@ -1,17 +1,17 @@
-﻿namespace AP.Async.Workers.IR.Export
+﻿namespace AP.Async.Workers.CDM.Export
 {
-    public class IrRequestExportWorker : Worker
+    public class CdmRequestExportWorker : Worker
     {
-        private IIrExportBuilder builder;
+        private readonly ICdmExportBuilder builder;
 
-        public IrRequestExportWorker(IIrExportBuilder builder)
+        public CdmRequestExportWorker(ICdmExportBuilder builder)
         {
             this.builder = builder;
         }
 
         public override void Do(Work work)
         {
-            System.Console.WriteLine("IrRequestExport");
+            System.Console.WriteLine("CdmRequestExport");
 
             builder.UseRequest(work.Message);
             var newMessages = builder.Build();
