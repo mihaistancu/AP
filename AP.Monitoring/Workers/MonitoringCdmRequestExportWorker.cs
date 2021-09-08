@@ -5,7 +5,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmRequestExportWorker: CdmRequestExportWorker
     {
-        public MonitoringCdmRequestExportWorker(ICdmExportBuilder builder) : base(builder)
+        public MonitoringCdmRequestExportWorker(ICdmExportBuilder builder, IMessageStorage storage) : base(builder, storage)
         {
         }
 

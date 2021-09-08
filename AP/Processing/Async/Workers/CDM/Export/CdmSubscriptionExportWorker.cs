@@ -3,16 +3,22 @@
     public class CdmSubscriptionExportWorker : IWorker
     {
         private readonly ICdmExportBuilder builder;
+        private readonly IMessageStorage storage;
 
-        public CdmSubscriptionExportWorker(ICdmExportBuilder builder)
+        public CdmSubscriptionExportWorker(
+            ICdmExportBuilder builder, 
+            IMessageStorage storage)
         {
             this.builder = builder;
+            this.storage = storage;
         }
 
         public virtual Message[] Handle(Message message)
         {
             builder.UseSubscriptions();
-            return builder.Build();
+            var messages = builder.Build();
+            storage.Save(messages);
+            return messages;
         }
     }
 }

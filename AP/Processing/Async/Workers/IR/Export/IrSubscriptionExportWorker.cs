@@ -3,16 +3,22 @@
     public class IrSubscriptionExportWorker : IWorker
     {
         private IIrExportBuilder builder;
+        private readonly IMessageStorage storage;
 
-        public IrSubscriptionExportWorker(IIrExportBuilder builder)
+        public IrSubscriptionExportWorker(
+            IIrExportBuilder builder,
+            IMessageStorage storage)
         {
             this.builder = builder;
+            this.storage = storage;
         }
 
         public virtual Message[] Handle(Message message)
         {
             builder.UseSubscriptions();
-            return builder.Build();
+            var messages = builder.Build();
+            storage.Save(messages);
+            return messages;
         }
     }
 }

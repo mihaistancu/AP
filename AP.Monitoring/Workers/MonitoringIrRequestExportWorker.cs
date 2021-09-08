@@ -5,7 +5,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringIrRequestExportWorker: IrRequestExportWorker
     {
-        public MonitoringIrRequestExportWorker(IIrExportBuilder builder) : base(builder)
+        public MonitoringIrRequestExportWorker(IIrExportBuilder builder, IMessageStorage storage) : base(builder, storage)
         {
         }
 

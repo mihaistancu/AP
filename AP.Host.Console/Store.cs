@@ -26,6 +26,7 @@ using AP.Processing.Sync.Handlers;
 using AP.Monitoring.Handlers;
 using AP.Processing;
 using AP.Monitoring;
+using AP.Storage;
 
 namespace AP.Host.Console
 {
@@ -88,6 +89,8 @@ namespace AP.Host.Console
             container.RegisterType<MonitoringValidationWorker>(TypeLifetime.Singleton);
 
             container.RegisterType<Controller, MonitoringController>();
+
+            container.RegisterType<IMessageStorage, MessageStorage>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()

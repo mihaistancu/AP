@@ -5,7 +5,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmSubscriptionExportWorker: CdmSubscriptionExportWorker
     {
-        public MonitoringCdmSubscriptionExportWorker(ICdmExportBuilder builder) : base(builder)
+        public MonitoringCdmSubscriptionExportWorker(ICdmExportBuilder builder, IMessageStorage storage) : base(builder, storage)
         {
         }
 

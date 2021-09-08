@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMessageStorage.cs" />
     <Compile Include="Processing\Async\ExceptionHandler.cs" />
     <Compile Include="Processing\Async\MessageBroker.cs" />
     <Compile Include="Processing\Async\IWorker.cs" />

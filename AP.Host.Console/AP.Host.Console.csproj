@@ -99,6 +99,10 @@
       <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
       <Name>AP.Service.WebApi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Storage\AP.Storage.csproj">
+      <Project>{EBDD1A1F-4F6B-4675-BA97-2688CE2C1BEC}</Project>
+      <Name>AP.Storage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Validation\AP.Validation.csproj">
       <Project>{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}</Project>
       <Name>AP.Validation</Name>

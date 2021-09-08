@@ -3,16 +3,22 @@
     public class IrRequestExportWorker : IWorker
     {
         private IIrExportBuilder builder;
+        private readonly IMessageStorage storage;
 
-        public IrRequestExportWorker(IIrExportBuilder builder)
+        public IrRequestExportWorker(
+            IIrExportBuilder builder,
+            IMessageStorage storage)
         {
             this.builder = builder;
+            this.storage = storage;
         }
 
         public virtual Message[] Handle(Message message)
         {
             builder.UseRequest(message);
-            return builder.Build();
+            var messages = builder.Build();
+            storage.Save(messages);
+            return messages;
         }
     }
 }

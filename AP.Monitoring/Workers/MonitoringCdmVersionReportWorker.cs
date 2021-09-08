@@ -5,7 +5,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmVersionReportWorker: CdmVersionReportWorker
     {
-        public MonitoringCdmVersionReportWorker(ICdmReportBuilder builder) : base(builder)
+        public MonitoringCdmVersionReportWorker(ICdmReportBuilder builder, IMessageStorage storage) : base(builder, storage)
         {
         }
 
