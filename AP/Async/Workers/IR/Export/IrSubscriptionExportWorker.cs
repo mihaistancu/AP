@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AP.Async.Workers.IR.Export
+﻿namespace AP.Async.Workers.IR.Export
 {
     public class IrSubscriptionExportWorker : IWorker
     {
@@ -11,7 +9,7 @@ namespace AP.Async.Workers.IR.Export
             this.builder = builder;
         }
 
-        public IEnumerable<Message> Handle(Message message)
+        public Message[] Handle(Message message)
         {
             System.Console.WriteLine("IrSubscriptionExport");
 

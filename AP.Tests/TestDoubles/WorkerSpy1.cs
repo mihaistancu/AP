@@ -1,5 +1,4 @@
 ﻿using AP.Async;
-using System.Collections.Generic;
 
 namespace AP.Tests.TestDoubles
 {
@@ -7,10 +6,10 @@ namespace AP.Tests.TestDoubles
     {
         public bool HandleWasCalled { get; private set; }
 
-        public IEnumerable<Message> Handle(Message message)
+        public Message[] Handle(Message message)
         {
             HandleWasCalled = true;
-            yield return message;
+            return new[] { message };
         }
     }
 }

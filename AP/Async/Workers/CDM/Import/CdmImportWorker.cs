@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AP.Async.Workers.CDM.Import
+﻿namespace AP.Async.Workers.CDM.Import
 {
     public class CdmImportWorker : IWorker
     {
@@ -13,14 +11,14 @@ namespace AP.Async.Workers.CDM.Import
             this.storage = storage;
         }
 
-        public IEnumerable<Message> Handle(Message message)
+        public Message[] Handle(Message message)
         {
             System.Console.WriteLine("CdmImport");
 
             var data = parser.Parse(message);
             storage.Save(data);
 
-            yield return message;
+            return new[] { message };
         }
     }
 }

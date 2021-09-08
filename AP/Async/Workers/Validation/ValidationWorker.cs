@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AP.Async.Workers.Validation
+﻿namespace AP.Async.Workers.Validation
 {
     public class ValidationWorker : IWorker
     {
@@ -11,13 +9,13 @@ namespace AP.Async.Workers.Validation
             this.validator = validator;
         }
 
-        public IEnumerable<Message> Handle(Message message)
+        public Message[] Handle(Message message)
         {
             System.Console.WriteLine("Validation");
 
             validator.Validate(message);
 
-            yield return message;
+            return new[] { message };
         }
     }
 }

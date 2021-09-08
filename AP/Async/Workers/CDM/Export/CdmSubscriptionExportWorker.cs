@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AP.Async.Workers.CDM.Export
+﻿namespace AP.Async.Workers.CDM.Export
 {
     public class CdmSubscriptionExportWorker : IWorker
     {
@@ -11,7 +9,7 @@ namespace AP.Async.Workers.CDM.Export
             this.builder = builder;
         }
 
-        public IEnumerable<Message> Handle(Message message)
+        public Message[] Handle(Message message)
         {
             System.Console.WriteLine("CdmSubscriptionExport");
 

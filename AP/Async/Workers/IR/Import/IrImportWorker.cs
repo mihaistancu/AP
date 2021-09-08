@@ -1,5 +1,4 @@
 ﻿using AP.Async.Workers.IR.Import;
-using System.Collections.Generic;
 
 namespace AP.Async.Workers.IR
 {
@@ -14,14 +13,14 @@ namespace AP.Async.Workers.IR
             this.storage = storage;
         }
 
-        public IEnumerable<Message> Handle(Message message)
+        public Message[] Handle(Message message)
         {
             System.Console.WriteLine("IrImport");
 
             var data = parser.Parse(message.Blob);
             storage.Save(data);
 
-            yield return message;
+            return new[] { message };
         }
     }
 }

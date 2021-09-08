@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AP.IR
+﻿namespace AP.IR
 {
     public class IrExportBuilder : IIrExportBuilder
     {
@@ -14,9 +12,9 @@ namespace AP.IR
             
         }
 
-        public List<Message> Build()
+        public Message[] Build()
         {
-            return new List<Message>
+            return new []
             { 
                 new Message
                 {

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AP.Async.Workers.CDM.Report
+﻿namespace AP.Async.Workers.CDM.Report
 {
     public class CdmVersionReportWorker : IWorker
     {
@@ -11,13 +9,13 @@ namespace AP.Async.Workers.CDM.Report
             this.builder = builder;
         }
 
-        public IEnumerable<Message> Handle(Message message)
+        public Message[] Handle(Message message)
         {
             System.Console.WriteLine("CdmVersion");
 
             var newMessage = builder.Build();
 
-            yield return newMessage;
+            return new[] { newMessage };
         }
     }
 }

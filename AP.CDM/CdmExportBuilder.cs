@@ -1,5 +1,4 @@
 ﻿using AP.Async.Workers.CDM.Export;
-using System.Collections.Generic;
 
 namespace AP.CDM
 {
@@ -15,9 +14,9 @@ namespace AP.CDM
             
         }
 
-        public List<Message> Build()
+        public Message[] Build()
         {
-            return new List<Message>
+            return new []
             {
                 new Message
                 {

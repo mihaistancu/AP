@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace AP.Async.Workers.CDM.Export
+﻿namespace AP.Async.Workers.CDM.Export
 {
     public interface ICdmExportBuilder
     {
         void UseRequest(Message message);
-        List<Message> Build();
+        Message[] Build();
         void UseSubscriptions();
     }
 }

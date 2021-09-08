@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace AP.Async.Workers.Delivery
 {
@@ -12,13 +11,13 @@ namespace AP.Async.Workers.Delivery
             this.router = router;
         }
 
-        public IEnumerable<Message> Handle(Message message)
+        public Message[] Handle(Message message)
         {
             Console.WriteLine("Delivery");
 
             router.Route(message);
 
-            yield return message;
+            return new[] { message };
         }
     }
 }
