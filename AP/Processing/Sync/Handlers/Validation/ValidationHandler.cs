@@ -9,10 +9,8 @@
             this.validator = validator;
         }
 
-        public bool Handle(Message message)
+        public virtual bool Handle(Message message)
         {
-            System.Console.WriteLine("Validation");
-
             validator.Validate(message);
 
             return true;

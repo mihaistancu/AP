@@ -11,10 +11,8 @@
             this.storage = storage;
         }
 
-        public Message[] Handle(Message message)
-        {
-            System.Console.WriteLine("CdmImport");
-
+        public virtual Message[] Handle(Message message)
+        {           
             var data = parser.Parse(message);
             storage.Save(data);
 

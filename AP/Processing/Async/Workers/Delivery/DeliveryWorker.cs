@@ -11,10 +11,8 @@ namespace AP.Processing.Async.Workers.Delivery
             this.router = router;
         }
 
-        public Message[] Handle(Message message)
+        public virtual Message[] Handle(Message message)
         {
-            Console.WriteLine("Delivery");
-
             router.Route(message);
 
             return new[] { message };

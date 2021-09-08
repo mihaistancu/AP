@@ -91,6 +91,10 @@
       <Project>{b5fa51c6-5ddb-4e52-8a56-2dbf6b6c1282}</Project>
       <Name>AP.Middleware.RabbitMQ</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Monitoring\AP.Monitoring.csproj">
+      <Project>{03F9EAEB-4E9D-4E69-BC36-C9EBAD6FF26D}</Project>
+      <Name>AP.Monitoring</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Service.WebApi\AP.Service.WebApi.csproj">
       <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
       <Name>AP.Service.WebApi</Name>

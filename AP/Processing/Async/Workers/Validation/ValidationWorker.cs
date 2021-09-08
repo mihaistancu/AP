@@ -9,10 +9,8 @@
             this.validator = validator;
         }
 
-        public Message[] Handle(Message message)
+        public virtual Message[] Handle(Message message)
         {
-            System.Console.WriteLine("Validation");
-
             validator.Validate(message);
 
             return new[] { message };

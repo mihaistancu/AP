@@ -3,7 +3,6 @@ using AP.Processing.Async;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ

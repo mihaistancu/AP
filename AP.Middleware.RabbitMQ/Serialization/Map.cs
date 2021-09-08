@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace AP.Middleware.RabbitMQ.Serialization
 {
     public class Map<T>
     {
-        private readonly IStore store;
+        private IStore store;
         private Dictionary<string, Type> map;
 
         public Map(IStore store)
         {
             this.store = store;
-            var assembly = Assembly.GetAssembly(typeof(Message));
-            var types = assembly.GetTypes().Where(t => typeof(T).IsAssignableFrom(t));
-            map = types.ToDictionary(t => t.Name, t => t);
+            var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var allTypes = allAssemblies.SelectMany(a => a.GetTypes());
+            var filteredTypes = allTypes.Where(t => typeof(T).IsAssignableFrom(t));
+            map = filteredTypes.ToDictionary(t => t.Name, t => t);
         }
 
         public T Get(string id)

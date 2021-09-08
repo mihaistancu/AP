@@ -9,10 +9,8 @@
             this.builder = builder;
         }
 
-        public Message[] Handle(Message message)
+        public virtual Message[] Handle(Message message)
         {
-            System.Console.WriteLine("CdmVersion");
-
             var newMessage = builder.Build();
 
             return new[] { newMessage };

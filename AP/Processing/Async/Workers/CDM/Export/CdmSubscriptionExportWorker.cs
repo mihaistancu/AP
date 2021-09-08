@@ -9,14 +9,10 @@
             this.builder = builder;
         }
 
-        public Message[] Handle(Message message)
+        public virtual Message[] Handle(Message message)
         {
-            System.Console.WriteLine("CdmSubscriptionExport");
-
             builder.UseSubscriptions();
-            var newMessages = builder.Build();
-
-            return newMessages;
+            return builder.Build();
         }
     }
 }

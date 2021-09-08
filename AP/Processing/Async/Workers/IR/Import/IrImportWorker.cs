@@ -11,10 +11,8 @@
             this.storage = storage;
         }
 
-        public Message[] Handle(Message message)
+        public virtual Message[] Handle(Message message)
         {
-            System.Console.WriteLine("IrImport");
-
             var data = parser.Parse(message.Blob);
             storage.Save(data);
 

@@ -2,9 +2,8 @@
 {
     public class DecryptionHandler : IHandler
     {
-        public bool Handle(Message message)
+        public virtual bool Handle(Message message)
         {
-            System.Console.WriteLine("Decryption");
             return true;
         }
     }
