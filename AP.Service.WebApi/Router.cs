@@ -20,13 +20,16 @@ namespace AP.Service.WebApi
 
         public string Route(string url, Message message)
         {
-            var controller = new Controller(
-                GetPipeline(url),
-                GetWorkflow(message),
-                GetBroker(),
-                GetErrorFactory(),
-                GetReceiptFactory(url));
+            var controller = GetController();
+            controller.Pipeline = GetPipeline(url);
+            controller.Workflow = GetWorkflow(message);
+            controller.ReceiptFactory = GetReceiptFactory(url);
             return controller.Handle(message);
+        }
+
+        private Controller GetController()
+        {
+            return provider.Get<Controller>();
         }
 
         private Pipeline GetPipeline(string url)

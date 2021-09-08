@@ -7,42 +7,33 @@ namespace AP.Processing
 {
     public class Controller
     {
-        private Pipeline pipeline;
-        private Workflow workflow;
         private MessageBroker broker;
         private IErrorFactory errorFactory;
-        private IReceiptFactory receiptFactory;
 
-        public bool ReturnReceipt { get; set; }
+        public Pipeline Pipeline { get; set; }
+        public Workflow Workflow { get; set; }
+        public IReceiptFactory ReceiptFactory { get; set; }
 
-        public Controller(
-            Pipeline pipeline,
-            Workflow workflow,
-            MessageBroker broker,
-            IErrorFactory errorFactory,
-            IReceiptFactory receiptFactory)
+        public Controller(MessageBroker broker, IErrorFactory errorFactory)
         {
-            this.pipeline = pipeline;
-            this.workflow = workflow;
             this.broker = broker;
             this.errorFactory = errorFactory;
-            this.receiptFactory = receiptFactory;
         }
 
-        public string Handle(Message message)
+        public virtual string Handle(Message message)
         {
             try
             {
-                pipeline.Process(message);
-                var worker = workflow.GetFirst();
-                broker.Send(worker, workflow, message);
+                Pipeline.Process(message);
+                var worker = Workflow.GetFirst();
+                broker.Send(worker, Workflow, message);
             }
             catch (Exception exception)
             {
                 return errorFactory.Get(exception, message);
             }
 
-            return receiptFactory.Get(message);
+            return ReceiptFactory.Get(message);
         }
     }
 }

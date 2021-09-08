@@ -24,6 +24,8 @@ using AP.Signals;
 using AP.Monitoring.Workers;
 using AP.Processing.Sync.Handlers;
 using AP.Monitoring.Handlers;
+using AP.Processing;
+using AP.Monitoring;
 
 namespace AP.Host.Console
 {
@@ -84,6 +86,8 @@ namespace AP.Host.Console
             container.RegisterType<MonitoringIrImportWorker>(TypeLifetime.Singleton);
             container.RegisterType<ValidationWorker, MonitoringValidationWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringValidationWorker>(TypeLifetime.Singleton);
+
+            container.RegisterType<Controller, MonitoringController>();
         }
 
         public T Get<T>()
