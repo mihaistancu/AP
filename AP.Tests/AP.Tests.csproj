@@ -49,11 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControllerTests.cs" />
-    <Compile Include="TestDoubles\ProcessorSpy.cs" />
-    <Compile Include="TestDoubles\MessageBrokerSpy.cs" />
     <Compile Include="PipelineTests.cs" />
-    <Compile Include="TestDoubles\SignalStub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDoubles\HandlerSpy.cs" />
   </ItemGroup>

@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Async\AsyncProcessor.cs" />
     <Compile Include="Async\ExceptionHandler.cs" />
     <Compile Include="Async\MessageBroker.cs" />
     <Compile Include="Async\IWorker.cs" />
@@ -56,7 +55,6 @@
     <Compile Include="Async\Workers\IR\IIrStorage.cs" />
     <Compile Include="Async\Workers\IR\IrData.cs" />
     <Compile Include="Async\Workers\Validation\IDocumentValidator.cs" />
-    <Compile Include="IProcessor.cs" />
     <Compile Include="Async\Workflow.cs" />
     <Compile Include="Async\Workers\Antimalware\AntimalwareWorker.cs" />
     <Compile Include="Async\Workers\Antimalware\IScanner.cs" />
@@ -78,16 +76,13 @@
     <Compile Include="Async\Workers\IR\Import\IrImportWorker.cs" />
     <Compile Include="Async\Workers\Validation\ValidationWorker.cs" />
     <Compile Include="Sync\Handlers\SignatureCheckHandler.cs" />
-    <Compile Include="Sync\Controllers\SystemController.cs" />
-    <Compile Include="Sync\Controllers\BusinessOutboxController.cs" />
-    <Compile Include="Sync\Controllers\BusinessInboundController.cs" />
     <Compile Include="Sync\Handlers\PersistenceHandler.cs" />
     <Compile Include="Sync\Handlers\Validation\IEnvelopeValidator.cs" />
     <Compile Include="Sync\Handlers\Validation\ValidationHandler.cs" />
     <Compile Include="Sync\Handlers\DecryptionHandler.cs" />
     <Compile Include="Sync\Handlers\TlsCheckHandler.cs" />
     <Compile Include="Sync\ISignal.cs" />
-    <Compile Include="Sync\Controller.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Sync\Pipeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

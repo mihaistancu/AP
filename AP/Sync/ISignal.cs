@@ -4,7 +4,7 @@ namespace AP.Sync
 {
     public interface ISignal
     {
-        string Receipt();
+        string Receipt(Message message);
         string Error(Exception exception);
     }
 }

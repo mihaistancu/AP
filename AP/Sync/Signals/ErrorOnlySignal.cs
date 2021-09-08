@@ -9,7 +9,7 @@ namespace AP.Sync.Signals
             return "error";
         }
 
-        public string Receipt()
+        public string Receipt(Message message)
         {
             return "empty";
         }

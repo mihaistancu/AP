@@ -17,10 +17,11 @@ using AP.CDM;
 using AP.Async.Workers.CDM;
 using AP.Async.Workers.CDM.Export;
 using AP.Async.Workers.CDM.Report;
+using AP.Service.WebApi;
 
 namespace AP.Host.Console
 {
-    public class Store : IStore, IDisposable
+    public class Store : IStore, IProvider, IDisposable
     {
         UnityContainer container;
 
@@ -28,6 +29,7 @@ namespace AP.Host.Console
         {
             container = new UnityContainer();
             container.RegisterInstance<IStore>(this);
+            container.RegisterInstance<IProvider>(this);
             container.RegisterType<MessageBroker, RabbitMqMessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<RabbitMqMessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<IScanner, AmsiScanner>(TypeLifetime.Singleton);

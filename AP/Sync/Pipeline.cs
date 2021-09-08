@@ -1,6 +1,6 @@
 ﻿namespace AP.Sync
 {
-    public class Pipeline : IProcessor
+    public class Pipeline
     {
         private IHandler[] handlers;
 
