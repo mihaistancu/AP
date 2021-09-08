@@ -59,7 +59,6 @@
     <Compile Include="Async\Workers\Antimalware\AntimalwareWorker.cs" />
     <Compile Include="Async\Workers\Antimalware\IScanner.cs" />
     <Compile Include="Async\Workers\Antimalware\VirusDetectedException.cs" />
-    <Compile Include="Async\WorkflowFactory.cs" />
     <Compile Include="Async\Workflows\CdmVersionWorkflow.cs" />
     <Compile Include="Async\Workflows\CdmSyncWorkflow.cs" />
     <Compile Include="Async\Workflows\CdmRequestWorkflow.cs" />

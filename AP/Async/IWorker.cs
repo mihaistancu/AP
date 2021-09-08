@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AP.Async
+﻿namespace AP.Async
 {
     public interface IWorker
     {
