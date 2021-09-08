@@ -28,7 +28,7 @@ namespace AP.Sync
             {
                 pipeline.Process(message);
                 var worker = workflow.GetFirst();
-                broker.Send(worker, workflow, new[] { message });
+                broker.Send(worker, workflow, message);
             }
             catch (Exception exception)
             {

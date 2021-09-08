@@ -65,9 +65,9 @@ namespace AP.Middleware.RabbitMQ
             }
         }
 
-        public override void Send(IWorker worker, Workflow workflow, IEnumerable<Message> batch)
+        public override void Send(IWorker worker, Workflow workflow, params Message[] messages)
         {
-            foreach (var message in batch)
+            foreach (var message in messages)
             {
                 Send(worker, workflow, message);
             }

@@ -30,6 +30,6 @@ namespace AP.Async
             }
         }
 
-        public abstract void Send(IWorker worker, Workflow workflow, IEnumerable<Message> messages);
+        public abstract void Send(IWorker worker, Workflow workflow, params Message[] messages);
     }
 }
