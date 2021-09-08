@@ -12,24 +12,24 @@ namespace AP.Async
             this.exceptionHandler = exceptionHandler;
         }
 
-        public void Handle(Context context, Message message)
+        public void Handle(IWorker worker, Workflow workflow, Message message)
         {
             try
             {   
-                var messages = context.Worker.Handle(message);
+                var messages = worker.Handle(message);
 
-                if (!context.Workflow.IsLast(context.Worker))
+                if (!workflow.IsLast(worker))
                 {
-                    context.Worker = context.Workflow.GetNext(context.Worker);
-                    Send(context, messages);
+                    var nextWorker = workflow.GetNext(worker);
+                    Send(nextWorker, workflow, messages);
                 }
             }
             catch (Exception exception)
             {
-                exceptionHandler.Handle(exception, context);
+                exceptionHandler.Handle(exception, message);
             }
         }
 
-        public abstract void Send(Context context, IEnumerable<Message> messages);
+        public abstract void Send(IWorker worker, Workflow workflow, IEnumerable<Message> messages);
     }
 }

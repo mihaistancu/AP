@@ -16,29 +16,27 @@ namespace AP.Middleware.RabbitMQ.Serialization
             this.workerMap = workerMap;
         }
 
-        public byte[] Serialize(Context context, Message message)
+        public byte[] Serialize(IWorker worker, Workflow workflow, Message message)
         {
-            var workerId = workerMap.Id(context.Worker);
-            var workflowId = workflowMap.Id(context.Workflow);
+            var workerId = workerMap.Id(worker);
+            var workflowId = workflowMap.Id(workflow);
             var serialization = $"{workflowId}.{workerId}.{message.Content}";
             return Encoding.UTF8.GetBytes(serialization);
         }
 
-        public (Context, Message) Deserialize(byte[] body)
+        public (IWorker, Workflow, Message) Deserialize(byte[] body)
         {
             var serialization = Encoding.UTF8.GetString(body);
             var tokens = serialization.Split('.');
-            var context = new Context
-            {
-                Workflow = workflowMap.Get(tokens[0]),
-                Worker = workerMap.Get(tokens[1])
-            };
+
+            var workflow = workflowMap.Get(tokens[0]);
+            var worker = workerMap.Get(tokens[1]);
             var message = new Message
             {
                 Content = tokens[2],
                 SedType = tokens[2]
             };
-            return (context, message);
+            return (worker, workflow, message);
         }
     }
 }

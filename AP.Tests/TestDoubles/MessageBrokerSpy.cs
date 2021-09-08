@@ -11,9 +11,9 @@ namespace AP.Tests.TestDoubles
 
         public IWorker CalledWorker { get; private set; }
         
-        public override void Send(Context context, IEnumerable<Message> messages)
+        public override void Send(IWorker worker, Workflow workflow, IEnumerable<Message> messages)
         {
-            CalledWorker = context.Worker;
+            CalledWorker = worker;
         }
     }
 }

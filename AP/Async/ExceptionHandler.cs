@@ -9,7 +9,7 @@ namespace AP.Async
 
         }
 
-        public void Handle(Exception exception, Context context)
+        public void Handle(Exception exception, Message message)
         {
             Console.WriteLine(exception);
         }

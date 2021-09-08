@@ -14,13 +14,8 @@
         public void Process(Message message)
         {
             var workflow = factory.Get(message.SedType);
-
-            var context = new Context
-            {   
-                Worker = workflow.GetFirst(),
-                Workflow = workflow
-            };
-            broker.Send(context, new[] { message });
+            var worker = workflow.GetFirst();
+            broker.Send(worker, workflow, new[] { message });
         }
     }
 }
