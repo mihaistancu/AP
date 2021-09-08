@@ -19,12 +19,12 @@ namespace AP.Processing.Async
         public bool IsLast(IWorker worker)
         {
             IWorker last = workers[workers.Length - 1];
-            return last.GetType() == worker.GetType();
+            return last == worker;
         }
 
         public IWorker GetNext(IWorker worker)
         {
-            int index = Array.FindIndex(workers, w => w.GetType() == worker.GetType());
+            int index = Array.FindIndex(workers, w => w == worker);
             return workers[index + 1];
         }
     }

@@ -47,6 +47,16 @@ namespace AP.Host.Console
             container.RegisterType<ICdmExportBuilder, CdmExportBuilder>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReportBuilder, CdmReportBuilder>(TypeLifetime.Singleton);
             container.RegisterType<IErrorFactory, As4ErrorFactory>(TypeLifetime.Singleton);
+            container.RegisterType<AntimalwareWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmRequestExportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmSubscriptionExportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmImportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmVersionReportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<DeliveryWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrRequestExportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrSubscriptionExportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrImportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<ValidationWorker>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()
