@@ -1,9 +1,11 @@
 ﻿using AP.AS4;
 using AP.AS4.ReceiptFactories;
-using AP.Async;
-using AP.Async.Workflows;
-using AP.Sync;
-using AP.Sync.Pipelines;
+using AP.Processing;
+using AP.Processing.Async;
+using AP.Processing.Async.Workflows;
+using AP.Processing.Sync;
+using AP.Processing.Sync.Pipelines;
+using AP.Signals;
 
 namespace AP.Service.WebApi
 {

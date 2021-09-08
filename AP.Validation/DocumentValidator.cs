@@ -1,4 +1,4 @@
-﻿using AP.Async.Workers.Validation;
+﻿using AP.Processing.Async.Workers.Validation;
 
 namespace AP.Validation
 {

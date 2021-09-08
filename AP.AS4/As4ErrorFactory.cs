@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP.Signals;
+using System;
 
 namespace AP.AS4
 {

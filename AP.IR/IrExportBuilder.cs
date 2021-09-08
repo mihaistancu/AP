@@ -1,4 +1,6 @@
-﻿namespace AP.IR
+﻿using AP.Processing.Async.Workers.IR.Export;
+
+namespace AP.IR
 {
     public class IrExportBuilder : IIrExportBuilder
     {

@@ -1,5 +1,5 @@
-﻿using AP.Async.Workers.IR;
-using AP.Async.Workers.IR.Import;
+﻿using AP.Processing.Async.Workers.IR;
+using AP.Processing.Async.Workers.IR.Import;
 
 namespace AP.IR
 {

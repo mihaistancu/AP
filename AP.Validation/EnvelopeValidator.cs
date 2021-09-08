@@ -1,4 +1,4 @@
-﻿using AP.Sync.Handlers.Validation;
+﻿using AP.Processing.Sync.Handlers.Validation;
 
 namespace AP.Validation
 {

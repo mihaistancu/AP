@@ -1,4 +1,4 @@
-﻿using AP.Sync;
+﻿using AP.Processing.Sync;
 
 namespace AP.Tests.TestDoubles
 {

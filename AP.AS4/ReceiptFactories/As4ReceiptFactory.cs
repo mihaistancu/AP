@@ -1,4 +1,6 @@
-﻿namespace AP.AS4.ReceiptFactories
+﻿using AP.Signals;
+
+namespace AP.AS4.ReceiptFactories
 {
     public class As4ReceiptFactory : IReceiptFactory
     {

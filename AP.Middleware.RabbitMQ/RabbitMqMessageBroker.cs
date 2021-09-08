@@ -1,5 +1,5 @@
-﻿using AP.Async;
-using AP.Middleware.RabbitMQ.Serialization;
+﻿using AP.Middleware.RabbitMQ.Serialization;
+using AP.Processing.Async;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;

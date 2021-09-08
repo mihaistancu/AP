@@ -1,4 +1,4 @@
-﻿using AP.Async.Workers.CDM.Report;
+﻿using AP.Processing.Async.Workers.CDM.Report;
 
 namespace AP.CDM
 {
