@@ -18,6 +18,7 @@ using AP.Async.Workers.CDM;
 using AP.Async.Workers.CDM.Export;
 using AP.Async.Workers.CDM.Report;
 using AP.Service.WebApi;
+using AP.AS4;
 
 namespace AP.Host.Console
 {
@@ -43,6 +44,7 @@ namespace AP.Host.Console
             container.RegisterType<ICdmStorage, CdmStorage>(TypeLifetime.Singleton);
             container.RegisterType<ICdmExportBuilder, CdmExportBuilder>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReportBuilder, CdmReportBuilder>(TypeLifetime.Singleton);
+            container.RegisterType<IErrorFactory, As4ErrorFactory>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()

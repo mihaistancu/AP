@@ -72,6 +72,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AP.AS4\AP.AS4.csproj">
+      <Project>{C4B16E50-F49C-4388-B6EF-D20CA01152EB}</Project>
+      <Name>AP.AS4</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP\AP.csproj">
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP</Name>

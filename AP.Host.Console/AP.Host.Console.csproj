@@ -71,6 +71,10 @@
       <Project>{387b1707-0e51-47e6-b079-94861ea7e04c}</Project>
       <Name>AP.Antimalware.Amsi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.AS4\AP.AS4.csproj">
+      <Project>{C4B16E50-F49C-4388-B6EF-D20CA01152EB}</Project>
+      <Name>AP.AS4</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.CDM\AP.CDM.csproj">
       <Project>{40b9536c-7c97-4110-9d97-bf55618297a9}</Project>
       <Name>AP.CDM</Name>

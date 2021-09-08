@@ -1,8 +1,9 @@
-﻿using AP.Async;
+﻿using AP.AS4;
+using AP.AS4.ReceiptFactories;
+using AP.Async;
 using AP.Async.Workflows;
 using AP.Sync;
 using AP.Sync.Pipelines;
-using AP.Sync.Signals;
 
 namespace AP.Service.WebApi
 {
@@ -17,11 +18,12 @@ namespace AP.Service.WebApi
 
         public string Route(string url, Message message)
         {
-            var pipeline = GetPipeline(url);
-            var signal = GetSignal(url);
-            var workflow = GetWorkflow(message);
-            var broker = GetBroker();
-            var controller = new Controller(pipeline, workflow, signal, broker);
+            var controller = new Controller(
+                GetPipeline(url),
+                GetWorkflow(message),
+                GetBroker(),
+                GetErrorFactory(),
+                GetReceiptFactory(url));
             return controller.Handle(message);
         }
 
@@ -30,13 +32,6 @@ namespace AP.Service.WebApi
             return url.Contains("Inbound")
                 ? (Pipeline)provider.Get<DecryptionPipeline>()
                 : (Pipeline)provider.Get<SignatureCheckPipeline>();
-        }
-
-        private ISignal GetSignal(string url)
-        {
-            return url.Contains("System")
-                ? (ISignal)provider.Get<ReceiptAndErrorSignal>()
-                : (ISignal)provider.Get<ErrorOnlySignal>();
         }
 
         private Workflow GetWorkflow(Message message)
@@ -55,6 +50,18 @@ namespace AP.Service.WebApi
         private MessageBroker GetBroker()
         {
             return provider.Get<MessageBroker>();
+        }
+
+        private IErrorFactory GetErrorFactory()
+        {
+            return provider.Get<As4ErrorFactory>();
+        }
+
+        private IReceiptFactory GetReceiptFactory(string url)
+        {
+            return url.Contains("System")
+                ? (IReceiptFactory)provider.Get<EmptyReceiptFactory>()
+                : (IReceiptFactory)provider.Get<As4ReceiptFactory>();
         }
     }
 }

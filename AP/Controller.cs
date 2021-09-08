@@ -1,25 +1,31 @@
 ﻿using AP.Async;
+using AP.Sync;
 using System;
 
-namespace AP.Sync
+namespace AP
 {
     public class Controller
     {
         private Pipeline pipeline;
         private Workflow workflow;
-        private ISignal signal;
         private MessageBroker broker;
+        private IErrorFactory errorFactory;
+        private IReceiptFactory receiptFactory;
+        
+        public bool ReturnReceipt { get; set; }
 
         public Controller(
-            Pipeline pipeline, 
-            Workflow workflow, 
-            ISignal signal, 
-            MessageBroker broker)
+            Pipeline pipeline,
+            Workflow workflow,
+            MessageBroker broker,
+            IErrorFactory errorFactory,
+            IReceiptFactory receiptFactory)
         {
             this.pipeline = pipeline;
             this.workflow = workflow;
-            this.signal = signal;
             this.broker = broker;
+            this.errorFactory = errorFactory;
+            this.receiptFactory = receiptFactory;
         }
 
         public string Handle(Message message)
@@ -32,10 +38,10 @@ namespace AP.Sync
             }
             catch (Exception exception)
             {
-                return signal.Error(exception);
+                return errorFactory.Get(exception, message);
             }
 
-            return signal.Receipt(message);
+            return receiptFactory.Get(message);
         }
     }
 }

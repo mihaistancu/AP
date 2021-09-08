@@ -74,13 +74,14 @@
     <Compile Include="Async\Workers\IR\Export\IrRequestExportWorker.cs" />
     <Compile Include="Async\Workers\IR\Import\IrImportWorker.cs" />
     <Compile Include="Async\Workers\Validation\ValidationWorker.cs" />
+    <Compile Include="IErrorFactory.cs" />
+    <Compile Include="IReceiptFactory.cs" />
     <Compile Include="Sync\Handlers\SignatureCheckHandler.cs" />
     <Compile Include="Sync\Handlers\PersistenceHandler.cs" />
     <Compile Include="Sync\Handlers\Validation\IEnvelopeValidator.cs" />
     <Compile Include="Sync\Handlers\Validation\ValidationHandler.cs" />
     <Compile Include="Sync\Handlers\DecryptionHandler.cs" />
     <Compile Include="Sync\Handlers\TlsCheckHandler.cs" />
-    <Compile Include="Sync\ISignal.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Sync\Pipeline.cs" />
@@ -88,8 +89,6 @@
     <Compile Include="Sync\IHandler.cs" />
     <Compile Include="Sync\Pipelines\SignatureCheckPipeline.cs" />
     <Compile Include="Sync\Pipelines\DecryptionPipeline.cs" />
-    <Compile Include="Sync\Signals\ErrorOnlySignal.cs" />
-    <Compile Include="Sync\Signals\ReceiptAndErrorSignal.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
