@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 
-namespace AP.Processing.Sync.Handlers.SignatureCheck
+namespace AP.Processing.Sync.Handlers.SignatureValidation
 {
     public class SignatureValidationHandler : IHandler
     {

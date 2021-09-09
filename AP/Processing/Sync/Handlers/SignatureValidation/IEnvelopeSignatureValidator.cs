@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Sync.Handlers.SignatureCheck
+﻿namespace AP.Processing.Sync.Handlers.SignatureValidation
 {
     public interface IEnvelopeSignatureValidator
     {

@@ -1,4 +1,4 @@
-﻿using AP.Processing.Sync.Handlers.SignatureCheck;
+﻿using AP.Processing.Sync.Handlers.SignatureValidation;
 
 namespace AP.Signing
 {

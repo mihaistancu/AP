@@ -1,12 +1,12 @@
 ﻿using AP.Data;
 
-namespace AP.Processing.Sync.Handlers.Auth
+namespace AP.Processing.Sync.Handlers.TlsCertificateValidation
 {
-    public class TlsCertificateCheckHandler : IHandler
+    public class TlsCertificateValidationHandler : IHandler
     {
         private readonly ICertificateValidator validator;
 
-        public TlsCertificateCheckHandler(ICertificateValidator validator)
+        public TlsCertificateValidationHandler(ICertificateValidator validator)
         {
             this.validator = validator;
         }

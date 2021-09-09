@@ -1,11 +1,11 @@
 ﻿using AP.Data;
-using AP.Processing.Sync.Handlers.Validation;
+using AP.Processing.Sync.Handlers.EnvelopeValidation;
 
 namespace AP.Monitoring.Handlers
 {
-    public class MonitoringValidationHandler : EnvelopeValidationHandler
+    public class MonitoringEnvelopeValidationHandler : EnvelopeValidationHandler
     {
-        public MonitoringValidationHandler(IEnvelopeValidator validator) : base(validator)
+        public MonitoringEnvelopeValidationHandler(IEnvelopeValidator validator) : base(validator)
         {
         }
 

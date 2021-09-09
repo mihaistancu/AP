@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers\MonitoringValidationHandler.cs" />
-    <Compile Include="Handlers\MonitoringTlsCheckHandler.cs" />
-    <Compile Include="Handlers\MonitoringSignatureCheckHandler.cs" />
+    <Compile Include="Handlers\MonitoringEnvelopeValidationHandler.cs" />
+    <Compile Include="Handlers\MonitoringTlsCertificateValidationHandler.cs" />
+    <Compile Include="Handlers\MonitoringSignatureValidationHandler.cs" />
     <Compile Include="Handlers\MonitoringPersistenceHandler.cs" />
     <Compile Include="Handlers\MonitoringDecryptionHandler.cs" />
     <Compile Include="MonitoringController.cs" />

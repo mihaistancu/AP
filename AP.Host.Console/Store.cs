@@ -19,7 +19,6 @@ using AP.Processing.Async.Workers.IR.Import;
 using AP.Processing.Async.Workers.IR;
 using AP.Processing.Async.Workers.Validation;
 using AP.Processing.Async;
-using AP.Processing.Sync.Handlers.Validation;
 using AP.Signals;
 using AP.Monitoring.Workers;
 using AP.Monitoring.Handlers;
@@ -29,10 +28,11 @@ using AP.Storage;
 using AP.Processing.Sync.Handlers.Decryption;
 using AP.Cryptography;
 using AP.Processing.Sync.Handlers.Persistence;
-using AP.Processing.Sync.Handlers.Auth;
-using AP.Processing.Sync.Handlers.SignatureCheck;
 using AP.Signing;
 using AP.Certificates;
+using AP.Processing.Sync.Handlers.EnvelopeValidation;
+using AP.Processing.Sync.Handlers.SignatureValidation;
+using AP.Processing.Sync.Handlers.TlsCertificateValidation;
 
 namespace AP.Host.Console
 {
@@ -75,9 +75,9 @@ namespace AP.Host.Console
             
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
             container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);
-            container.RegisterType<SignatureValidationHandler, MonitoringSignatureCheckHandler>(TypeLifetime.Singleton);
-            container.RegisterType<TlsCertificateCheckHandler, MonitoringTlsCheckHandler>(TypeLifetime.Singleton);
-            container.RegisterType<EnvelopeValidationHandler, MonitoringValidationHandler>(TypeLifetime.Singleton);
+            container.RegisterType<SignatureValidationHandler, MonitoringSignatureValidationHandler>(TypeLifetime.Singleton);
+            container.RegisterType<TlsCertificateValidationHandler, MonitoringTlsCertificateValidationHandler>(TypeLifetime.Singleton);
+            container.RegisterType<EnvelopeValidationHandler, MonitoringEnvelopeValidationHandler>(TypeLifetime.Singleton);
 
             container.RegisterType<AntimalwareWorker, MonitoringAntimalwareWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringAntimalwareWorker>(TypeLifetime.Singleton);

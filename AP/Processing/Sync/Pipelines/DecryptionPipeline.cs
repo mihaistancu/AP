@@ -1,14 +1,14 @@
-﻿using AP.Processing.Sync.Handlers.Auth;
-using AP.Processing.Sync.Handlers.Decryption;
+﻿using AP.Processing.Sync.Handlers.Decryption;
+using AP.Processing.Sync.Handlers.EnvelopeValidation;
 using AP.Processing.Sync.Handlers.Persistence;
-using AP.Processing.Sync.Handlers.Validation;
+using AP.Processing.Sync.Handlers.TlsCertificateValidation;
 
 namespace AP.Processing.Sync.Pipelines
 {
     public class DecryptionPipeline : Pipeline
     {
         public DecryptionPipeline(
-            TlsCertificateCheckHandler tlsCheck,
+            TlsCertificateValidationHandler tlsCheck,
             DecryptionHandler decryption,
             EnvelopeValidationHandler validation,
             PersistenceHandler persistence)

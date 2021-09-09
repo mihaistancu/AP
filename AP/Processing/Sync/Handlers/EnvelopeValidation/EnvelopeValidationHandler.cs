@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 
-namespace AP.Processing.Sync.Handlers.Validation
+namespace AP.Processing.Sync.Handlers.EnvelopeValidation
 {
     public class EnvelopeValidationHandler : IHandler
     {
