@@ -1,5 +1,4 @@
 ﻿using AP.Data;
-using AP.Processing.Async.Workers.IR;
 using AP.Processing.Async.Workers.IR.Import;
 using System;
 
@@ -7,7 +6,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringIrImportWorker: IrImportWorker
     {
-        public MonitoringIrImportWorker(IIrParser parser, IIrStorage storage) : base(parser, storage)
+        public MonitoringIrImportWorker(IIrImporter importer) : base(importer)
         {
         }
 

@@ -2,8 +2,8 @@
 
 namespace AP.Processing.Async.Workers.CDM.Import
 {
-    public interface ICdmParser
+    public interface ICdmImporter
     {
-        CdmData Parse(Message message);
+        void Import(Message message);
     }
 }

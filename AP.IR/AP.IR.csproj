@@ -42,8 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IrExportBuilder.cs" />
-    <Compile Include="IrParser.cs" />
-    <Compile Include="IrStorage.cs" />
+    <Compile Include="IrImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

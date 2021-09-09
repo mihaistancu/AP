@@ -4,19 +4,16 @@ namespace AP.Processing.Async.Workers.IR.Import
 {
     public class IrImportWorker : IWorker
     {
-        private IIrParser parser;
-        private IIrStorage storage;
+        private IIrImporter importer;
 
-        public IrImportWorker(IIrParser parser, IIrStorage storage)
+        public IrImportWorker(IIrImporter importer)
         {
-            this.parser = parser;
-            this.storage = storage;
+            this.importer = importer;
         }
 
         public virtual Message[] Handle(Message message)
         {
-            var data = parser.Parse(message.Blob);
-            storage.Save(data);
+            importer.Import(message);
 
             return new[] { message };
         }

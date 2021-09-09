@@ -49,13 +49,11 @@
     <Compile Include="Processing\Async\Workers\CDM\CdmData.cs" />
     <Compile Include="Processing\Async\Workers\CDM\Export\ICdmExportBuilder.cs" />
     <Compile Include="Processing\Async\Workers\CDM\ICdmStorage.cs" />
-    <Compile Include="Processing\Async\Workers\CDM\Import\ICdmParser.cs" />
+    <Compile Include="Processing\Async\Workers\CDM\Import\ICdmImporter.cs" />
     <Compile Include="Processing\Async\Workers\CDM\Report\ICdmReportBuilder.cs" />
     <Compile Include="Processing\Async\Workers\Delivery\IRouter.cs" />
     <Compile Include="Processing\Async\Workers\IR\Export\IIrExportBuilder.cs" />
-    <Compile Include="Processing\Async\Workers\IR\Import\IIrParser.cs" />
-    <Compile Include="Processing\Async\Workers\IR\IIrStorage.cs" />
-    <Compile Include="Processing\Async\Workers\IR\IrData.cs" />
+    <Compile Include="Processing\Async\Workers\IR\Import\IIrImporter.cs" />
     <Compile Include="Processing\Async\Workers\Validation\IDocumentValidator.cs" />
     <Compile Include="Processing\Async\Workflow.cs" />
     <Compile Include="Processing\Async\Workers\Antimalware\AntimalwareWorker.cs" />

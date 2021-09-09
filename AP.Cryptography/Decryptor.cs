@@ -1,12 +1,12 @@
-﻿using AP.Processing.Sync.Handlers.Decryption;
+﻿using AP.Data;
+using AP.Processing.Sync.Handlers.Decryption;
 
 namespace AP.Cryptography
 {
     public class Decryptor : IDecryptor
     {
-        public byte[] Decrypt(byte[] data)
+        public void Decrypt(Message message)
         {
-            return data;
         }
     }
 }

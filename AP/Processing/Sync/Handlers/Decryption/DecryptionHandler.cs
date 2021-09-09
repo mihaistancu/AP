@@ -13,7 +13,7 @@ namespace AP.Processing.Sync.Handlers.Decryption
 
         public virtual bool Handle(Message message)
         {
-            message.Blob = decryptor.Decrypt(message.Blob);
+            decryptor.Decrypt(message);
             return true;
         }
     }

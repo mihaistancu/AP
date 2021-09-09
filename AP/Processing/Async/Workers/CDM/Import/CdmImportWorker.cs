@@ -3,20 +3,17 @@
 namespace AP.Processing.Async.Workers.CDM.Import
 {
     public class CdmImportWorker : IWorker
-    {
-        private ICdmParser parser;
-        private ICdmStorage storage;
+    {   
+        private ICdmImporter importer;
 
-        public CdmImportWorker(ICdmParser parser, ICdmStorage storage)
+        public CdmImportWorker(ICdmImporter importer)
         {
-            this.parser = parser;
-            this.storage = storage;
+            this.importer = importer;
         }
 
         public virtual Message[] Handle(Message message)
-        {           
-            var data = parser.Parse(message);
-            storage.Save(data);
+        {
+            importer.Import(message);
 
             return new[] { message };
         }

@@ -13,7 +13,7 @@ namespace AP.Processing.Sync.Handlers.SignatureValidation
 
         public virtual bool Handle(Message message)
         {
-            validator.Validate(message.Blob);
+            validator.Validate(message);
             return true;
         }
     }

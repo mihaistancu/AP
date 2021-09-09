@@ -63,13 +63,11 @@ namespace AP.Host.Console
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
             
             container.RegisterType<IRouter, Delivery.Router>(TypeLifetime.Singleton);
-            
-            container.RegisterType<IIrParser, IrParser>(TypeLifetime.Singleton);
-            container.RegisterType<IIrStorage, IrStorage>(TypeLifetime.Singleton);
+
+            container.RegisterType<IIrImporter, IrImporter>(TypeLifetime.Singleton);
             container.RegisterType<IIrExportBuilder, IrExportBuilder>(TypeLifetime.Singleton);
             
-            container.RegisterType<ICdmParser, CdmParser>(TypeLifetime.Singleton);
-            container.RegisterType<ICdmStorage, CdmStorage>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmImporter, CdmImporter>(TypeLifetime.Singleton);
             container.RegisterType<ICdmExportBuilder, CdmExportBuilder>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReportBuilder, CdmReportBuilder>(TypeLifetime.Singleton);
             
