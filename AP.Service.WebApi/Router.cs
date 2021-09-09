@@ -12,7 +12,7 @@ namespace AP.Service.WebApi
 {
     public class Router
     {
-        private readonly IProvider provider;
+        private IProvider provider;
 
         public Router(IProvider provider)
         {

@@ -4,8 +4,8 @@ namespace AP.Processing.Async.Workers.CDM.Export
 {
     public class CdmSubscriptionExportWorker : IWorker
     {
-        private readonly ICdmExportBuilder builder;
-        private readonly IMessageStorage storage;
+        private ICdmExportBuilder builder;
+        private IMessageStorage storage;
 
         public CdmSubscriptionExportWorker(
             ICdmExportBuilder builder, 

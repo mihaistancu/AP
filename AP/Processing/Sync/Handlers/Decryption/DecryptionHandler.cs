@@ -4,7 +4,7 @@ namespace AP.Processing.Sync.Handlers.Decryption
 {
     public class DecryptionHandler : IHandler
     {
-        private readonly IDecryptor decryptor;
+        private IDecryptor decryptor;
 
         public DecryptionHandler(IDecryptor decryptor)
         {

@@ -4,8 +4,8 @@ namespace AP.Processing.Async.Workers.CDM.Import
 {
     public class CdmImportWorker : IWorker
     {
-        private readonly ICdmParser parser;
-        private readonly ICdmStorage storage;
+        private ICdmParser parser;
+        private ICdmStorage storage;
 
         public CdmImportWorker(ICdmParser parser, ICdmStorage storage)
         {

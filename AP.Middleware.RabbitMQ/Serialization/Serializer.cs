@@ -6,8 +6,8 @@ namespace AP.Middleware.RabbitMQ.Serialization
 {
     public class Serializer
     {
-        private readonly Map<Workflow> workflowMap;
-        private readonly Map<IWorker> workerMap;
+        private Map<Workflow> workflowMap;
+        private Map<IWorker> workerMap;
 
         public Serializer(
             Map<Workflow> workflowMap,

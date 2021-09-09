@@ -4,7 +4,7 @@ namespace AP.Processing.Sync.Handlers.EnvelopeValidation
 {
     public class EnvelopeValidationHandler : IHandler
     {
-        private readonly IEnvelopeValidator validator;
+        private IEnvelopeValidator validator;
 
         public EnvelopeValidationHandler(IEnvelopeValidator validator)
         {

@@ -4,7 +4,7 @@ namespace AP.Processing.Sync.Handlers.SignatureValidation
 {
     public class SignatureValidationHandler : IHandler
     {
-        private readonly IEnvelopeSignatureValidator validator;
+        private IEnvelopeSignatureValidator validator;
 
         public SignatureValidationHandler(IEnvelopeSignatureValidator validator)
         {

@@ -4,7 +4,7 @@ namespace AP.Processing.Sync.Handlers.Persistence
 {
     public class PersistenceHandler : IHandler
     {
-        private readonly IMessageStorage storage;
+        private IMessageStorage storage;
 
         public PersistenceHandler(IMessageStorage storage)
         {

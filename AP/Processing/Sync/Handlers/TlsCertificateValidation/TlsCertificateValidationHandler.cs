@@ -4,7 +4,7 @@ namespace AP.Processing.Sync.Handlers.TlsCertificateValidation
 {
     public class TlsCertificateValidationHandler : IHandler
     {
-        private readonly ICertificateValidator validator;
+        private ICertificateValidator validator;
 
         public TlsCertificateValidationHandler(ICertificateValidator validator)
         {

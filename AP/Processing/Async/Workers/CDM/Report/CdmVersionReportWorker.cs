@@ -4,8 +4,8 @@ namespace AP.Processing.Async.Workers.CDM.Report
 {
     public class CdmVersionReportWorker : IWorker
     {
-        private readonly ICdmReportBuilder builder;
-        private readonly IMessageStorage storage;
+        private ICdmReportBuilder builder;
+        private IMessageStorage storage;
 
         public CdmVersionReportWorker(
             ICdmReportBuilder builder,

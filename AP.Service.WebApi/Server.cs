@@ -8,8 +8,8 @@ namespace AP.Service.WebApi
 {
     public class Server
     {
-        private readonly Router router;
-        private readonly Parser parser;
+        private Router router;
+        private Parser parser;
 
         public Server(Router router, Parser parser)
         {

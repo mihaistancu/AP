@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Data\Certificate.cs" />
     <Compile Include="Data\IMessageStorage.cs" />
+    <Compile Include="Data\MessageBuilder.cs" />
     <Compile Include="Processing\Async\ExceptionHandler.cs" />
     <Compile Include="Processing\Async\MessageBroker.cs" />
     <Compile Include="Processing\Async\IWorker.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Processing\Async\Workflows\CdmVersionWorkflow.cs" />
     <Compile Include="Processing\Async\Workflows\CdmSyncWorkflow.cs" />
     <Compile Include="Processing\Async\Workflows\CdmRequestWorkflow.cs" />
+    <Compile Include="Processing\Async\Workflows\ErrorWorkflow.cs" />
     <Compile Include="Processing\Async\Workflows\IrRequestWorkflow.cs" />
     <Compile Include="Processing\Async\Workflows\IrSyncWorkflow.cs" />
     <Compile Include="Processing\Async\Workflows\BusinessWorkflow.cs" />

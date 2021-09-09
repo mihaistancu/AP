@@ -5,7 +5,7 @@ namespace AP.Processing.Async
 {
     public abstract class MessageBroker
     {
-        private readonly ExceptionHandler exceptionHandler;
+        private ExceptionHandler exceptionHandler;
 
         public MessageBroker(ExceptionHandler exceptionHandler)
         {

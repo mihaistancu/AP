@@ -4,7 +4,7 @@ namespace AP.Processing.Async.Workers.Validation
 {
     public class ValidationWorker : IWorker
     {
-        private readonly IDocumentValidator validator;
+        private IDocumentValidator validator;
 
         public ValidationWorker(IDocumentValidator validator)
         {

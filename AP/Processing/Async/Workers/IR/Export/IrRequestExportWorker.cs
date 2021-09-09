@@ -5,7 +5,7 @@ namespace AP.Processing.Async.Workers.IR.Export
     public class IrRequestExportWorker : IWorker
     {
         private IIrExportBuilder builder;
-        private readonly IMessageStorage storage;
+        private IMessageStorage storage;
 
         public IrRequestExportWorker(
             IIrExportBuilder builder,

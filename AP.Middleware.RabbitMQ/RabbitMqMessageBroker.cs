@@ -10,7 +10,7 @@ namespace AP.Middleware.RabbitMQ
 {
     public class RabbitMqMessageBroker : MessageBroker, IDisposable
     {   
-        private readonly Serializer serializer;
+        private Serializer serializer;
 
         public RabbitMqMessageBroker(
             Serializer serializer, 

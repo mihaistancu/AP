@@ -5,7 +5,7 @@ namespace AP.Processing.Async.Workers.Delivery
 {
     public class DeliveryWorker : IWorker
     {
-        private readonly IRouter router;
+        private IRouter router;
 
         public DeliveryWorker(IRouter router)
         {
