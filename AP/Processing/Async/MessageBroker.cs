@@ -1,15 +1,27 @@
 ﻿using AP.Data;
+using AP.Processing.Async.Workflows;
+using AP.Signals;
 using System;
 
 namespace AP.Processing.Async
 {
     public abstract class MessageBroker
     {
-        private ExceptionHandler exceptionHandler;
+        private IErrorFactory errorFactory;
+        private MessageBuilder builder;
+        private IMessageStorage storage;
+        private ErrorWorkflow errorWorkflow;
 
-        public MessageBroker(ExceptionHandler exceptionHandler)
+        public MessageBroker(
+            IErrorFactory errorFactory,
+            MessageBuilder builder,
+            IMessageStorage storage,
+            ErrorWorkflow errorWorkflow)
         {
-            this.exceptionHandler = exceptionHandler;
+            this.errorFactory = errorFactory;
+            this.builder = builder;
+            this.storage = storage;
+            this.errorWorkflow = errorWorkflow;
         }
 
         public void Handle(IWorker worker, Workflow workflow, Message message)
@@ -26,8 +38,18 @@ namespace AP.Processing.Async
             }
             catch (Exception exception)
             {
-                exceptionHandler.Handle(exception, message);
+                Handle(exception, message);
             }
+        }
+
+        private void Handle(Exception exception, Message message)
+        {
+            var error = errorFactory.Get(exception, message);
+            builder.WithEnvelope(error);
+            var errorMessage = builder.Build();
+            storage.Save(errorMessage);
+            var worker = errorWorkflow.GetFirst();
+            Send(worker, errorWorkflow, errorMessage);
         }
 
         public abstract void Send(IWorker worker, Workflow workflow, params Message[] messages);

@@ -44,7 +44,6 @@
     <Compile Include="Data\Certificate.cs" />
     <Compile Include="Data\IMessageStorage.cs" />
     <Compile Include="Data\MessageBuilder.cs" />
-    <Compile Include="Processing\Async\ExceptionHandler.cs" />
     <Compile Include="Processing\Async\MessageBroker.cs" />
     <Compile Include="Processing\Async\IWorker.cs" />
     <Compile Include="Processing\Async\Workers\CDM\CdmData.cs" />

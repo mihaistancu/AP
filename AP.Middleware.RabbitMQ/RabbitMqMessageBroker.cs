@@ -1,6 +1,8 @@
 ﻿using AP.Data;
 using AP.Middleware.RabbitMQ.Serialization;
 using AP.Processing.Async;
+using AP.Processing.Async.Workflows;
+using AP.Signals;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
@@ -12,16 +14,19 @@ namespace AP.Middleware.RabbitMQ
     {   
         private Serializer serializer;
 
+        private IConnection connection;
+        private IModel receiveChannel;
+
         public RabbitMqMessageBroker(
-            Serializer serializer, 
-            ExceptionHandler exceptionHandler)
-            : base(exceptionHandler)
+            IErrorFactory errorFactory, 
+            MessageBuilder builder, 
+            IMessageStorage storage, 
+            ErrorWorkflow errorWorkflow,
+            Serializer serializer) 
+            : base(errorFactory, builder, storage, errorWorkflow)
         {
             this.serializer = serializer;
         }
-
-        private IConnection connection;
-        private IModel receiveChannel;
 
         public void Connect()
         {
