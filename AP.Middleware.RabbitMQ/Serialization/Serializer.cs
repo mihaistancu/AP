@@ -34,7 +34,7 @@ namespace AP.Middleware.RabbitMQ.Serialization
             var message = new Message
             {
                 Content = tokens[2],
-                SedType = tokens[2]
+                DocumentType = tokens[2]
             };
             return (worker, workflow, message);
         }

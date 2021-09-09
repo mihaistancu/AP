@@ -41,7 +41,7 @@ namespace AP.Service.WebApi
 
         private Workflow GetWorkflow(Message message)
         {
-            switch (message.SedType)
+            switch (message.DocumentType)
             {
                 case "SYN001": return provider.Get<IrSyncWorkflow>();
                 case "SYN002": return provider.Get<IrRequestWorkflow>();

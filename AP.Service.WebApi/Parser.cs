@@ -10,7 +10,7 @@ namespace AP.Service.WebApi
             var content = reader.ReadToEnd();
             return new Message
             {
-                SedType = content,
+                DocumentType = content,
                 Content = content
             };
         }

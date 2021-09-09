@@ -20,12 +20,12 @@ namespace AP.CDM
             {
                 new Message
                 {
-                    SedType = "SYN003",
+                    DocumentType = "SYN003",
                     Content = "SYN003"
                 },
                 new Message
                 {
-                    SedType = "SYN003",
+                    DocumentType = "SYN003",
                     Content = "SYN003"
                 }
             };
