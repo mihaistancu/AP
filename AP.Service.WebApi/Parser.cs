@@ -11,8 +11,7 @@ namespace AP.Service.WebApi
             var content = reader.ReadToEnd();
             return new Message
             {
-                DocumentType = content,
-                Content = content
+                DocumentType = content
             };
         }
     }

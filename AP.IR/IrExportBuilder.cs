@@ -21,13 +21,11 @@ namespace AP.IR
             { 
                 new Message
                 {
-                    DocumentType = "SYN001",
-                    Content = "SYN001"
+                    DocumentType = "SYN001"
                 },
                 new Message
                 {
-                    DocumentType = "SYN001",
-                    Content = "SYN001"
+                    DocumentType = "SYN001"
                 }
             };
         }

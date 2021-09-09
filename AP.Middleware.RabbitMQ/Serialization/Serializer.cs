@@ -21,7 +21,7 @@ namespace AP.Middleware.RabbitMQ.Serialization
         {
             var workerId = workerMap.Id(worker);
             var workflowId = workflowMap.Id(workflow);
-            var serialization = $"{workflowId}.{workerId}.{message.Content}";
+            var serialization = $"{workflowId}.{workerId}.{message.DocumentType}";
             return Encoding.UTF8.GetBytes(serialization);
         }
 
@@ -34,7 +34,6 @@ namespace AP.Middleware.RabbitMQ.Serialization
             var worker = workerMap.Get(tokens[1]);
             var message = new Message
             {
-                Content = tokens[2],
                 DocumentType = tokens[2]
             };
             return (worker, workflow, message);
