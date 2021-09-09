@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Workers.IR.Export
+﻿using AP.Data;
+
+namespace AP.Processing.Async.Workers.IR.Export
 {
     public class IrRequestExportWorker : IWorker
     {

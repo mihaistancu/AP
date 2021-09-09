@@ -22,13 +22,17 @@ using AP.Processing.Async;
 using AP.Processing.Sync.Handlers.Validation;
 using AP.Signals;
 using AP.Monitoring.Workers;
-using AP.Processing.Sync.Handlers;
 using AP.Monitoring.Handlers;
 using AP.Processing;
 using AP.Monitoring;
 using AP.Storage;
 using AP.Processing.Sync.Handlers.Decryption;
 using AP.Cryptography;
+using AP.Processing.Sync.Handlers.Persistence;
+using AP.Processing.Sync.Handlers.Auth;
+using AP.Processing.Sync.Handlers.SignatureCheck;
+using AP.Signing;
+using AP.Certificates;
 
 namespace AP.Host.Console
 {
@@ -45,6 +49,8 @@ namespace AP.Host.Console
             container.RegisterType<Controller, MonitoringController>();
             container.RegisterType<IMessageStorage, MessageStorage>(TypeLifetime.Singleton);
             container.RegisterType<IDecryptor, Decryptor>(TypeLifetime.Singleton);
+            container.RegisterType<IEnvelopeSignatureValidator, EnvelopeSignatureValidator>(TypeLifetime.Singleton);
+            container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
             container.RegisterType<MessageBroker, RabbitMqMessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<RabbitMqMessageBroker>(TypeLifetime.Singleton);
@@ -69,9 +75,9 @@ namespace AP.Host.Console
             
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
             container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);
-            container.RegisterType<SignatureCheckHandler, MonitoringSignatureCheckHandler>(TypeLifetime.Singleton);
-            container.RegisterType<TlsCheckHandler, MonitoringTlsCheckHandler>(TypeLifetime.Singleton);
-            container.RegisterType<ValidationHandler, MonitoringValidationHandler>(TypeLifetime.Singleton);
+            container.RegisterType<SignatureValidationHandler, MonitoringSignatureCheckHandler>(TypeLifetime.Singleton);
+            container.RegisterType<TlsCertificateCheckHandler, MonitoringTlsCheckHandler>(TypeLifetime.Singleton);
+            container.RegisterType<EnvelopeValidationHandler, MonitoringValidationHandler>(TypeLifetime.Singleton);
 
             container.RegisterType<AntimalwareWorker, MonitoringAntimalwareWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringAntimalwareWorker>(TypeLifetime.Singleton);

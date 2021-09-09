@@ -79,6 +79,14 @@
       <Project>{40b9536c-7c97-4110-9d97-bf55618297a9}</Project>
       <Name>AP.CDM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Certificates\AP.Certificates.csproj">
+      <Project>{18B6B51A-F726-4AC5-B53F-2C0B922E8854}</Project>
+      <Name>AP.Certificates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Cryptography\AP.Cryptography.csproj">
+      <Project>{5F9C8BF4-34F7-4741-8A06-5016CD44BC08}</Project>
+      <Name>AP.Cryptography</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Delivery\AP.Delivery.csproj">
       <Project>{f0663955-6a27-42c7-bacc-3f7461b87367}</Project>
       <Name>AP.Delivery</Name>
@@ -98,6 +106,10 @@
     <ProjectReference Include="..\AP.Service.WebApi\AP.Service.WebApi.csproj">
       <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
       <Name>AP.Service.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Signing\AP.Signing.csproj">
+      <Project>{5105965C-CB56-4AD8-A383-DE76BEA64CC9}</Project>
+      <Name>AP.Signing</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Storage\AP.Storage.csproj">
       <Project>{EBDD1A1F-4F6B-4675-BA97-2688CE2C1BEC}</Project>

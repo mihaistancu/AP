@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync
+﻿using AP.Data;
+
+namespace AP.Processing.Sync
 {
     public interface IHandler
     {

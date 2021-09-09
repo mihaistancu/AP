@@ -1,4 +1,6 @@
-﻿namespace AP
+﻿using AP.Data;
+
+namespace AP
 {
     public interface IMessageStorage
     {

@@ -1,4 +1,6 @@
-﻿namespace AP.Signals
+﻿using AP.Data;
+
+namespace AP.Signals
 {
     public interface IReceiptFactory
     {

@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Workers.CDM.Import
+﻿using AP.Data;
+
+namespace AP.Processing.Async.Workers.CDM.Import
 {
     public class CdmImportWorker : IWorker
     {

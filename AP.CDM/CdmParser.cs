@@ -1,4 +1,5 @@
-﻿using AP.Processing.Async.Workers.CDM;
+﻿using AP.Data;
+using AP.Processing.Async.Workers.CDM;
 using AP.Processing.Async.Workers.CDM.Import;
 
 namespace AP.CDM

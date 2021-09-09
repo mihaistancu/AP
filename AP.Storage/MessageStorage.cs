@@ -1,4 +1,6 @@
-﻿namespace AP.Storage
+﻿using AP.Data;
+
+namespace AP.Storage
 {
     public class MessageStorage : IMessageStorage
     {

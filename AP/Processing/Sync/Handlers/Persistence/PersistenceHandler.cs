@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync.Handlers
+﻿using AP.Data;
+
+namespace AP.Processing.Sync.Handlers.Persistence
 {
     public class PersistenceHandler : IHandler
     {

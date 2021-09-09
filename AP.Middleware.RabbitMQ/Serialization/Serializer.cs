@@ -1,4 +1,5 @@
-﻿using AP.Processing.Async;
+﻿using AP.Data;
+using AP.Processing.Async;
 using System.Text;
 
 namespace AP.Middleware.RabbitMQ.Serialization

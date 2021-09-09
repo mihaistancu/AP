@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Workers.Validation
+﻿using AP.Data;
+
+namespace AP.Processing.Async.Workers.Validation
 {
     public class ValidationWorker : IWorker
     {

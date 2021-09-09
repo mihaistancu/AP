@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Workers.CDM.Report
+﻿using AP.Data;
+
+namespace AP.Processing.Async.Workers.CDM.Report
 {
     public interface ICdmReportBuilder
     {

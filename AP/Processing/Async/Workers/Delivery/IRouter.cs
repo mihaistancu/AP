@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Workers.Delivery
+﻿using AP.Data;
+
+namespace AP.Processing.Async.Workers.Delivery
 {
     public interface IRouter
     {

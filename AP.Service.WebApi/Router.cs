@@ -1,5 +1,6 @@
 ﻿using AP.AS4;
 using AP.AS4.ReceiptFactories;
+using AP.Data;
 using AP.Processing;
 using AP.Processing.Async;
 using AP.Processing.Async.Workflows;
