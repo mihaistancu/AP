@@ -27,6 +27,8 @@ using AP.Monitoring.Handlers;
 using AP.Processing;
 using AP.Monitoring;
 using AP.Storage;
+using AP.Processing.Sync.Handlers.Decryption;
+using AP.Cryptography;
 
 namespace AP.Host.Console
 {
@@ -39,6 +41,10 @@ namespace AP.Host.Console
             container = new UnityContainer();
             container.RegisterInstance<IStore>(this);
             container.RegisterInstance<IProvider>(this);
+
+            container.RegisterType<Controller, MonitoringController>();
+            container.RegisterType<IMessageStorage, MessageStorage>(TypeLifetime.Singleton);
+            container.RegisterType<IDecryptor, Decryptor>(TypeLifetime.Singleton);
 
             container.RegisterType<MessageBroker, RabbitMqMessageBroker>(TypeLifetime.Singleton);
             container.RegisterType<RabbitMqMessageBroker>(TypeLifetime.Singleton);
@@ -88,9 +94,7 @@ namespace AP.Host.Console
             container.RegisterType<ValidationWorker, MonitoringValidationWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringValidationWorker>(TypeLifetime.Singleton);
 
-            container.RegisterType<Controller, MonitoringController>();
-
-            container.RegisterType<IMessageStorage, MessageStorage>(TypeLifetime.Singleton);
+            
         }
 
         public T Get<T>()
