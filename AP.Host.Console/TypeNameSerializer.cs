@@ -13,7 +13,7 @@ namespace AP.Host.Console
             this.store = store;
         }
 
-        protected override IWorker Deserialize(string worker)
+        protected override IWorker DeserializeWorker(string worker)
         {
             return store.Get<IWorker>(Type.GetType(worker));
         }

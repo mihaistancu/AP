@@ -30,20 +30,12 @@ namespace AP.Service.WebApi
         private async Task Handle(IOwinContext context)
         {
             await Task.Run(() =>
-            {
-                try
-                {
-                    var message = parser.Parse(context.Request.Body);
-                    var output = new Output(context.Response);
-                    var url = context.Request.Uri.AbsolutePath;
-                    var pipeline = config.GetPipeline(url);
-                    pipeline.Process(message, output);
-                }
-                catch(Exception exception)
-                {
-
-                }
-                
+            {   
+                var message = parser.Parse(context.Request.Body);
+                var output = new Output(context.Response);
+                var url = context.Request.Uri.AbsolutePath;
+                var pipeline = config.GetPipeline(url);
+                pipeline.Process(message, output);
             });
         }
     }

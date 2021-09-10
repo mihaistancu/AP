@@ -11,11 +11,9 @@ namespace AP.Processing.Async.Workers.DocumentValidation
             this.validator = validator;
         }
 
-        public virtual Message[] Handle(Message message)
+        public virtual void Handle(Message message)
         {
             validator.Validate(message);
-
-            return new[] { message };
         }
     }
 }

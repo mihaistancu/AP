@@ -9,7 +9,8 @@ namespace AP.CDM
         {
             return new Message
             {
-                DocumentType = "SYN005"
+                DocumentType = "SYN005",
+                Direction = Direction.Out
             };
         }
     }

@@ -17,8 +17,8 @@
 
     public enum MessageType
     {
-        Business,
         System,
+        Business,
         Receipt,
         Error
     }

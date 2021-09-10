@@ -10,10 +10,10 @@ namespace AP.Monitoring.Workers
         {
         }
 
-        public override Message[] Handle(Message message)
+        public override void Handle(Message message)
         {
             Console.WriteLine("Delivery");
-            return base.Handle(message);
+            base.Handle(message);
         }
     }
 }

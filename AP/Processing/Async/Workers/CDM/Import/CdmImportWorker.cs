@@ -11,11 +11,9 @@ namespace AP.Processing.Async.Workers.CDM.Import
             this.importer = importer;
         }
 
-        public virtual Message[] Handle(Message message)
+        public virtual void Handle(Message message)
         {
             importer.Import(message);
-
-            return new[] { message };
         }
     }
 }

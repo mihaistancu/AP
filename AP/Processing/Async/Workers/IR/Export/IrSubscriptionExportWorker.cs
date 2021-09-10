@@ -5,22 +5,25 @@ namespace AP.Processing.Async.Workers.IR.Export
     public class IrSubscriptionExportWorker : IWorker
     {
         private IIrExportBuilder builder;
-        private readonly IMessageStorage storage;
+        private IMessageStorage storage;
+        private Orchestrator orchestrator;
 
         public IrSubscriptionExportWorker(
             IIrExportBuilder builder,
-            IMessageStorage storage)
+            IMessageStorage storage,
+            Orchestrator orchestrator)
         {
             this.builder = builder;
             this.storage = storage;
+            this.orchestrator = orchestrator;
         }
 
-        public virtual Message[] Handle(Message message)
+        public virtual void Handle(Message message)
         {
             builder.UseSubscriptions();
             var messages = builder.Build();
             storage.Save(messages);
-            return messages;
+            orchestrator.ProcessAsync(messages);
         }
     }
 }

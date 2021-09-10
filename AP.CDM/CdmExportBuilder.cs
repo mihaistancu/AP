@@ -21,11 +21,13 @@ namespace AP.CDM
             {
                 new Message
                 {
-                    DocumentType = "SYN003"
+                    DocumentType = "SYN003",
+                    Direction = Direction.Out
                 },
                 new Message
                 {
-                    DocumentType = "SYN003"
+                    DocumentType = "SYN003",
+                    Direction = Direction.Out
                 }
             };
         }

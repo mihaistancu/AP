@@ -4,28 +4,26 @@ namespace AP.Processing.Async.Workers.CDM.Export
 {
     public class CdmRequestExportWorker : IWorker
     {
+        private Orchestrator orchestrator;
         private ICdmExportBuilder builder;
         private IMessageStorage storage;
-
-        public CdmRequestExportWorker(ICdmExportBuilder builder)
-        {
-            this.builder = builder;
-        }
-
+        
         public CdmRequestExportWorker(
             ICdmExportBuilder builder, 
-            IMessageStorage storage)
+            IMessageStorage storage, 
+            Orchestrator orchestrator)
         {
             this.builder = builder;
             this.storage = storage;
+            this.orchestrator = orchestrator;
         }
 
-        public virtual Message[] Handle(Message message)
+        public virtual void Handle(Message message)
         {
             builder.UseRequest(message);
             var messages = builder.Build();
             storage.Save(messages);
-            return messages;
+            orchestrator.ProcessAsync(messages);
         }
     }
 }

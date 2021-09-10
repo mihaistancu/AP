@@ -1,5 +1,4 @@
 ﻿using AP.Data;
-using System;
 
 namespace AP.Processing.Async.Workers.Delivery
 {
@@ -12,11 +11,9 @@ namespace AP.Processing.Async.Workers.Delivery
             this.router = router;
         }
 
-        public virtual Message[] Handle(Message message)
+        public virtual void Handle(Message message)
         {
             router.Route(message);
-
-            return new[] { message };
         }
     }
 }

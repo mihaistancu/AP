@@ -6,21 +6,24 @@ namespace AP.Processing.Async.Workers.IR.Export
     {
         private IIrExportBuilder builder;
         private IMessageStorage storage;
+        private Orchestrator orchestrator;
 
         public IrRequestExportWorker(
             IIrExportBuilder builder,
-            IMessageStorage storage)
+            IMessageStorage storage,
+            Orchestrator orchestrator)
         {
             this.builder = builder;
             this.storage = storage;
+            this.orchestrator = orchestrator;
         }
 
-        public virtual Message[] Handle(Message message)
+        public virtual void Handle(Message message)
         {
             builder.UseRequest(message);
             var messages = builder.Build();
             storage.Save(messages);
-            return messages;
+            orchestrator.ProcessAsync(messages);
         }
     }
 }

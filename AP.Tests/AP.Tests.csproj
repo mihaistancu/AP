@@ -49,9 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PipelineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestDoubles\HandlerSpy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

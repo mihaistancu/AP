@@ -4,6 +4,6 @@ namespace AP.Processing.Async
 {
     public interface IWorker
     {
-        Message[] Handle(Message message);
+        void Handle(Message message);
     }
 }

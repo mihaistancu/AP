@@ -6,20 +6,23 @@ namespace AP.Processing.Async.Workers.CDM.Report
     {
         private ICdmReportBuilder builder;
         private IMessageStorage storage;
+        private Orchestrator orchestrator;
 
         public CdmVersionReportWorker(
             ICdmReportBuilder builder,
-            IMessageStorage storage)
+            IMessageStorage storage,
+            Orchestrator orchestrator)
         {
             this.builder = builder;
             this.storage = storage;
+            this.orchestrator = orchestrator;
         }
 
-        public virtual Message[] Handle(Message message)
+        public virtual void Handle(Message message)
         {
             var newMessage = builder.Build();
             storage.Save(newMessage);
-            return new[] { newMessage };
+            orchestrator.ProcessAsync(newMessage);
         }
     }
 }

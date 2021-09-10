@@ -1,4 +1,5 @@
 ﻿using AP.Data;
+using AP.Processing.Async;
 using AP.Processing.Async.Workers.CDM.Export;
 using System;
 
@@ -6,14 +7,18 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmSubscriptionExportWorker: CdmSubscriptionExportWorker
     {
-        public MonitoringCdmSubscriptionExportWorker(ICdmExportBuilder builder, IMessageStorage storage) : base(builder, storage)
+        public MonitoringCdmSubscriptionExportWorker(
+            ICdmExportBuilder builder,
+            IMessageStorage storage,
+            Orchestrator orchestrator) 
+            : base(builder, storage, orchestrator)
         {
         }
 
-        public override Message[] Handle(Message message)
+        public override void Handle(Message message)
         {
             Console.WriteLine("Cdm Subscription Export");
-            return base.Handle(message);
+            base.Handle(message);
         }
     }
 }

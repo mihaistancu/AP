@@ -11,22 +11,22 @@ namespace AP.Processing.Async
             this.config = config;
         }
 
-        public void ProcessAsync(Message message)
+        public void ProcessAsync(params Message[] messages)
         {
-            var workflow = config.GetWorkflow(message);
+            var workflow = config.GetWorkflow(messages[0]);
             var worker = workflow.GetFirst();
-            Dispatch(worker, message);
+            Dispatch(worker, messages);
         }
 
         public void Handle(IWorker worker, Message message)
         {   
             var workflow = config.GetWorkflow(message);
-            var messages = worker.Handle(message);
+            worker.Handle(message);
 
             if (!workflow.IsLast(worker))
             {
                 var nextWorker = workflow.GetNext(worker);
-                Dispatch(nextWorker, messages);
+                Dispatch(nextWorker, message);
             }
         }
 

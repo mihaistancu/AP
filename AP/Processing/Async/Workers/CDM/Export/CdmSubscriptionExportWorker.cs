@@ -6,21 +6,24 @@ namespace AP.Processing.Async.Workers.CDM.Export
     {
         private ICdmExportBuilder builder;
         private IMessageStorage storage;
+        private Orchestrator orchestrator;
 
         public CdmSubscriptionExportWorker(
             ICdmExportBuilder builder, 
-            IMessageStorage storage)
+            IMessageStorage storage,
+            Orchestrator orchestrator)
         {
             this.builder = builder;
             this.storage = storage;
+            this.orchestrator = orchestrator;
         }
 
-        public virtual Message[] Handle(Message message)
+        public virtual void Handle(Message message)
         {
             builder.UseSubscriptions();
             var messages = builder.Build();
             storage.Save(messages);
-            return messages;
+            orchestrator.ProcessAsync(messages);
         }
     }
 }

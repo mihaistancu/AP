@@ -1,5 +1,6 @@
 ﻿using AP.Data;
 using AP.Processing.Async;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace AP.Middleware.RabbitMQ.Serialization
@@ -8,8 +9,9 @@ namespace AP.Middleware.RabbitMQ.Serialization
     {
         public byte[] Serialize(IWorker worker, Message message)
         {
-            var workerId = Serialize(worker);
-            var serialization = $"{workerId}#{message.DocumentType}";
+            var serializedWorker = Serialize(worker);
+            var serializedMessage = Serialize(message);
+            var serialization = $"{serializedWorker}#{serializedMessage}";
             return Encoding.UTF8.GetBytes(serialization);
         }
 
@@ -18,16 +20,23 @@ namespace AP.Middleware.RabbitMQ.Serialization
             var serialization = Encoding.UTF8.GetString(body);
             var tokens = serialization.Split('#');
 
-            var worker = Deserialize(tokens[0]);
-            var message = new Message
-            {
-                DocumentType = tokens[1]
-            };
+            var worker = DeserializeWorker(tokens[0]);
+            var message = DeserializeMessage(tokens[1]);
             return (worker, message);
         }
 
         protected abstract string Serialize(IWorker worker);
 
-        protected abstract IWorker Deserialize(string worker);
+        protected abstract IWorker DeserializeWorker(string worker);
+
+        private string Serialize(Message message)
+        {
+            return JsonConvert.SerializeObject(message);
+        }
+
+        private Message DeserializeMessage(string message)
+        {
+            return JsonConvert.DeserializeObject<Message>(message);
+        }
     }
 }
