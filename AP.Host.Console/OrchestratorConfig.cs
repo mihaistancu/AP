@@ -22,6 +22,21 @@ namespace AP.Host.Console
 
         public Workflow GetWorkflow(Message message)
         {
+            switch (message.Direction)
+            {
+                case Direction.In: return GetIncomingWorkflow(message);
+                case Direction.Out: return GetOutgoingWorkflow();
+            }
+            throw new System.Exception("Unknown message direction");
+        }
+
+        public Workflow GetOutgoingWorkflow()
+        {
+            return new Workflow(store.Get<DeliveryWorker>());
+        }
+
+        public Workflow GetIncomingWorkflow(Message message)
+        {
             switch (message.Type)
             {
                 case MessageType.Business: return GetBusinessWorkflow();
