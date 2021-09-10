@@ -14,7 +14,7 @@ using AP.Processing.Async.Workers.CDM.Report;
 using AP.Processing.Async.Workers.Delivery;
 using AP.Processing.Async.Workers.IR.Export;
 using AP.Processing.Async.Workers.IR.Import;
-using AP.Processing.Async.Workers.Validation;
+using AP.Processing.Async.Workers.DocumentValidation;
 using AP.Processing.Async;
 using AP.Signals;
 using AP.Monitoring.Workers;
@@ -93,8 +93,8 @@ namespace AP.Host.Console
             container.RegisterType<MonitoringIrSubscriptionExportWorker>(TypeLifetime.Singleton);
             container.RegisterType<IrImportWorker, MonitoringIrImportWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringIrImportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<ValidationWorker, MonitoringValidationWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringValidationWorker>(TypeLifetime.Singleton);
+            container.RegisterType<DocumentValidationWorker, MonitoringDocumentValidationWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoringDocumentValidationWorker>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()

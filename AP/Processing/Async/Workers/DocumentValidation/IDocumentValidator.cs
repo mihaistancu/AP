@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 
-namespace AP.Processing.Async.Workers.Validation
+namespace AP.Processing.Async.Workers.DocumentValidation
 {
     public interface IDocumentValidator
     {

@@ -1,12 +1,12 @@
 ﻿using AP.Data;
 
-namespace AP.Processing.Async.Workers.Validation
+namespace AP.Processing.Async.Workers.DocumentValidation
 {
-    public class ValidationWorker : IWorker
+    public class DocumentValidationWorker : IWorker
     {
         private IDocumentValidator validator;
 
-        public ValidationWorker(IDocumentValidator validator)
+        public DocumentValidationWorker(IDocumentValidator validator)
         {
             this.validator = validator;
         }

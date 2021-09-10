@@ -12,7 +12,7 @@ namespace AP.Monitoring.Handlers
 
         public override bool Handle(Message message, IOutput output)
         {
-            System.Console.WriteLine("Validation");
+            System.Console.WriteLine("Envelope Validation");
             return base.Handle(message, output);
         }
     }

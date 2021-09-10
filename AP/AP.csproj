@@ -54,7 +54,7 @@
     <Compile Include="Processing\Async\Workers\Delivery\IContentBasedRouter.cs" />
     <Compile Include="Processing\Async\Workers\IR\Export\IIrExportBuilder.cs" />
     <Compile Include="Processing\Async\Workers\IR\Import\IIrImporter.cs" />
-    <Compile Include="Processing\Async\Workers\Validation\IDocumentValidator.cs" />
+    <Compile Include="Processing\Async\Workers\DocumentValidation\IDocumentValidator.cs" />
     <Compile Include="Processing\Async\Workflow.cs" />
     <Compile Include="Processing\Async\Workers\Antimalware\AntimalwareWorker.cs" />
     <Compile Include="Processing\Async\Workers\Antimalware\IScanner.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Processing\Async\Workers\IR\Export\IrSubscriptionExportWorker.cs" />
     <Compile Include="Processing\Async\Workers\IR\Export\IrRequestExportWorker.cs" />
     <Compile Include="Processing\Async\Workers\IR\Import\IrImportWorker.cs" />
-    <Compile Include="Processing\Async\Workers\Validation\ValidationWorker.cs" />
+    <Compile Include="Processing\Async\Workers\DocumentValidation\DocumentValidationWorker.cs" />
     <Compile Include="Processing\Sync\Handlers\Receipt\ReceiptHandler.cs" />
     <Compile Include="Processing\Sync\Handlers\AsyncProcessing\AsyncProcessingHandler.cs" />
     <Compile Include="Processing\Sync\Handlers\TlsCertificateValidation\ICertificateValidator.cs" />

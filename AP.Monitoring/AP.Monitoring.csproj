@@ -53,7 +53,7 @@
     <Compile Include="Workers\MonitoringIrSubscriptionExportWorker.cs" />
     <Compile Include="Workers\MonitoringIrImportWorker.cs" />
     <Compile Include="Workers\MonitoringCdmVersionReportWorker.cs" />
-    <Compile Include="Workers\MonitoringValidationWorker.cs" />
+    <Compile Include="Workers\MonitoringDocumentValidationWorker.cs" />
     <Compile Include="Workers\MonitoringCdmImportWorker.cs" />
     <Compile Include="Workers\MonitoringCdmSubscriptionExportWorker.cs" />
     <Compile Include="Workers\MonitoringCdmRequestExportWorker.cs" />

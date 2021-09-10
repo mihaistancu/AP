@@ -7,7 +7,7 @@ using AP.Processing.Async.Workers.CDM.Report;
 using AP.Processing.Async.Workers.Delivery;
 using AP.Processing.Async.Workers.IR.Export;
 using AP.Processing.Async.Workers.IR.Import;
-using AP.Processing.Async.Workers.Validation;
+using AP.Processing.Async.Workers.DocumentValidation;
 
 namespace AP.Host.Console
 {
@@ -51,7 +51,7 @@ namespace AP.Host.Console
         {
             return new Workflow(
                 store.Get<AntimalwareWorker>(),
-                store.Get<ValidationWorker>(),
+                store.Get<DocumentValidationWorker>(),
                 store.Get<DeliveryWorker>());
         }
 
@@ -61,29 +61,29 @@ namespace AP.Host.Console
             {
                 case "SYN001": return new Workflow(
                     store.Get<AntimalwareWorker>(),
-                    store.Get<ValidationWorker>(),
+                    store.Get<DocumentValidationWorker>(),
                     store.Get<IrImportWorker>(),
                     store.Get<IrSubscriptionExportWorker>());
 
                 case "SYN002": return new Workflow(
                     store.Get<AntimalwareWorker>(),
-                    store.Get<ValidationWorker>(),
+                    store.Get<DocumentValidationWorker>(),
                     store.Get<IrRequestExportWorker>());
 
                 case "SYN003": return new Workflow(
                     store.Get<AntimalwareWorker>(),
-                    store.Get<ValidationWorker>(),
+                    store.Get<DocumentValidationWorker>(),
                     store.Get<CdmImportWorker>(),
                     store.Get<CdmSubscriptionExportWorker>());
 
                 case "SYN004": return new Workflow(
                     store.Get<AntimalwareWorker>(),
-                    store.Get<ValidationWorker>(),
+                    store.Get<DocumentValidationWorker>(),
                     store.Get<CdmRequestExportWorker>());
 
                 case "SYN005": return new Workflow(
                     store.Get<AntimalwareWorker>(),
-                    store.Get<ValidationWorker>(),
+                    store.Get<DocumentValidationWorker>(),
                     store.Get<CdmVersionReportWorker>());
             }
 
