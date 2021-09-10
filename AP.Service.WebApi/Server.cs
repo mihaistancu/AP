@@ -8,18 +8,18 @@ namespace AP.Service.WebApi
 {
     public class Server
     {
-        private Router router;
+        private IServerConfig config;
         private Parser parser;
 
-        public Server(Router router, Parser parser)
+        public Server(IServerConfig config, Parser parser)
         {
-            this.router = router;
+            this.config = config;
             this.parser = parser;
         }
 
-        public IDisposable Start(string url)
+        public IDisposable Start()
         {
-            return WebApp.Start(url, OnStart);
+            return WebApp.Start(config.GetServerUrl(), OnStart);
         }
 
         private void OnStart(IAppBuilder appBuilder)
@@ -28,11 +28,23 @@ namespace AP.Service.WebApi
         }
 
         private async Task Handle(IOwinContext context)
-        {   
-            var url = context.Request.Uri.AbsolutePath;
-            var message = parser.Parse(context.Request.Body);
-            var result = router.Route(url, message);
-            await context.Response.WriteAsync(result);
+        {
+            await Task.Run(() =>
+            {
+                try
+                {
+                    var message = parser.Parse(context.Request.Body);
+                    var output = new Output(context.Response);
+                    var url = context.Request.Uri.AbsolutePath;
+                    var pipeline = config.GetPipeline(url);
+                    pipeline.Process(message, output);
+                }
+                catch(Exception exception)
+                {
+
+                }
+                
+            });
         }
     }
 }

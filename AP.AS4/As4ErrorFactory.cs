@@ -6,9 +6,9 @@ namespace AP.AS4
 {
     public class As4ErrorFactory : IErrorFactory
     {
-        public string Get(Exception exception, Message message)
+        public Message Get(Exception exception, Message message)
         {
-            return exception.ToString();
+            return new Message();
         }
     }
 }

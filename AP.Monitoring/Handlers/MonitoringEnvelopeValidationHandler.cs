@@ -1,4 +1,5 @@
 ﻿using AP.Data;
+using AP.Processing.Sync;
 using AP.Processing.Sync.Handlers.EnvelopeValidation;
 
 namespace AP.Monitoring.Handlers
@@ -9,10 +10,10 @@ namespace AP.Monitoring.Handlers
         {
         }
 
-        public override bool Handle(Message message)
+        public override bool Handle(Message message, IOutput output)
         {
             System.Console.WriteLine("Validation");
-            return base.Handle(message);
+            return base.Handle(message, output);
         }
     }
 }

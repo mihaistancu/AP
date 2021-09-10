@@ -13,7 +13,7 @@ namespace AP.Host.Console
                 broker.Connect();
 
                 var server = store.Get<Server>();
-                using (server.Start("http://localhost:9000"))
+                using (server.Start())
                 {
                     System.Console.WriteLine("Press [enter] to stop");
                     System.Console.ReadLine();

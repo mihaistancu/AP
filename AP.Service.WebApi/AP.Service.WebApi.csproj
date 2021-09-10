@@ -65,9 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IProvider.cs" />
+    <Compile Include="IServerConfig.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="Parser.cs" />
-    <Compile Include="Router.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

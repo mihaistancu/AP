@@ -43,15 +43,15 @@
   <ItemGroup>
     <Compile Include="Data\Certificate.cs" />
     <Compile Include="Data\IMessageStorage.cs" />
-    <Compile Include="Data\MessageBuilder.cs" />
-    <Compile Include="Processing\Async\MessageBroker.cs" />
+    <Compile Include="Processing\Async\IOrchestratorConfig.cs" />
+    <Compile Include="Processing\Async\Orchestrator.cs" />
     <Compile Include="Processing\Async\IWorker.cs" />
     <Compile Include="Processing\Async\Workers\CDM\CdmData.cs" />
     <Compile Include="Processing\Async\Workers\CDM\Export\ICdmExportBuilder.cs" />
     <Compile Include="Processing\Async\Workers\CDM\ICdmStorage.cs" />
     <Compile Include="Processing\Async\Workers\CDM\Import\ICdmImporter.cs" />
     <Compile Include="Processing\Async\Workers\CDM\Report\ICdmReportBuilder.cs" />
-    <Compile Include="Processing\Async\Workers\Delivery\IRouter.cs" />
+    <Compile Include="Processing\Async\Workers\Delivery\IContentBasedRouter.cs" />
     <Compile Include="Processing\Async\Workers\IR\Export\IIrExportBuilder.cs" />
     <Compile Include="Processing\Async\Workers\IR\Import\IIrImporter.cs" />
     <Compile Include="Processing\Async\Workers\Validation\IDocumentValidator.cs" />
@@ -59,13 +59,6 @@
     <Compile Include="Processing\Async\Workers\Antimalware\AntimalwareWorker.cs" />
     <Compile Include="Processing\Async\Workers\Antimalware\IScanner.cs" />
     <Compile Include="Processing\Async\Workers\Antimalware\VirusDetectedException.cs" />
-    <Compile Include="Processing\Async\Workflows\CdmVersionWorkflow.cs" />
-    <Compile Include="Processing\Async\Workflows\CdmSyncWorkflow.cs" />
-    <Compile Include="Processing\Async\Workflows\CdmRequestWorkflow.cs" />
-    <Compile Include="Processing\Async\Workflows\ErrorWorkflow.cs" />
-    <Compile Include="Processing\Async\Workflows\IrRequestWorkflow.cs" />
-    <Compile Include="Processing\Async\Workflows\IrSyncWorkflow.cs" />
-    <Compile Include="Processing\Async\Workflows\BusinessWorkflow.cs" />
     <Compile Include="Processing\Async\Workers\CDM\Report\CdmVersionReportWorker.cs" />
     <Compile Include="Processing\Async\Workers\Delivery\DeliveryWorker.cs" />
     <Compile Include="Processing\Async\Workers\CDM\Import\CdmImportWorker.cs" />
@@ -75,6 +68,8 @@
     <Compile Include="Processing\Async\Workers\IR\Export\IrRequestExportWorker.cs" />
     <Compile Include="Processing\Async\Workers\IR\Import\IrImportWorker.cs" />
     <Compile Include="Processing\Async\Workers\Validation\ValidationWorker.cs" />
+    <Compile Include="Processing\Sync\Handlers\Receipt\ReceiptHandler.cs" />
+    <Compile Include="Processing\Sync\Handlers\AsyncProcessing\AsyncProcessingHandler.cs" />
     <Compile Include="Processing\Sync\Handlers\TlsCertificateValidation\ICertificateValidator.cs" />
     <Compile Include="Processing\Sync\Handlers\Decryption\IDecryptor.cs" />
     <Compile Include="Processing\Sync\Handlers\SignatureValidation\IEnvelopeSignatureValidator.cs" />
@@ -86,13 +81,11 @@
     <Compile Include="Processing\Sync\Handlers\EnvelopeValidation\EnvelopeValidationHandler.cs" />
     <Compile Include="Processing\Sync\Handlers\Decryption\DecryptionHandler.cs" />
     <Compile Include="Processing\Sync\Handlers\TlsCertificateValidation\TlsCertificateValidationHandler.cs" />
-    <Compile Include="Processing\Controller.cs" />
     <Compile Include="Data\Message.cs" />
+    <Compile Include="Processing\Sync\IOutput.cs" />
     <Compile Include="Processing\Sync\Pipeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Processing\Sync\IHandler.cs" />
-    <Compile Include="Processing\Sync\Pipelines\SignatureCheckPipeline.cs" />
-    <Compile Include="Processing\Sync\Pipelines\DecryptionPipeline.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

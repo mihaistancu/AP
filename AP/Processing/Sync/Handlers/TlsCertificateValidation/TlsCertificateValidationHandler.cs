@@ -11,7 +11,7 @@ namespace AP.Processing.Sync.Handlers.TlsCertificateValidation
             this.validator = validator;
         }
 
-        public virtual bool Handle(Message message)
+        public virtual bool Handle(Message message, IOutput output)
         {
             validator.Validate(message.Certificate);
             return true;

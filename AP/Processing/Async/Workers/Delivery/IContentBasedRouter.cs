@@ -2,7 +2,7 @@
 
 namespace AP.Processing.Async.Workers.Delivery
 {
-    public interface IRouter
+    public interface IContentBasedRouter
     {
         void Route(Message message);
     }

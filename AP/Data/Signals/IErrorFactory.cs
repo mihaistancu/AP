@@ -5,6 +5,6 @@ namespace AP.Signals
 {
     public interface IErrorFactory
     {
-        string Get(Exception exception, Message message);
+        Message Get(Exception exception, Message message);
     }
 }

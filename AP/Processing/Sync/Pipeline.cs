@@ -11,14 +11,16 @@ namespace AP.Processing.Sync
             this.handlers = handlers;
         }
 
-        public virtual void Process(Message message)
+        public virtual void Process(Message message, IOutput output)
         {
             foreach (var handler in handlers)
             {
-                bool canContinue = handler.Handle(message);
+                var canContinue = handler.Handle(message, output);
 
-                if (!canContinue) break;
+                if (!canContinue) return;
             }
+
+            output.Send();
         }
     }
 }

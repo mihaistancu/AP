@@ -11,7 +11,7 @@ namespace AP.Processing.Sync.Handlers.Persistence
             this.storage = storage;
         }
 
-        public virtual bool Handle(Message message)
+        public virtual bool Handle(Message message, IOutput output)
         {
             storage.Save(message);
             return true;

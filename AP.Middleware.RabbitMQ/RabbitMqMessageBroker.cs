@@ -1,8 +1,6 @@
 ﻿using AP.Data;
 using AP.Middleware.RabbitMQ.Serialization;
 using AP.Processing.Async;
-using AP.Processing.Async.Workflows;
-using AP.Signals;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
@@ -10,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ
 {
-    public class RabbitMqMessageBroker : MessageBroker, IDisposable
+    public class RabbitMqMessageBroker : Orchestrator, IDisposable
     {   
         private Serializer serializer;
 
@@ -18,12 +16,9 @@ namespace AP.Middleware.RabbitMQ
         private IModel receiveChannel;
 
         public RabbitMqMessageBroker(
-            IErrorFactory errorFactory, 
-            MessageBuilder builder, 
-            IMessageStorage storage, 
-            ErrorWorkflow errorWorkflow,
-            Serializer serializer) 
-            : base(errorFactory, builder, storage, errorWorkflow)
+            Serializer serializer, 
+            IOrchestratorConfig config) 
+            : base(config)
         {
             this.serializer = serializer;
         }
@@ -52,14 +47,14 @@ namespace AP.Middleware.RabbitMQ
 
         private async Task OnReceived(object sender, BasicDeliverEventArgs e)
         {
-            var (worker, workflow, message) = serializer.Deserialize(e.Body.ToArray());
-            Handle(worker, workflow, message);
+            var (worker, message) = serializer.Deserialize(e.Body.ToArray());
+            Handle(worker, message);
             await Task.CompletedTask;
         }
 
-        public void Send(IWorker worker, Workflow workflow, Message message)
+        private void Send(IWorker worker, Message message)
         {
-            var body = serializer.Serialize(worker, workflow, message);
+            var body = serializer.Serialize(worker, message);
             using (var sendChannel = connection.CreateModel())
             {
                 sendChannel.BasicPublish(
@@ -70,11 +65,11 @@ namespace AP.Middleware.RabbitMQ
             }
         }
 
-        public override void Send(IWorker worker, Workflow workflow, params Message[] messages)
+        public override void Dispatch(IWorker worker, params Message[] messages)
         {
             foreach (var message in messages)
             {
-                Send(worker, workflow, message);
+                Send(worker, message);
             }
         }
 

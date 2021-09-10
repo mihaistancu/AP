@@ -4,6 +4,6 @@ namespace AP.Processing.Sync
 {
     public interface IHandler
     {
-        bool Handle(Message message);
+        bool Handle(Message message, IOutput output);
     }
 }

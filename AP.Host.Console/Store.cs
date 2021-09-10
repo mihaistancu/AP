@@ -6,24 +6,19 @@ using Unity;
 using AP.Validation;
 using AP.IR;
 using AP.CDM;
-using AP.Service.WebApi;
 using AP.AS4;
 using AP.Processing.Async.Workers.Antimalware;
 using AP.Processing.Async.Workers.CDM.Export;
 using AP.Processing.Async.Workers.CDM.Import;
 using AP.Processing.Async.Workers.CDM.Report;
-using AP.Processing.Async.Workers.CDM;
 using AP.Processing.Async.Workers.Delivery;
 using AP.Processing.Async.Workers.IR.Export;
 using AP.Processing.Async.Workers.IR.Import;
-using AP.Processing.Async.Workers.IR;
 using AP.Processing.Async.Workers.Validation;
 using AP.Processing.Async;
 using AP.Signals;
 using AP.Monitoring.Workers;
 using AP.Monitoring.Handlers;
-using AP.Processing;
-using AP.Monitoring;
 using AP.Storage;
 using AP.Processing.Sync.Handlers.Decryption;
 using AP.Cryptography;
@@ -33,26 +28,29 @@ using AP.Certificates;
 using AP.Processing.Sync.Handlers.EnvelopeValidation;
 using AP.Processing.Sync.Handlers.SignatureValidation;
 using AP.Processing.Sync.Handlers.TlsCertificateValidation;
+using AP.Service.WebApi;
 
 namespace AP.Host.Console
 {
-    public class Store : IStore, IProvider, IDisposable
+    public class Store : IDisposable
     {
         UnityContainer container;
 
         public Store()
         {
             container = new UnityContainer();
-            container.RegisterInstance<IStore>(this);
-            container.RegisterInstance<IProvider>(this);
+            container.RegisterInstance(this);
 
-            container.RegisterType<Controller, MonitoringController>();
             container.RegisterType<IMessageStorage, MessageStorage>(TypeLifetime.Singleton);
             container.RegisterType<IDecryptor, Decryptor>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeSignatureValidator, EnvelopeSignatureValidator>(TypeLifetime.Singleton);
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
-            container.RegisterType<MessageBroker, RabbitMqMessageBroker>(TypeLifetime.Singleton);
+            container.RegisterType<IServerConfig, ServerConfig>(TypeLifetime.Singleton);
+
+            container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
+            container.RegisterType<Orchestrator, RabbitMqMessageBroker>(TypeLifetime.Singleton);
+            container.RegisterType<Serializer, TypeNameSerializer>(TypeLifetime.Singleton);
             container.RegisterType<RabbitMqMessageBroker>(TypeLifetime.Singleton);
 
             container.RegisterType<IErrorFactory, As4ErrorFactory>(TypeLifetime.Singleton);
@@ -62,7 +60,7 @@ namespace AP.Host.Console
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
             
-            container.RegisterType<IRouter, Delivery.Router>(TypeLifetime.Singleton);
+            container.RegisterType<IContentBasedRouter, Delivery.Router>(TypeLifetime.Singleton);
 
             container.RegisterType<IIrImporter, IrImporter>(TypeLifetime.Singleton);
             container.RegisterType<IIrExportBuilder, IrExportBuilder>(TypeLifetime.Singleton);
@@ -97,8 +95,6 @@ namespace AP.Host.Console
             container.RegisterType<MonitoringIrImportWorker>(TypeLifetime.Singleton);
             container.RegisterType<ValidationWorker, MonitoringValidationWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringValidationWorker>(TypeLifetime.Singleton);
-
-            
         }
 
         public T Get<T>()

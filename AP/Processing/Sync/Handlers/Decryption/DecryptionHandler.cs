@@ -11,7 +11,7 @@ namespace AP.Processing.Sync.Handlers.Decryption
             this.decryptor = decryptor;
         }
 
-        public virtual bool Handle(Message message)
+        public virtual bool Handle(Message message, IOutput output)
         {
             decryptor.Decrypt(message);
             return true;

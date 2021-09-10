@@ -5,9 +5,9 @@ namespace AP.Processing.Async.Workers.Delivery
 {
     public class DeliveryWorker : IWorker
     {
-        private IRouter router;
+        private IContentBasedRouter router;
 
-        public DeliveryWorker(IRouter router)
+        public DeliveryWorker(IContentBasedRouter router)
         {
             this.router = router;
         }
