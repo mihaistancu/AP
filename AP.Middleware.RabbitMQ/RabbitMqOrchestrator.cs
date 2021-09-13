@@ -16,9 +16,10 @@ namespace AP.Middleware.RabbitMQ
         private IModel receiveChannel;
 
         public RabbitMqOrchestrator(
-            Serializer serializer, 
-            IOrchestratorConfig config) 
-            : base(config)
+            IOrchestratorConfig config, 
+            IMessageStorage storage,
+            Serializer serializer) 
+            : base(config, storage)
         {
             this.serializer = serializer;
         }

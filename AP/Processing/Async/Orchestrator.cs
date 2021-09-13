@@ -5,10 +5,12 @@ namespace AP.Processing.Async
     public abstract class Orchestrator
     {
         private IOrchestratorConfig config;
+        private IMessageStorage storage;
 
-        public Orchestrator(IOrchestratorConfig config)
+        public Orchestrator(IOrchestratorConfig config, IMessageStorage storage)
         {
             this.config = config;
+            this.storage = storage;
         }
 
         public virtual void ProcessAsync(params Message[] messages)
@@ -27,6 +29,10 @@ namespace AP.Processing.Async
             {
                 var nextWorker = workflow.GetNext(worker);
                 Dispatch(nextWorker, message);
+            }
+            else
+            {
+                storage.SetProcessed(message);
             }
         }
 

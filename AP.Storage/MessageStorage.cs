@@ -13,5 +13,10 @@ namespace AP.Storage
         {
             
         }
+
+        public void SetProcessed(Message message)
+        {
+            
+        }
     }
 }

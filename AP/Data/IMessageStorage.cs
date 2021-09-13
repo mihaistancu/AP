@@ -6,5 +6,6 @@ namespace AP
     {
         void Save(params Message[] messages);
         Message Read(string id);
+        void SetProcessed(Message message);
     }
 }

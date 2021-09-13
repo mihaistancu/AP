@@ -9,9 +9,10 @@ namespace AP.Monitoring
     public class MonitoringRabbitMqOrchestrator : RabbitMqOrchestrator
     {
         public MonitoringRabbitMqOrchestrator(
-            Serializer serializer, 
-            IOrchestratorConfig config) 
-            : base(serializer, config)
+            IOrchestratorConfig config, 
+            IMessageStorage storage, 
+            Serializer serializer) 
+            : base(config, storage, serializer)
         {
         }
 
