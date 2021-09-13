@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Async.Delivery
+﻿namespace AP.Processing.Async.Delivery
 {
     public interface IContentBasedRouter
     {

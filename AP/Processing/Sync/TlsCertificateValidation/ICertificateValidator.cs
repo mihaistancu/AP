@@ -1,9 +1,7 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Sync.TlsCertificateValidation
+﻿namespace AP.Processing.Sync.TlsCertificateValidation
 {
     public interface ICertificateValidator
     {
-        void Validate(Certificate certificate);
+        ValidationResult Validate(Certificate certificate);
     }
 }

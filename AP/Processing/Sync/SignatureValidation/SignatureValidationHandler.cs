@@ -1,19 +1,27 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Sync.SignatureValidation
+﻿namespace AP.Processing.Sync.SignatureValidation
 {
     public class SignatureValidationHandler : IHandler
     {
         private IEnvelopeSignatureValidator validator;
+        private IEnvelopeSignatureValidationErrorFactory errorFactory;
 
-        public SignatureValidationHandler(IEnvelopeSignatureValidator validator)
+        public SignatureValidationHandler(
+            IEnvelopeSignatureValidator validator,
+            IEnvelopeSignatureValidationErrorFactory errorFactory)
         {
             this.validator = validator;
+            this.errorFactory = errorFactory;
         }
 
         public virtual bool Handle(Message message, IOutput output)
         {
-            validator.Validate(message);
+            var result = validator.Validate(message);
+            if (!result.IsSuccessful)
+            {
+                var error = errorFactory.Get(result.Message);
+                output.Buffer(error);
+                return false;
+            }
             return true;
         }
     }

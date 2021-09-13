@@ -1,4 +1,5 @@
-﻿using AP.Processing.Sync;
+﻿using AP.Processing;
+using AP.Processing.Sync;
 using Microsoft.Owin;
 
 namespace AP.Service.WebApi
@@ -10,6 +11,11 @@ namespace AP.Service.WebApi
         public Output(IOwinResponse response)
         {
             this.response = response;
+        }
+
+        public void Buffer(Message error)
+        {
+            
         }
 
         public void Send()

@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Async.CDM.Export
+﻿namespace AP.Processing.Async.CDM.Export
 {
     public interface IRequestBasedCdmExporter
     {

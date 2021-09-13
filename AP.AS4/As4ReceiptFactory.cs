@@ -1,7 +1,7 @@
-﻿using AP.Data;
-using AP.Signals;
+﻿using AP.Processing;
+using AP.Processing.Sync.Receipt;
 
-namespace AP.AS4.ReceiptFactories
+namespace AP.AS4
 {
     public class As4ReceiptFactory : IReceiptFactory
     {

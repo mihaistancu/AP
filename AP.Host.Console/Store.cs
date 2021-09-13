@@ -9,7 +9,6 @@ using AP.CDM;
 using AP.AS4;
 using AP.Processing.Async.Workers.CDM.Import;
 using AP.Processing.Async;
-using AP.Signals;
 using AP.Monitoring.Workers;
 using AP.Monitoring.Handlers;
 using AP.Storage;
@@ -34,6 +33,8 @@ using AP.Processing.Async.IR.Request;
 using AP.Processing.Async.IR.Subscriptions;
 using AP.Processing.Async.CDM.Subscriptions;
 using AP.Monitoring;
+using AP.Processing;
+using AP.Processing.Sync.Receipt;
 
 namespace AP.Host.Console
 {
@@ -58,10 +59,13 @@ namespace AP.Host.Console
             container.RegisterType<Serializer, TypeNameSerializer>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);
 
-            container.RegisterType<IErrorFactory, As4ErrorFactory>(TypeLifetime.Singleton);
-            container.RegisterType<IAntimalwareErrorFactory, As4AntimalwareErrorFactory>(TypeLifetime.Singleton);
+            container.RegisterType<IReceiptFactory, As4ReceiptFactory>(TypeLifetime.Singleton);
+            container.RegisterType<IEnvelopeValidationErrorFactory, As4EnvelopeValidationErrorFactory>(TypeLifetime.Singleton);
+            container.RegisterType<IEnvelopeSignatureValidationErrorFactory, As4EnvelopeSignatureValidationErrorFactory>(TypeLifetime.Singleton);
             container.RegisterType<IDocumentValidationErrorFactory, As4DocumentValidationErrorFactory>(TypeLifetime.Singleton);
-
+            container.RegisterType<ITlsCertificateValidationErrorFactory, As4TlsCertificateValidationErrorFactory>(TypeLifetime.Singleton);
+            container.RegisterType<IAntimalwareErrorFactory, As4AntimalwareErrorFactory>(TypeLifetime.Singleton);
+            
             container.RegisterType<IScanner, AmsiScanner>(TypeLifetime.Singleton);
             
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);

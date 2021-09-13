@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Async.IR.Subscriptions
+﻿namespace AP.Processing.Async.IR.Subscriptions
 {
     public class IrSubscriptionsExportWorker : IWorker
     {

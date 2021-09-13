@@ -1,4 +1,4 @@
-﻿namespace AP.Data
+﻿namespace AP.Processing
 {
     public class Message
     {
@@ -21,5 +21,9 @@
         Business,
         Receipt,
         Error
+    }
+
+    public class Certificate
+    {
     }
 }

@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Signals
+﻿namespace AP.Processing.Sync.Receipt
 {
     public interface IReceiptFactory
     {

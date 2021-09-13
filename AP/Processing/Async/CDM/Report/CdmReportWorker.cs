@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Async.CDM.Report
+﻿namespace AP.Processing.Async.CDM.Report
 {
     public class CdmReportWorker : IWorker
     {

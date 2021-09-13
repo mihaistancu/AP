@@ -1,9 +1,7 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Sync.EnvelopeValidation
+﻿namespace AP.Processing.Sync.EnvelopeValidation
 {
     public interface IEnvelopeValidator
     {
-        void Validate(Message message);
+        ValidationResult Validate(Message message);
     }
 }

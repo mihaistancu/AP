@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Async.DocumentValidation
+﻿namespace AP.Processing.Async.DocumentValidation
 {
     public interface IDocumentValidationErrorFactory
     {

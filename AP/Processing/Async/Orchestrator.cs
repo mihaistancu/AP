@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Async
+﻿namespace AP.Processing.Async
 {
     public abstract class Orchestrator
     {

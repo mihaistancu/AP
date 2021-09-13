@@ -1,5 +1,4 @@
-﻿using AP.Data;
-using AP.Processing.Async.CDM.Subscriptions;
+﻿using AP.Processing.Async.CDM.Subscriptions;
 
 namespace AP.Processing.Async.CDM.Export
 {

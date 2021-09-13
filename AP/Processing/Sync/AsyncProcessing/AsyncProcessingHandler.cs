@@ -1,5 +1,4 @@
-﻿using AP.Data;
-using AP.Processing.Async;
+﻿using AP.Processing.Async;
 
 namespace AP.Processing.Sync.AsyncProcessing
 {

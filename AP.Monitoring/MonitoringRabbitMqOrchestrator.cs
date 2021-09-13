@@ -1,6 +1,6 @@
-﻿using AP.Data;
-using AP.Middleware.RabbitMQ;
+﻿using AP.Middleware.RabbitMQ;
 using AP.Middleware.RabbitMQ.Serialization;
+using AP.Processing;
 using AP.Processing.Async;
 using System;
 

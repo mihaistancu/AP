@@ -1,4 +1,4 @@
-﻿using AP.Data;
+﻿using AP.Processing;
 using AP.Processing.Async.DocumentValidation;
 
 namespace AP.Validation
@@ -7,7 +7,10 @@ namespace AP.Validation
     {
         ValidationResult IDocumentValidator.Validate(Message message)
         {
-            return new ValidationResult { IsSuccessful = true };
+            return new ValidationResult 
+            { 
+                IsSuccessful = true 
+            };
         }
     }
 }

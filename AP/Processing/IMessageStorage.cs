@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP
+﻿namespace AP.Processing
 {
     public interface IMessageStorage
     {

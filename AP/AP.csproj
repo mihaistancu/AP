@@ -41,8 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Certificate.cs" />
-    <Compile Include="Data\IMessageStorage.cs" />
+    <Compile Include="Processing\IMessageStorage.cs" />
     <Compile Include="Processing\Async\Antimalware\IAntimalwareErrorFactory.cs" />
     <Compile Include="Processing\Async\CDM\Subscriptions\ISubscriptionBasedCdmExporter.cs" />
     <Compile Include="Processing\Async\DocumentValidation\IDocumentValidationErrorFactory.cs" />
@@ -70,22 +69,27 @@
     <Compile Include="Processing\Async\IR\Request\IrRequestWorker.cs" />
     <Compile Include="Processing\Async\IR\Import\IrImportWorker.cs" />
     <Compile Include="Processing\Async\DocumentValidation\DocumentValidationWorker.cs" />
+    <Compile Include="Processing\Sync\EnvelopeValidation\IEnvelopeValidationErrorFactory.cs" />
+    <Compile Include="Processing\Sync\EnvelopeValidation\ValidationResult.cs" />
+    <Compile Include="Processing\Sync\Receipt\IReceiptFactory.cs" />
     <Compile Include="Processing\Sync\Receipt\ReceiptHandler.cs" />
     <Compile Include="Processing\Sync\AsyncProcessing\AsyncProcessingHandler.cs" />
+    <Compile Include="Processing\Sync\SignatureValidation\IEnvelopeSignatureValidationErrorFactory.cs" />
+    <Compile Include="Processing\Sync\SignatureValidation\ValidationResult.cs" />
     <Compile Include="Processing\Sync\TlsCertificateValidation\ICertificateValidator.cs" />
     <Compile Include="Processing\Sync\Decryption\IDecryptor.cs" />
     <Compile Include="Processing\Sync\SignatureValidation\IEnvelopeSignatureValidator.cs" />
-    <Compile Include="Data\Signals\IErrorFactory.cs" />
-    <Compile Include="Data\Signals\IReceiptFactory.cs" />
     <Compile Include="Processing\Sync\SignatureValidation\SignatureValidationHandler.cs" />
     <Compile Include="Processing\Sync\Persistence\PersistenceHandler.cs" />
     <Compile Include="Processing\Sync\EnvelopeValidation\IEnvelopeValidator.cs" />
     <Compile Include="Processing\Sync\EnvelopeValidation\EnvelopeValidationHandler.cs" />
     <Compile Include="Processing\Sync\Decryption\DecryptionHandler.cs" />
+    <Compile Include="Processing\Sync\TlsCertificateValidation\ITlsCertificateValidationErrorFactory.cs" />
     <Compile Include="Processing\Sync\TlsCertificateValidation\TlsCertificateValidationHandler.cs" />
-    <Compile Include="Data\Message.cs" />
+    <Compile Include="Processing\Message.cs" />
     <Compile Include="Processing\Sync\IOutput.cs" />
     <Compile Include="Processing\Sync\Pipeline.cs" />
+    <Compile Include="Processing\Sync\TlsCertificateValidation\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Processing\Sync\IHandler.cs" />
   </ItemGroup>

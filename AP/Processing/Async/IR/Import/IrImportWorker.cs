@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Async.IR.Import
+﻿namespace AP.Processing.Async.IR.Import
 {
     public class IrImportWorker : IWorker
     {

@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Async.IR.Request
+﻿namespace AP.Processing.Async.IR.Request
 {
     public interface IRequestBasedIrExporter
     {

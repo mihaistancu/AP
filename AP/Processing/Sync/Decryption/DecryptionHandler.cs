@@ -1,6 +1,4 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Sync.Decryption
+﻿namespace AP.Processing.Sync.Decryption
 {
     public class DecryptionHandler : IHandler
     {

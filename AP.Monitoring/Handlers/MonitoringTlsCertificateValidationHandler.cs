@@ -1,4 +1,4 @@
-﻿using AP.Data;
+﻿using AP.Processing;
 using AP.Processing.Sync;
 using AP.Processing.Sync.TlsCertificateValidation;
 
@@ -7,8 +7,9 @@ namespace AP.Monitoring.Handlers
     public class MonitoringTlsCertificateValidationHandler : TlsCertificateValidationHandler
     {
         public MonitoringTlsCertificateValidationHandler(
-            ICertificateValidator validator) 
-            : base(validator)
+            ICertificateValidator validator, 
+            ITlsCertificateValidationErrorFactory errorFactory) 
+            : base(validator, errorFactory)
         {
         }
 

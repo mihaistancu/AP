@@ -1,4 +1,4 @@
-﻿using AP.Data;
+﻿using AP.Processing;
 using AP.Processing.Sync;
 using AP.Processing.Sync.SignatureValidation;
 
@@ -7,8 +7,9 @@ namespace AP.Monitoring.Handlers
     public class MonitoringSignatureValidationHandler : SignatureValidationHandler
     {
         public MonitoringSignatureValidationHandler(
-            IEnvelopeSignatureValidator validator) 
-            : base(validator)
+            IEnvelopeSignatureValidator validator, 
+            IEnvelopeSignatureValidationErrorFactory errorFactory) 
+            : base(validator, errorFactory)
         {
         }
 

@@ -1,9 +1,7 @@
-﻿using AP.Data;
-
-namespace AP.Processing.Sync.SignatureValidation
+﻿namespace AP.Processing.Sync.SignatureValidation
 {
     public interface IEnvelopeSignatureValidator
     {
-        void Validate(Message message);
+        ValidationResult Validate(Message message);
     }
 }
