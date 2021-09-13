@@ -21,9 +21,9 @@ namespace AP.Processing.Async
         public virtual void Handle(IWorker worker, Message message)
         {   
             var workflow = config.GetWorkflow(message);
-            worker.Handle(message);
+            bool canContinue = worker.Handle(message);
 
-            if (!workflow.IsLast(worker))
+            if (canContinue && !workflow.IsLast(worker))
             {
                 var nextWorker = workflow.GetNext(worker);
                 Dispatch(nextWorker, message);
