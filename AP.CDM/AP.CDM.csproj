@@ -48,8 +48,8 @@
     <Compile Include="SubscriptionBasedCdmExporter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP\AP.Processing.csproj">
-      <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
+    <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
+      <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
     </ProjectReference>
   </ItemGroup>
