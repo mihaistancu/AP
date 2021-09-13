@@ -1,15 +1,15 @@
 ﻿using AP.Data;
 
-namespace AP.Processing.Async.CDM.Report
+namespace AP.Processing.Async.IR.Request
 {
-    public class CdmVersionReportWorker : IWorker
+    public class IrRequestWorker : IWorker
     {
-        private ICdmReportBuilder builder;
+        private IRequestBasedIrExporter builder;
         private IMessageStorage storage;
         private Orchestrator orchestrator;
 
-        public CdmVersionReportWorker(
-            ICdmReportBuilder builder,
+        public IrRequestWorker(
+            IRequestBasedIrExporter builder,
             IMessageStorage storage,
             Orchestrator orchestrator)
         {
@@ -18,11 +18,12 @@ namespace AP.Processing.Async.CDM.Report
             this.orchestrator = orchestrator;
         }
 
-        public virtual void Handle(Message message)
+        public virtual bool Handle(Message message)
         {
-            var newMessage = builder.Build();
+            var newMessage = builder.Export(message);
             storage.Save(newMessage);
             orchestrator.ProcessAsync(newMessage);
+            return true;
         }
     }
 }

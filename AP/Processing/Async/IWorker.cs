@@ -4,6 +4,6 @@ namespace AP.Processing.Async
 {
     public interface IWorker
     {
-        void Handle(Message message);
+        bool Handle(Message message);
     }
 }

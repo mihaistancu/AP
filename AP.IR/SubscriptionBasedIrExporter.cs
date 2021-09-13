@@ -1,24 +1,14 @@
 ﻿using AP.Data;
-using AP.Processing.Async.IR.Export;
+using AP.Processing.Async.IR.Subscriptions;
 
 namespace AP.IR
 {
-    public class IrExportBuilder : IIrExportBuilder
+    public class SubscriptionBasedIrExporter : ISubscriptionBasedIrExporter
     {
-        public void UseRequest(Message message)
+        public Message[] Export()
         {
-            
-        }
-
-        public void UseSubscriptions()
-        {
-            
-        }
-
-        public Message[] Build()
-        {
-            return new []
-            { 
+            return new[]
+            {
                 new Message
                 {
                     DocumentType = "SYN001",

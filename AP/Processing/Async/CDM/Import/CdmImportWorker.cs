@@ -12,9 +12,10 @@ namespace AP.Processing.Async.CDM.Import
             this.importer = importer;
         }
 
-        public virtual void Handle(Message message)
+        public virtual bool Handle(Message message)
         {
             importer.Import(message);
+            return true;
         }
     }
 }

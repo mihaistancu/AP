@@ -1,23 +1,13 @@
 ﻿using AP.Data;
-using AP.Processing.Async.CDM.Export;
+using AP.Processing.Async.CDM.Subscriptions;
 
 namespace AP.CDM
 {
-    public class CdmExportBuilder : ICdmExportBuilder
+    public class SubscriptionBasedCdmExporter : ISubscriptionBasedCdmExporter
     {
-        public void UseRequest(Message message)
+        public Message[] Export()
         {
-            
-        }
-
-        public void UseSubscriptions()
-        {
-            
-        }
-
-        public Message[] Build()
-        {
-            return new []
+            return new[]
             {
                 new Message
                 {

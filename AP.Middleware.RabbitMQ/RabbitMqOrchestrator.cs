@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ
 {
-    public class RabbitMqMessageBroker : Orchestrator, IDisposable
+    public class RabbitMqOrchestrator : Orchestrator, IDisposable
     {   
         private Serializer serializer;
 
         private IConnection connection;
         private IModel receiveChannel;
 
-        public RabbitMqMessageBroker(
+        public RabbitMqOrchestrator(
             Serializer serializer, 
             IOrchestratorConfig config) 
             : base(config)

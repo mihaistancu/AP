@@ -5,20 +5,20 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringCdmVersionReportWorker: CdmVersionReportWorker
+    public class MonitoringCdmReportWorker: CdmReportWorker
     {
-        public MonitoringCdmVersionReportWorker(
-            ICdmReportBuilder builder, 
-            IMessageStorage storage,
+        public MonitoringCdmReportWorker(
+            ICdmReportFactory builder, 
+            IMessageStorage storage, 
             Orchestrator orchestrator) 
             : base(builder, storage, orchestrator)
         {
         }
 
-        public override void Handle(Message message)
+        public override bool Handle(Message message)
         {
             Console.WriteLine("Cdm Version Report");
-            base.Handle(message);
+            return base.Handle(message);
         }
     }
 }

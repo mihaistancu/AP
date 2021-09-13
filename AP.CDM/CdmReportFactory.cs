@@ -3,9 +3,9 @@ using AP.Processing.Async.CDM.Report;
 
 namespace AP.CDM
 {
-    public class CdmReportBuilder : ICdmReportBuilder
+    public class CdmReportFactory : ICdmReportFactory
     {
-        public Message Build()
+        public Message Get()
         {
             return new Message
             {

@@ -23,13 +23,17 @@ using AP.Processing.Async.CDM.Import;
 using AP.Processing.Async.CDM.Report;
 using AP.Processing.Async.Delivery;
 using AP.Processing.Async.DocumentValidation;
-using AP.Processing.Async.IR.Export;
 using AP.Processing.Async.IR.Import;
 using AP.Processing.Sync.Decryption;
 using AP.Processing.Sync.EnvelopeValidation;
 using AP.Processing.Sync.Persistence;
 using AP.Processing.Sync.SignatureValidation;
 using AP.Processing.Sync.TlsCertificateValidation;
+using AP.Processing.Async.CDM.Request;
+using AP.Processing.Async.IR.Request;
+using AP.Processing.Async.IR.Subscriptions;
+using AP.Processing.Async.CDM.Subscriptions;
+using AP.Monitoring;
 
 namespace AP.Host.Console
 {
@@ -50,11 +54,13 @@ namespace AP.Host.Console
             container.RegisterType<IServerConfig, ServerConfig>(TypeLifetime.Singleton);
 
             container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
-            container.RegisterType<Orchestrator, RabbitMqMessageBroker>(TypeLifetime.Singleton);
+            container.RegisterType<Orchestrator, MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);
             container.RegisterType<Serializer, TypeNameSerializer>(TypeLifetime.Singleton);
-            container.RegisterType<RabbitMqMessageBroker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);
 
             container.RegisterType<IErrorFactory, As4ErrorFactory>(TypeLifetime.Singleton);
+            container.RegisterType<IAntimalwareErrorFactory, As4AntimalwareErrorFactory>(TypeLifetime.Singleton);
+            container.RegisterType<IDocumentValidationErrorFactory, As4DocumentValidationErrorFactory>(TypeLifetime.Singleton);
 
             container.RegisterType<IScanner, AmsiScanner>(TypeLifetime.Singleton);
             
@@ -64,11 +70,13 @@ namespace AP.Host.Console
             container.RegisterType<IContentBasedRouter, Delivery.Router>(TypeLifetime.Singleton);
 
             container.RegisterType<IIrImporter, IrImporter>(TypeLifetime.Singleton);
-            container.RegisterType<IIrExportBuilder, IrExportBuilder>(TypeLifetime.Singleton);
+            container.RegisterType<ISubscriptionBasedIrExporter, SubscriptionBasedIrExporter>(TypeLifetime.Singleton);
+            container.RegisterType<IRequestBasedIrExporter, RequestBasedIrExporter>(TypeLifetime.Singleton);
             
             container.RegisterType<ICdmImporter, CdmImporter>(TypeLifetime.Singleton);
-            container.RegisterType<ICdmExportBuilder, CdmExportBuilder>(TypeLifetime.Singleton);
-            container.RegisterType<ICdmReportBuilder, CdmReportBuilder>(TypeLifetime.Singleton);
+            container.RegisterType<IRequestBasedCdmExporter, RequestBasedCdmExporter>(TypeLifetime.Singleton);
+            container.RegisterType<ISubscriptionBasedCdmExporter, SubscriptionBasedCdmExporter>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmReportFactory, CdmReportFactory>(TypeLifetime.Singleton);
             
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
             container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);
@@ -78,20 +86,20 @@ namespace AP.Host.Console
 
             container.RegisterType<AntimalwareWorker, MonitoringAntimalwareWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringAntimalwareWorker>(TypeLifetime.Singleton);
-            container.RegisterType<CdmRequestExportWorker, MonitoringCdmRequestExportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringCdmRequestExportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<CdmSubscriptionExportWorker, MonitoringCdmSubscriptionExportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringCdmSubscriptionExportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmRequestWorker, MonitoringCdmRequestWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoringCdmRequestWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmSubscriptionsWorker, MonitoringCdmSubscriptionsWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoringCdmSubscriptionsWorker>(TypeLifetime.Singleton);
             container.RegisterType<CdmImportWorker, MonitoringCdmImportWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringCdmImportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<CdmVersionReportWorker, MonitoringCdmVersionReportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringCdmVersionReportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmReportWorker, MonitoringCdmReportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoringCdmReportWorker>(TypeLifetime.Singleton);
             container.RegisterType<DeliveryWorker, MonitoringDeliverWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringDeliverWorker>(TypeLifetime.Singleton);
-            container.RegisterType<IrRequestExportWorker, MonitoringIrRequestExportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringIrRequestExportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<IrSubscriptionExportWorker, MonitoringIrSubscriptionExportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringIrSubscriptionExportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrRequestWorker, MonitoringIrRequestWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoringIrRequestWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrSubscriptionsExportWorker, MonitoringIrSubscriptionsWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoringIrSubscriptionsWorker>(TypeLifetime.Singleton);
             container.RegisterType<IrImportWorker, MonitoringIrImportWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringIrImportWorker>(TypeLifetime.Singleton);
             container.RegisterType<DocumentValidationWorker, MonitoringDocumentValidationWorker>(TypeLifetime.Singleton);

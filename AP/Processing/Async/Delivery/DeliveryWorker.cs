@@ -11,9 +11,10 @@ namespace AP.Processing.Async.Delivery
             this.router = router;
         }
 
-        public virtual void Handle(Message message)
+        public virtual bool Handle(Message message)
         {
             router.Route(message);
+            return true;
         }
     }
 }

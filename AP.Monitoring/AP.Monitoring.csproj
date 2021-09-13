@@ -46,19 +46,29 @@
     <Compile Include="Handlers\MonitoringSignatureValidationHandler.cs" />
     <Compile Include="Handlers\MonitoringPersistenceHandler.cs" />
     <Compile Include="Handlers\MonitoringDecryptionHandler.cs" />
+    <Compile Include="MonitoringRabbitMqOrchestrator.cs" />
+    <Compile Include="MonitoringServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workers\MonitoringAntimalwareWorker.cs" />
     <Compile Include="Workers\MonitoringDeliveryWorker.cs" />
-    <Compile Include="Workers\MonitoringIrRequestExportWorker.cs" />
-    <Compile Include="Workers\MonitoringIrSubscriptionExportWorker.cs" />
+    <Compile Include="Workers\MonitoringIrRequestWorker.cs" />
+    <Compile Include="Workers\MonitoringIrSubscriptionsWorker.cs" />
     <Compile Include="Workers\MonitoringIrImportWorker.cs" />
-    <Compile Include="Workers\MonitoringCdmVersionReportWorker.cs" />
+    <Compile Include="Workers\MonitoringCdmReportWorker.cs" />
     <Compile Include="Workers\MonitoringDocumentValidationWorker.cs" />
     <Compile Include="Workers\MonitoringCdmImportWorker.cs" />
-    <Compile Include="Workers\MonitoringCdmSubscriptionExportWorker.cs" />
-    <Compile Include="Workers\MonitoringCdmRequestExportWorker.cs" />
+    <Compile Include="Workers\MonitoringCdmSubscriptionsWorker.cs" />
+    <Compile Include="Workers\MonitoringCdmRequestWorker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
+      <Project>{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}</Project>
+      <Name>AP.Middleware.RabbitMQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Service.WebApi\AP.Service.WebApi.csproj">
+      <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
+      <Name>AP.Service.WebApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP\AP.csproj">
       <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
       <Name>AP</Name>

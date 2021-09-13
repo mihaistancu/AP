@@ -1,29 +1,30 @@
 ﻿using AP.Data;
+using AP.Processing.Async.CDM.Subscriptions;
 
 namespace AP.Processing.Async.CDM.Export
 {
-    public class CdmSubscriptionExportWorker : IWorker
+    public class CdmSubscriptionsWorker : IWorker
     {
-        private ICdmExportBuilder builder;
+        private ISubscriptionBasedCdmExporter exporter;
         private IMessageStorage storage;
         private Orchestrator orchestrator;
 
-        public CdmSubscriptionExportWorker(
-            ICdmExportBuilder builder,
+        public CdmSubscriptionsWorker(
+            ISubscriptionBasedCdmExporter exporter,
             IMessageStorage storage,
             Orchestrator orchestrator)
         {
-            this.builder = builder;
+            this.exporter = exporter;
             this.storage = storage;
             this.orchestrator = orchestrator;
         }
 
-        public virtual void Handle(Message message)
+        public virtual bool Handle(Message message)
         {
-            builder.UseSubscriptions();
-            var messages = builder.Build();
+            var messages = exporter.Export();
             storage.Save(messages);
             orchestrator.ProcessAsync(messages);
+            return true;
         }
     }
 }

@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="As4DocumentValidationErrorFactory.cs" />
     <Compile Include="As4ErrorFactory.cs" />
+    <Compile Include="As4AntimalwareErrorFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="As4ReceiptFactory.cs" />
   </ItemGroup>

@@ -1,5 +1,4 @@
-﻿using AP.Service.WebApi;
-using AP.Middleware.RabbitMQ;
+﻿using AP.Monitoring;
 
 namespace AP.Host.Console
 {
@@ -8,11 +7,11 @@ namespace AP.Host.Console
         static void Main(string[] args)
         {
             using (var store = new Store())
-            using (var broker = store.Get<RabbitMqMessageBroker>())
+            using (var broker = store.Get<MonitoringRabbitMqOrchestrator>())
             {
                 broker.Connect();
 
-                var server = store.Get<Server>();
+                var server = store.Get<MonitoringServer>();
                 using (server.Start())
                 {
                     System.Console.WriteLine("Press [enter] to stop");

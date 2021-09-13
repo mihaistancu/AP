@@ -11,10 +11,10 @@ namespace AP.Monitoring.Workers
         {
         }
 
-        public override void Handle(Message message)
+        public override bool Handle(Message message)
         {
             Console.WriteLine("Cdm Import");
-            base.Handle(message);
+            return base.Handle(message);
         }
     }
 }

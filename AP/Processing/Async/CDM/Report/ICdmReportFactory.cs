@@ -2,8 +2,8 @@
 
 namespace AP.Processing.Async.CDM.Report
 {
-    public interface ICdmReportBuilder
+    public interface ICdmReportFactory
     {
-        Message Build();
+        Message Get();
     }
 }

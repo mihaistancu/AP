@@ -5,9 +5,9 @@ namespace AP.Validation
 {
     public class DocumentValidator : IDocumentValidator
     {
-        public void Validate(Message message)
+        ValidationResult IDocumentValidator.Validate(Message message)
         {
-            
+            return new ValidationResult { IsSuccessful = true };
         }
     }
 }

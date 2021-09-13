@@ -4,10 +4,12 @@ using AP.Processing.Async.Antimalware;
 using AP.Processing.Async.CDM.Export;
 using AP.Processing.Async.CDM.Import;
 using AP.Processing.Async.CDM.Report;
+using AP.Processing.Async.CDM.Request;
 using AP.Processing.Async.Delivery;
 using AP.Processing.Async.DocumentValidation;
-using AP.Processing.Async.IR.Export;
 using AP.Processing.Async.IR.Import;
+using AP.Processing.Async.IR.Request;
+using AP.Processing.Async.IR.Subscriptions;
 
 namespace AP.Host.Console
 {
@@ -63,28 +65,28 @@ namespace AP.Host.Console
                     store.Get<AntimalwareWorker>(),
                     store.Get<DocumentValidationWorker>(),
                     store.Get<IrImportWorker>(),
-                    store.Get<IrSubscriptionExportWorker>());
+                    store.Get<IrSubscriptionsExportWorker>());
 
                 case "SYN002": return new Workflow(
                     store.Get<AntimalwareWorker>(),
                     store.Get<DocumentValidationWorker>(),
-                    store.Get<IrRequestExportWorker>());
+                    store.Get<IrRequestWorker>());
 
                 case "SYN003": return new Workflow(
                     store.Get<AntimalwareWorker>(),
                     store.Get<DocumentValidationWorker>(),
                     store.Get<CdmImportWorker>(),
-                    store.Get<CdmSubscriptionExportWorker>());
+                    store.Get<CdmSubscriptionsWorker>());
 
                 case "SYN004": return new Workflow(
                     store.Get<AntimalwareWorker>(),
                     store.Get<DocumentValidationWorker>(),
-                    store.Get<CdmRequestExportWorker>());
+                    store.Get<CdmRequestWorker>());
 
                 case "SYN005": return new Workflow(
                     store.Get<AntimalwareWorker>(),
                     store.Get<DocumentValidationWorker>(),
-                    store.Get<CdmVersionReportWorker>());
+                    store.Get<CdmReportWorker>());
             }
 
             throw new System.Exception("Unknown document type");

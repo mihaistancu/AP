@@ -6,7 +6,9 @@ namespace AP.Monitoring.Handlers
 {
     public class MonitoringTlsCertificateValidationHandler : TlsCertificateValidationHandler
     {
-        public MonitoringTlsCertificateValidationHandler(ICertificateValidator validator) : base(validator)
+        public MonitoringTlsCertificateValidationHandler(
+            ICertificateValidator validator) 
+            : base(validator)
         {
         }
 
