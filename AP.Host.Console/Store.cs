@@ -35,6 +35,7 @@ using AP.Processing.Async.CDM.Subscriptions;
 using AP.Monitoring;
 using AP.Processing;
 using AP.Processing.Sync.Receipt;
+using AP.Delivery;
 
 namespace AP.Host.Console
 {
@@ -71,7 +72,7 @@ namespace AP.Host.Console
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
             
-            container.RegisterType<IContentBasedRouter, Delivery.Router>(TypeLifetime.Singleton);
+            container.RegisterType<IContentBasedRouter, ContentBasedRouter>(TypeLifetime.Singleton);
 
             container.RegisterType<IIrImporter, IrImporter>(TypeLifetime.Singleton);
             container.RegisterType<ISubscriptionBasedIrExporter, SubscriptionBasedIrExporter>(TypeLifetime.Singleton);

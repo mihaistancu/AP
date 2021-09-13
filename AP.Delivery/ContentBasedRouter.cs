@@ -3,7 +3,7 @@ using AP.Processing.Async.Delivery;
 
 namespace AP.Delivery
 {
-    public class Router : IContentBasedRouter
+    public class ContentBasedRouter : IContentBasedRouter
     {
         public void Route(Message message)
         {
