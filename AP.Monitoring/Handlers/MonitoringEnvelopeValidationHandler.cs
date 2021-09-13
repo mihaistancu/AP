@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 using AP.Processing.Sync;
-using AP.Processing.Sync.Handlers.EnvelopeValidation;
+using AP.Processing.Sync.EnvelopeValidation;
 
 namespace AP.Monitoring.Handlers
 {

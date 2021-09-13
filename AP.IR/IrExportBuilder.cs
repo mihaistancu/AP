@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Async.Workers.IR.Export;
+using AP.Processing.Async.IR.Export;
 
 namespace AP.IR
 {

@@ -1,11 +1,11 @@
 ﻿using AP.Processing.Sync;
-using AP.Processing.Sync.Handlers.AsyncProcessing;
-using AP.Processing.Sync.Handlers.Decryption;
-using AP.Processing.Sync.Handlers.EnvelopeValidation;
-using AP.Processing.Sync.Handlers.Persistence;
-using AP.Processing.Sync.Handlers.Receipt;
-using AP.Processing.Sync.Handlers.SignatureValidation;
-using AP.Processing.Sync.Handlers.TlsCertificateValidation;
+using AP.Processing.Sync.AsyncProcessing;
+using AP.Processing.Sync.Decryption;
+using AP.Processing.Sync.EnvelopeValidation;
+using AP.Processing.Sync.Persistence;
+using AP.Processing.Sync.Receipt;
+using AP.Processing.Sync.SignatureValidation;
+using AP.Processing.Sync.TlsCertificateValidation;
 using AP.Service.WebApi;
 
 namespace AP.Host.Console

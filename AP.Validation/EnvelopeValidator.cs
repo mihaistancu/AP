@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Sync.Handlers.EnvelopeValidation;
+using AP.Processing.Sync.EnvelopeValidation;
 
 namespace AP.Validation
 {

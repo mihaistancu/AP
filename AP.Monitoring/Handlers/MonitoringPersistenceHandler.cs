@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 using AP.Processing.Sync;
-using AP.Processing.Sync.Handlers.Persistence;
+using AP.Processing.Sync.Persistence;
 
 namespace AP.Monitoring.Handlers
 {

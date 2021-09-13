@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Sync.Handlers.TlsCertificateValidation;
+using AP.Processing.Sync.TlsCertificateValidation;
 using System;
 
 namespace AP.Certificates

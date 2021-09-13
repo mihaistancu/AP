@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Async.Workers.CDM.Export;
+using AP.Processing.Async.CDM.Export;
 
 namespace AP.CDM
 {

@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 using AP.Processing.Async;
-using AP.Processing.Async.Workers.IR.Export;
+using AP.Processing.Async.IR.Export;
 using System;
 
 namespace AP.Monitoring.Workers

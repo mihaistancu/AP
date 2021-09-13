@@ -1,13 +1,13 @@
 ﻿using AP.Data;
 using AP.Processing.Async;
-using AP.Processing.Async.Workers.Antimalware;
-using AP.Processing.Async.Workers.CDM.Export;
-using AP.Processing.Async.Workers.CDM.Import;
-using AP.Processing.Async.Workers.CDM.Report;
-using AP.Processing.Async.Workers.Delivery;
-using AP.Processing.Async.Workers.IR.Export;
-using AP.Processing.Async.Workers.IR.Import;
-using AP.Processing.Async.Workers.DocumentValidation;
+using AP.Processing.Async.Antimalware;
+using AP.Processing.Async.CDM.Export;
+using AP.Processing.Async.CDM.Import;
+using AP.Processing.Async.CDM.Report;
+using AP.Processing.Async.Delivery;
+using AP.Processing.Async.DocumentValidation;
+using AP.Processing.Async.IR.Export;
+using AP.Processing.Async.IR.Import;
 
 namespace AP.Host.Console
 {

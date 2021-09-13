@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Async.Workers.DocumentValidation;
+using AP.Processing.Async.DocumentValidation;
 
 namespace AP.Validation
 {

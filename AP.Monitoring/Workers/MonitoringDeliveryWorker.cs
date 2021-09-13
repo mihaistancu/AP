@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Async.Workers.Delivery;
+using AP.Processing.Async.Delivery;
 using System;
 
 namespace AP.Monitoring.Workers

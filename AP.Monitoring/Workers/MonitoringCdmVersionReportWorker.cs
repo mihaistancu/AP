@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 using AP.Processing.Async;
-using AP.Processing.Async.Workers.CDM.Report;
+using AP.Processing.Async.CDM.Report;
 using System;
 
 namespace AP.Monitoring.Workers

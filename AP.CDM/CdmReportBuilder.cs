@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Async.Workers.CDM.Report;
+using AP.Processing.Async.CDM.Report;
 
 namespace AP.CDM
 {

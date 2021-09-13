@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 using AP.Processing.Sync;
-using AP.Processing.Sync.Handlers.Decryption;
+using AP.Processing.Sync.Decryption;
 
 namespace AP.Monitoring.Handlers
 {

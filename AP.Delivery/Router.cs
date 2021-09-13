@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Async.Workers.Delivery;
+using AP.Processing.Async.Delivery;
 
 namespace AP.Delivery
 {

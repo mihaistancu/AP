@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 using AP.Processing.Sync;
-using AP.Processing.Sync.Handlers.SignatureValidation;
+using AP.Processing.Sync.SignatureValidation;
 
 namespace AP.Monitoring.Handlers
 {

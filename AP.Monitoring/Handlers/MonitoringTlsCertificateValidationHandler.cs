@@ -1,6 +1,6 @@
 ﻿using AP.Data;
 using AP.Processing.Sync;
-using AP.Processing.Sync.Handlers.TlsCertificateValidation;
+using AP.Processing.Sync.TlsCertificateValidation;
 
 namespace AP.Monitoring.Handlers
 {

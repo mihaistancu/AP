@@ -1,5 +1,5 @@
 ﻿using AP.Data;
-using AP.Processing.Sync.Handlers.Decryption;
+using AP.Processing.Sync.Decryption;
 
 namespace AP.Cryptography
 {
