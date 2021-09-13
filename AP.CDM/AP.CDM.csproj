@@ -48,9 +48,9 @@
     <Compile Include="SubscriptionBasedCdmExporter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP\AP.csproj">
+    <ProjectReference Include="..\AP\AP.Processing.csproj">
       <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
-      <Name>AP</Name>
+      <Name>AP.Processing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

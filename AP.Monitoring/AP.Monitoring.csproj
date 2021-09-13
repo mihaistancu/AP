@@ -69,9 +69,9 @@
       <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
       <Name>AP.Service.WebApi</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP\AP.csproj">
+    <ProjectReference Include="..\AP\AP.Processing.csproj">
       <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
-      <Name>AP</Name>
+      <Name>AP.Processing</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
