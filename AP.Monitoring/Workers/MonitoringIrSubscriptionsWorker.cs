@@ -5,7 +5,7 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringIrSubscriptionsWorker : IrSubscriptionsExportWorker
+    public class MonitoringIrSubscriptionsWorker : IrSubscriptionsWorker
     {
         public MonitoringIrSubscriptionsWorker(
             ISubscriptionBasedIrExporter exporter, 

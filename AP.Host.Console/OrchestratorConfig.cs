@@ -65,7 +65,7 @@ namespace AP.Host.Console
                     store.Get<AntimalwareWorker>(),
                     store.Get<DocumentValidationWorker>(),
                     store.Get<IrImportWorker>(),
-                    store.Get<IrSubscriptionsExportWorker>());
+                    store.Get<IrSubscriptionsWorker>());
 
                 case "SYN002": return new Workflow(
                     store.Get<AntimalwareWorker>(),

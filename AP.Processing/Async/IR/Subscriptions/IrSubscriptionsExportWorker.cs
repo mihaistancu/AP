@@ -1,12 +1,12 @@
 ﻿namespace AP.Processing.Async.IR.Subscriptions
 {
-    public class IrSubscriptionsExportWorker : IWorker
+    public class IrSubscriptionsWorker : IWorker
     {
         private ISubscriptionBasedIrExporter exporter;
         private IMessageStorage storage;
         private Orchestrator orchestrator;
 
-        public IrSubscriptionsExportWorker(
+        public IrSubscriptionsWorker(
             ISubscriptionBasedIrExporter exporter,
             IMessageStorage storage,
             Orchestrator orchestrator)

@@ -2,16 +2,16 @@
 {
     public class DeliveryWorker : IWorker
     {
-        private IContentBasedRouter router;
+        private IGateway gateway;
 
-        public DeliveryWorker(IContentBasedRouter router)
+        public DeliveryWorker(IGateway gateway)
         {
-            this.router = router;
+            this.gateway = gateway;
         }
 
         public virtual bool Handle(Message message)
         {
-            router.Route(message);
+            gateway.Deliver(message);
             return true;
         }
     }

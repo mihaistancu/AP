@@ -6,7 +6,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringDeliverWorker : DeliveryWorker
     {
-        public MonitoringDeliverWorker(IContentBasedRouter router) : base(router)
+        public MonitoringDeliverWorker(IGateway gateway) : base(gateway)
         {
         }
 

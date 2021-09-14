@@ -3,11 +3,11 @@ using AP.Processing.Async.Delivery;
 
 namespace AP.Delivery
 {
-    public class ContentBasedRouter : IContentBasedRouter
+    public class Gateway : IGateway
     {
-        public void Route(Message message)
+        public void Deliver(Message message)
         {
-            
+
         }
     }
 }

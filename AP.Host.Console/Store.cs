@@ -72,7 +72,7 @@ namespace AP.Host.Console
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
             
-            container.RegisterType<IContentBasedRouter, ContentBasedRouter>(TypeLifetime.Singleton);
+            container.RegisterType<IGateway, Gateway>(TypeLifetime.Singleton);
 
             container.RegisterType<IIrImporter, IrImporter>(TypeLifetime.Singleton);
             container.RegisterType<ISubscriptionBasedIrExporter, SubscriptionBasedIrExporter>(TypeLifetime.Singleton);
@@ -103,7 +103,7 @@ namespace AP.Host.Console
             container.RegisterType<MonitoringDeliverWorker>(TypeLifetime.Singleton);
             container.RegisterType<IrRequestWorker, MonitoringIrRequestWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringIrRequestWorker>(TypeLifetime.Singleton);
-            container.RegisterType<IrSubscriptionsExportWorker, MonitoringIrSubscriptionsWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrSubscriptionsWorker, MonitoringIrSubscriptionsWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringIrSubscriptionsWorker>(TypeLifetime.Singleton);
             container.RegisterType<IrImportWorker, MonitoringIrImportWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringIrImportWorker>(TypeLifetime.Singleton);

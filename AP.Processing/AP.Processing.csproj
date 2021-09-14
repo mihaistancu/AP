@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Async\Delivery\IGateway.cs" />
     <Compile Include="IMessageStorage.cs" />
     <Compile Include="Async\Antimalware\IAntimalwareErrorFactory.cs" />
     <Compile Include="Async\CDM\Subscriptions\ISubscriptionBasedCdmExporter.cs" />
@@ -53,7 +54,6 @@
     <Compile Include="Async\CDM\Request\IRequestBasedCdmExporter.cs" />
     <Compile Include="Async\CDM\Import\ICdmImporter.cs" />
     <Compile Include="Async\CDM\Report\ICdmReportFactory.cs" />
-    <Compile Include="Async\Delivery\IContentBasedRouter.cs" />
     <Compile Include="Async\IR\Request\IRequestBasedIrExporter.cs" />
     <Compile Include="Async\IR\Import\IIrImporter.cs" />
     <Compile Include="Async\DocumentValidation\IDocumentValidator.cs" />
