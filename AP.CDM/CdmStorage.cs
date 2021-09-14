@@ -1,9 +1,9 @@
 ﻿using AP.Processing;
-using System;
+using AP.Processing.Async.Workers.CDM.Import;
 
 namespace AP.CDM
 {
-    public class CdmStorage
+    public class CdmStorage: ICdmImporter
     {
         public Message[] Get(CdmRequest request)
         {
@@ -23,7 +23,7 @@ namespace AP.CDM
             };
         }
 
-        public void Save(Message message)
+        public void Import(Message message)
         {
             
         }

@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Processing", "AP.Process
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Routing", "AP.Routing\AP.Routing.csproj", "{29DF01A0-DB14-46D1-90C9-C4A347AF009A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Web.Client", "AP.Web.Client\AP.Web.Client.csproj", "{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Queue", "AP.Queue\AP.Queue.csproj", "{918EB807-96D3-44D6-8FFF-2FC95C380F93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,14 @@ Global
 		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918EB807-96D3-44D6-8FFF-2FC95C380F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918EB807-96D3-44D6-8FFF-2FC95C380F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918EB807-96D3-44D6-8FFF-2FC95C380F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918EB807-96D3-44D6-8FFF-2FC95C380F93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

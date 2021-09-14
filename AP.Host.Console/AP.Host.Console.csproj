@@ -106,6 +106,10 @@
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Queue\AP.Queue.csproj">
+      <Project>{918EB807-96D3-44D6-8FFF-2FC95C380F93}</Project>
+      <Name>AP.Queue</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
       <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
       <Name>AP.Routing</Name>
@@ -125,6 +129,10 @@
     <ProjectReference Include="..\AP.Validation\AP.Validation.csproj">
       <Project>{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}</Project>
       <Name>AP.Validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Web.Client\AP.Web.Client.csproj">
+      <Project>{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}</Project>
+      <Name>AP.Web.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

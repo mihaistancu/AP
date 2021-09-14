@@ -39,6 +39,9 @@ using AP.IR.Subscriptions;
 using AP.Routing;
 using AP.Processing.Async.Forwarding;
 using AP.CDM.Report;
+using AP.Routing.Config;
+using AP.Queue;
+using AP.Web.Client;
 
 namespace AP.Host.Console
 {
@@ -53,6 +56,7 @@ namespace AP.Host.Console
 
             container.RegisterType<IMessageStorage, MessageStorage>(TypeLifetime.Singleton);
             container.RegisterType<IDecryptor, Decryptor>(TypeLifetime.Singleton);
+            container.RegisterType<IEncryptor, Encryptor>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeSignatureValidator, EnvelopeSignatureValidator>(TypeLifetime.Singleton);
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
@@ -78,14 +82,20 @@ namespace AP.Host.Console
             container.RegisterType<IRoutingConfig, RoutingConfig>(TypeLifetime.Singleton);
             container.RegisterType<IRouter, Router>(TypeLifetime.Singleton);
 
-            container.RegisterType<IIrImporter, IrImporter>(TypeLifetime.Singleton);
+            container.RegisterType<ICsnConfig, IrStorage>(TypeLifetime.Singleton);
+            container.RegisterType<IInstitutionConfig, IrStorage>(TypeLifetime.Singleton);
+
+            container.RegisterType<IIrImporter, IrStorage>(TypeLifetime.Singleton);
             container.RegisterType<IIrPublisher, IrPublisher>(TypeLifetime.Singleton);
             container.RegisterType<IIrProvider, IrProvider>(TypeLifetime.Singleton);
             
-            container.RegisterType<ICdmImporter, CdmImporter>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmImporter, CdmStorage>(TypeLifetime.Singleton);
             container.RegisterType<ICdmProvider, CdmProvider>(TypeLifetime.Singleton);
             container.RegisterType<ICdmPublisher, CdmPublisher>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReporter, CdmReporter>(TypeLifetime.Singleton);
+
+            container.RegisterType<IWebClient, WebClient>(TypeLifetime.Singleton);
+            container.RegisterType<IQueue, InboxQueue>(TypeLifetime.Singleton);
 
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
             container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);

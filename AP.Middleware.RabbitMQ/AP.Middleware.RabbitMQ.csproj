@@ -79,6 +79,10 @@
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
+      <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
+      <Name>AP.Routing</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

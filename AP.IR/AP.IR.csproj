@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Import\IrImporter.cs" />
     <Compile Include="IrStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\IrRequest.cs" />
@@ -55,6 +54,10 @@
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
+      <Project>{29df01a0-db14-46d1-90c9-c4a347af009a}</Project>
+      <Name>AP.Routing</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

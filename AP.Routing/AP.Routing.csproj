@@ -41,19 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\ICsnConfig.cs" />
+    <Compile Include="IEncryptor.cs" />
+    <Compile Include="Config\IInstitutionConfig.cs" />
+    <Compile Include="IQueue.cs" />
+    <Compile Include="IWebClient.cs" />
     <Compile Include="Router.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoutingConfig.cs" />
+    <Compile Include="Config\RoutingConfig.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.CDM\AP.CDM.csproj">
-      <Project>{40B9536C-7C97-4110-9D97-BF55618297A9}</Project>
-      <Name>AP.CDM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.IR\AP.IR.csproj">
-      <Project>{B5638D18-9A42-41CF-94BA-7F6E018EA018}</Project>
-      <Name>AP.IR</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
       <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
       <Name>AP.Processing</Name>

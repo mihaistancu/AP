@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{40B9536C-7C97-4110-9D97-BF55618297A9}</ProjectGuid>
+    <ProjectGuid>{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AP.CDM</RootNamespace>
-    <AssemblyName>AP.CDM</AssemblyName>
+    <RootNamespace>AP.Web.Client</RootNamespace>
+    <AssemblyName>AP.Web.Client</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,22 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Report\CdmReporter.cs" />
-    <Compile Include="Report\CdmReportRequest.cs" />
-    <Compile Include="Report\CdmReportRequestParser.cs" />
-    <Compile Include="Request\CdmRequest.cs" />
-    <Compile Include="Request\CdmRequestParser.cs" />
-    <Compile Include="Request\CdmProvider.cs" />
-    <Compile Include="CdmStorage.cs" />
-    <Compile Include="Subscriptions\CdmSubscription.cs" />
-    <Compile Include="Subscriptions\CdmPublisher.cs" />
-    <Compile Include="Subscriptions\CdmSubscriptionStorage.cs" />
+    <Compile Include="WebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
-      <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
+      <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
       <Name>AP.Processing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
+      <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
+      <Name>AP.Routing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
