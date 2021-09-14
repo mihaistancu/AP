@@ -40,8 +40,8 @@ using AP.Routing;
 using AP.Processing.Async.Forwarding;
 using AP.CDM.Report;
 using AP.Routing.Config;
-using AP.Queue;
 using AP.Web.Client;
+using AP.Inbox;
 
 namespace AP.Host.Console
 {
@@ -95,7 +95,7 @@ namespace AP.Host.Console
             container.RegisterType<ICdmReporter, CdmReporter>(TypeLifetime.Singleton);
 
             container.RegisterType<IWebClient, WebClient>(TypeLifetime.Singleton);
-            container.RegisterType<IQueue, InboxQueue>(TypeLifetime.Singleton);
+            container.RegisterType<IQueue, Queue>(TypeLifetime.Singleton);
 
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
             container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);

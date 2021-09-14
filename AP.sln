@@ -35,7 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Routing", "AP.Routing\AP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Web.Client", "AP.Web.Client\AP.Web.Client.csproj", "{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Queue", "AP.Queue\AP.Queue.csproj", "{918EB807-96D3-44D6-8FFF-2FC95C380F93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Inbox", "AP.Inbox\AP.Inbox.csproj", "{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,10 +107,10 @@ Global
 		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{918EB807-96D3-44D6-8FFF-2FC95C380F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{918EB807-96D3-44D6-8FFF-2FC95C380F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{918EB807-96D3-44D6-8FFF-2FC95C380F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{918EB807-96D3-44D6-8FFF-2FC95C380F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

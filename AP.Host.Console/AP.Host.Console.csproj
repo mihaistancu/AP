@@ -90,6 +90,10 @@
       <Project>{5F9C8BF4-34F7-4741-8A06-5016CD44BC08}</Project>
       <Name>AP.Cryptography</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Inbox\AP.Inbox.csproj">
+      <Project>{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}</Project>
+      <Name>AP.Inbox</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.IR\AP.IR.csproj">
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>
@@ -105,10 +109,6 @@
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Queue\AP.Queue.csproj">
-      <Project>{918EB807-96D3-44D6-8FFF-2FC95C380F93}</Project>
-      <Name>AP.Queue</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
       <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
