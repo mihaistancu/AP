@@ -42,19 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Async\CDM\Report\ICdmReporter.cs" />
-    <Compile Include="Async\CDM\Request\ICdmRequestResponder.cs" />
+    <Compile Include="Async\CDM\Request\ICdmProvider.cs" />
     <Compile Include="Async\Forwarding\IRoutingConfig.cs" />
     <Compile Include="IMessageStorage.cs" />
     <Compile Include="Async\Antimalware\IAntimalwareErrorFactory.cs" />
-    <Compile Include="Async\CDM\Subscriptions\ICdmSubscriptionsPublisher.cs" />
+    <Compile Include="Async\CDM\Subscriptions\ICdmPublisher.cs" />
     <Compile Include="Async\DocumentValidation\IDocumentValidationErrorFactory.cs" />
     <Compile Include="Async\DocumentValidation\ValidationResult.cs" />
     <Compile Include="Async\IOrchestratorConfig.cs" />
-    <Compile Include="Async\IR\Subscriptions\IIrSubscriptionsPublisher.cs" />
+    <Compile Include="Async\IR\Subscriptions\IIrPublisher.cs" />
     <Compile Include="Async\Orchestrator.cs" />
     <Compile Include="Async\IWorker.cs" />
     <Compile Include="Async\CDM\Import\ICdmImporter.cs" />
-    <Compile Include="Async\IR\Request\IIrRequestResponder.cs" />
+    <Compile Include="Async\IR\Request\IIrProvider.cs" />
     <Compile Include="Async\IR\Import\IIrImporter.cs" />
     <Compile Include="Async\DocumentValidation\IDocumentValidator.cs" />
     <Compile Include="Async\Workflow.cs" />
