@@ -2,25 +2,16 @@
 {
     public class CdmReportWorker : IWorker
     {
-        private ICdmReportFactory reportFactory;
-        private IMessageStorage storage;
-        private Orchestrator orchestrator;
+        private ICdmReporter publisher;
 
-        public CdmReportWorker(
-            ICdmReportFactory reportFactory,
-            IMessageStorage storage,
-            Orchestrator orchestrator)
+        public CdmReportWorker(ICdmReporter publisher)
         {
-            this.reportFactory = reportFactory;
-            this.storage = storage;
-            this.orchestrator = orchestrator;
+            this.publisher = publisher;
         }
 
         public virtual bool Handle(Message message)
         {
-            var newMessage = reportFactory.Get();
-            storage.Save(newMessage);
-            orchestrator.ProcessAsync(newMessage);
+            publisher.Report();
             return true;
         }
     }

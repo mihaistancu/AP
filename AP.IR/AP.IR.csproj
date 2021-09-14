@@ -41,10 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RequestBasedIrExporter.cs" />
-    <Compile Include="IrImporter.cs" />
+    <Compile Include="IIrRouter.cs" />
+    <Compile Include="Import\IrImporter.cs" />
+    <Compile Include="IrStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SubscriptionBasedIrExporter.cs" />
+    <Compile Include="Request\IrRequest.cs" />
+    <Compile Include="Request\IrRequestParser.cs" />
+    <Compile Include="Request\IrRequestResponder.cs" />
+    <Compile Include="Subscriptions\IrSubscription.cs" />
+    <Compile Include="Subscriptions\IrSubscriptionsPublisher.cs" />
+    <Compile Include="Subscriptions\IrSubscriptionStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
@@ -52,5 +58,6 @@
       <Name>AP.Processing</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

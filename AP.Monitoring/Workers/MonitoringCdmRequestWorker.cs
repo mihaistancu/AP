@@ -1,6 +1,4 @@
 ﻿using AP.Processing;
-using AP.Processing.Async;
-using AP.Processing.Async.CDM.Export;
 using AP.Processing.Async.CDM.Request;
 using System;
 
@@ -8,11 +6,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmRequestWorker: CdmRequestWorker
     {
-        public MonitoringCdmRequestWorker(
-            IRequestBasedCdmExporter builder, 
-            IMessageStorage storage,
-            Orchestrator orchestrator) 
-            : base(builder, storage, orchestrator)
+        public MonitoringCdmRequestWorker(ICdmRequestResponder responder) : base(responder)
         {
         }
 

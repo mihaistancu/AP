@@ -7,11 +7,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringIrSubscriptionsWorker : IrSubscriptionsWorker
     {
-        public MonitoringIrSubscriptionsWorker(
-            ISubscriptionBasedIrExporter exporter, 
-            IMessageStorage storage, 
-            Orchestrator orchestrator) 
-            : base(exporter, storage, orchestrator)
+        public MonitoringIrSubscriptionsWorker(IIrSubscriptionsPublisher publisher) : base(publisher)
         {
         }
 

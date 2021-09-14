@@ -3,9 +3,9 @@ using AP.Processing.Async.Delivery;
 
 namespace AP.Delivery
 {
-    public class Gateway : IGateway
+    public class Gateway : IContentBasedRouter
     {
-        public void Deliver(Message message)
+        public void Route(Message message)
         {
 
         }

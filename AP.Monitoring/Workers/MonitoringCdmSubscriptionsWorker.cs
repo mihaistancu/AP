@@ -8,11 +8,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmSubscriptionsWorker: CdmSubscriptionsWorker
     {
-        public MonitoringCdmSubscriptionsWorker(
-            ISubscriptionBasedCdmExporter exporter, 
-            IMessageStorage storage, 
-            Orchestrator orchestrator) 
-            : base(exporter, storage, orchestrator)
+        public MonitoringCdmSubscriptionsWorker(ICdmSubscriptionsPublisher publisher) : base(publisher)
         {
         }
 

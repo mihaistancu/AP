@@ -4,9 +4,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringDeliverWorker : DeliveryWorker
+    public class MonitoringDeliverWorker : ForwardingWorker
     {
-        public MonitoringDeliverWorker(IGateway gateway) : base(gateway)
+        public MonitoringDeliverWorker(IContentBasedRouter gateway) : base(gateway)
         {
         }
 

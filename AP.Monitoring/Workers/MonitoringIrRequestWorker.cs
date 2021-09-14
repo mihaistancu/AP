@@ -7,11 +7,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringIrRequestWorker: IrRequestWorker
     {
-        public MonitoringIrRequestWorker(
-            IRequestBasedIrExporter builder, 
-            IMessageStorage storage, 
-            Orchestrator orchestrator) 
-            : base(builder, storage, orchestrator)
+        public MonitoringIrRequestWorker(IIrRequestResponder publisher) : base(publisher)
         {
         }
 

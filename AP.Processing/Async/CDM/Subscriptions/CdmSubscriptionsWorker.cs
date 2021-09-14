@@ -4,25 +4,16 @@ namespace AP.Processing.Async.CDM.Export
 {
     public class CdmSubscriptionsWorker : IWorker
     {
-        private ISubscriptionBasedCdmExporter exporter;
-        private IMessageStorage storage;
-        private Orchestrator orchestrator;
-
-        public CdmSubscriptionsWorker(
-            ISubscriptionBasedCdmExporter exporter,
-            IMessageStorage storage,
-            Orchestrator orchestrator)
+        private ICdmSubscriptionsPublisher publisher;
+        
+        public CdmSubscriptionsWorker(ICdmSubscriptionsPublisher publisher)
         {
-            this.exporter = exporter;
-            this.storage = storage;
-            this.orchestrator = orchestrator;
+            this.publisher = publisher;
         }
 
         public virtual bool Handle(Message message)
         {
-            var messages = exporter.Export();
-            storage.Save(messages);
-            orchestrator.ProcessAsync(messages);
+            publisher.Publish(message);
             return true;
         }
     }

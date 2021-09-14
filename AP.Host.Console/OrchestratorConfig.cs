@@ -34,7 +34,7 @@ namespace AP.Host.Console
 
         public Workflow GetOutgoingWorkflow()
         {
-            return new Workflow(store.Get<DeliveryWorker>());
+            return new Workflow(store.Get<ForwardingWorker>());
         }
 
         public Workflow GetIncomingWorkflow(Message message)
@@ -54,7 +54,7 @@ namespace AP.Host.Console
             return new Workflow(
                 store.Get<AntimalwareWorker>(),
                 store.Get<DocumentValidationWorker>(),
-                store.Get<DeliveryWorker>());
+                store.Get<ForwardingWorker>());
         }
 
         public Workflow GetSystemWorkflow(Message message)
@@ -96,14 +96,14 @@ namespace AP.Host.Console
         {
             return new Workflow(
                 store.Get<AntimalwareWorker>(),
-                store.Get<DeliveryWorker>());
+                store.Get<ForwardingWorker>());
         }
 
         public Workflow GetErrorWorkflow()
         {
             return new Workflow(
                 store.Get<AntimalwareWorker>(),
-                store.Get<DeliveryWorker>());
+                store.Get<ForwardingWorker>());
         }
     }
 }

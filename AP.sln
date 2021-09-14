@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Processing", "AP.Process
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Delivery.Tests", "AP.Delivery.Tests\AP.Delivery.Tests.csproj", "{299CA90F-54BB-4C3D-9716-1A2D86E2CBFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Routing", "AP.Routing\AP.Routing.csproj", "{29DF01A0-DB14-46D1-90C9-C4A347AF009A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{299CA90F-54BB-4C3D-9716-1A2D86E2CBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{299CA90F-54BB-4C3D-9716-1A2D86E2CBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{299CA90F-54BB-4C3D-9716-1A2D86E2CBFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

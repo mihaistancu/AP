@@ -1,5 +1,4 @@
 ﻿using AP.Processing;
-using AP.Processing.Async;
 using AP.Processing.Async.CDM.Report;
 using System;
 
@@ -7,11 +6,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmReportWorker: CdmReportWorker
     {
-        public MonitoringCdmReportWorker(
-            ICdmReportFactory builder, 
-            IMessageStorage storage, 
-            Orchestrator orchestrator) 
-            : base(builder, storage, orchestrator)
+        public MonitoringCdmReportWorker(ICdmReporter publisher) : base(publisher)
         {
         }
 

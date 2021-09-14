@@ -2,25 +2,16 @@
 {
     public class IrRequestWorker : IWorker
     {
-        private IRequestBasedIrExporter builder;
-        private IMessageStorage storage;
-        private Orchestrator orchestrator;
-
-        public IrRequestWorker(
-            IRequestBasedIrExporter builder,
-            IMessageStorage storage,
-            Orchestrator orchestrator)
+        private IIrRequestResponder publisher;
+        
+        public IrRequestWorker(IIrRequestResponder publisher)
         {
-            this.builder = builder;
-            this.storage = storage;
-            this.orchestrator = orchestrator;
+            this.publisher = publisher;
         }
 
         public virtual bool Handle(Message message)
         {
-            var newMessage = builder.Export(message);
-            storage.Save(newMessage);
-            orchestrator.ProcessAsync(newMessage);
+            publisher.Respond(message);
             return true;
         }
     }
