@@ -3,9 +3,9 @@ using System;
 
 namespace AP.Monitoring
 {
-    public class MonitoringServer : Server
+    public class MonitoringWebServer : WebServer
     {
-        public MonitoringServer(
+        public MonitoringWebServer(
             IServerConfig config, 
             Parser parser) 
             : base(config, parser)

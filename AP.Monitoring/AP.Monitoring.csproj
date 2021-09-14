@@ -46,8 +46,10 @@
     <Compile Include="Handlers\MonitoringSignatureValidationHandler.cs" />
     <Compile Include="Handlers\MonitoringPersistenceHandler.cs" />
     <Compile Include="Handlers\MonitoringDecryptionHandler.cs" />
+    <Compile Include="MonitoringQueue.cs" />
     <Compile Include="MonitoringRabbitMqOrchestrator.cs" />
-    <Compile Include="MonitoringServer.cs" />
+    <Compile Include="MonitoringWebServer.cs" />
+    <Compile Include="MonitoringWebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workers\MonitoringAntimalwareWorker.cs" />
     <Compile Include="Workers\MonitoringDeliveryWorker.cs" />
@@ -61,6 +63,10 @@
     <Compile Include="Workers\MonitoringCdmRequestWorker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AP.Inbox\AP.Inbox.csproj">
+      <Project>{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}</Project>
+      <Name>AP.Inbox</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
       <Project>{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}</Project>
       <Name>AP.Middleware.RabbitMQ</Name>
@@ -72,6 +78,10 @@
     <ProjectReference Include="..\AP.Service.WebApi\AP.Service.WebApi.csproj">
       <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
       <Name>AP.Service.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Web.Client\AP.Web.Client.csproj">
+      <Project>{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}</Project>
+      <Name>AP.Web.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -11,7 +11,7 @@ namespace AP.Host.Console
             {
                 broker.Connect();
 
-                var server = store.Get<MonitoringServer>();
+                var server = store.Get<MonitoringWebServer>();
                 using (server.Start())
                 {
                     System.Console.WriteLine("Press [enter] to stop");

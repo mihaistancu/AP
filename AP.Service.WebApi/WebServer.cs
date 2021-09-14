@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace AP.Service.WebApi
 {
-    public class Server
+    public class WebServer
     {
         private IServerConfig config;
         private Parser parser;
 
-        public Server(IServerConfig config, Parser parser)
+        public WebServer(IServerConfig config, Parser parser)
         {
             this.config = config;
             this.parser = parser;

@@ -1,5 +1,4 @@
-﻿using AP.Middleware.RabbitMQ;
-using AP.Middleware.RabbitMQ.Serialization;
+﻿using AP.Middleware.RabbitMQ.Serialization;
 using AP.Antimalware.Amsi;
 using System;
 using Unity;
@@ -40,8 +39,6 @@ using AP.Routing;
 using AP.Processing.Async.Forwarding;
 using AP.CDM.Report;
 using AP.Routing.Config;
-using AP.Web.Client;
-using AP.Inbox;
 
 namespace AP.Host.Console
 {
@@ -94,8 +91,8 @@ namespace AP.Host.Console
             container.RegisterType<ICdmPublisher, CdmPublisher>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReporter, CdmReporter>(TypeLifetime.Singleton);
 
-            container.RegisterType<IWebClient, WebClient>(TypeLifetime.Singleton);
-            container.RegisterType<IQueue, Queue>(TypeLifetime.Singleton);
+            container.RegisterType<IWebClient, MonitoringWebClient>(TypeLifetime.Singleton);
+            container.RegisterType<IQueue, MonitoringQueue>(TypeLifetime.Singleton);
 
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
             container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);

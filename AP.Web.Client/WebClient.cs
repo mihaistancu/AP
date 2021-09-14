@@ -5,7 +5,7 @@ namespace AP.Web.Client
 {
     public class WebClient : IWebClient
     {
-        public void Send(string url, params Message[] messages)
+        public virtual void Send(string url, params Message[] messages)
         {
             
         }

@@ -69,7 +69,7 @@
     <Compile Include="IServerConfig.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Parser.cs" />
-    <Compile Include="Server.cs" />
+    <Compile Include="WebServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
