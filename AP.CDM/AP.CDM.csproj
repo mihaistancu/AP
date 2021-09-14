@@ -43,14 +43,15 @@
   <ItemGroup>
     <Compile Include="Import\CdmImporter.cs" />
     <Compile Include="Report\CdmReporter.cs" />
+    <Compile Include="Report\CdmReportRequest.cs" />
+    <Compile Include="Report\CdmReportRequestParser.cs" />
     <Compile Include="Request\CdmRequest.cs" />
     <Compile Include="Request\CdmRequestParser.cs" />
-    <Compile Include="Request\CdmRequestResponder.cs" />
+    <Compile Include="Request\CdmProvider.cs" />
     <Compile Include="CdmStorage.cs" />
     <Compile Include="Subscriptions\CdmSubscription.cs" />
-    <Compile Include="Subscriptions\CdmSubscriptionsPublisher.cs" />
+    <Compile Include="Subscriptions\CdmPublisher.cs" />
     <Compile Include="Subscriptions\CdmSubscriptionStorage.cs" />
-    <Compile Include="ICdmRouter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

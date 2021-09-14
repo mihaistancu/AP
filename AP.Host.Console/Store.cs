@@ -38,6 +38,7 @@ using AP.IR.Request;
 using AP.IR.Subscriptions;
 using AP.Routing;
 using AP.Processing.Async.Forwarding;
+using AP.CDM.Report;
 
 namespace AP.Host.Console
 {
@@ -73,20 +74,18 @@ namespace AP.Host.Console
             
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
-            
-            container.RegisterType<IContentBasedRouter, ContentBasedRouter>(TypeLifetime.Singleton);
+
+            container.RegisterType<IRoutingConfig, RoutingConfig>(TypeLifetime.Singleton);
+            container.RegisterType<IRouter, Router>(TypeLifetime.Singleton);
 
             container.RegisterType<IIrImporter, IrImporter>(TypeLifetime.Singleton);
-            container.RegisterType<IIrSubscriptionsPublisher, IrSubscriptionsPublisher>(TypeLifetime.Singleton);
-            container.RegisterType<IIrRequestResponder, IrRequestResponder>(TypeLifetime.Singleton);
+            container.RegisterType<IIrPublisher, IrPublisher>(TypeLifetime.Singleton);
+            container.RegisterType<IIrProvider, IrProvider>(TypeLifetime.Singleton);
             
             container.RegisterType<ICdmImporter, CdmImporter>(TypeLifetime.Singleton);
-            container.RegisterType<ICdmRequestResponder, CdmRequestResponder>(TypeLifetime.Singleton);
-            container.RegisterType<ICdmSubscriptionsPublisher, CdmSubscriptionsPublisher>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmProvider, CdmProvider>(TypeLifetime.Singleton);
+            container.RegisterType<ICdmPublisher, CdmPublisher>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReporter, CdmReporter>(TypeLifetime.Singleton);
-
-            container.RegisterType<IIrRouter, IrRouter>(TypeLifetime.Singleton);
-            container.RegisterType<ICdmRouter, CdmRouter>(TypeLifetime.Singleton);
 
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
             container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);
@@ -104,8 +103,8 @@ namespace AP.Host.Console
             container.RegisterType<MonitoringCdmImportWorker>(TypeLifetime.Singleton);
             container.RegisterType<CdmReportWorker, MonitoringCdmReportWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringCdmReportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<ForwardingWorker, MonitoringDeliverWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringDeliverWorker>(TypeLifetime.Singleton);
+            container.RegisterType<ForwardingWorker, MonitoringForwardingWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoringForwardingWorker>(TypeLifetime.Singleton);
             container.RegisterType<IrRequestWorker, MonitoringIrRequestWorker>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringIrRequestWorker>(TypeLifetime.Singleton);
             container.RegisterType<IrSubscriptionsWorker, MonitoringIrSubscriptionsWorker>(TypeLifetime.Singleton);

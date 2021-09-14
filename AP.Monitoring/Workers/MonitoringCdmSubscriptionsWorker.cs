@@ -8,7 +8,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmSubscriptionsWorker: CdmSubscriptionsWorker
     {
-        public MonitoringCdmSubscriptionsWorker(ICdmSubscriptionsPublisher publisher) : base(publisher)
+        public MonitoringCdmSubscriptionsWorker(ICdmPublisher publisher) : base(publisher)
         {
         }
 

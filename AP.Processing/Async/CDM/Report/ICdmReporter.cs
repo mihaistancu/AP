@@ -2,6 +2,6 @@
 {
     public interface ICdmReporter
     {
-        void Report();
+        void Report(Message message);
     }
 }

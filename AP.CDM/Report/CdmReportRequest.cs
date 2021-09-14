@@ -1,6 +1,6 @@
-﻿namespace AP.IR.Request
+﻿namespace AP.CDM.Report
 {
-    public class IrRequest
+    public class CdmReportRequest
     {
         public string Requester { get; set; }
     }

@@ -4,9 +4,9 @@ namespace AP.Processing.Async.CDM.Export
 {
     public class CdmSubscriptionsWorker : IWorker
     {
-        private ICdmSubscriptionsPublisher publisher;
+        private ICdmPublisher publisher;
         
-        public CdmSubscriptionsWorker(ICdmSubscriptionsPublisher publisher)
+        public CdmSubscriptionsWorker(ICdmPublisher publisher)
         {
             this.publisher = publisher;
         }

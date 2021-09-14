@@ -2,5 +2,6 @@
 {
     public class IrSubscription
     {
+        public string Subscriber { get; set; }
     }
 }

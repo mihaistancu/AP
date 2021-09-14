@@ -4,15 +4,18 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringDeliverWorker : ForwardingWorker
+    public class MonitoringForwardingWorker : ForwardingWorker
     {
-        public MonitoringDeliverWorker(IContentBasedRouter gateway) : base(gateway)
+        public MonitoringForwardingWorker(
+            IRoutingConfig config, 
+            IRouter router) 
+            : base(config, router)
         {
         }
 
         public override bool Handle(Message message)
         {
-            Console.WriteLine("Delivery");
+            Console.WriteLine("Forwarding");
             return base.Handle(message);
         }
     }

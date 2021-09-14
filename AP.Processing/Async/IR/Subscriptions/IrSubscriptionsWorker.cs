@@ -2,9 +2,9 @@
 {
     public class IrSubscriptionsWorker : IWorker
     {
-        private IIrSubscriptionsPublisher publisher;
+        private IIrPublisher publisher;
         
-        public IrSubscriptionsWorker(IIrSubscriptionsPublisher publisher)
+        public IrSubscriptionsWorker(IIrPublisher publisher)
         {
             this.publisher = publisher;
         }

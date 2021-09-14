@@ -7,7 +7,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringIrRequestWorker: IrRequestWorker
     {
-        public MonitoringIrRequestWorker(IIrRequestResponder publisher) : base(publisher)
+        public MonitoringIrRequestWorker(IIrProvider publisher) : base(publisher)
         {
         }
 

@@ -2,9 +2,9 @@
 {
     public class IrRequestWorker : IWorker
     {
-        private IIrRequestResponder publisher;
+        private IIrProvider publisher;
         
-        public IrRequestWorker(IIrRequestResponder publisher)
+        public IrRequestWorker(IIrProvider publisher)
         {
             this.publisher = publisher;
         }

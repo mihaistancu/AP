@@ -3,18 +3,18 @@ using AP.Processing.Async.CDM.Subscriptions;
 
 namespace AP.CDM
 {
-    public class CdmSubscriptionsPublisher : ICdmSubscriptionsPublisher
+    public class CdmPublisher : ICdmPublisher
     {
         private CdmSubscriptionStorage subscriptionStorage;
         private CdmStorage cdmStorage;
         private IMessageStorage messageStorage;
-        private ICdmRouter router;
+        private IRouter router;
 
-        public CdmSubscriptionsPublisher(
+        public CdmPublisher(
             CdmSubscriptionStorage subscriptionStorage,
             CdmStorage cdmStorage,
             IMessageStorage messageStorage,
-            ICdmRouter router)
+            IRouter router)
         {
             this.subscriptionStorage = subscriptionStorage;
             this.cdmStorage = cdmStorage;
@@ -30,7 +30,7 @@ namespace AP.CDM
             {
                 var messages = cdmStorage.Get(subscription);
                 messageStorage.Save(messages);
-                router.Route(subscription, messages);
+                router.Route(subscription.Subscriber, messages);
             }
         }
     }

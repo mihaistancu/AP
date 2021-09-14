@@ -3,18 +3,18 @@ using AP.Processing.Async.CDM.Request;
 
 namespace AP.CDM
 {
-    public class CdmRequestResponder : ICdmRequestResponder
+    public class CdmProvider : ICdmProvider
     {
         private CdmRequestParser parser;
         private CdmStorage cdmStorage;
         private IMessageStorage messageStorage;
-        private ICdmRouter router;
+        private IRouter router;
 
-        public CdmRequestResponder(
+        public CdmProvider(
             CdmRequestParser parser,
             CdmStorage cdmStorage,
             IMessageStorage messageStorage,
-            ICdmRouter router)
+            IRouter router)
         {
             this.parser = parser;
             this.cdmStorage = cdmStorage;
@@ -27,7 +27,7 @@ namespace AP.CDM
             var request = parser.Parse(message);
             var messages = cdmStorage.Get(request);
             messageStorage.Save(messages);
-            router.Route(request, messages);
+            router.Route(request.Requester, messages);
         }
     }
 }

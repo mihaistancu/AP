@@ -3,18 +3,18 @@ using AP.Processing.Async.IR.Subscriptions;
 
 namespace AP.IR.Subscriptions
 {
-    public class IrSubscriptionsPublisher : IIrSubscriptionsPublisher
+    public class IrPublisher : IIrPublisher
     {
         private IrSubscriptionStorage irSubscriptionStorage;
         private IrStorage irStorage;
         private IMessageStorage messageStorage;
-        private IIrRouter router;
+        private IRouter router;
 
-        public IrSubscriptionsPublisher(
+        public IrPublisher(
             IrSubscriptionStorage irSubscriptionStorage,
             IrStorage irStorage,
             IMessageStorage messageStorage,
-            IIrRouter router)
+            IRouter router)
         {
             this.irSubscriptionStorage = irSubscriptionStorage;
             this.irStorage = irStorage;
@@ -30,7 +30,7 @@ namespace AP.IR.Subscriptions
             {
                 var newMessage = irStorage.Get(subscription);
                 messageStorage.Save(newMessage);
-                router.Route(subscription, newMessage);
+                router.Route(subscription.Subscriber, newMessage);
             }
         }
     }

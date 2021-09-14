@@ -2,9 +2,9 @@
 {
     public class CdmRequestWorker : IWorker
     {
-        private ICdmRequestResponder responder;
+        private ICdmProvider responder;
 
-        public CdmRequestWorker(ICdmRequestResponder responder)
+        public CdmRequestWorker(ICdmProvider responder)
         {
             this.responder = responder;
         }

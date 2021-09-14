@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Async\CDM\Report\ICdmReporter.cs" />
     <Compile Include="Async\CDM\Request\ICdmRequestResponder.cs" />
-    <Compile Include="Async\Forwarding\IContentBasedRouter.cs" />
+    <Compile Include="Async\Forwarding\IRoutingConfig.cs" />
     <Compile Include="IMessageStorage.cs" />
     <Compile Include="Async\Antimalware\IAntimalwareErrorFactory.cs" />
     <Compile Include="Async\CDM\Subscriptions\ICdmSubscriptionsPublisher.cs" />
@@ -69,6 +69,7 @@
     <Compile Include="Async\IR\Request\IrRequestWorker.cs" />
     <Compile Include="Async\IR\Import\IrImportWorker.cs" />
     <Compile Include="Async\DocumentValidation\DocumentValidationWorker.cs" />
+    <Compile Include="IRouter.cs" />
     <Compile Include="Sync\EnvelopeValidation\IEnvelopeValidationErrorFactory.cs" />
     <Compile Include="Sync\EnvelopeValidation\ValidationResult.cs" />
     <Compile Include="Sync\Receipt\IReceiptFactory.cs" />

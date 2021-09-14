@@ -3,18 +3,18 @@ using AP.Processing.Async.IR.Request;
 
 namespace AP.IR.Request
 {
-    public class IrRequestResponder : IIrRequestResponder
+    public class IrProvider : IIrProvider
     {
         private IrRequestParser parser;
         private IrStorage irStorage;
         private IMessageStorage messageStorage;
-        private IIrRouter router;
+        private IRouter router;
 
-        public IrRequestResponder(
+        public IrProvider(
             IrRequestParser parser,
             IrStorage irStorage,
             IMessageStorage messageStorage,
-            IIrRouter router)
+            IRouter router)
         {
             this.parser = parser;
             this.irStorage = irStorage;
@@ -27,7 +27,7 @@ namespace AP.IR.Request
             var request = parser.Parse(message);
             var newMessage = irStorage.Get(request);
             messageStorage.Save(newMessage);
-            router.Route(request, newMessage);
+            router.Route(request.Requester, newMessage);
         }
     }
 }

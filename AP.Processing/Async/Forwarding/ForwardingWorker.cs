@@ -2,16 +2,19 @@
 {
     public class ForwardingWorker : IWorker
     {
-        private IContentBasedRouter router;
+        private IRoutingConfig config;
+        private IRouter router;
 
-        public ForwardingWorker(IContentBasedRouter router)
+        public ForwardingWorker(IRoutingConfig config, IRouter router)
         {
+            this.config = config;
             this.router = router;
         }
 
         public virtual bool Handle(Message message)
         {
-            router.Route(message);
+            var endpointId = config.GetEndpoint(message);
+            router.Route(endpointId, message);
             return true;
         }
     }

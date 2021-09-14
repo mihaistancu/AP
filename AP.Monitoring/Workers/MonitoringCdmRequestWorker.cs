@@ -6,7 +6,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringCdmRequestWorker: CdmRequestWorker
     {
-        public MonitoringCdmRequestWorker(ICdmRequestResponder responder) : base(responder)
+        public MonitoringCdmRequestWorker(ICdmProvider responder) : base(responder)
         {
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace AP.Processing.Async.IR.Request
 {
-    public interface IIrRequestResponder
+    public interface IIrProvider
     {
         void Respond(Message request);
     }

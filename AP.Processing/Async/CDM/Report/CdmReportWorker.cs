@@ -2,16 +2,16 @@
 {
     public class CdmReportWorker : IWorker
     {
-        private ICdmReporter publisher;
+        private ICdmReporter reporter;
 
-        public CdmReportWorker(ICdmReporter publisher)
+        public CdmReportWorker(ICdmReporter reporter)
         {
-            this.publisher = publisher;
+            this.reporter = reporter;
         }
 
         public virtual bool Handle(Message message)
         {
-            publisher.Report();
+            reporter.Report(message);
             return true;
         }
     }

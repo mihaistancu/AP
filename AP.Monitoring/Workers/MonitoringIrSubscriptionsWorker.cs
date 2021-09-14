@@ -7,7 +7,7 @@ namespace AP.Monitoring.Workers
 {
     public class MonitoringIrSubscriptionsWorker : IrSubscriptionsWorker
     {
-        public MonitoringIrSubscriptionsWorker(IIrSubscriptionsPublisher publisher) : base(publisher)
+        public MonitoringIrSubscriptionsWorker(IIrPublisher publisher) : base(publisher)
         {
         }
 
