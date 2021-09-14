@@ -12,7 +12,7 @@ namespace AP.Monitoring.Workers
 
         public override bool Handle(Message message)
         {
-            Console.WriteLine("Cdm Request Export");
+            Console.WriteLine("Cdm Request");
             return base.Handle(message);
         }
     }

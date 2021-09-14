@@ -1,6 +1,5 @@
 ﻿using AP.Processing;
 using AP.Processing.Async;
-using AP.Processing.Async.CDM.Export;
 using AP.Processing.Async.CDM.Subscriptions;
 using System;
 
@@ -14,7 +13,7 @@ namespace AP.Monitoring.Workers
 
         public override bool Handle(Message message)
         {
-            Console.WriteLine("Cdm Subscription Export");
+            Console.WriteLine("Cdm Subscriptions");
             return base.Handle(message);
         }
     }

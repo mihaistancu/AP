@@ -13,7 +13,7 @@ namespace AP.Monitoring.Workers
 
         public override bool Handle(Message message)
         {
-            Console.WriteLine("Ir Subscription Export");
+            Console.WriteLine("Ir Subscriptions");
             return base.Handle(message);
         }
     }

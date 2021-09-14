@@ -1,11 +1,9 @@
-﻿using AP.Processing.Async.CDM.Subscriptions;
-
-namespace AP.Processing.Async.CDM.Export
+﻿namespace AP.Processing.Async.CDM.Subscriptions
 {
     public class CdmSubscriptionsWorker : IWorker
     {
         private ICdmPublisher publisher;
-        
+
         public CdmSubscriptionsWorker(ICdmPublisher publisher)
         {
             this.publisher = publisher;
