@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Async.Delivery
+﻿namespace AP.Processing.Async.Forwarding
 {
     public interface IContentBasedRouter
     {

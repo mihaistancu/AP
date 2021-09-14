@@ -90,10 +90,6 @@
       <Project>{5F9C8BF4-34F7-4741-8A06-5016CD44BC08}</Project>
       <Name>AP.Cryptography</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Delivery\AP.Delivery.csproj">
-      <Project>{f0663955-6a27-42c7-bacc-3f7461b87367}</Project>
-      <Name>AP.Delivery</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.IR\AP.IR.csproj">
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>

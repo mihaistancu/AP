@@ -20,7 +20,6 @@ using AP.Processing.Async.Antimalware;
 using AP.Processing.Async.CDM.Export;
 using AP.Processing.Async.CDM.Import;
 using AP.Processing.Async.CDM.Report;
-using AP.Processing.Async.Delivery;
 using AP.Processing.Async.DocumentValidation;
 using AP.Processing.Async.IR.Import;
 using AP.Processing.Sync.Decryption;
@@ -35,10 +34,10 @@ using AP.Processing.Async.CDM.Subscriptions;
 using AP.Monitoring;
 using AP.Processing;
 using AP.Processing.Sync.Receipt;
-using AP.Delivery;
 using AP.IR.Request;
 using AP.IR.Subscriptions;
 using AP.Routing;
+using AP.Processing.Async.Forwarding;
 
 namespace AP.Host.Console
 {
@@ -75,7 +74,7 @@ namespace AP.Host.Console
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
             
-            container.RegisterType<IContentBasedRouter, Gateway>(TypeLifetime.Singleton);
+            container.RegisterType<IContentBasedRouter, ContentBasedRouter>(TypeLifetime.Singleton);
 
             container.RegisterType<IIrImporter, IrImporter>(TypeLifetime.Singleton);
             container.RegisterType<IIrSubscriptionsPublisher, IrSubscriptionsPublisher>(TypeLifetime.Singleton);
