@@ -1,11 +1,12 @@
-﻿using Microsoft.Owin;
+﻿using AP.Processing.Sync;
+using Microsoft.Owin;
 using System.IO;
 
-namespace AP.Service.WebApi
+namespace AP.Web.Server.Owin
 {
-    public class Input
+    public class Input : IInput
     {
-        private readonly IOwinRequest request;
+        private IOwinRequest request;
 
         public Input(IOwinRequest request)
         {

@@ -1,7 +1,7 @@
 ﻿using AP.Processing;
 using System.IO;
 
-namespace AP.Service.WebApi
+namespace AP.Server
 {
     public class Parser
     {

@@ -1,18 +1,16 @@
-﻿using AP.Service.WebApi;
+﻿using AP.Processing.Sync;
+using AP.Web.Server.Owin;
 using System;
 
 namespace AP.Monitoring
 {
-    public class MonitoringWebServer : WebServer
+    public class MonitoringWebServer<T> : WebServer<T> where T: IService
     {
-        public MonitoringWebServer(
-            IServerConfig config, 
-            Parser parser) 
-            : base(config, parser)
+        public MonitoringWebServer(T service) : base(service)
         {
         }
 
-        protected override void Handle(Input input, Output output)
+        protected override void Handle(IInput input, IOutput output)
         {
             try
             {

@@ -14,7 +14,6 @@ using AP.Storage;
 using AP.Cryptography;
 using AP.Signing;
 using AP.Certificates;
-using AP.Service.WebApi;
 using AP.Processing.Async.Antimalware;
 using AP.Processing.Async.CDM.Import;
 using AP.Processing.Async.CDM.Report;
@@ -39,6 +38,7 @@ using AP.Gateways.Institution;
 using AP.Processing.Async.Forwarding;
 using AP.Gateways.AP;
 using AP.Gateways.CSN;
+using AP.Server;
 
 namespace AP.Host.Console
 {
@@ -57,7 +57,7 @@ namespace AP.Host.Console
             container.RegisterType<IEnvelopeSignatureValidator, EnvelopeSignatureValidator>(TypeLifetime.Singleton);
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
-            container.RegisterType<IServerConfig, ServerConfig>(TypeLifetime.Singleton);
+            container.RegisterType<IPipelineConfig, PipelineConfig>(TypeLifetime.Singleton);
 
             container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
             container.RegisterType<Orchestrator, MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);

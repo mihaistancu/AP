@@ -1,4 +1,5 @@
 ﻿using AP.Monitoring;
+using AP.Server;
 
 namespace AP.Host.Console
 {
@@ -11,8 +12,9 @@ namespace AP.Host.Console
             {
                 broker.Connect();
 
-                var server = store.Get<MonitoringWebServer>();
-                using (server.Start())
+                var server = store.Get<MonitoringWebServer<MessagingService>>();
+                
+                using (server.Start("http://localhost:9000"))
                 {
                     System.Console.WriteLine("Press [enter] to stop");
                     System.Console.ReadLine();

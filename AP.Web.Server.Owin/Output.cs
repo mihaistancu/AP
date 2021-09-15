@@ -2,7 +2,7 @@
 using AP.Processing.Sync;
 using Microsoft.Owin;
 
-namespace AP.Service.WebApi
+namespace AP.Web.Server.Owin
 {
     public class Output : IOutput
     {
@@ -15,7 +15,7 @@ namespace AP.Service.WebApi
 
         public void Buffer(Message error)
         {
-            
+
         }
 
         public void Send()

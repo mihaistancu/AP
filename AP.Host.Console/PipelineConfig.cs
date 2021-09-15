@@ -6,22 +6,17 @@ using AP.Processing.Sync.Persistence;
 using AP.Processing.Sync.Receipt;
 using AP.Processing.Sync.SignatureValidation;
 using AP.Processing.Sync.TlsCertificateValidation;
-using AP.Service.WebApi;
+using AP.Server;
 
 namespace AP.Host.Console
 {
-    public class ServerConfig : IServerConfig
+    public class PipelineConfig : IPipelineConfig
     {
         private Store store;
 
-        public ServerConfig(Store store)
+        public PipelineConfig(Store store)
         {
             this.store = store;
-        }
-
-        public string GetServerUrl()
-        {
-            return "http://localhost:9000";
         }
 
         public Pipeline GetPipeline(string url)

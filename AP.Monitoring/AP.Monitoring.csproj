@@ -75,13 +75,17 @@
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Service.WebApi\AP.Service.WebApi.csproj">
-      <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
-      <Name>AP.Service.WebApi</Name>
+    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
+      <Project>{022953D1-D0D3-4AF9-A8A5-F18D0E53BA80}</Project>
+      <Name>AP.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Web.Client\AP.Web.Client.csproj">
       <Project>{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}</Project>
       <Name>AP.Web.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Web.Server.Owin\AP.Web.Server.Owin.csproj">
+      <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
+      <Name>AP.Web.Server.Owin</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
