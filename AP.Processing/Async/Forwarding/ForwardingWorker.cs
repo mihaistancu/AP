@@ -13,7 +13,9 @@
 
         public virtual bool Handle(Message message)
         {
-            var endpointId = config.GetEndpoint(message);
+            var endpointId = message.Type == MessageType.Business
+                ? config.GetEndpoint(message)
+                : message.Receiver;
             router.Route(endpointId, message);
             return true;
         }
