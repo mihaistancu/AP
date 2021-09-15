@@ -3,23 +3,23 @@ using AP.Processing.Async.IR.Request;
 
 namespace AP.IR.Request
 {
-    public class IrProvider : IIrProvider
+    public class IrProvider<T> : IIrProvider where T: IGateway
     {
         private IrRequestParser parser;
         private IrStorage irStorage;
         private IMessageStorage messageStorage;
-        private IRouter router;
+        private T gateway;
 
         public IrProvider(
             IrRequestParser parser,
             IrStorage irStorage,
             IMessageStorage messageStorage,
-            IRouter router)
+            T gateway)
         {
             this.parser = parser;
             this.irStorage = irStorage;
             this.messageStorage = messageStorage;
-            this.router = router;
+            this.gateway = gateway;
         }
 
         public void Respond(Message message)
@@ -27,7 +27,7 @@ namespace AP.IR.Request
             var request = parser.Parse(message);
             var newMessage = irStorage.Get(request);
             messageStorage.Save(newMessage);
-            router.Route(request.Requester, newMessage);
+            gateway.Deliver(newMessage);
         }
     }
 }

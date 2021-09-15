@@ -1,22 +1,17 @@
 ﻿namespace AP.Processing.Async.Forwarding
 {
-    public class ForwardingWorker : IWorker
+    public class ForwardingWorker<T> : IWorker where T: IGateway
     {
-        private IRoutingConfig config;
-        private IRouter router;
+        private T gateway;
 
-        public ForwardingWorker(IRoutingConfig config, IRouter router)
+        public ForwardingWorker(T gateway)
         {
-            this.config = config;
-            this.router = router;
+            this.gateway = gateway;
         }
 
         public virtual bool Handle(Message message)
         {
-            var endpointId = message.Type == MessageType.Business
-                ? config.GetEndpoint(message)
-                : message.Receiver;
-            router.Route(endpointId, message);
+            gateway.Deliver(message);
             return true;
         }
     }

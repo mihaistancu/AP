@@ -1,4 +1,7 @@
-﻿using AP.Processing;
+﻿using AP.Gateways.AP;
+using AP.Gateways.CSN;
+using AP.Gateways.Institution;
+using AP.Processing;
 using AP.Processing.Async;
 using AP.Processing.Async.Antimalware;
 using AP.Processing.Async.CDM.Import;
@@ -26,19 +29,27 @@ namespace AP.Host.Console
         {
             switch (message.Type)
             {
-                case MessageType.Business: return GetBusinessWorkflow();
+                case MessageType.Business: return GetBusinessWorkflow(message);
                 case MessageType.System: return GetSystemWorkflow(message);
-                case MessageType.Signal: return GetSignalWorkflow();
+                case MessageType.Signal: return GetSignalWorkflow(message);
             }
             throw new System.Exception("Unknown message type");
         }
 
-        public Workflow GetBusinessWorkflow()
+        public Workflow GetBusinessWorkflow(Message message)
         {
-            return new Workflow(
-                store.Get<AntimalwareWorker>(),
-                store.Get<DocumentValidationWorker>(),
-                store.Get<ForwardingWorker>());
+            switch (message.Channel)
+            {
+                case Channel.Inbound: return new Workflow(
+                    store.Get<AntimalwareWorker<ApGateway>>(),
+                    store.Get<DocumentValidationWorker<ApGateway>>(),
+                    store.Get<ForwardingWorker<InstitutionGateway>>());
+                case Channel.Outbox: return new Workflow(
+                    store.Get<AntimalwareWorker<InstitutionGateway>>(),
+                    store.Get<DocumentValidationWorker<InstitutionGateway>>(),
+                    store.Get<ForwardingWorker<ApGateway>>());
+            }
+            throw new System.Exception("Unknown message channel");
         }
 
         public Workflow GetSystemWorkflow(Message message)
@@ -46,41 +57,48 @@ namespace AP.Host.Console
             switch (message.DocumentType)
             {
                 case "SYN001": return new Workflow(
-                    store.Get<AntimalwareWorker>(),
-                    store.Get<DocumentValidationWorker>(),
+                    store.Get<AntimalwareWorker<CsnGateway>>(),
+                    store.Get<DocumentValidationWorker<CsnGateway>>(),
                     store.Get<IrImportWorker>(),
                     store.Get<IrSubscriptionsWorker>());
 
                 case "SYN002": return new Workflow(
-                    store.Get<AntimalwareWorker>(),
-                    store.Get<DocumentValidationWorker>(),
+                    store.Get<AntimalwareWorker<InstitutionGateway>>(),
+                    store.Get<DocumentValidationWorker<InstitutionGateway>>(),
                     store.Get<IrRequestWorker>());
 
                 case "SYN003": return new Workflow(
-                    store.Get<AntimalwareWorker>(),
-                    store.Get<DocumentValidationWorker>(),
+                    store.Get<AntimalwareWorker<CsnGateway>>(),
+                    store.Get<DocumentValidationWorker<CsnGateway>>(),
                     store.Get<CdmImportWorker>(),
                     store.Get<CdmSubscriptionsWorker>());
 
                 case "SYN004": return new Workflow(
-                    store.Get<AntimalwareWorker>(),
-                    store.Get<DocumentValidationWorker>(),
+                    store.Get<AntimalwareWorker<InstitutionGateway>>(),
+                    store.Get<DocumentValidationWorker<InstitutionGateway>>(),
                     store.Get<CdmRequestWorker>());
 
                 case "SYN005": return new Workflow(
-                    store.Get<AntimalwareWorker>(),
-                    store.Get<DocumentValidationWorker>(),
-                    store.Get<CdmReportWorker>());
+                    store.Get<AntimalwareWorker<CsnGateway>>(),
+                    store.Get<DocumentValidationWorker<CsnGateway>>(),
+                    store.Get<CdmReportWorker<CsnGateway>>());
             }
 
             throw new System.Exception("Unknown document type");
         }
 
-        public Workflow GetSignalWorkflow()
+        public Workflow GetSignalWorkflow(Message message)
         {
-            return new Workflow(
-                store.Get<AntimalwareWorker>(),
-                store.Get<ForwardingWorker>());
+            switch (message.Channel)
+            {
+                case Channel.Inbound: return new Workflow(
+                    store.Get<AntimalwareWorker<ApGateway>>(),
+                    store.Get<ForwardingWorker<InstitutionGateway>>());
+                case Channel.Outbox: return new Workflow(
+                    store.Get<AntimalwareWorker<InstitutionGateway>>(),
+                    store.Get<ForwardingWorker<ApGateway>>());
+            }
+            throw new System.Exception("Unknown message channel");
         }
     }
 }

@@ -4,14 +4,14 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringDocumentValidationWorker: DocumentValidationWorker
+    public class MonitoringDocumentValidationWorker<T>: DocumentValidationWorker<T> where T: IGateway
     {
         public MonitoringDocumentValidationWorker(
             IDocumentValidator validator, 
             IDocumentValidationErrorFactory errorFactory, 
             IMessageStorage storage, 
-            IRouter router) 
-            : base(validator, errorFactory, storage, router)
+            T gateway) 
+            : base(validator, errorFactory, storage, gateway)
         {
         }
 

@@ -1,17 +1,20 @@
 ﻿namespace AP.Processing.Async.CDM.Report
 {
-    public class CdmReportWorker : IWorker
+    public class CdmReportWorker<T> : IWorker where T: IGateway
     {
         private ICdmReporter reporter;
+        private T gateway;
 
-        public CdmReportWorker(ICdmReporter reporter)
+        public CdmReportWorker(ICdmReporter reporter, T gateway)
         {
             this.reporter = reporter;
+            this.gateway = gateway;
         }
 
         public virtual bool Handle(Message message)
         {
-            reporter.Report(message);
+            var newMessage = reporter.GetReport();
+            gateway.Deliver(newMessage);
             return true;
         }
     }

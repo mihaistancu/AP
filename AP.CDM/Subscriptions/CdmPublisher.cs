@@ -3,23 +3,23 @@ using AP.Processing.Async.CDM.Subscriptions;
 
 namespace AP.CDM
 {
-    public class CdmPublisher : ICdmPublisher
+    public class CdmPublisher<T> : ICdmPublisher where T: IGateway
     {
         private CdmSubscriptionStorage subscriptionStorage;
         private CdmStorage cdmStorage;
         private IMessageStorage messageStorage;
-        private IRouter router;
+        private T gateway;
 
         public CdmPublisher(
             CdmSubscriptionStorage subscriptionStorage,
             CdmStorage cdmStorage,
             IMessageStorage messageStorage,
-            IRouter router)
+            T gateway)
         {
             this.subscriptionStorage = subscriptionStorage;
             this.cdmStorage = cdmStorage;
             this.messageStorage = messageStorage;
-            this.router = router;
+            this.gateway = gateway;
         }
 
         public void Publish(Message message)
@@ -30,7 +30,10 @@ namespace AP.CDM
             {
                 var messages = cdmStorage.Get(subscription);
                 messageStorage.Save(messages);
-                router.Route(subscription.Subscriber, messages);
+                foreach (var newMessage in messages)
+                {
+                    gateway.Deliver(newMessage);
+                }
             }
         }
     }

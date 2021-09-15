@@ -1,9 +1,10 @@
 ﻿using AP.Processing;
+using AP.Processing.Async.CDM.Report;
 using AP.Processing.Async.Workers.CDM.Import;
 
 namespace AP.CDM
 {
-    public class CdmStorage: ICdmImporter
+    public class CdmStorage: ICdmImporter, ICdmReporter
     {
         public Message[] Get(CdmRequest request)
         {

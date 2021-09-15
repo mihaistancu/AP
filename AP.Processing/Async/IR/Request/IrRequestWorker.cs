@@ -2,16 +2,16 @@
 {
     public class IrRequestWorker : IWorker
     {
-        private IIrProvider publisher;
+        private IIrProvider provider;
         
-        public IrRequestWorker(IIrProvider publisher)
+        public IrRequestWorker(IIrProvider provider)
         {
-            this.publisher = publisher;
+            this.provider = provider;
         }
 
         public virtual bool Handle(Message message)
         {
-            publisher.Respond(message);
+            provider.Respond(message);
             return true;
         }
     }

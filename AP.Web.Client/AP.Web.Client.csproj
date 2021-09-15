@@ -45,13 +45,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">
+      <Project>{3000cfb2-4e38-4fb0-84a1-b9c279f0bca5}</Project>
+      <Name>AP.Gateways</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
       <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
       <Name>AP.Processing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
-      <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
-      <Name>AP.Routing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

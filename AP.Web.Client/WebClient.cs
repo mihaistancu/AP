@@ -1,11 +1,11 @@
-﻿using AP.Processing;
-using AP.Routing;
+﻿using AP.Gateways.Institution;
+using AP.Processing;
 
 namespace AP.Web.Client
 {
     public class WebClient : IWebClient
     {
-        public virtual void Send(string url, params Message[] messages)
+        public virtual void Send(string url, Message message)
         {
             
         }

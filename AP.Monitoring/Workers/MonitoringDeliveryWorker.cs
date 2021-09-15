@@ -4,12 +4,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringForwardingWorker : ForwardingWorker
+    public class MonitoringForwardingWorker<T> : ForwardingWorker<T> where T: IGateway
     {
-        public MonitoringForwardingWorker(
-            IRoutingConfig config, 
-            IRouter router) 
-            : base(config, router)
+        public MonitoringForwardingWorker(T gateway) : base(gateway)
         {
         }
 

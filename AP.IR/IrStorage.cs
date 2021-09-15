@@ -1,12 +1,13 @@
-﻿using AP.IR.Request;
+﻿using AP.Gateways.AP;
+using AP.Gateways.CSN;
+using AP.IR.Request;
 using AP.IR.Subscriptions;
 using AP.Processing;
 using AP.Processing.Async.IR.Import;
-using AP.Routing.Config;
 
 namespace AP.IR
 {
-    public class IrStorage: IIrImporter, ICsnConfig, IInstitutionConfig
+    public class IrStorage: IIrImporter, ICsnConfig, IApConfig
     {
         public void Import(Message message)
         {
@@ -23,19 +24,14 @@ namespace AP.IR
             return new Message();
         }
 
-        public bool IsCsn(string endpointId)
-        {
-            return false;
-        }
-
-        public string GetUrl(string endpointId)
+        public string GetCsnUrl()
         {
             return string.Empty;
         }
 
-        public bool IsExternalInstitution(string endpointId)
+        public string GetApUrl(string institutionId)
         {
-            return false;
+            return string.Empty;
         }
     }
 }

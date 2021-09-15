@@ -1,6 +1,6 @@
 ﻿using AP.Processing;
 
-namespace AP.Routing
+namespace AP.Gateways.AP
 {
     public interface IEncryptor
     {

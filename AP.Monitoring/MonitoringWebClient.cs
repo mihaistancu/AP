@@ -6,10 +6,10 @@ namespace AP.Monitoring
 {
     public class MonitoringWebClient: WebClient
     {
-        public override void Send(string url, params Message[] messages)
+        public override void Send(string url, Message message)
         {
             Console.WriteLine("Push");
-            base.Send(url, messages);
+            base.Send(url, message);
         }
     }
 }

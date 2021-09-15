@@ -1,22 +1,22 @@
 ﻿namespace AP.Processing.Async.DocumentValidation
 {
-    public class DocumentValidationWorker : IWorker
+    public class DocumentValidationWorker<T> : IWorker where T: IGateway
     {
         private IDocumentValidator validator;
         private IDocumentValidationErrorFactory errorFactory;
         private IMessageStorage storage;
-        private IRouter router;
+        private T gateway;
 
         public DocumentValidationWorker(
             IDocumentValidator validator,
             IDocumentValidationErrorFactory errorFactory,
             IMessageStorage storage,
-            IRouter router)
+            T gateway)
         {
             this.validator = validator;
             this.errorFactory = errorFactory;
             this.storage = storage;
-            this.router = router;
+            this.gateway = gateway;
         }
 
         public virtual bool Handle(Message message)
@@ -26,7 +26,7 @@
             {
                 var error = errorFactory.Get(result.Message);
                 storage.Save(error);
-                router.Route(message.Sender, error);
+                gateway.Deliver(error);
                 return false;
             }
             return true;

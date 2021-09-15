@@ -1,7 +1,7 @@
-﻿using AP.Processing;
-using AP.Processing.Async.Forwarding;
+﻿using AP.Gateways.Institution;
+using AP.Processing;
 
-namespace AP.Routing.Config
+namespace AP.Routing
 {
     public class RoutingConfig : IRoutingConfig
     {

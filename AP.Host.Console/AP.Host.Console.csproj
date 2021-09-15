@@ -90,6 +90,10 @@
       <Project>{5F9C8BF4-34F7-4741-8A06-5016CD44BC08}</Project>
       <Name>AP.Cryptography</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">
+      <Project>{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}</Project>
+      <Name>AP.Gateways</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Inbox\AP.Inbox.csproj">
       <Project>{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}</Project>
       <Name>AP.Inbox</Name>

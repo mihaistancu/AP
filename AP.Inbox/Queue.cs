@@ -5,7 +5,7 @@ namespace AP.Inbox
 {
     public class Queue : IQueue
     {
-        public virtual void Enqueue(string channel, params Message[] messages)
+        public virtual void Enqueue(string channel, Message message)
         {
             
         }

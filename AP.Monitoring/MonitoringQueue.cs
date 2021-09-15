@@ -6,10 +6,10 @@ namespace AP.Monitoring
 {
     public class MonitoringQueue: Queue
     {
-        public override void Enqueue(string channel, params Message[] messages)
+        public override void Enqueue(string channel, Message message)
         {
             Console.WriteLine("Queue");
-            base.Enqueue(channel, messages);
+            base.Enqueue(channel, message);
         }
     }
 }

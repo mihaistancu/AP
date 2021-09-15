@@ -3,23 +3,23 @@ using AP.Processing.Async.IR.Subscriptions;
 
 namespace AP.IR.Subscriptions
 {
-    public class IrPublisher : IIrPublisher
+    public class IrPublisher<T> : IIrPublisher where T: IGateway
     {
         private IrSubscriptionStorage irSubscriptionStorage;
         private IrStorage irStorage;
         private IMessageStorage messageStorage;
-        private IRouter router;
+        private T gateway;
 
         public IrPublisher(
             IrSubscriptionStorage irSubscriptionStorage,
             IrStorage irStorage,
             IMessageStorage messageStorage,
-            IRouter router)
+            T gateway)
         {
             this.irSubscriptionStorage = irSubscriptionStorage;
             this.irStorage = irStorage;
             this.messageStorage = messageStorage;
-            this.router = router;
+            this.gateway = gateway;
         }
 
         public void Publish(Message message)
@@ -30,7 +30,7 @@ namespace AP.IR.Subscriptions
             {
                 var newMessage = irStorage.Get(subscription);
                 messageStorage.Save(newMessage);
-                router.Route(subscription.Subscriber, newMessage);
+                gateway.Deliver(newMessage);
             }
         }
     }

@@ -2,16 +2,16 @@
 {
     public class CdmRequestWorker : IWorker
     {
-        private ICdmProvider responder;
+        private ICdmProvider provider;
 
-        public CdmRequestWorker(ICdmProvider responder)
+        public CdmRequestWorker(ICdmProvider provider)
         {
-            this.responder = responder;
+            this.provider = provider;
         }
 
         public virtual bool Handle(Message message)
         {
-            responder.Respond(message);
+            provider.Respond(message);
             return true;
         }
     }
