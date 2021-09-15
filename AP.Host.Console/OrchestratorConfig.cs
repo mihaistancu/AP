@@ -24,27 +24,11 @@ namespace AP.Host.Console
 
         public Workflow GetWorkflow(Message message)
         {
-            switch (message.Direction)
-            {
-                case Direction.In: return GetIncomingWorkflow(message);
-                case Direction.Out: return GetOutgoingWorkflow();
-            }
-            throw new System.Exception("Unknown message direction");
-        }
-
-        public Workflow GetOutgoingWorkflow()
-        {
-            return new Workflow(store.Get<ForwardingWorker>());
-        }
-
-        public Workflow GetIncomingWorkflow(Message message)
-        {
             switch (message.Type)
             {
                 case MessageType.Business: return GetBusinessWorkflow();
                 case MessageType.System: return GetSystemWorkflow(message);
-                case MessageType.Receipt: return GetReceiptWorkflow();
-                case MessageType.Error: return GetErrorWorkflow();
+                case MessageType.Signal: return GetSignalWorkflow();
             }
             throw new System.Exception("Unknown message type");
         }
@@ -92,14 +76,7 @@ namespace AP.Host.Console
             throw new System.Exception("Unknown document type");
         }
 
-        public Workflow GetReceiptWorkflow()
-        {
-            return new Workflow(
-                store.Get<AntimalwareWorker>(),
-                store.Get<ForwardingWorker>());
-        }
-
-        public Workflow GetErrorWorkflow()
+        public Workflow GetSignalWorkflow()
         {
             return new Workflow(
                 store.Get<AntimalwareWorker>(),

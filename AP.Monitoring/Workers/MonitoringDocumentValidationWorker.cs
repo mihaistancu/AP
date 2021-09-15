@@ -1,5 +1,4 @@
 ﻿using AP.Processing;
-using AP.Processing.Async;
 using AP.Processing.Async.DocumentValidation;
 using System;
 
@@ -11,8 +10,8 @@ namespace AP.Monitoring.Workers
             IDocumentValidator validator, 
             IDocumentValidationErrorFactory errorFactory, 
             IMessageStorage storage, 
-            Orchestrator orchestrator) 
-            : base(validator, errorFactory, storage, orchestrator)
+            IRouter router) 
+            : base(validator, errorFactory, storage, router)
         {
         }
 

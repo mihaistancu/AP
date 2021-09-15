@@ -5,18 +5,18 @@
         private IDocumentValidator validator;
         private IDocumentValidationErrorFactory errorFactory;
         private IMessageStorage storage;
-        private Orchestrator orchestrator;
+        private IRouter router;
 
         public DocumentValidationWorker(
             IDocumentValidator validator,
             IDocumentValidationErrorFactory errorFactory,
             IMessageStorage storage,
-            Orchestrator orchestrator)
+            IRouter router)
         {
             this.validator = validator;
             this.errorFactory = errorFactory;
             this.storage = storage;
-            this.orchestrator = orchestrator;
+            this.router = router;
         }
 
         public virtual bool Handle(Message message)
@@ -26,7 +26,7 @@
             {
                 var error = errorFactory.Get(result.Message);
                 storage.Save(error);
-                orchestrator.ProcessAsync(error);
+                router.Route(message.Sender, error);
                 return false;
             }
             return true;

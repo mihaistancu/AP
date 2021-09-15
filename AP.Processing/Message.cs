@@ -2,6 +2,7 @@
 {
     public class Message
     {
+        public string Sender { get; set; }
         public Direction Direction { get; set; }
         public MessageType Type { get; set; }
         public string Envelope { get; set; }
@@ -19,8 +20,7 @@
     {
         System,
         Business,
-        Receipt,
-        Error
+        Signal
     }
 
     public class Certificate
