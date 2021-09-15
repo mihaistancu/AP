@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AP.Server
 {
-    public class Parser
+    public class MessageReader
     {
         public Message Parse(Stream request)
         {

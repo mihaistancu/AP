@@ -9,10 +9,10 @@
             this.decryptor = decryptor;
         }
 
-        public virtual bool Handle(Message message, IOutput output)
+        public virtual (bool, Message) Handle(Message message)
         {
             decryptor.Decrypt(message);
-            return true;
+            return (true, null);
         }
     }
 }

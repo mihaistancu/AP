@@ -2,7 +2,6 @@
 {
     public interface IOutput
     {
-        void Send();
-        void Buffer(Message error);
+        void Send(byte[] bytes);
     }
 }

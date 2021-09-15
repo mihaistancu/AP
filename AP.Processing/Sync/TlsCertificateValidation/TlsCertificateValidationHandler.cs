@@ -13,16 +13,15 @@
             this.errorFactory = errorFactory;
         }
 
-        public virtual bool Handle(Message message, IOutput output)
+        public virtual (bool, Message) Handle(Message message)
         {
             var result = validator.Validate(message.Certificate);
             if (!result.IsSuccessful)
             {
                 var error = errorFactory.Get(result.Message);
-                output.Buffer(error);
-                return false;
+                return (false, error);
             }
-            return true;
+            return (true, null);
         }
     }
 }

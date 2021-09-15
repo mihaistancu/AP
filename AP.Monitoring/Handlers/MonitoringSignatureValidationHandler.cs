@@ -1,5 +1,4 @@
 ﻿using AP.Processing;
-using AP.Processing.Sync;
 using AP.Processing.Sync.SignatureValidation;
 
 namespace AP.Monitoring.Handlers
@@ -13,10 +12,10 @@ namespace AP.Monitoring.Handlers
         {
         }
 
-        public override bool Handle(Message message, IOutput output)
+        public override (bool, Message) Handle(Message message)
         {
             System.Console.WriteLine("Signature Validation");
-            return base.Handle(message, output);
+            return base.Handle(message);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using AP.Processing;
-using AP.Processing.Sync;
+﻿using AP.Processing.Sync;
 using Microsoft.Owin;
 
 namespace AP.Web.Server.Owin
@@ -13,14 +12,9 @@ namespace AP.Web.Server.Owin
             this.response = response;
         }
 
-        public void Buffer(Message error)
+        public void Send(byte[] bytes)
         {
-
-        }
-
-        public void Send()
-        {
-            response.Write("");
+            response.Write(bytes);
         }
     }
 }

@@ -9,16 +9,16 @@
             this.handlers = handlers;
         }
 
-        public virtual void Process(Message message, IOutput output)
-        {
+        public virtual Message Process(Message message)
+        {   
             foreach (var handler in handlers)
             {
-                var canContinue = handler.Handle(message, output);
+                var (canContinue, newMessage) = handler.Handle(message);
 
-                if (!canContinue) return;
+                if (!canContinue) return newMessage;
             }
 
-            output.Send();
+            return null;
         }
     }
 }

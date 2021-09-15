@@ -4,20 +4,26 @@ namespace AP.Server
 {
     public class MessagingService : IService
     {
-        private Parser parser;
         private IPipelineConfig config;
+        private MessageReader reader;
+        private MessageWriter writer;
 
-        public MessagingService(Parser parser, IPipelineConfig config)
+        public MessagingService(
+            IPipelineConfig config, 
+            MessageReader reader, 
+            MessageWriter writer)
         {
-            this.parser = parser;
             this.config = config;
+            this.reader = reader;
+            this.writer = writer;
         }
 
         public virtual void Handle(IInput input, IOutput output)
         {
-            var message = parser.Parse(input.GetBody());
             var pipeline = config.GetPipeline(input.GetUrl());
-            pipeline.Process(message, output);
+            var message = reader.Parse(input.GetBody());
+            var newMessage = pipeline.Process(message);
+            writer.Write(newMessage, output);
         }
     }
 }

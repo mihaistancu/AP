@@ -11,10 +11,10 @@ namespace AP.Processing.Sync.AsyncProcessing
             this.orchestrator = orchestrator;
         }
 
-        public bool Handle(Message message, IOutput output)
+        public (bool, Message) Handle(Message message)
         {
             orchestrator.ProcessAsync(message);
-            return true;
+            return (true, null);
         }
     }
 }
