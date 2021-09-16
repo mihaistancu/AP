@@ -21,7 +21,7 @@ namespace AP.Server
         public virtual void Handle(IInput input, IOutput output)
         {
             var pipeline = config.GetPipeline(input.GetUrl());
-            var message = reader.Parse(input.GetBody());
+            var message = reader.Read(input.GetBody());
             var newMessage = pipeline.Process(message);
             writer.Write(newMessage, output);
         }

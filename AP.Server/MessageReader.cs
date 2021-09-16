@@ -5,7 +5,7 @@ namespace AP.Server
 {
     public class MessageReader
     {
-        public Message Parse(Stream request)
+        public Message Read(Stream request)
         {
             var reader = new StreamReader(request);
             var content = reader.ReadToEnd();

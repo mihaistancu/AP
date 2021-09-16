@@ -18,6 +18,11 @@ namespace AP.Web.Server.Owin
             return request.Uri.AbsolutePath;
         }
 
+        public string GetMethod()
+        {
+            return request.Method;
+        }
+
         public Stream GetBody()
         {
             return request.Body;
