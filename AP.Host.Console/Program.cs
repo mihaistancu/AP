@@ -8,21 +8,13 @@ namespace AP.Host.Console
     {
         static void Main(string[] args)
         {
-            using (var store = new Store())
-            using (var broker = store.Get<MonitoringRabbitMqOrchestrator>())
-            {
-                broker.Connect();
+            var store = new Store();
+            store.Get<MonitoringRabbitMqOrchestrator>().Connect();
+            store.Get<MonitoringWebServer<MessagingService>>().Start("http://localhost:9000");
+            store.Get<ApiServer>().Start("http://localhost:9090");
 
-                var server = store.Get<MonitoringWebServer<MessagingService>>();
-                var api = store.Get<ApiServer>();
-
-                using (server.Start("http://localhost:9000"))
-                using (api.Start("http://localhost:9090"))
-                {
-                    System.Console.WriteLine("Press [enter] to stop");
-                    System.Console.ReadLine();
-                }
-            }
+            System.Console.WriteLine("Press [enter] to stop");
+            System.Console.ReadLine();
         }
     }
 }
