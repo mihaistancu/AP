@@ -38,7 +38,7 @@ using AP.Gateways.Institution;
 using AP.Processing.Async.Forwarding;
 using AP.Gateways.AP;
 using AP.Gateways.CSN;
-using AP.Server;
+using AP.Web.Server.Owin;
 
 namespace AP.Host.Console
 {
@@ -57,7 +57,7 @@ namespace AP.Host.Console
             container.RegisterType<IEnvelopeSignatureValidator, EnvelopeSignatureValidator>(TypeLifetime.Singleton);
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
-            container.RegisterType<IPipelineConfig, PipelineConfig>(TypeLifetime.Singleton);
+            container.RegisterType<IServerConfig, ServerConfig>(TypeLifetime.Singleton);
 
             container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
             container.RegisterType<Orchestrator, MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);

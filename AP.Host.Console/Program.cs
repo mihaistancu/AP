@@ -1,6 +1,5 @@
 ﻿using AP.Monitoring;
-using AP.Portal.WebApi;
-using AP.Server;
+using AP.Web.Server.Owin;
 
 namespace AP.Host.Console
 {
@@ -9,9 +8,9 @@ namespace AP.Host.Console
         static void Main(string[] args)
         {
             var store = new Store();
-            store.Get<MonitoringRabbitMqOrchestrator>().Connect();
-            store.Get<MonitoringWebServer<MessagingService>>().Start("http://localhost:9000");
-            store.Get<ApiServer>().Start("http://localhost:9090");
+
+            store.Get<MonitoringRabbitMqOrchestrator>().Start();
+            store.Get<OwinWebServer>().Start("http://localhost:9000");
 
             System.Console.WriteLine("Press [enter] to stop");
             System.Console.ReadLine();

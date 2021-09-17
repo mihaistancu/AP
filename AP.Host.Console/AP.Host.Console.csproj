@@ -61,7 +61,7 @@
     <Compile Include="OrchestratorConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PipelineConfig.cs" />
+    <Compile Include="ServerConfig.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="TypeNameSerializer.cs" />
   </ItemGroup>
@@ -121,10 +121,6 @@
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
       <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
       <Name>AP.Routing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
-      <Project>{022953D1-D0D3-4AF9-A8A5-F18D0E53BA80}</Project>
-      <Name>AP.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Signing\AP.Signing.csproj">
       <Project>{5105965C-CB56-4AD8-A383-DE76BEA64CC9}</Project>

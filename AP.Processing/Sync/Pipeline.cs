@@ -1,6 +1,6 @@
 ﻿namespace AP.Processing.Sync
 {
-    public class Pipeline
+    public class Pipeline: IHandler
     {
         private IHandler[] handlers;
 
@@ -9,16 +9,14 @@
             this.handlers = handlers;
         }
 
-        public virtual Message Process(Message message)
+        public virtual void Handle(Message message, IOutput output)
         {   
             foreach (var handler in handlers)
             {
-                var (canContinue, newMessage) = handler.Handle(message);
+                handler.Handle(message, output);
 
-                if (!canContinue) return newMessage;
+                if (output.IsMessageSent()) return;
             }
-
-            return null;
         }
     }
 }

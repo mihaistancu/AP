@@ -2,6 +2,8 @@
 {
     public interface IOutput
     {
-        void Send(byte[] bytes);
+        void Send(Message message);
+
+        bool IsMessageSent();
     }
 }

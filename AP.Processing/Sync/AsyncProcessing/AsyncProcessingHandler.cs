@@ -11,10 +11,9 @@ namespace AP.Processing.Sync.AsyncProcessing
             this.orchestrator = orchestrator;
         }
 
-        public (bool, Message) Handle(Message message)
+        public void Handle(Message message, IOutput output)
         {
             orchestrator.ProcessAsync(message);
-            return (true, null);
         }
     }
 }

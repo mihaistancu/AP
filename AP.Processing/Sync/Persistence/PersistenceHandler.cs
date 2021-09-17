@@ -9,10 +9,9 @@
             this.storage = storage;
         }
 
-        public virtual (bool, Message) Handle(Message message)
+        public virtual void Handle(Message message, IOutput output)
         {
             storage.Save(message);
-            return (true, null);
         }
     }
 }

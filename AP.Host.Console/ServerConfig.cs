@@ -6,20 +6,20 @@ using AP.Processing.Sync.Persistence;
 using AP.Processing.Sync.Receipt;
 using AP.Processing.Sync.SignatureValidation;
 using AP.Processing.Sync.TlsCertificateValidation;
-using AP.Server;
+using AP.Web.Server.Owin;
 
 namespace AP.Host.Console
 {
-    public class PipelineConfig : IPipelineConfig
+    public class ServerConfig : IServerConfig
     {
         private Store store;
 
-        public PipelineConfig(Store store)
+        public ServerConfig(Store store)
         {
             this.store = store;
         }
 
-        public Pipeline GetPipeline(string url)
+        public IHandler Get(string url)
         {
             switch (url)
             {

@@ -24,7 +24,7 @@ namespace AP.Middleware.RabbitMQ
             this.serializer = serializer;
         }
 
-        public void Connect()
+        public void Start()
         {
             var factory = new ConnectionFactory() { DispatchConsumersAsync = true };
             connection = factory.CreateConnection();

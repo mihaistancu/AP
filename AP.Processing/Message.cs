@@ -4,23 +4,15 @@
     {
         public string Sender { get; set; }
         public string Receiver { get; set; }
-        public MessageType Type { get; set; }
-        public Channel Channel { get; set; }
-        public string Envelope { get; set; }
+        public EnvelopeType EnvelopeType { get; set; }
+        public string Url { get; set; }
         public string DocumentType { get; set; }
         public Certificate Certificate { get; set; }
     }
 
-    public enum Channel
+    public enum EnvelopeType
     {
-        Inbound,
-        Outbox
-    }
-
-    public enum MessageType
-    {
-        System,
-        Business,
+        UserMessage,
         Signal
     }
 

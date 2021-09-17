@@ -1,5 +1,4 @@
-﻿using AP.Processing.Sync;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Microsoft.Owin.Hosting;
 using Owin;
 using System;
@@ -7,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AP.Web.Server.Owin
 {
-    public class WebServer<T> where T : IService
+    public class OwinWebServer
     {
-        private T service;
+        private IServerConfig config;
 
-        public WebServer(T service)
+        public OwinWebServer(IServerConfig config)
         {
-            this.service = service;
+            this.config = config;
         }
 
         public IDisposable Start(string url)
@@ -32,13 +31,9 @@ namespace AP.Web.Server.Owin
             {
                 var input = new Input(context.Request);
                 var output = new Output(context.Response);
-                service.Handle(input, output);
+                var service = config.Get(input.GetUrl());
+                service.Handle(input.GetMessage(), output);
             });
-        }
-
-        protected virtual void Handle(IInput input, IOutput output)
-        {
-            service.Handle(input, output);
         }
     }
 }

@@ -9,10 +9,10 @@
             this.receiptFactory = receiptFactory;
         }
 
-        public (bool, Message) Handle(Message message)
+        public void Handle(Message message, IOutput output)
         {
             var receipt = receiptFactory.Get(message);
-            return (false, receipt);
+            output.Send(receipt);
         }
     }
 }

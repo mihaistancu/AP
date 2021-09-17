@@ -48,7 +48,6 @@
     <Compile Include="Handlers\MonitoringDecryptionHandler.cs" />
     <Compile Include="MonitoringQueue.cs" />
     <Compile Include="MonitoringRabbitMqOrchestrator.cs" />
-    <Compile Include="MonitoringWebServer.cs" />
     <Compile Include="MonitoringWebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workers\MonitoringAntimalwareWorker.cs" />
@@ -74,10 +73,6 @@
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
-      <Project>{022953D1-D0D3-4AF9-A8A5-F18D0E53BA80}</Project>
-      <Name>AP.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Web.Client\AP.Web.Client.csproj">
       <Project>{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}</Project>

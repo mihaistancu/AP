@@ -1,10 +1,9 @@
-﻿using AP.Processing.Sync;
+﻿using AP.Processing;
 using Microsoft.Owin;
-using System.IO;
 
 namespace AP.Web.Server.Owin
 {
-    public class Input : IInput
+    public class Input
     {
         private IOwinRequest request;
 
@@ -13,19 +12,18 @@ namespace AP.Web.Server.Owin
             this.request = request;
         }
 
+        public Message GetMessage()
+        {
+            return new Message
+            {
+                Url = GetUrl(),
+                DocumentType = "SYN001"
+            };
+        }
+
         public string GetUrl()
         {
             return request.Uri.AbsolutePath;
-        }
-
-        public string GetMethod()
-        {
-            return request.Method;
-        }
-
-        public Stream GetBody()
-        {
-            return request.Body;
         }
     }
 }
