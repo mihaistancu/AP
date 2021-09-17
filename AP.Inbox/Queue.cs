@@ -9,5 +9,10 @@ namespace AP.Inbox
         {
             
         }
+
+        public virtual Message Dequeue(string channel)
+        {
+            return new Message();
+        }
     }
 }

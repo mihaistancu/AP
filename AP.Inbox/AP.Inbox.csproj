@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Queue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Inbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">

@@ -1,8 +1,10 @@
-﻿using AP.Processing.Sync;
+﻿using AP.Inbox;
+using AP.Processing.Sync;
 using AP.Processing.Sync.AsyncProcessing;
 using AP.Processing.Sync.Decryption;
 using AP.Processing.Sync.EnvelopeValidation;
 using AP.Processing.Sync.Persistence;
+using AP.Processing.Sync.PullRequest;
 using AP.Processing.Sync.Receipt;
 using AP.Processing.Sync.SignatureValidation;
 using AP.Processing.Sync.TlsCertificateValidation;
@@ -37,6 +39,12 @@ namespace AP.Host.Console
                     store.Get<PersistenceHandler>(),
                     store.Get<AsyncProcessingHandler>());
 
+                case "/Business/Inbox": return new Pipeline(
+                    store.Get<TlsCertificateValidationHandler>(),
+                    store.Get<SignatureValidationHandler>(),
+                    store.Get<EnvelopeValidationHandler>(),
+                    store.Get<PullRequestHandler>());
+
                 case "/System/Inbound": return new Pipeline(
                     store.Get<TlsCertificateValidationHandler>(),
                     store.Get<SignatureValidationHandler>(),
@@ -52,6 +60,12 @@ namespace AP.Host.Console
                     store.Get<PersistenceHandler>(),
                     store.Get<AsyncProcessingHandler>(),
                     store.Get<ReceiptHandler>());
+
+                case "/System/Inbox": return new Pipeline(
+                    store.Get<TlsCertificateValidationHandler>(),
+                    store.Get<SignatureValidationHandler>(),
+                    store.Get<EnvelopeValidationHandler>(),
+                    store.Get<PullRequestHandler>());
             }
             throw new System.Exception("Invalid url");
         }
