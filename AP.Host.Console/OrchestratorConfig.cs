@@ -4,15 +4,15 @@ using AP.Gateways.Institution;
 using AP.Processing;
 using AP.Processing.Async;
 using AP.Processing.Async.Antimalware;
-using AP.Processing.Async.CDM.Import;
-using AP.Processing.Async.CDM.Report;
-using AP.Processing.Async.CDM.Request;
-using AP.Processing.Async.CDM.Subscriptions;
 using AP.Processing.Async.DocumentValidation;
 using AP.Processing.Async.Forwarding;
-using AP.Processing.Async.IR.Import;
-using AP.Processing.Async.IR.Request;
-using AP.Processing.Async.IR.Subscriptions;
+using AP.Processing.Async.Synchronization.CDM.Import;
+using AP.Processing.Async.Synchronization.CDM.Report;
+using AP.Processing.Async.Synchronization.CDM.Request;
+using AP.Processing.Async.Synchronization.CDM.Subscriptions;
+using AP.Processing.Async.Synchronization.IR.Import;
+using AP.Processing.Async.Synchronization.IR.Request;
+using AP.Processing.Async.Synchronization.IR.Subscriptions;
 
 namespace AP.Host.Console
 {

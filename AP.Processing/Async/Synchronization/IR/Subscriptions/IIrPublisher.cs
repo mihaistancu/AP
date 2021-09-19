@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Async.IR.Subscriptions
+﻿namespace AP.Processing.Async.Synchronization.IR.Subscriptions
 {
     public interface IIrPublisher
     {

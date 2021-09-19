@@ -1,5 +1,6 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.CDM.Subscriptions;
+using AP.Processing.Async.Synchronization;
+using AP.Processing.Async.Synchronization.CDM.Subscriptions;
 
 namespace AP.CDM
 {

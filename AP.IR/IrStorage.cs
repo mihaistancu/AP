@@ -3,7 +3,7 @@ using AP.Gateways.CSN;
 using AP.IR.Request;
 using AP.IR.Subscriptions;
 using AP.Processing;
-using AP.Processing.Async.IR.Import;
+using AP.Processing.Async.Synchronization.IR.Import;
 
 namespace AP.IR
 {

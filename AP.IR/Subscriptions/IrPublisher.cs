@@ -1,5 +1,6 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.IR.Subscriptions;
+using AP.Processing.Async.Synchronization;
+using AP.Processing.Async.Synchronization.IR.Subscriptions;
 
 namespace AP.IR.Subscriptions
 {

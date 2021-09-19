@@ -1,5 +1,6 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.IR.Request;
+using AP.Processing.Async.Synchronization;
+using AP.Processing.Async.Synchronization.IR.Request;
 
 namespace AP.IR.Request
 {

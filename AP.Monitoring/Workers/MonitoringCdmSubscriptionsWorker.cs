@@ -1,6 +1,6 @@
 ﻿using AP.Processing;
 using AP.Processing.Async;
-using AP.Processing.Async.CDM.Subscriptions;
+using AP.Processing.Async.Synchronization.CDM.Subscriptions;
 using System;
 
 namespace AP.Monitoring.Workers

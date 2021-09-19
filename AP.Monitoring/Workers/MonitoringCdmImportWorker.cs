@@ -1,6 +1,5 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.CDM.Import;
-using AP.Processing.Async.Workers.CDM.Import;
+using AP.Processing.Async.Synchronization.CDM.Import;
 using System;
 
 namespace AP.Monitoring.Workers

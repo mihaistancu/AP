@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Async.Workers.CDM.Import
+﻿namespace AP.Processing.Async.Synchronization.CDM.Import
 {
     public interface ICdmImporter
     {

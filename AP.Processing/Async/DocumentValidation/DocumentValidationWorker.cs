@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.DocumentValidation
+﻿using AP.Processing.Async.Synchronization;
+
+namespace AP.Processing.Async.DocumentValidation
 {
     public class DocumentValidationWorker<T> : IWorker where T: IGateway
     {

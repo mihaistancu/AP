@@ -1,5 +1,5 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.CDM.Request;
+using AP.Processing.Async.Synchronization.CDM.Request;
 using System;
 
 namespace AP.Monitoring.Workers

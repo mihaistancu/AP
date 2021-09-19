@@ -1,6 +1,6 @@
-﻿namespace AP.Processing.Async.CDM.Report
+﻿namespace AP.Processing.Async.Synchronization.CDM.Report
 {
-    public class CdmReportWorker<T> : IWorker where T: IGateway
+    public class CdmReportWorker<T> : IWorker where T : IGateway
     {
         private ICdmReporter reporter;
         private T gateway;

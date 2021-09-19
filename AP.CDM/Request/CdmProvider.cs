@@ -1,5 +1,6 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.CDM.Request;
+using AP.Processing.Async.Synchronization;
+using AP.Processing.Async.Synchronization.CDM.Request;
 
 namespace AP.CDM
 {

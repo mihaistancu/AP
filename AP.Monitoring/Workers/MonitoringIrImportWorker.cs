@@ -1,5 +1,5 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.IR.Import;
+using AP.Processing.Async.Synchronization.IR.Import;
 using System;
 
 namespace AP.Monitoring.Workers

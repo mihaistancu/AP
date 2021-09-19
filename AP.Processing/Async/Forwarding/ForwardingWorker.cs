@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Forwarding
+﻿using AP.Processing.Async.Synchronization;
+
+namespace AP.Processing.Async.Forwarding
 {
     public class ForwardingWorker<T> : IWorker where T: IGateway
     {

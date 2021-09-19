@@ -1,6 +1,6 @@
 ﻿using AP.Processing;
 using AP.Processing.Async;
-using AP.Processing.Async.IR.Subscriptions;
+using AP.Processing.Async.Synchronization.IR.Subscriptions;
 using System;
 
 namespace AP.Monitoring.Workers

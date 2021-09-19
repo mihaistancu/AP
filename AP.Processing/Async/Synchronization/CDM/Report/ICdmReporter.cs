@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Async.CDM.Report
+﻿namespace AP.Processing.Async.Synchronization.CDM.Report
 {
     public interface ICdmReporter
     {

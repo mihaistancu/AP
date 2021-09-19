@@ -1,9 +1,9 @@
-﻿namespace AP.Processing.Async.IR.Request
+﻿namespace AP.Processing.Async.Synchronization.IR.Request
 {
     public class IrRequestWorker : IWorker
     {
         private IIrProvider provider;
-        
+
         public IrRequestWorker(IIrProvider provider)
         {
             this.provider = provider;

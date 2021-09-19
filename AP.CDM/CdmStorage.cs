@@ -1,6 +1,6 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.CDM.Report;
-using AP.Processing.Async.Workers.CDM.Import;
+using AP.Processing.Async.Synchronization.CDM.Import;
+using AP.Processing.Async.Synchronization.CDM.Report;
 
 namespace AP.CDM
 {

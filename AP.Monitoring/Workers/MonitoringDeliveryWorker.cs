@@ -1,5 +1,6 @@
 ﻿using AP.Processing;
 using AP.Processing.Async.Forwarding;
+using AP.Processing.Async.Synchronization;
 using System;
 
 namespace AP.Monitoring.Workers

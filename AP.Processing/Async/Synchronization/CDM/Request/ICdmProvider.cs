@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Async.CDM.Request
+﻿namespace AP.Processing.Async.Synchronization.CDM.Request
 {
     public interface ICdmProvider
     {

@@ -1,6 +1,6 @@
 ﻿using AP.Processing;
 using AP.Processing.Async;
-using AP.Processing.Async.IR.Request;
+using AP.Processing.Async.Synchronization.IR.Request;
 using System;
 
 namespace AP.Monitoring.Workers
