@@ -10,7 +10,7 @@ namespace AP.Host.Console
             var store = new Store();
 
             store.Get<MonitoringRabbitMqOrchestrator>().Start();
-            store.Get<OwinWebServer>().Start("http://localhost:9000");
+            store.Get<MessagingServer>().Start("http://localhost:9000");
 
             System.Console.WriteLine("Press [enter] to stop");
             System.Console.ReadLine();

@@ -49,7 +49,7 @@
     <Compile Include="Institution\InstitutionGateway.cs" />
     <Compile Include="Institution\IQueue.cs" />
     <Compile Include="Institution\IRoutingConfig.cs" />
-    <Compile Include="Institution\IWebClient.cs" />
+    <Compile Include="Institution\IMessagingClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 
 namespace AP.Web.Server.Owin
 {
-    public interface IServerConfig
+    public interface IMessagingServerConfig
     {
         IHandler Get(string url);
     }

@@ -3,11 +3,11 @@ using Microsoft.Owin;
 
 namespace AP.Web.Server.Owin
 {
-    public class Input
+    public class MessagingInput
     {
         private IOwinRequest request;
 
-        public Input(IOwinRequest request)
+        public MessagingInput(IOwinRequest request)
         {
             this.request = request;
         }

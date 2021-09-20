@@ -4,12 +4,12 @@ using Microsoft.Owin;
 
 namespace AP.Web.Server.Owin
 {
-    public class Output : IOutput
+    public class MessagingOutput : IOutput
     {
         private IOwinResponse response;
         private bool isMessageSent;
 
-        public Output(IOwinResponse response)
+        public MessagingOutput(IOwinResponse response)
         {
             this.response = response;
         }

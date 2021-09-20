@@ -1,5 +1,4 @@
-﻿using AP.Inbox;
-using AP.Processing.Sync;
+﻿using AP.Processing.Sync;
 using AP.Processing.Sync.AsyncProcessing;
 using AP.Processing.Sync.Decryption;
 using AP.Processing.Sync.EnvelopeValidation;
@@ -12,7 +11,7 @@ using AP.Web.Server.Owin;
 
 namespace AP.Host.Console
 {
-    public class ServerConfig : IServerConfig
+    public class ServerConfig : IMessagingServerConfig
     {
         private Store store;
 

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AP.Web.Server.Owin
 {
-    public class OwinWebServer
+    public class MessagingServer
     {
-        private IServerConfig config;
+        private IMessagingServerConfig config;
 
-        public OwinWebServer(IServerConfig config)
+        public MessagingServer(IMessagingServerConfig config)
         {
             this.config = config;
         }
@@ -29,8 +29,8 @@ namespace AP.Web.Server.Owin
         {
             await Task.Run(() =>
             {
-                var input = new Input(context.Request);
-                var output = new Output(context.Response);
+                var input = new MessagingInput(context.Request);
+                var output = new MessagingOutput(context.Response);
                 var service = config.Get(input.GetUrl());
                 service.Handle(input.GetMessage(), output);
             });

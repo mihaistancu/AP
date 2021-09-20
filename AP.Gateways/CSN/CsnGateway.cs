@@ -7,9 +7,9 @@ namespace AP.Gateways.CSN
     public class CsnGateway : IGateway
     {
         private ICsnConfig config;
-        private IWebClient client;
+        private IMessagingClient client;
 
-        public CsnGateway(ICsnConfig config, IWebClient client)
+        public CsnGateway(ICsnConfig config, IMessagingClient client)
         {
             this.config = config;
             this.client = client;

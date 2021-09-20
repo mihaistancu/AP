@@ -2,7 +2,7 @@
 
 namespace AP.Gateways.Institution
 {
-    public interface IWebClient
+    public interface IMessagingClient
     {
         void Send(string url, Message message);
     }

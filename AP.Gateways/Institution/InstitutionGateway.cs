@@ -7,12 +7,12 @@ namespace AP.Gateways.Institution
     public class InstitutionGateway : IGateway
     {
         private IRoutingConfig config;
-        private IWebClient webClient;
+        private IMessagingClient webClient;
         private IQueue queue;
 
         public InstitutionGateway(
             IRoutingConfig config,
-            IWebClient webClient,
+            IMessagingClient webClient,
             IQueue queue)
         {
             this.config = config;

@@ -56,7 +56,7 @@ namespace AP.Host.Console
             container.RegisterType<IEnvelopeSignatureValidator, EnvelopeSignatureValidator>(TypeLifetime.Singleton);
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
-            container.RegisterType<IServerConfig, ServerConfig>(TypeLifetime.Singleton);
+            container.RegisterType<IMessagingServerConfig, ServerConfig>(TypeLifetime.Singleton);
 
             container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
             container.RegisterType<Orchestrator, MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);
@@ -89,7 +89,7 @@ namespace AP.Host.Console
             container.RegisterType<ICdmPublisher, CdmPublisher<InstitutionGateway>>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReporter, CdmStorage>(TypeLifetime.Singleton);
 
-            container.RegisterType<IWebClient, MonitoringWebClient>(TypeLifetime.Singleton);
+            container.RegisterType<IMessagingClient, MonitoringWebClient>(TypeLifetime.Singleton);
             container.RegisterType<IQueue, MonitoringQueue>(TypeLifetime.Singleton);
 
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
