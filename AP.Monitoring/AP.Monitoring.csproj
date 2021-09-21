@@ -66,6 +66,10 @@
       <Project>{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}</Project>
       <Name>AP.Inbox</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Messaging.Client\AP.Messaging.Client.csproj">
+      <Project>{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}</Project>
+      <Name>AP.Messaging.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
       <Project>{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}</Project>
       <Name>AP.Middleware.RabbitMQ</Name>
@@ -73,10 +77,6 @@
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Client\AP.Web.Client.csproj">
-      <Project>{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}</Project>
-      <Name>AP.Web.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Web.Server.Owin\AP.Web.Server.Owin.csproj">
       <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>

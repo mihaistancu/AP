@@ -1,5 +1,5 @@
-﻿using AP.Monitoring;
-using AP.Web.Server.Owin;
+﻿using AP.Messaging.Server;
+using AP.Monitoring;
 
 namespace AP.Host.Console
 {
@@ -10,7 +10,7 @@ namespace AP.Host.Console
             var store = new Store();
 
             store.Get<MonitoringRabbitMqOrchestrator>().Start();
-            store.Get<MessagingServer>().Start("http://localhost:9000");
+            store.Get<MessagingServer>().Start();
 
             System.Console.WriteLine("Press [enter] to stop");
             System.Console.ReadLine();

@@ -1,5 +1,5 @@
-﻿using AP.Processing;
-using AP.Web.Client;
+﻿using AP.Messaging.Client;
+using AP.Processing;
 using System;
 
 namespace AP.Monitoring

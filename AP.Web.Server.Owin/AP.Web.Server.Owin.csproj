@@ -66,21 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Input.cs" />
-    <Compile Include="MessagingInput.cs" />
-    <Compile Include="IMessagingServerConfig.cs" />
-    <Compile Include="MessagingOutput.cs" />
-    <Compile Include="MessagingServer.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Router.cs" />
     <Compile Include="WebServer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
-      <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
-      <Name>AP.Processing</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

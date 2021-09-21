@@ -23,7 +23,7 @@ namespace AP.Web.Server.Owin
 
         private Route GetRoute(IOwinRequest request)
         {
-            var url = request.Uri.AbsoluteUri;
+            var url = request.Uri.AbsolutePath;
             var method = request.Method;
             return routes.First(r => r.Matches(url, method));
         }

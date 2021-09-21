@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}</ProjectGuid>
+    <ProjectGuid>{94ABFB0C-DA02-4392-8CE4-9629774B5D5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AP.Web.Client</RootNamespace>
-    <AssemblyName>AP.Web.Client</AssemblyName>
+    <RootNamespace>AP.Messaging.Server</RootNamespace>
+    <AssemblyName>AP.Messaging.Server</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,17 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessagingClient.cs" />
+    <Compile Include="IMessagingServerConfig.cs" />
+    <Compile Include="MessagingInput.cs" />
+    <Compile Include="MessagingOutput.cs" />
+    <Compile Include="MessagingServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">
-      <Project>{3000cfb2-4e38-4fb0-84a1-b9c279f0bca5}</Project>
-      <Name>AP.Gateways</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
-      <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
+      <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Web.Server.Owin\AP.Web.Server.Owin.csproj">
+      <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
+      <Name>AP.Web.Server.Owin</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

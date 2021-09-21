@@ -102,6 +102,14 @@
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Messaging.Client\AP.Messaging.Client.csproj">
+      <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
+      <Name>AP.Messaging.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Messaging.Server\AP.Messaging.Server.csproj">
+      <Project>{94abfb0c-da02-4392-8ce4-9629774b5d5a}</Project>
+      <Name>AP.Messaging.Server</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
       <Project>{b5fa51c6-5ddb-4e52-8a56-2dbf6b6c1282}</Project>
       <Name>AP.Middleware.RabbitMQ</Name>
@@ -133,10 +141,6 @@
     <ProjectReference Include="..\AP.Validation\AP.Validation.csproj">
       <Project>{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}</Project>
       <Name>AP.Validation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Client\AP.Web.Client.csproj">
-      <Project>{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}</Project>
-      <Name>AP.Web.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Web.Server.Owin\AP.Web.Server.Owin.csproj">
       <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>

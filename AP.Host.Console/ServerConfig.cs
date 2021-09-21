@@ -1,4 +1,5 @@
-﻿using AP.Processing.Sync;
+﻿using AP.Messaging.Server;
+using AP.Processing.Sync;
 using AP.Processing.Sync.AsyncProcessing;
 using AP.Processing.Sync.Decryption;
 using AP.Processing.Sync.EnvelopeValidation;
@@ -7,7 +8,6 @@ using AP.Processing.Sync.PullRequest;
 using AP.Processing.Sync.Receipt;
 using AP.Processing.Sync.SignatureValidation;
 using AP.Processing.Sync.TlsCertificateValidation;
-using AP.Web.Server.Owin;
 
 namespace AP.Host.Console
 {
@@ -18,6 +18,11 @@ namespace AP.Host.Console
         public ServerConfig(Store store)
         {
             this.store = store;
+        }
+
+        public string GetBaseUrl()
+        {
+            return "http://localhost:9000";
         }
 
         public IHandler Get(string url)

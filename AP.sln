@@ -31,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Processing", "AP.Process
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Routing", "AP.Routing\AP.Routing.csproj", "{29DF01A0-DB14-46D1-90C9-C4A347AF009A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Web.Client", "AP.Web.Client\AP.Web.Client.csproj", "{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Inbox", "AP.Inbox\AP.Inbox.csproj", "{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Gateways", "AP.Gateways\AP.Gateways.csproj", "{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}"
@@ -40,6 +38,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Web.Server.Owin", "AP.Web.Server.Owin\AP.Web.Server.Owin.csproj", "{A70498D3-0AD1-4DB4-A251-43D6026C074A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Portal.WebApi", "AP.Portal.WebApi\AP.Portal.WebApi.csproj", "{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Messaging.Server", "AP.Messaging.Server\AP.Messaging.Server.csproj", "{94ABFB0C-DA02-4392-8CE4-9629774B5D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Messaging.Client", "AP.Messaging.Client\AP.Messaging.Client.csproj", "{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,10 +105,6 @@ Global
 		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29DF01A0-DB14-46D1-90C9-C4A347AF009A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C9ED93E8-E6B9-4EDC-A7A5-180C8AC8D5B7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -123,6 +121,14 @@ Global
 		{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94ABFB0C-DA02-4392-8CE4-9629774B5D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94ABFB0C-DA02-4392-8CE4-9629774B5D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94ABFB0C-DA02-4392-8CE4-9629774B5D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94ABFB0C-DA02-4392-8CE4-9629774B5D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

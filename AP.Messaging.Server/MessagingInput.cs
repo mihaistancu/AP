@@ -1,6 +1,7 @@
 ﻿using AP.Processing;
+using AP.Web.Server.Owin;
 
-namespace AP.Web.Server.Owin
+namespace AP.Messaging.Server
 {
     public class MessagingInput
     {

@@ -8,7 +8,7 @@ namespace AP.Web.Server.Owin
 {
     public class WebServer
     {
-        private Router router;
+        protected Router router;
 
         public WebServer(Router router)
         {
