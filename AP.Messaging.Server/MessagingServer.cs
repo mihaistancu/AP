@@ -4,25 +4,17 @@ namespace AP.Messaging.Server
 {
     public class MessagingServer : WebServer
     {
-        private IMessagingServerConfig config;
+        private MessagingService service;
 
-        public MessagingServer(IMessagingServerConfig config, Router router) : base(router)
+        public MessagingServer(Router router, MessagingService service) : base(router)
         {            
-            this.config = config;
+            this.service = service;
         }
 
         public void Start()
         {
-            router.Add(new Route("POST", "*", Handle));
-            Start(config.GetBaseUrl());
-        }
-
-        private void Handle(Input input, Output output)
-        {
-            var messagingInput = new MessagingInput(input);
-            var messagingOutput = new MessagingOutput(output);
-            var handler = config.Get(input.GetUrl());
-            handler.Handle(messagingInput.GetMessage(), messagingOutput);
+            router.Map("POST", "*", service);
+            Start("http://localhost:9000");
         }
     }
 }

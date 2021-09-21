@@ -2,9 +2,8 @@
 
 namespace AP.Messaging.Server
 {
-    public interface IMessagingServerConfig
+    public interface IMessagingEndpointConfig
     {
-        string GetBaseUrl();
         IHandler Get(string url);
     }
 }

@@ -6,7 +6,7 @@ namespace AP.Messaging.Server
 {
     public class MessagingOutput : IOutput
     {
-        public MessagingOutput(Output output)
+        public MessagingOutput(WebOutput output)
         {
 
         }

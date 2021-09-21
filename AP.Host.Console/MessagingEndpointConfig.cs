@@ -11,18 +11,13 @@ using AP.Processing.Sync.TlsCertificateValidation;
 
 namespace AP.Host.Console
 {
-    public class ServerConfig : IMessagingServerConfig
+    public class MessagingEndpointConfig : IMessagingEndpointConfig
     {
         private Store store;
 
-        public ServerConfig(Store store)
+        public MessagingEndpointConfig(Store store)
         {
             this.store = store;
-        }
-
-        public string GetBaseUrl()
-        {
-            return "http://localhost:9000";
         }
 
         public IHandler Get(string url)

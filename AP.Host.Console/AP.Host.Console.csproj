@@ -61,7 +61,7 @@
     <Compile Include="OrchestratorConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServerConfig.cs" />
+    <Compile Include="MessagingEndpointConfig.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="TypeNameSerializer.cs" />
   </ItemGroup>
@@ -85,6 +85,10 @@
     <ProjectReference Include="..\AP.Certificates\AP.Certificates.csproj">
       <Project>{18B6B51A-F726-4AC5-B53F-2C0B922E8854}</Project>
       <Name>AP.Certificates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Configuration.Server\AP.Configuration.Server.csproj">
+      <Project>{DDC90FC6-DDF2-4AC6-9955-89FBA0D8DAC9}</Project>
+      <Name>AP.Configuration.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Cryptography\AP.Cryptography.csproj">
       <Project>{5F9C8BF4-34F7-4741-8A06-5016CD44BC08}</Project>

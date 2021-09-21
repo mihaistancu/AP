@@ -2,7 +2,7 @@
 
 namespace AP.Web.Server.Owin
 {
-    public class Input
+    public class WebInput
     {
         private string routePath;
         private IOwinRequest request;
@@ -12,7 +12,7 @@ namespace AP.Web.Server.Owin
             return request.Uri.AbsolutePath;
         }
 
-        public Input(string routePath, IOwinRequest request)
+        public WebInput(string routePath, IOwinRequest request)
         {
             this.routePath = routePath;
             this.request = request;

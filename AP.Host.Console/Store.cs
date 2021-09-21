@@ -38,6 +38,7 @@ using AP.Processing.Async.Synchronization.IR.Import;
 using AP.Processing.Async.Synchronization.IR.Request;
 using AP.Processing.Async.Synchronization.IR.Subscriptions;
 using AP.Messaging.Server;
+using AP.Configuration.Server;
 
 namespace AP.Host.Console
 {
@@ -56,8 +57,8 @@ namespace AP.Host.Console
             container.RegisterType<IEnvelopeSignatureValidator, EnvelopeSignatureValidator>(TypeLifetime.Singleton);
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
-            container.RegisterType<IMessagingServerConfig, ServerConfig>(TypeLifetime.Singleton);
-
+            container.RegisterType<IMessagingEndpointConfig, MessagingEndpointConfig>(TypeLifetime.Singleton);
+            
             container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
             container.RegisterType<Orchestrator, MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);
             container.RegisterType<Serializer, TypeNameSerializer>(TypeLifetime.Singleton);

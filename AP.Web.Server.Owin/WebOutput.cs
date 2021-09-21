@@ -2,11 +2,11 @@
 
 namespace AP.Web.Server.Owin
 {
-    public class Output
+    public class WebOutput
     {
         private IOwinResponse response;
 
-        public Output(IOwinResponse response)
+        public WebOutput(IOwinResponse response)
         {
             this.response = response;
         }

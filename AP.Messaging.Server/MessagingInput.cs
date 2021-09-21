@@ -5,9 +5,9 @@ namespace AP.Messaging.Server
 {
     public class MessagingInput
     {
-        private Input input;
+        private WebInput input;
 
-        public MessagingInput(Input input)
+        public MessagingInput(WebInput input)
         {
             this.input = input;
         }

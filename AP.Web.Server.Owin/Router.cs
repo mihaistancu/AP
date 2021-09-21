@@ -8,17 +8,22 @@ namespace AP.Web.Server.Owin
     {
         private List<Route> routes = new List<Route>();
 
-        public void Add(Route route)
+        public void Map(string method, string path, IWebService service)
         {
-            routes.Add(route);
+            routes.Add(new Route
+            {
+                Method = method,
+                Path = path,
+                Service = service
+            });
         }
 
         public void Route(IOwinRequest request, IOwinResponse response)
         {
             var route = GetRoute(request);
-            var input = new Input(route.Path, request);
-            var output = new Output(response);
-            route.Handler.Invoke(input, output);
+            var input = new WebInput(route.Path, request);
+            var output = new WebOutput(response);
+            route.Service.Handle(input, output);
         }
 
         private Route GetRoute(IOwinRequest request)
