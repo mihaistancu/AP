@@ -1,15 +1,14 @@
 ﻿using AP.Processing;
-using Microsoft.Owin;
 
 namespace AP.Web.Server.Owin
 {
     public class MessagingInput
     {
-        private IOwinRequest request;
+        private Input input;
 
-        public MessagingInput(IOwinRequest request)
+        public MessagingInput(Input input)
         {
-            this.request = request;
+            this.input = input;
         }
 
         public Message GetMessage()
@@ -23,7 +22,7 @@ namespace AP.Web.Server.Owin
 
         public string GetUrl()
         {
-            return request.Uri.AbsolutePath;
+            return input.GetUrl();
         }
     }
 }

@@ -1,18 +1,16 @@
 ﻿using AP.Processing;
 using AP.Processing.Sync;
-using Microsoft.Owin;
 
 namespace AP.Web.Server.Owin
 {
     public class MessagingOutput : IOutput
     {
-        private IOwinResponse response;
-        private bool isMessageSent;
-
-        public MessagingOutput(IOwinResponse response)
+        public MessagingOutput(Output output)
         {
-            this.response = response;
+
         }
+
+        private bool isMessageSent;
 
         public bool IsMessageSent()
         {
@@ -21,7 +19,6 @@ namespace AP.Web.Server.Owin
 
         public void Send(Message message)
         {
-            response.Write("");
             isMessageSent = true;
         }
     }

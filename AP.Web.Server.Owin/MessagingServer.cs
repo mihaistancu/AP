@@ -1,39 +1,21 @@
-﻿using Microsoft.Owin;
-using Microsoft.Owin.Hosting;
-using Owin;
-using System;
-using System.Threading.Tasks;
-
-namespace AP.Web.Server.Owin
+﻿namespace AP.Web.Server.Owin
 {
-    public class MessagingServer
+    public class MessagingServer: WebServer
     {
         private IMessagingServerConfig config;
 
-        public MessagingServer(IMessagingServerConfig config)
+        public MessagingServer(IMessagingServerConfig config, Router router) : base(router)
         {
+            router.Add(new Route("POST", "*", Handle));
             this.config = config;
         }
 
-        public IDisposable Start(string url)
+        private void Handle(Input input, Output output)
         {
-            return WebApp.Start(url, OnStart);
-        }
-
-        private void OnStart(IAppBuilder appBuilder)
-        {
-            appBuilder.Run(Handle);
-        }
-
-        private async Task Handle(IOwinContext context)
-        {
-            await Task.Run(() =>
-            {
-                var input = new MessagingInput(context.Request);
-                var output = new MessagingOutput(context.Response);
-                var service = config.Get(input.GetUrl());
-                service.Handle(input.GetMessage(), output);
-            });
+            var messagingInput = new MessagingInput(input);
+            var messagingOutput = new MessagingOutput(output);
+            var handler = config.Get(input.GetUrl());
+            handler.Handle(messagingInput.GetMessage(), messagingOutput);
         }
     }
 }
