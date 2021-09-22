@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AP.Configuration.Server")]
+[assembly: AssemblyTitle("AP.Messaging.Service")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AP.Configuration.Server")]
+[assembly: AssemblyProduct("AP.Messaging.Service")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ddc90fc6-ddf2-4ac6-9955-89fba0d8dac9")]
+[assembly: Guid("6edd7763-fb31-4eaf-ae9b-1d71d2382689")]
 
 // Version information for an assembly consists of the following four values:
 //

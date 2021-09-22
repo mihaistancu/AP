@@ -1,12 +1,12 @@
 ﻿using AP.Web.Server.Owin;
 
-namespace AP.Configuration.Server.Routing
+namespace AP.Configuration.API.Routing
 {
-    public class DeleteRuleApi : IWebService
+    public class GetAllRoutingRulesApi : IWebService
     {
         public void Handle(WebInput input, WebOutput output)
         {
-            
+
         }
     }
 }

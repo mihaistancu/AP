@@ -1,12 +1,12 @@
 ﻿using AP.Web.Server.Owin;
 
-namespace AP.Configuration.Server.Routing
+namespace AP.Configuration.API.Settings
 {
-    public class AddRuleApi : IWebService
+    public class UpdateSettingApi : IWebService
     {
         public void Handle(WebInput input, WebOutput output)
         {
-            
+
         }
     }
 }

@@ -87,9 +87,9 @@
       <Project>{18B6B51A-F726-4AC5-B53F-2C0B922E8854}</Project>
       <Name>AP.Certificates</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Configuration.Server\AP.Configuration.Server.csproj">
-      <Project>{DDC90FC6-DDF2-4AC6-9955-89FBA0D8DAC9}</Project>
-      <Name>AP.Configuration.Server</Name>
+    <ProjectReference Include="..\AP.Configuration.API\AP.Configuration.API.csproj">
+      <Project>{5a27ce8b-9282-4d84-8272-3f89cca858d6}</Project>
+      <Name>AP.Configuration.API</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Cryptography\AP.Cryptography.csproj">
       <Project>{5F9C8BF4-34F7-4741-8A06-5016CD44BC08}</Project>
@@ -111,9 +111,9 @@
       <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>
       <Name>AP.Messaging.Queue</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Server\AP.Messaging.Server.csproj">
-      <Project>{94abfb0c-da02-4392-8ce4-9629774b5d5a}</Project>
-      <Name>AP.Messaging.Server</Name>
+    <ProjectReference Include="..\AP.Messaging.Service\AP.Messaging.Service.csproj">
+      <Project>{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}</Project>
+      <Name>AP.Messaging.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
       <Project>{b5fa51c6-5ddb-4e52-8a56-2dbf6b6c1282}</Project>

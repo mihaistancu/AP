@@ -37,8 +37,6 @@ using AP.Processing.Async.Synchronization.CDM.Subscriptions;
 using AP.Processing.Async.Synchronization.IR.Import;
 using AP.Processing.Async.Synchronization.IR.Request;
 using AP.Processing.Async.Synchronization.IR.Subscriptions;
-using AP.Messaging.Server;
-using AP.Configuration.Server;
 using AP.Processing.Sync.PullRequest;
 using AP.Messaging.Queue;
 

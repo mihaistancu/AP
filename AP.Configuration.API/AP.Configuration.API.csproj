@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2594E99-6D23-45FA-80BD-09AA71BD4DF3}</ProjectGuid>
+    <ProjectGuid>{5A27CE8B-9282-4D84-8272-3F89CCA858D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AP.Configuration.API</RootNamespace>
@@ -41,15 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoutingApi.cs" />
+    <Compile Include="Routing\AddRoutingRuleApi.cs" />
+    <Compile Include="Routing\DeleteRoutingRuleApi.cs" />
+    <Compile Include="Routing\GetAllRoutingRulesApi.cs" />
+    <Compile Include="Routing\UpdateRoutingRuleApi.cs" />
+    <Compile Include="Settings\GetAllSettingsApi.cs" />
+    <Compile Include="Settings\UpdateSettingApi.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
-      <Project>{4B656307-8E04-44DE-A978-6D016B2FAD4D}</Project>
-      <Name>AP.Processing</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Web.Server.Owin\AP.Web.Server.Owin.csproj">
       <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
       <Name>AP.Web.Server.Owin</Name>

@@ -1,5 +1,5 @@
-﻿using AP.Configuration.Server.Routing;
-using AP.Configuration.Server.Settings;
+﻿using AP.Configuration.API.Routing;
+using AP.Configuration.API.Settings;
 using AP.Web.Server.Owin;
 using System;
 
@@ -18,10 +18,10 @@ namespace AP.Host.Console
 
         public IDisposable Start()
         {
-            server.Map("GET", "api/routing-rules", store.Get<GetAllRulesApi>());
-            server.Map("POST", "api/routing-rules", store.Get<AddRuleApi>());
-            server.Map("PUT", "api/routing-rules/{id}", store.Get<UpdateRuleApi>());
-            server.Map("DELETE", "api/routing-rules/{id}", store.Get<DeleteRuleApi>());
+            server.Map("GET", "api/routing-rules", store.Get<GetAllRoutingRulesApi>());
+            server.Map("POST", "api/routing-rules", store.Get<AddRoutingRuleApi>());
+            server.Map("PUT", "api/routing-rules/{id}", store.Get<UpdateRoutingRuleApi>());
+            server.Map("DELETE", "api/routing-rules/{id}", store.Get<DeleteRoutingRuleApi>());
 
             server.Map("GET", "api/settings", store.Get<GetAllSettingsApi>());
             server.Map("PUT", "api/settings/{id}", store.Get<UpdateSettingApi>());

@@ -1,4 +1,4 @@
-﻿using AP.Messaging.Server;
+﻿using AP.Messaging.Service;
 using AP.Processing.Sync;
 using AP.Processing.Sync.AsyncProcessing;
 using AP.Processing.Sync.Decryption;
