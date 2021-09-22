@@ -1,5 +1,4 @@
 ﻿using AP.Processing;
-using AP.Processing.Sync;
 using AP.Processing.Sync.PullRequest;
 
 namespace AP.Inbox

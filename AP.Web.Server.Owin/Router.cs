@@ -8,14 +8,9 @@ namespace AP.Web.Server.Owin
     {
         private List<Route> routes = new List<Route>();
 
-        public void Map(string method, string path, IWebService service)
+        public void Add(Route route)
         {
-            routes.Add(new Route
-            {
-                Method = method,
-                Path = path,
-                Service = service
-            });
+            routes.Add(route);
         }
 
         public void Route(IOwinRequest request, IOwinResponse response)

@@ -41,10 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMessagingEndpointConfig.cs" />
     <Compile Include="MessagingInput.cs" />
     <Compile Include="MessagingOutput.cs" />
-    <Compile Include="MessagingServer.cs" />
     <Compile Include="MessagingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

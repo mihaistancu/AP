@@ -1,21 +1,21 @@
-﻿using AP.Web.Server.Owin;
+﻿using AP.Processing.Sync;
+using AP.Web.Server.Owin;
 
 namespace AP.Messaging.Server
 {
     public class MessagingService : IWebService
     {
-        private IMessagingEndpointConfig config;
+        private IHandler handler;
 
-        public MessagingService(IMessagingEndpointConfig config)
+        public MessagingService(IHandler handler)
         {
-            this.config = config;
+            this.handler = handler;
         }
 
         public void Handle(WebInput input, WebOutput output)
         {
             var messagingInput = new MessagingInput(input);
             var messagingOutput = new MessagingOutput(output);
-            var handler = config.Get(input.GetUrl());
             handler.Handle(messagingInput.GetMessage(), messagingOutput);
         }
     }

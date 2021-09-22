@@ -1,6 +1,4 @@
-﻿using AP.Configuration.Server;
-using AP.Messaging.Server;
-using AP.Monitoring;
+﻿using AP.Monitoring;
 
 namespace AP.Host.Console
 {

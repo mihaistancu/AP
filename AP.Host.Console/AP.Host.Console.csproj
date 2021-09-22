@@ -58,10 +58,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationServer.cs" />
+    <Compile Include="MessagingServer.cs" />
     <Compile Include="OrchestratorConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MessagingEndpointConfig.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="TypeNameSerializer.cs" />
   </ItemGroup>

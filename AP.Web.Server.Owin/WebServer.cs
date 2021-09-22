@@ -25,6 +25,11 @@ namespace AP.Web.Server.Owin
             appBuilder.Run(Handle);
         }
 
+        public void Map(string method, string path, IWebService service)
+        {
+            router.Add(new Route(method, path, service));
+        }
+
         private async Task Handle(IOwinContext context)
         {
             await Task.Run(() =>
