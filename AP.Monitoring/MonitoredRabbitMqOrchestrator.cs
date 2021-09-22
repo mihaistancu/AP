@@ -16,11 +16,11 @@ namespace AP.Monitoring
         {
         }
 
-        public override void ProcessAsync(params Message[] messages)
+        public override void ProcessAsync(Message message)
         {
             try
             {
-                base.ProcessAsync(messages);
+                base.ProcessAsync(message);
             }
             catch (Exception exception)
             {

@@ -11,11 +11,11 @@
             this.storage = storage;
         }
 
-        public virtual void ProcessAsync(params Message[] messages)
+        public virtual void ProcessAsync(Message message)
         {
-            var workflow = config.GetWorkflow(messages[0]);
+            var workflow = config.GetWorkflow(message);
             var worker = workflow.GetFirst();
-            Dispatch(worker, messages);
+            Dispatch(worker, message);
         }
 
         public virtual void Handle(IWorker worker, Message message)
