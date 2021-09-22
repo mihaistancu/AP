@@ -1,12 +1,12 @@
 ﻿using Microsoft.Owin;
-using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace AP.Web.Server.Owin
 {
     public class WebInput : IWebInput
     {
-        private string routePath;
+        private Dictionary<string, string> parameters;
         private IOwinRequest request;
 
         public string GetUrl()
@@ -19,18 +19,15 @@ namespace AP.Web.Server.Owin
             return request.Body;
         }
 
-        public WebInput(string routePath, IOwinRequest request)
+        public WebInput(Dictionary<string, string> parameters, IOwinRequest request)
         {
-            this.routePath = routePath;
+            this.parameters = parameters;
             this.request = request;
         }
 
-        public string Params(string key)
+        public string Get(string key)
         {
-            var routeTokens = routePath.Split('/');
-            var index = Array.IndexOf(routeTokens, $"{{{key}}}");
-            var urlTokens = GetUrl().Split('/');
-            return urlTokens[index];
+            return parameters[key];
         }
     }
 }

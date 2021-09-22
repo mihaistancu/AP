@@ -14,7 +14,7 @@ namespace AP.Configuration.API.Routing
 
         public void Handle(IWebInput input, IWebOutput output)
         {
-            var id = input.Params("id");
+            var id = input.Get("id");
             var rule = GetRule(input);
             storage.Update(id, rule);
             output.Status(204);

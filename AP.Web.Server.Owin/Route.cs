@@ -1,4 +1,6 @@
-﻿namespace AP.Web.Server.Owin
+﻿using System.Collections.Generic;
+
+namespace AP.Web.Server.Owin
 {
     public class Route
     {
@@ -6,31 +8,33 @@
         public string Path { get; set; }
         public IWebService Service { get; set; }
 
-        public Route(string method, string path, IWebService service)
-        {
-            Method = method;
-            Path = path;
-            Service = service;
-        }
-
-        public bool Matches(string method, string url)
+        public bool Matches(string method, string url, Dictionary<string, string> parameters)
         {
             if (Method != method) return false;
-
-            if (Path == url) return true;
 
             var pathTokens = Path.Split('/');
             var urlTokens = url.Split('/');
 
             if (pathTokens.Length != urlTokens.Length) return false;
 
-            for (int i=0; i<pathTokens.Length; i++)
+            parameters.Clear();
+
+            for (int i = 0; i < pathTokens.Length; i++)
             {
-                if (pathTokens[i].StartsWith("{") && pathTokens[i].EndsWith("}")) continue;
-
-                if (pathTokens[i] != urlTokens[i]) return false;
+                if (pathTokens[i] == urlTokens[i])
+                {
+                    continue;
+                }
+                else if (pathTokens[i].StartsWith("{") && pathTokens[i].EndsWith("}"))
+                {
+                    var key = pathTokens[i].Substring(1, pathTokens[i].Length - 2);
+                    parameters[key] = urlTokens[i];
+                }
+                else
+                {
+                    return false;
+                }
             }
-
             return true;
         }
     }

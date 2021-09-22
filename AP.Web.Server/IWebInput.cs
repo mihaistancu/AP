@@ -6,6 +6,6 @@ namespace AP.Web.Server
     {
         Stream GetBody();
         string GetUrl();
-        string Params(string key);
+        string Get(string key);
     }
 }
