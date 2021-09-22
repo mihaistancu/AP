@@ -56,9 +56,9 @@
       <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
       <Name>AP.Routing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Server.Owin\AP.Web.Server.Owin.csproj">
-      <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
-      <Name>AP.Web.Server.Owin</Name>
+    <ProjectReference Include="..\AP.Web.Server\AP.Web.Server.csproj">
+      <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
+      <Name>AP.Web.Server</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

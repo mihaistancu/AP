@@ -1,5 +1,5 @@
 ﻿using AP.Routing;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 using Newtonsoft.Json.Linq;
 
 namespace AP.Configuration.API.Routing
@@ -13,7 +13,7 @@ namespace AP.Configuration.API.Routing
             this.storage = storage;
         }
 
-        public void Handle(WebInput input, WebOutput output)
+        public void Handle(IWebInput input, IWebOutput output)
         {
             var rule = GetRule(input);
             rule = storage.Add(rule);
@@ -22,7 +22,7 @@ namespace AP.Configuration.API.Routing
             WriteJson(json, output);
         }
 
-        private RoutingRule GetRule(WebInput input)
+        private RoutingRule GetRule(IWebInput input)
         {
             var json = ReadJson(input);
 

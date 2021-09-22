@@ -4,7 +4,7 @@ using System.IO;
 
 namespace AP.Web.Server.Owin
 {
-    public class WebInput
+    public class WebInput : IWebInput
     {
         private string routePath;
         private IOwinRequest request;

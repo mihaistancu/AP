@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AP.Web.Server.Owin
 {
-    public class WebServer
+    public class WebServer : IWebServer
     {
         protected Router router;
 

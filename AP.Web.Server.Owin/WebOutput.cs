@@ -2,7 +2,7 @@
 
 namespace AP.Web.Server.Owin
 {
-    public class WebOutput
+    public class WebOutput : IWebOutput
     {
         private IOwinResponse response;
 
@@ -12,7 +12,7 @@ namespace AP.Web.Server.Owin
         }
 
         public void Send(byte[] bytes)
-        {       
+        {
             response.Write(bytes);
         }
 

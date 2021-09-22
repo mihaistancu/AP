@@ -1,5 +1,5 @@
 ﻿using AP.Processing.Sync;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 
 namespace AP.Messaging.Service
 {
@@ -12,7 +12,7 @@ namespace AP.Messaging.Service
             this.handler = handler;
         }
 
-        public void Handle(WebInput webInput, WebOutput webOutput)
+        public void Handle(IWebInput webInput, IWebOutput webOutput)
         {
             var input = new MessageInput(webInput);
             var output = new MessageOutput(webOutput);

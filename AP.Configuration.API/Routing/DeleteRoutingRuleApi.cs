@@ -1,5 +1,5 @@
 ﻿using AP.Routing;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 
 namespace AP.Configuration.API.Routing
 {
@@ -12,7 +12,7 @@ namespace AP.Configuration.API.Routing
             this.storage = storage;
         }
 
-        public void Handle(WebInput input, WebOutput output)
+        public void Handle(IWebInput input, IWebOutput output)
         {
             string id = input.Params("id");
             storage.Delete(id);

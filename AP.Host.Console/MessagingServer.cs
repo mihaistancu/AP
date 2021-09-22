@@ -8,17 +8,17 @@ using AP.Processing.Sync.PullRequest;
 using AP.Processing.Sync.Receipt;
 using AP.Processing.Sync.SignatureValidation;
 using AP.Processing.Sync.TlsCertificateValidation;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 using System;
 
 namespace AP.Host.Console
 {
     public class MessagingServer
     {
-        private WebServer server;
+        private IWebServer server;
         private Store store;
 
-        public MessagingServer(WebServer server, Store store)
+        public MessagingServer(IWebServer server, Store store)
         {
             this.server = server;
             this.store = store;

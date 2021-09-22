@@ -1,5 +1,5 @@
 ﻿using AP.Routing;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
@@ -14,7 +14,7 @@ namespace AP.Configuration.API.Routing
             this.storage = storage;
         }
 
-        public void Handle(WebInput input, WebOutput output)
+        public void Handle(IWebInput input, IWebOutput output)
         {
             var rules = storage.GetAll();
             var json = GetResult(rules);

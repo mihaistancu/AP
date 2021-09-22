@@ -1,5 +1,5 @@
 ﻿using AP.Routing;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 
 namespace AP.Configuration.API.Routing
 {
@@ -12,7 +12,7 @@ namespace AP.Configuration.API.Routing
             this.storage = storage;
         }
 
-        public void Handle(WebInput input, WebOutput output)
+        public void Handle(IWebInput input, IWebOutput output)
         {
             var id = input.Params("id");
             var rule = GetRule(input);
@@ -20,7 +20,7 @@ namespace AP.Configuration.API.Routing
             output.Status(204);
         }
 
-        private RoutingRule GetRule(WebInput input)
+        private RoutingRule GetRule(IWebInput input)
         {
             var json = ReadJson(input);
 

@@ -65,7 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IWebService.cs" />
     <Compile Include="WebInput.cs" />
     <Compile Include="WebOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AP.Web.Server\AP.Web.Server.csproj">
+      <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
+      <Name>AP.Web.Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

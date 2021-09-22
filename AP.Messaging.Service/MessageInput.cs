@@ -1,13 +1,13 @@
 ﻿using AP.Processing;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 
 namespace AP.Messaging.Service
 {
     public class MessageInput
     {
-        private WebInput input;
+        private IWebInput input;
 
-        public MessageInput(WebInput input)
+        public MessageInput(IWebInput input)
         {
             this.input = input;
         }

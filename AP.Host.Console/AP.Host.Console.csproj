@@ -147,6 +147,10 @@
       <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
       <Name>AP.Web.Server.Owin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Web.Server\AP.Web.Server.csproj">
+      <Project>{C4764DD2-4ABD-408D-96E7-451B15AA9025}</Project>
+      <Name>AP.Web.Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

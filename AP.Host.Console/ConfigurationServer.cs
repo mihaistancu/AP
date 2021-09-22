@@ -1,15 +1,15 @@
 ﻿using AP.Configuration.API.Routing;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 using System;
 
 namespace AP.Host.Console
 {
     public class ConfigurationServer
     {
-        private WebServer server;
+        private IWebServer server;
         private Store store;
 
-        public ConfigurationServer(WebServer server, Store store)
+        public ConfigurationServer(IWebServer server, Store store)
         {
             this.server = server;
             this.store = store;

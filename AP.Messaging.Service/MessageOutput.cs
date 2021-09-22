@@ -1,12 +1,12 @@
 ﻿using AP.Processing;
 using AP.Processing.Sync;
-using AP.Web.Server.Owin;
+using AP.Web.Server;
 
 namespace AP.Messaging.Service
 {
     public class MessageOutput : IOutput
     {
-        public MessageOutput(WebOutput output)
+        public MessageOutput(IWebOutput output)
         {
 
         }

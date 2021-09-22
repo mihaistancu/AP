@@ -39,6 +39,8 @@ using AP.Processing.Async.Synchronization.IR.Request;
 using AP.Processing.Async.Synchronization.IR.Subscriptions;
 using AP.Processing.Sync.PullRequest;
 using AP.Messaging.Queue;
+using AP.Web.Server;
+using AP.Web.Server.Owin;
 
 namespace AP.Host.Console
 {
@@ -50,6 +52,8 @@ namespace AP.Host.Console
         {
             container = new UnityContainer();
             container.RegisterInstance(this);
+
+            container.RegisterType<IWebServer, WebServer>();
 
             container.RegisterType<IMessageStorage, MessageStorage>(TypeLifetime.Singleton);
             container.RegisterType<IDecryptor, Decryptor>(TypeLifetime.Singleton);
