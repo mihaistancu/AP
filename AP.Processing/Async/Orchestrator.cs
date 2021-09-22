@@ -34,6 +34,6 @@
             }
         }
 
-        public abstract void Dispatch(IWorker worker, params Message[] messages);
+        public abstract void Dispatch(IWorker worker, Message message);
     }
 }

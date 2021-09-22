@@ -53,7 +53,7 @@ namespace AP.Middleware.RabbitMQ
             await Task.CompletedTask;
         }
 
-        private void Send(IWorker worker, Message message)
+        public override void Dispatch(IWorker worker, Message message)
         {
             var body = serializer.Serialize(worker, message);
             using (var sendChannel = connection.CreateModel())
@@ -63,14 +63,6 @@ namespace AP.Middleware.RabbitMQ
                     routingKey: "hello",
                     basicProperties: null,
                     body: body);
-            }
-        }
-
-        public override void Dispatch(IWorker worker, params Message[] messages)
-        {
-            foreach (var message in messages)
-            {
-                Send(worker, message);
             }
         }
 
