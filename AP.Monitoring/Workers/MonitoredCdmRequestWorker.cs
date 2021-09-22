@@ -4,9 +4,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringCdmRequestWorker: CdmRequestWorker
+    public class MonitoredCdmRequestWorker: CdmRequestWorker
     {
-        public MonitoringCdmRequestWorker(ICdmProvider responder) : base(responder)
+        public MonitoredCdmRequestWorker(ICdmProvider responder) : base(responder)
         {
         }
 

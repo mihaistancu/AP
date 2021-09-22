@@ -58,9 +58,9 @@ namespace AP.Host.Console
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
             container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
-            container.RegisterType<Orchestrator, MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);
+            container.RegisterType<Orchestrator, MonitoredRabbitMqOrchestrator>(TypeLifetime.Singleton);
             container.RegisterType<Serializer, TypeNameSerializer>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredRabbitMqOrchestrator>(TypeLifetime.Singleton);
 
             container.RegisterType<IMessageProvider, MessageProvider>(TypeLifetime.Singleton);
 
@@ -90,58 +90,58 @@ namespace AP.Host.Console
             container.RegisterType<ICdmPublisher, CdmPublisher<InstitutionGateway>>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReporter, CdmStorage>(TypeLifetime.Singleton);
 
-            container.RegisterType<IMessageClient, MonitoringWebClient>(TypeLifetime.Singleton);
-            container.RegisterType<IMessageQueue, MonitoringQueue>(TypeLifetime.Singleton);
+            container.RegisterType<IMessageClient, MonitoredMessageClient>(TypeLifetime.Singleton);
+            container.RegisterType<IMessageQueue, MonitoredMessageQueue>(TypeLifetime.Singleton);
 
-            container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
-            container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);
-            container.RegisterType<SignatureValidationHandler, MonitoringSignatureValidationHandler>(TypeLifetime.Singleton);
-            container.RegisterType<TlsCertificateValidationHandler, MonitoringTlsCertificateValidationHandler>(TypeLifetime.Singleton);
-            container.RegisterType<EnvelopeValidationHandler, MonitoringEnvelopeValidationHandler>(TypeLifetime.Singleton);
+            container.RegisterType<DecryptionHandler, MonitoredDecryptionHandler>(TypeLifetime.Singleton);
+            container.RegisterType<PersistenceHandler, MonitoredPersistenceHandler>(TypeLifetime.Singleton);
+            container.RegisterType<SignatureValidationHandler, MonitoredSignatureValidationHandler>(TypeLifetime.Singleton);
+            container.RegisterType<TlsCertificateValidationHandler, MonitoredTlsCertificateValidationHandler>(TypeLifetime.Singleton);
+            container.RegisterType<EnvelopeValidationHandler, MonitoredEnvelopeValidationHandler>(TypeLifetime.Singleton);
 
-            container.RegisterType<AntimalwareWorker<CsnGateway>, MonitoringAntimalwareWorker<CsnGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringAntimalwareWorker<CsnGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<AntimalwareWorker<CsnGateway>, MonitoredAntimalwareWorker<CsnGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredAntimalwareWorker<CsnGateway>>(TypeLifetime.Singleton);
 
-            container.RegisterType<AntimalwareWorker<ApGateway>, MonitoringAntimalwareWorker<ApGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringAntimalwareWorker<ApGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<AntimalwareWorker<ApGateway>, MonitoredAntimalwareWorker<ApGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredAntimalwareWorker<ApGateway>>(TypeLifetime.Singleton);
 
-            container.RegisterType<AntimalwareWorker<InstitutionGateway>, MonitoringAntimalwareWorker<InstitutionGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringAntimalwareWorker<InstitutionGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<AntimalwareWorker<InstitutionGateway>, MonitoredAntimalwareWorker<InstitutionGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredAntimalwareWorker<InstitutionGateway>>(TypeLifetime.Singleton);
 
-            container.RegisterType<CdmRequestWorker, MonitoringCdmRequestWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringCdmRequestWorker>(TypeLifetime.Singleton);
-            container.RegisterType<CdmSubscriptionsWorker, MonitoringCdmSubscriptionsWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringCdmSubscriptionsWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmRequestWorker, MonitoredCdmRequestWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredCdmRequestWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmSubscriptionsWorker, MonitoredCdmSubscriptionsWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredCdmSubscriptionsWorker>(TypeLifetime.Singleton);
             
-            container.RegisterType<CdmImportWorker, MonitoringCdmImportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringCdmImportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<CdmImportWorker, MonitoredCdmImportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredCdmImportWorker>(TypeLifetime.Singleton);
             
-            container.RegisterType<CdmReportWorker<CsnGateway>, MonitoringCdmReportWorker<CsnGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringCdmReportWorker<CsnGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<CdmReportWorker<CsnGateway>, MonitoredCdmReportWorker<CsnGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredCdmReportWorker<CsnGateway>>(TypeLifetime.Singleton);
             
-            container.RegisterType<ForwardingWorker<ApGateway>, MonitoringForwardingWorker<ApGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringForwardingWorker<ApGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<ForwardingWorker<ApGateway>, MonitoredForwardingWorker<ApGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredForwardingWorker<ApGateway>>(TypeLifetime.Singleton);
 
-            container.RegisterType<ForwardingWorker<InstitutionGateway>, MonitoringForwardingWorker<InstitutionGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringForwardingWorker<InstitutionGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<ForwardingWorker<InstitutionGateway>, MonitoredForwardingWorker<InstitutionGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredForwardingWorker<InstitutionGateway>>(TypeLifetime.Singleton);
 
-            container.RegisterType<IrRequestWorker, MonitoringIrRequestWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringIrRequestWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrRequestWorker, MonitoredIrRequestWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredIrRequestWorker>(TypeLifetime.Singleton);
             
-            container.RegisterType<IrSubscriptionsWorker, MonitoringIrSubscriptionsWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringIrSubscriptionsWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrSubscriptionsWorker, MonitoredIrSubscriptionsWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredIrSubscriptionsWorker>(TypeLifetime.Singleton);
             
-            container.RegisterType<IrImportWorker, MonitoringIrImportWorker>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringIrImportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<IrImportWorker, MonitoredIrImportWorker>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredIrImportWorker>(TypeLifetime.Singleton);
             
-            container.RegisterType<DocumentValidationWorker<CsnGateway>, MonitoringDocumentValidationWorker<CsnGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringDocumentValidationWorker<CsnGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<DocumentValidationWorker<CsnGateway>, MonitoredDocumentValidationWorker<CsnGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredDocumentValidationWorker<CsnGateway>>(TypeLifetime.Singleton);
 
-            container.RegisterType<DocumentValidationWorker<ApGateway>, MonitoringDocumentValidationWorker<ApGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringDocumentValidationWorker<ApGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<DocumentValidationWorker<ApGateway>, MonitoredDocumentValidationWorker<ApGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredDocumentValidationWorker<ApGateway>>(TypeLifetime.Singleton);
 
-            container.RegisterType<DocumentValidationWorker<InstitutionGateway>, MonitoringDocumentValidationWorker<InstitutionGateway>>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoringDocumentValidationWorker<InstitutionGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<DocumentValidationWorker<InstitutionGateway>, MonitoredDocumentValidationWorker<InstitutionGateway>>(TypeLifetime.Singleton);
+            container.RegisterType<MonitoredDocumentValidationWorker<InstitutionGateway>>(TypeLifetime.Singleton);
         }
 
         public T Get<T>()

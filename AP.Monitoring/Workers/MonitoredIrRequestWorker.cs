@@ -5,9 +5,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringIrRequestWorker: IrRequestWorker
+    public class MonitoredIrRequestWorker: IrRequestWorker
     {
-        public MonitoringIrRequestWorker(IIrProvider publisher) : base(publisher)
+        public MonitoredIrRequestWorker(IIrProvider publisher) : base(publisher)
         {
         }
 

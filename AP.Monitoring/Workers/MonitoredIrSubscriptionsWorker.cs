@@ -5,9 +5,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringIrSubscriptionsWorker : IrSubscriptionsWorker
+    public class MonitoredIrSubscriptionsWorker : IrSubscriptionsWorker
     {
-        public MonitoringIrSubscriptionsWorker(IIrPublisher publisher) : base(publisher)
+        public MonitoredIrSubscriptionsWorker(IIrPublisher publisher) : base(publisher)
         {
         }
 

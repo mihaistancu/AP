@@ -5,9 +5,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringCdmReportWorker<T>: CdmReportWorker<T> where T: IGateway
+    public class MonitoredCdmReportWorker<T>: CdmReportWorker<T> where T: IGateway
     {
-        public MonitoringCdmReportWorker(
+        public MonitoredCdmReportWorker(
             ICdmReporter reporter, 
             T gateway) 
             : base(reporter, gateway)

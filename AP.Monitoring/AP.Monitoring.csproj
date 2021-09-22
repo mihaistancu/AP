@@ -41,25 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers\MonitoringEnvelopeValidationHandler.cs" />
-    <Compile Include="Handlers\MonitoringTlsCertificateValidationHandler.cs" />
-    <Compile Include="Handlers\MonitoringSignatureValidationHandler.cs" />
-    <Compile Include="Handlers\MonitoringPersistenceHandler.cs" />
-    <Compile Include="Handlers\MonitoringDecryptionHandler.cs" />
-    <Compile Include="MonitoringQueue.cs" />
-    <Compile Include="MonitoringRabbitMqOrchestrator.cs" />
-    <Compile Include="MonitoringWebClient.cs" />
+    <Compile Include="Handlers\MonitoredEnvelopeValidationHandler.cs" />
+    <Compile Include="Handlers\MonitoredTlsCertificateValidationHandler.cs" />
+    <Compile Include="Handlers\MonitoredSignatureValidationHandler.cs" />
+    <Compile Include="Handlers\MonitoredPersistenceHandler.cs" />
+    <Compile Include="Handlers\MonitoredDecryptionHandler.cs" />
+    <Compile Include="MonitoredMessageQueue.cs" />
+    <Compile Include="MonitoredRabbitMqOrchestrator.cs" />
+    <Compile Include="MonitoredMessageClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Workers\MonitoringAntimalwareWorker.cs" />
-    <Compile Include="Workers\MonitoringDeliveryWorker.cs" />
-    <Compile Include="Workers\MonitoringIrRequestWorker.cs" />
-    <Compile Include="Workers\MonitoringIrSubscriptionsWorker.cs" />
-    <Compile Include="Workers\MonitoringIrImportWorker.cs" />
-    <Compile Include="Workers\MonitoringCdmReportWorker.cs" />
-    <Compile Include="Workers\MonitoringDocumentValidationWorker.cs" />
-    <Compile Include="Workers\MonitoringCdmImportWorker.cs" />
-    <Compile Include="Workers\MonitoringCdmSubscriptionsWorker.cs" />
-    <Compile Include="Workers\MonitoringCdmRequestWorker.cs" />
+    <Compile Include="Workers\MonitoredAntimalwareWorker.cs" />
+    <Compile Include="Workers\MonitoredDeliveryWorker.cs" />
+    <Compile Include="Workers\MonitoredIrRequestWorker.cs" />
+    <Compile Include="Workers\MonitoredIrSubscriptionsWorker.cs" />
+    <Compile Include="Workers\MonitoredIrImportWorker.cs" />
+    <Compile Include="Workers\MonitoredCdmReportWorker.cs" />
+    <Compile Include="Workers\MonitoredDocumentValidationWorker.cs" />
+    <Compile Include="Workers\MonitoredCdmImportWorker.cs" />
+    <Compile Include="Workers\MonitoredCdmSubscriptionsWorker.cs" />
+    <Compile Include="Workers\MonitoredCdmRequestWorker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Messaging.Client\AP.Messaging.Client.csproj">

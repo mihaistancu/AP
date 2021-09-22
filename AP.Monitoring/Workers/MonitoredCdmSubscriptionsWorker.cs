@@ -5,9 +5,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringCdmSubscriptionsWorker: CdmSubscriptionsWorker
+    public class MonitoredCdmSubscriptionsWorker: CdmSubscriptionsWorker
     {
-        public MonitoringCdmSubscriptionsWorker(ICdmPublisher publisher) : base(publisher)
+        public MonitoredCdmSubscriptionsWorker(ICdmPublisher publisher) : base(publisher)
         {
         }
 

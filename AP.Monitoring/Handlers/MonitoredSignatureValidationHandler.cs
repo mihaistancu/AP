@@ -4,9 +4,9 @@ using AP.Processing.Sync.SignatureValidation;
 
 namespace AP.Monitoring.Handlers
 {
-    public class MonitoringSignatureValidationHandler : SignatureValidationHandler
+    public class MonitoredSignatureValidationHandler : SignatureValidationHandler
     {
-        public MonitoringSignatureValidationHandler(
+        public MonitoredSignatureValidationHandler(
             IEnvelopeSignatureValidator validator, 
             IEnvelopeSignatureValidationErrorFactory errorFactory) 
             : base(validator, errorFactory)

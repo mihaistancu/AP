@@ -6,9 +6,9 @@ using System;
 
 namespace AP.Monitoring
 {
-    public class MonitoringRabbitMqOrchestrator : RabbitMqOrchestrator
+    public class MonitoredRabbitMqOrchestrator : RabbitMqOrchestrator
     {
-        public MonitoringRabbitMqOrchestrator(
+        public MonitoredRabbitMqOrchestrator(
             IOrchestratorConfig config, 
             IMessageStorage storage, 
             Serializer serializer) 

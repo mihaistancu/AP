@@ -4,7 +4,7 @@ using System;
 
 namespace AP.Monitoring
 {
-    public class MonitoringQueue: MessageQueue
+    public class MonitoredMessageQueue: MessageQueue
     {
         public override void Enqueue(string channel, Message message)
         {

@@ -4,9 +4,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringIrImportWorker: IrImportWorker
+    public class MonitoredIrImportWorker: IrImportWorker
     {
-        public MonitoringIrImportWorker(IIrImporter importer) : base(importer)
+        public MonitoredIrImportWorker(IIrImporter importer) : base(importer)
         {
         }
 

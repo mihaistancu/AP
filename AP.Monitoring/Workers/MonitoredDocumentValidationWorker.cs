@@ -5,9 +5,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringDocumentValidationWorker<T>: DocumentValidationWorker<T> where T: IGateway
+    public class MonitoredDocumentValidationWorker<T>: DocumentValidationWorker<T> where T: IGateway
     {
-        public MonitoringDocumentValidationWorker(
+        public MonitoredDocumentValidationWorker(
             IDocumentValidator validator, 
             IDocumentValidationErrorFactory errorFactory, 
             IMessageStorage storage, 

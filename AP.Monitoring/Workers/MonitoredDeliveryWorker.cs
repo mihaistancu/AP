@@ -5,9 +5,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringForwardingWorker<T> : ForwardingWorker<T> where T: IGateway
+    public class MonitoredForwardingWorker<T> : ForwardingWorker<T> where T: IGateway
     {
-        public MonitoringForwardingWorker(T gateway) : base(gateway)
+        public MonitoredForwardingWorker(T gateway) : base(gateway)
         {
         }
 

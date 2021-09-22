@@ -4,9 +4,9 @@ using AP.Processing.Sync.EnvelopeValidation;
 
 namespace AP.Monitoring.Handlers
 {
-    public class MonitoringEnvelopeValidationHandler : EnvelopeValidationHandler
+    public class MonitoredEnvelopeValidationHandler : EnvelopeValidationHandler
     {
-        public MonitoringEnvelopeValidationHandler(
+        public MonitoredEnvelopeValidationHandler(
             IEnvelopeValidator validator, 
             IEnvelopeValidationErrorFactory errorFactory) 
             : base(validator, errorFactory)

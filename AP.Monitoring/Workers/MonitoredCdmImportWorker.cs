@@ -4,9 +4,9 @@ using System;
 
 namespace AP.Monitoring.Workers
 {
-    public class MonitoringCdmImportWorker: CdmImportWorker
+    public class MonitoredCdmImportWorker: CdmImportWorker
     {
-        public MonitoringCdmImportWorker(ICdmImporter parser) : base(parser)
+        public MonitoredCdmImportWorker(ICdmImporter parser) : base(parser)
         {
         }
 

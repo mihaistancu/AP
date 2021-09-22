@@ -4,7 +4,7 @@ using System;
 
 namespace AP.Monitoring
 {
-    public class MonitoringWebClient: MessageClient
+    public class MonitoredMessageClient: MessageClient
     {
         public override void Send(string url, Message message)
         {
