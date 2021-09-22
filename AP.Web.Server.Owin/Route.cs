@@ -13,9 +13,9 @@
             Service = service;
         }
 
-        public bool Matches(string url, string path)
+        public bool Matches(string method, string path)
         {
-            return true;
+            return Method == method && Path == path;
         }
     }
 }

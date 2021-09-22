@@ -10,5 +10,15 @@ namespace AP.Web.Server.Owin
         {
             this.response = response;
         }
+
+        public void Send(string text)
+        {       
+            response.Write(text);
+        }
+
+        public void Status(int status)
+        {
+            response.StatusCode = status;
+        }
     }
 }

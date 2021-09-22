@@ -76,6 +76,7 @@ namespace AP.Host.Console
             container.RegisterType<IDocumentValidator, DocumentValidator>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidator, EnvelopeValidator>(TypeLifetime.Singleton);
 
+            container.RegisterType<RoutingRuleStorage>(TypeLifetime.Singleton);
             container.RegisterType<IRoutingConfig, RoutingConfig>(TypeLifetime.Singleton);
             
             container.RegisterType<ICsnConfig, IrStorage>(TypeLifetime.Singleton);

@@ -43,10 +43,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoutingConfig.cs" />
-    <Compile Include="UseCases\AddRule.cs" />
-    <Compile Include="UseCases\DeleteRule.cs" />
-    <Compile Include="UseCases\GetAllRules.cs" />
-    <Compile Include="UseCases\UpdateRule.cs" />
+    <Compile Include="RoutingRule.cs" />
+    <Compile Include="RoutingRuleStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin;
+using System.IO;
 
 namespace AP.Web.Server.Owin
 {
@@ -10,6 +11,11 @@ namespace AP.Web.Server.Owin
         public string GetUrl()
         {
             return request.Uri.AbsolutePath;
+        }
+
+        public Stream GetBody()
+        {
+            return request.Body;
         }
 
         public WebInput(string routePath, IOwinRequest request)

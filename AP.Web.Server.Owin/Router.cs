@@ -25,7 +25,7 @@ namespace AP.Web.Server.Owin
         {
             var url = request.Uri.AbsolutePath;
             var method = request.Method;
-            return routes.First(r => r.Matches(url, method));
+            return routes.First(r => r.Matches(method, url));
         }
     }
 }
