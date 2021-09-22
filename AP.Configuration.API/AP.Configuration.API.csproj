@@ -50,8 +50,6 @@
     <Compile Include="Routing\DeleteRoutingRuleApi.cs" />
     <Compile Include="Routing\GetAllRoutingRulesApi.cs" />
     <Compile Include="Routing\UpdateRoutingRuleApi.cs" />
-    <Compile Include="Settings\GetAllSettingsApi.cs" />
-    <Compile Include="Settings\UpdateSettingApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">

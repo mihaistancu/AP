@@ -5,6 +5,7 @@ namespace AP.Routing
 {
     public class RoutingRuleStorage
     {
+        static int id;
         private List<RoutingRule> rules = new List<RoutingRule>();
 
         public RoutingRule[] GetAll()
@@ -18,9 +19,11 @@ namespace AP.Routing
             rules.Remove(rule);
         }
 
-        public void Add(RoutingRule rule)
+        public RoutingRule Add(RoutingRule rule)
         {
+            rule.Id = id++.ToString();
             rules.Add(rule);
+            return rule;
         }
 
         public void Update(string id, RoutingRule rule)

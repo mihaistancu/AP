@@ -1,7 +1,6 @@
 ﻿using AP.Routing;
 using AP.Web.Server.Owin;
 using Newtonsoft.Json.Linq;
-using System;
 
 namespace AP.Configuration.API.Routing
 {
@@ -17,16 +16,10 @@ namespace AP.Configuration.API.Routing
         public void Handle(WebInput input, WebOutput output)
         {
             var rule = GetRule(input);
-            rule.Id = GetId();
-            storage.Add(rule);
-            output.Status(200);
+            rule = storage.Add(rule);
+            output.Status(201);
             var json = GetResult(rule);
             WriteJson(json, output);
-        }
-
-        private string GetId()
-        {
-            return Guid.NewGuid().ToString();
         }
 
         private RoutingRule GetRule(WebInput input)

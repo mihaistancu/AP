@@ -18,6 +18,7 @@ namespace AP.Configuration.API.Routing
         {
             var rules = storage.GetAll();
             var json = GetResult(rules);
+            output.Status(200);
             WriteJson(json, output);
         }
 
