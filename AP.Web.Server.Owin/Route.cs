@@ -13,9 +13,25 @@
             Service = service;
         }
 
-        public bool Matches(string method, string path)
+        public bool Matches(string method, string url)
         {
-            return Method == method && Path == path;
+            if (Method != method) return false;
+
+            if (Path == url) return true;
+
+            var pathTokens = Path.Split('/');
+            var urlTokens = url.Split('/');
+
+            if (pathTokens.Length != urlTokens.Length) return false;
+
+            for (int i=0; i<pathTokens.Length; i++)
+            {
+                if (pathTokens[i].StartsWith("{") && pathTokens[i].EndsWith("}")) continue;
+
+                if (pathTokens[i] != urlTokens[i]) return false;
+            }
+
+            return true;
         }
     }
 }

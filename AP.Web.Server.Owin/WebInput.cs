@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin;
+using System;
 using System.IO;
 
 namespace AP.Web.Server.Owin
@@ -22,6 +23,14 @@ namespace AP.Web.Server.Owin
         {
             this.routePath = routePath;
             this.request = request;
+        }
+
+        public string Params(string key)
+        {
+            var routeTokens = routePath.Split('/');
+            var index = Array.IndexOf(routeTokens, $"{{{key}}}");
+            var urlTokens = GetUrl().Split('/');
+            return urlTokens[index];
         }
     }
 }

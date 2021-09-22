@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AP.Configuration.API.Routing
 {
-    public class GetAllRoutingRulesApi : IWebService
+    public class GetAllRoutingRulesApi : JsonApi, IWebService
     {
         private RoutingRuleStorage storage;
 
@@ -17,18 +17,17 @@ namespace AP.Configuration.API.Routing
         public void Handle(WebInput input, WebOutput output)
         {
             var rules = storage.GetAll();
-            var result = GetResult(rules);
-            output.Send(result);
+            var json = GetResult(rules);
+            WriteJson(json, output);
         }
 
-        private string GetResult(RoutingRule[] rules)
+        private JArray GetResult(RoutingRule[] rules)
         {
             return new JArray(
                 from rule in rules
                 select new JObject(
                     new JProperty("id", rule.Id),
-                    new JProperty("address", rule.Address)))
-                .ToString();
+                    new JProperty("address", rule.Address)));
         }
     }
 }

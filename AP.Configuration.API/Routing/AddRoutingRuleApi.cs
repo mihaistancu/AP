@@ -2,11 +2,10 @@
 using AP.Web.Server.Owin;
 using Newtonsoft.Json.Linq;
 using System;
-using System.IO;
 
 namespace AP.Configuration.API.Routing
 {
-    public class AddRoutingRuleApi : IWebService
+    public class AddRoutingRuleApi : JsonApi, IWebService
     {
         private RoutingRuleStorage storage;
 
@@ -21,8 +20,8 @@ namespace AP.Configuration.API.Routing
             rule.Id = GetId();
             storage.Add(rule);
             output.Status(200);
-            var result = GetResult(rule);
-            output.Send(result);
+            var json = GetResult(rule);
+            WriteJson(json, output);
         }
 
         private string GetId()
@@ -32,22 +31,19 @@ namespace AP.Configuration.API.Routing
 
         private RoutingRule GetRule(WebInput input)
         {
-            var reader = new StreamReader(input.GetBody());
-            var json = reader.ReadToEnd();
-            JObject rule = JObject.Parse(json);
+            var json = ReadJson(input);
 
             return new RoutingRule
             {
-                Address = rule.Value<string>("address")
+                Address = json.Value<string>("address")
             };
         }
 
-        private string GetResult(RoutingRule rule)
+        private JObject GetResult(RoutingRule rule)
         {
             return new JObject(
                     new JProperty("id", rule.Id),
-                    new JProperty("address", rule.Address))
-                .ToString();
+                    new JProperty("address", rule.Address));
         }
     }
 }

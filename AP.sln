@@ -35,8 +35,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Gateways", "AP.Gateways\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Web.Server.Owin", "AP.Web.Server.Owin\AP.Web.Server.Owin.csproj", "{A70498D3-0AD1-4DB4-A251-43D6026C074A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Portal.WebApi", "AP.Portal.WebApi\AP.Portal.WebApi.csproj", "{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Messaging.Client", "AP.Messaging.Client\AP.Messaging.Client.csproj", "{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Messaging.Queue", "AP.Messaging.Queue\AP.Messaging.Queue.csproj", "{702A93B8-EE87-4FCA-A5A8-522169705EC1}"
@@ -115,10 +113,6 @@ Global
 		{A70498D3-0AD1-4DB4-A251-43D6026C074A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A70498D3-0AD1-4DB4-A251-43D6026C074A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A70498D3-0AD1-4DB4-A251-43D6026C074A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU

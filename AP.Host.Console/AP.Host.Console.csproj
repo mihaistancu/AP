@@ -123,10 +123,6 @@
       <Project>{03F9EAEB-4E9D-4E69-BC36-C9EBAD6FF26D}</Project>
       <Name>AP.Monitoring</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Portal.WebApi\AP.Portal.WebApi.csproj">
-      <Project>{8796C3EF-B8B6-4C3E-A669-FE874F6EEF76}</Project>
-      <Name>AP.Portal.WebApi</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>

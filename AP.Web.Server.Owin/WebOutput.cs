@@ -11,9 +11,14 @@ namespace AP.Web.Server.Owin
             this.response = response;
         }
 
-        public void Send(string text)
+        public void Send(byte[] bytes)
         {       
-            response.Write(text);
+            response.Write(bytes);
+        }
+
+        public void ContentType(string contentType)
+        {
+            response.ContentType = contentType;
         }
 
         public void Status(int status)
