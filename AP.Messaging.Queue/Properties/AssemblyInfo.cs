@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AP.Inbox")]
+[assembly: AssemblyTitle("AP.Messaging.Queue")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AP.Inbox")]
+[assembly: AssemblyProduct("AP.Messaging.Queue")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5bf0c71c-c5fa-42b9-bd1b-969208feb8ef")]
+[assembly: Guid("702a93b8-ee87-4fca-a5a8-522169705ec1")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -73,7 +73,7 @@ namespace AP.Host.Console
 
         private void Map(string url, IHandler handler)
         {
-            server.Map("POST", url, new MessagingService(handler));
+            server.Map("POST", url, new MessageService(handler));
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using AP.Processing;
 
-namespace AP.Routing
+namespace AP.Gateways.Institution
 {
-    public interface IQueue
+    public interface IMessageQueue
     {
         void Enqueue(string channel, Message message);
     }

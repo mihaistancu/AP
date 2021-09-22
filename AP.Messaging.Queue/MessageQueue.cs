@@ -1,13 +1,13 @@
-﻿using AP.Processing;
-using AP.Routing;
+﻿using AP.Gateways.Institution;
+using AP.Processing;
 
-namespace AP.Inbox
+namespace AP.Messaging.Queue
 {
-    public class Queue : IQueue
+    public class MessageQueue : IMessageQueue
     {
         public virtual void Enqueue(string channel, Message message)
         {
-            
+
         }
 
         public virtual Message Dequeue(string channel)

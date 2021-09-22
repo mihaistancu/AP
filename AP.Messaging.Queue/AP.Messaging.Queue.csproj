@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}</ProjectGuid>
+    <ProjectGuid>{702A93B8-EE87-4FCA-A5A8-522169705EC1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AP.Inbox</RootNamespace>
-    <AssemblyName>AP.Inbox</AssemblyName>
+    <RootNamespace>AP.Messaging.Queue</RootNamespace>
+    <AssemblyName>AP.Messaging.Queue</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,13 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Queue.cs" />
+    <Compile Include="MessageProvider.cs" />
+    <Compile Include="MessageQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Inbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">
-      <Project>{3000cfb2-4e38-4fb0-84a1-b9c279f0bca5}</Project>
+      <Project>{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}</Project>
       <Name>AP.Gateways</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">

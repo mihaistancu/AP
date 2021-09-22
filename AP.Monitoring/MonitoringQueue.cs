@@ -1,10 +1,10 @@
-﻿using AP.Inbox;
+﻿using AP.Messaging.Queue;
 using AP.Processing;
 using System;
 
 namespace AP.Monitoring
 {
-    public class MonitoringQueue: Queue
+    public class MonitoringQueue: MessageQueue
     {
         public override void Enqueue(string channel, Message message)
         {

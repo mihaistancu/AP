@@ -62,13 +62,13 @@
     <Compile Include="Workers\MonitoringCdmRequestWorker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Inbox\AP.Inbox.csproj">
-      <Project>{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}</Project>
-      <Name>AP.Inbox</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Messaging.Client\AP.Messaging.Client.csproj">
       <Project>{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}</Project>
       <Name>AP.Messaging.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Messaging.Queue\AP.Messaging.Queue.csproj">
+      <Project>{702A93B8-EE87-4FCA-A5A8-522169705EC1}</Project>
+      <Name>AP.Messaging.Queue</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
       <Project>{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}</Project>

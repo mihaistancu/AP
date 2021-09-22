@@ -2,9 +2,9 @@
 {
     public class PullRequestHandler : IHandler
     {
-        private IInbox queue;
+        private IMessageProvider queue;
 
-        public PullRequestHandler(IInbox queue)
+        public PullRequestHandler(IMessageProvider queue)
         {
             this.queue = queue;
         }

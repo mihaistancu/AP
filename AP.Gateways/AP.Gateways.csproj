@@ -47,9 +47,9 @@
     <Compile Include="CSN\CsnGateway.cs" />
     <Compile Include="CSN\ICsnConfig.cs" />
     <Compile Include="Institution\InstitutionGateway.cs" />
-    <Compile Include="Institution\IQueue.cs" />
+    <Compile Include="Institution\IMessageQueue.cs" />
     <Compile Include="Institution\IRoutingConfig.cs" />
-    <Compile Include="Institution\IMessagingClient.cs" />
+    <Compile Include="Institution\IMessageClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

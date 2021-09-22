@@ -1,13 +1,13 @@
 ﻿using AP.Processing;
 using AP.Processing.Sync.PullRequest;
 
-namespace AP.Inbox
+namespace AP.Messaging.Queue
 {
-    public class Inbox : IInbox
+    public class MessageProvider : IMessageProvider
     {
-        private Queue queue;
+        private MessageQueue queue;
 
-        public Inbox(Queue queue)
+        public MessageProvider(MessageQueue queue)
         {
             this.queue = queue;
         }

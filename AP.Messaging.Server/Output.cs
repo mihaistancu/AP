@@ -4,9 +4,9 @@ using AP.Web.Server.Owin;
 
 namespace AP.Messaging.Server
 {
-    public class MessagingOutput : IOutput
+    public class Output : IOutput
     {
-        public MessagingOutput(WebOutput output)
+        public Output(WebOutput output)
         {
 
         }

@@ -99,10 +99,6 @@
       <Project>{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}</Project>
       <Name>AP.Gateways</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Inbox\AP.Inbox.csproj">
-      <Project>{5BF0C71C-C5FA-42B9-BD1B-969208FEB8EF}</Project>
-      <Name>AP.Inbox</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.IR\AP.IR.csproj">
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>
@@ -110,6 +106,10 @@
     <ProjectReference Include="..\AP.Messaging.Client\AP.Messaging.Client.csproj">
       <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
       <Name>AP.Messaging.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Messaging.Queue\AP.Messaging.Queue.csproj">
+      <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>
+      <Name>AP.Messaging.Queue</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Messaging.Server\AP.Messaging.Server.csproj">
       <Project>{94abfb0c-da02-4392-8ce4-9629774b5d5a}</Project>

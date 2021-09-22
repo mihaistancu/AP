@@ -40,6 +40,7 @@ using AP.Processing.Async.Synchronization.IR.Subscriptions;
 using AP.Messaging.Server;
 using AP.Configuration.Server;
 using AP.Processing.Sync.PullRequest;
+using AP.Messaging.Queue;
 
 namespace AP.Host.Console
 {
@@ -63,7 +64,7 @@ namespace AP.Host.Console
             container.RegisterType<Serializer, TypeNameSerializer>(TypeLifetime.Singleton);
             container.RegisterType<MonitoringRabbitMqOrchestrator>(TypeLifetime.Singleton);
 
-            container.RegisterType<IInbox, Inbox.Inbox>(TypeLifetime.Singleton);
+            container.RegisterType<IMessageProvider, MessageProvider>(TypeLifetime.Singleton);
 
             container.RegisterType<IReceiptFactory, As4ReceiptFactory>(TypeLifetime.Singleton);
             container.RegisterType<IEnvelopeValidationErrorFactory, As4EnvelopeValidationErrorFactory>(TypeLifetime.Singleton);
@@ -91,8 +92,8 @@ namespace AP.Host.Console
             container.RegisterType<ICdmPublisher, CdmPublisher<InstitutionGateway>>(TypeLifetime.Singleton);
             container.RegisterType<ICdmReporter, CdmStorage>(TypeLifetime.Singleton);
 
-            container.RegisterType<IMessagingClient, MonitoringWebClient>(TypeLifetime.Singleton);
-            container.RegisterType<IQueue, MonitoringQueue>(TypeLifetime.Singleton);
+            container.RegisterType<IMessageClient, MonitoringWebClient>(TypeLifetime.Singleton);
+            container.RegisterType<IMessageQueue, MonitoringQueue>(TypeLifetime.Singleton);
 
             container.RegisterType<DecryptionHandler, MonitoringDecryptionHandler>(TypeLifetime.Singleton);
             container.RegisterType<PersistenceHandler, MonitoringPersistenceHandler>(TypeLifetime.Singleton);

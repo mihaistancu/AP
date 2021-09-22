@@ -1,6 +1,6 @@
 ﻿namespace AP.Processing.Sync.PullRequest
 {
-    public interface IInbox
+    public interface IMessageProvider
     {
         Message Get(Message message);
     }

@@ -8,12 +8,12 @@ namespace AP.Gateways.AP
     {
         private IEncryptor encryptor;
         private IApConfig config;
-        private IMessagingClient client;
+        private IMessageClient client;
 
         public ApGateway(
             IEncryptor encryptor,
             IApConfig config,
-            IMessagingClient client)
+            IMessageClient client)
         {
             this.config = config;
             this.encryptor = encryptor;

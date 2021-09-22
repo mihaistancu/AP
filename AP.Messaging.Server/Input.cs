@@ -3,11 +3,11 @@ using AP.Web.Server.Owin;
 
 namespace AP.Messaging.Server
 {
-    public class MessagingInput
+    public class Input
     {
         private WebInput input;
 
-        public MessagingInput(WebInput input)
+        public Input(WebInput input)
         {
             this.input = input;
         }

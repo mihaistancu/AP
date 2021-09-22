@@ -1,22 +1,21 @@
 ﻿using AP.Processing;
 using AP.Processing.Async.Synchronization;
-using AP.Routing;
 
 namespace AP.Gateways.Institution
 {
     public class InstitutionGateway : IGateway
     {
         private IRoutingConfig config;
-        private IMessagingClient webClient;
-        private IQueue queue;
+        private IMessageClient client;
+        private IMessageQueue queue;
 
         public InstitutionGateway(
             IRoutingConfig config,
-            IMessagingClient webClient,
-            IQueue queue)
+            IMessageClient client,
+            IMessageQueue queue)
         {
             this.config = config;
-            this.webClient = webClient;
+            this.client = client;
             this.queue = queue;
         }
 
@@ -27,7 +26,7 @@ namespace AP.Gateways.Institution
             if (config.IsPushEndpoint(endpointId))
             {
                 var url = config.GetUrl(endpointId);
-                webClient.Send(url, message);
+                client.Send(url, message);
             }
             else
             {
