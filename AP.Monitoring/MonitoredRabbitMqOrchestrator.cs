@@ -11,8 +11,9 @@ namespace AP.Monitoring
         public MonitoredRabbitMqOrchestrator(
             IOrchestratorConfig config, 
             IMessageStorage storage, 
+            Broker broker, 
             Serializer serializer) 
-            : base(config, storage, serializer)
+            : base(config, storage, broker, serializer)
         {
         }
 

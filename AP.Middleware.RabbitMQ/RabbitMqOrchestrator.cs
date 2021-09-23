@@ -1,75 +1,47 @@
 ﻿using AP.Middleware.RabbitMQ.Serialization;
 using AP.Processing;
 using AP.Processing.Async;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
 using System;
-using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ
 {
     public class RabbitMqOrchestrator : Orchestrator, IDisposable
-    {   
+    {
+        private Broker broker;
         private Serializer serializer;
-
-        private IConnection connection;
-        private IModel receiveChannel;
 
         public RabbitMqOrchestrator(
             IOrchestratorConfig config, 
             IMessageStorage storage,
+            Broker broker,
             Serializer serializer) 
             : base(config, storage)
         {
+            this.broker = broker;
             this.serializer = serializer;
         }
 
         public void Start()
         {
-            var factory = new ConnectionFactory() { DispatchConsumersAsync = true };
-            connection = factory.CreateConnection();
-            receiveChannel = connection.CreateModel();
-
-            receiveChannel.QueueDeclare(
-                queue: "hello",
-                durable: false,
-                exclusive: false,
-                autoDelete: false,
-                arguments: null);
-
-            var consumer = new AsyncEventingBasicConsumer(receiveChannel);
-            consumer.Received += OnReceived;
-
-            receiveChannel.BasicConsume(
-                queue: "hello",
-                autoAck: true,
-                consumer: consumer);
+            broker.Handler = OnReceived;
+            broker.Start();
         }
 
-        private async Task OnReceived(object sender, BasicDeliverEventArgs e)
+        private void OnReceived(byte[] bytes)
         {
-            var (worker, message) = serializer.Deserialize(e.Body.ToArray());
+            var (worker, message) = serializer.Deserialize(bytes);
             Handle(worker, message);
-            await Task.CompletedTask;
         }
 
         public override void Dispatch(IWorker worker, Message message)
         {
             var body = serializer.Serialize(worker, message);
-            using (var sendChannel = connection.CreateModel())
-            {
-                sendChannel.BasicPublish(
-                    exchange: "",
-                    routingKey: "hello",
-                    basicProperties: null,
-                    body: body);
-            }
+            broker.Send(body);
         }
 
         public void Dispose()
         {
-            connection.Dispose();
-            receiveChannel.Dispose();
+            broker.Dispose();
         }
     }
 }
