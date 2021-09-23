@@ -47,7 +47,6 @@
     <Compile Include="Handlers\MonitoredPersistenceHandler.cs" />
     <Compile Include="Handlers\MonitoredDecryptionHandler.cs" />
     <Compile Include="MonitoredMessageQueue.cs" />
-    <Compile Include="MonitoredRabbitMqOrchestrator.cs" />
     <Compile Include="MonitoredMessageClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workers\MonitoredAntimalwareWorker.cs" />
@@ -83,6 +82,8 @@
       <Name>AP.Web.Server.Owin</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

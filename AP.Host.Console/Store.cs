@@ -53,7 +53,8 @@ namespace AP.Host.Console
             container = new UnityContainer();
             container.RegisterInstance(this);
 
-            container.RegisterType<IWebServer, WebServer>();
+            container.RegisterType<IWebServer, OwinWebServer>();
+            container.RegisterType<IBroker, RabbitMqBroker>();
 
             container.RegisterType<IWorkers, Workers>(TypeLifetime.Singleton);
 
@@ -64,8 +65,7 @@ namespace AP.Host.Console
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
             container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
-            container.RegisterType<Orchestrator, MonitoredRabbitMqOrchestrator>(TypeLifetime.Singleton);
-            container.RegisterType<MonitoredRabbitMqOrchestrator>(TypeLifetime.Singleton);
+            container.RegisterType<Orchestrator, Orchestrator>(TypeLifetime.Singleton);
 
             container.RegisterType<IMessageProvider, MessageProvider>(TypeLifetime.Singleton);
 

@@ -1,32 +1,35 @@
 ﻿namespace AP.Processing.Async
 {
-    public abstract class Orchestrator
+    public class Orchestrator
     {
         private IOrchestratorConfig config;
         private IMessageStorage storage;
+        private MessageBroker broker;
 
-        public Orchestrator(IOrchestratorConfig config, IMessageStorage storage)
+        public Orchestrator(
+            IOrchestratorConfig config, 
+            IMessageStorage storage,
+            MessageBroker broker)
         {
             this.config = config;
             this.storage = storage;
+            this.broker = broker;
         }
 
-        public virtual void ProcessAsync(Message message)
+        public void Start()
         {
-            var workflow = config.GetWorkflow(message);
-            var worker = workflow.GetFirst();
-            Dispatch(worker, message);
+            broker.Start(Handle);
         }
 
-        public virtual void Handle(IWorker worker, Message message)
-        {   
+        private void Handle(IWorker worker, Message message)
+        {
             var workflow = config.GetWorkflow(message);
             bool canContinue = worker.Handle(message);
 
             if (canContinue && !workflow.IsLast(worker))
             {
                 var nextWorker = workflow.GetNext(worker);
-                Dispatch(nextWorker, message);
+                broker.Send(nextWorker, message);
             }
             else
             {
@@ -34,6 +37,11 @@
             }
         }
 
-        public abstract void Dispatch(IWorker worker, Message message);
+        public virtual void ProcessAsync(Message message)
+        {
+            var workflow = config.GetWorkflow(message);
+            var worker = workflow.GetFirst();
+            broker.Send(worker, message);
+        }
     }
 }

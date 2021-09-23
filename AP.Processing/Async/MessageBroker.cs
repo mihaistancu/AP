@@ -1,31 +1,26 @@
-﻿using AP.Processing;
-using AP.Processing.Async;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Text;
 
-namespace AP.Middleware.RabbitMQ
+namespace AP.Processing.Async
 {
-    public class MessageBroker: IDisposable
+    public class MessageBroker
     {
-        private Broker broker;
+        private IBroker broker;
         private IWorkers workers;
 
-        public Action<IWorker, Message> Handler { get; set; }
-
-        public MessageBroker(Broker broker, IWorkers workers)
+        public MessageBroker(IBroker broker, IWorkers workers)
         {
             this.broker = broker;
             this.workers = workers;
         }
 
-        public void Start()
+        public void Start(Action<IWorker, Message> handler)
         {
-            broker.Handler = Handle;
-            broker.Start();
+            broker.Start(bytes => Handle(bytes, handler));
         }
 
-        public void Handle(byte[] bytes)
+        private void Handle(byte[] bytes, Action<IWorker, Message> handler)
         {
             var text = Encoding.UTF8.GetString(bytes);
             var json = JObject.Parse(text);
@@ -40,7 +35,7 @@ namespace AP.Middleware.RabbitMQ
                 EnvelopeType = json.Value<string>("envelopeType")
             };
 
-            Handler.Invoke(worker, message);
+            handler.Invoke(worker, message);
         }
 
         public void Send(IWorker worker, Message message)
@@ -57,11 +52,6 @@ namespace AP.Middleware.RabbitMQ
             var bytes = Encoding.UTF8.GetBytes(text);
 
             broker.Send(bytes);
-        }
-
-        public void Dispose()
-        {
-            broker.Dispose();
         }
     }
 }

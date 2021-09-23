@@ -66,10 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Broker.cs" />
-    <Compile Include="IWorkers.cs" />
-    <Compile Include="MessageBroker.cs" />
-    <Compile Include="RabbitMqOrchestrator.cs" />
+    <Compile Include="RabbitMqBroker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

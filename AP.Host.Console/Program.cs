@@ -1,4 +1,4 @@
-﻿using AP.Monitoring;
+﻿using AP.Processing.Async;
 
 namespace AP.Host.Console
 {
@@ -8,7 +8,7 @@ namespace AP.Host.Console
         {
             var store = new Store();
 
-            store.Get<MonitoredRabbitMqOrchestrator>().Start();
+            store.Get<Orchestrator>().Start();
             store.Get<MessagingServer>().Start();
             store.Get<ConfigurationServer>().Start();
 

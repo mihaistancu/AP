@@ -1,5 +1,4 @@
-﻿using AP.Middleware.RabbitMQ;
-using AP.Processing.Async;
+﻿using AP.Processing.Async;
 using System;
 
 namespace AP.Host.Console

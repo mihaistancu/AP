@@ -1,18 +1,17 @@
-﻿using RabbitMQ.Client;
+﻿using AP.Processing.Async;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
 using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ
 {
-    public class Broker: IDisposable
+    public class RabbitMqBroker: IBroker, IDisposable
     {
         private IConnection connection;
         private IModel receiveChannel;
-        
-        public Action<byte[]> Handler { get; set; }
 
-        public void Start()
+        public void Start(Action<byte[]> handler)
         {
             var factory = new ConnectionFactory() { DispatchConsumersAsync = true };
             connection = factory.CreateConnection();
@@ -26,19 +25,15 @@ namespace AP.Middleware.RabbitMQ
                 arguments: null);
 
             var consumer = new AsyncEventingBasicConsumer(receiveChannel);
-            consumer.Received += OnReceived;
+            consumer.Received += (sender, args) =>
+            {
+                return Task.Run(() => handler.Invoke(args.Body.ToArray()));
+            };
 
             receiveChannel.BasicConsume(
                 queue: "hello",
                 autoAck: true,
                 consumer: consumer);
-        }
-
-        private async Task OnReceived(object sender, BasicDeliverEventArgs e)
-        {
-            e.Body.ToArray();
-            Handler?.Invoke(e.Body.ToArray());
-            await Task.CompletedTask;
         }
 
         public void Send(byte[] bytes)
