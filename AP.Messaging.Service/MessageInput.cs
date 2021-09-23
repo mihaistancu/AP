@@ -17,7 +17,8 @@ namespace AP.Messaging.Service
             return new Message
             {
                 Url = GetUrl(),
-                DocumentType = "SYN001"
+                DocumentType = "SYN001",
+                EnvelopeType = EnvelopeType.UserMessage
             };
         }
 

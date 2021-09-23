@@ -1,5 +1,4 @@
 ﻿using AP.Middleware.RabbitMQ;
-using AP.Middleware.RabbitMQ.Serialization;
 using AP.Processing;
 using AP.Processing.Async;
 using System;
@@ -11,9 +10,8 @@ namespace AP.Monitoring
         public MonitoredRabbitMqOrchestrator(
             IOrchestratorConfig config, 
             IMessageStorage storage, 
-            Broker broker, 
-            Serializer serializer) 
-            : base(config, storage, broker, serializer)
+            MessageBroker broker) 
+            : base(config, storage, broker)
         {
         }
 

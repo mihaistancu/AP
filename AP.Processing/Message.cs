@@ -4,16 +4,16 @@
     {
         public string Sender { get; set; }
         public string Receiver { get; set; }
-        public EnvelopeType EnvelopeType { get; set; }
+        public string EnvelopeType { get; set; }
         public string Url { get; set; }
         public string DocumentType { get; set; }
         public Certificate Certificate { get; set; }
     }
 
-    public enum EnvelopeType
+    public class EnvelopeType
     {
-        UserMessage,
-        Signal
+        public const string UserMessage = "UserMessage";
+        public const string Signal = "Signal";
     }
 
     public class Certificate

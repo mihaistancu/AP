@@ -1,5 +1,4 @@
-﻿using AP.Middleware.RabbitMQ.Serialization;
-using AP.Antimalware.Amsi;
+﻿using AP.Antimalware.Amsi;
 using System;
 using Unity;
 using AP.Validation;
@@ -41,6 +40,7 @@ using AP.Processing.Sync.PullRequest;
 using AP.Messaging.Queue;
 using AP.Web.Server;
 using AP.Web.Server.Owin;
+using AP.Middleware.RabbitMQ;
 
 namespace AP.Host.Console
 {
@@ -55,6 +55,8 @@ namespace AP.Host.Console
 
             container.RegisterType<IWebServer, WebServer>();
 
+            container.RegisterType<IWorkers, Workers>(TypeLifetime.Singleton);
+
             container.RegisterType<IMessageStorage, MessageStorage>(TypeLifetime.Singleton);
             container.RegisterType<IDecryptor, Decryptor>(TypeLifetime.Singleton);
             container.RegisterType<IEncryptor, Encryptor>(TypeLifetime.Singleton);
@@ -63,7 +65,6 @@ namespace AP.Host.Console
 
             container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
             container.RegisterType<Orchestrator, MonitoredRabbitMqOrchestrator>(TypeLifetime.Singleton);
-            container.RegisterType<Serializer, TypeNameSerializer>(TypeLifetime.Singleton);
             container.RegisterType<MonitoredRabbitMqOrchestrator>(TypeLifetime.Singleton);
 
             container.RegisterType<IMessageProvider, MessageProvider>(TypeLifetime.Singleton);
