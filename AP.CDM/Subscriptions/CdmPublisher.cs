@@ -1,21 +1,21 @@
-﻿using AP.Processing;
-using AP.Processing.Async.Synchronization;
+﻿using AP.Gateways.Institution;
+using AP.Processing;
 using AP.Processing.Async.Synchronization.CDM.Subscriptions;
 
 namespace AP.CDM
 {
-    public class CdmPublisher<T> : ICdmPublisher where T: IGateway
+    public class CdmPublisher : ICdmPublisher 
     {
         private CdmSubscriptionStorage subscriptionStorage;
         private CdmStorage cdmStorage;
         private IMessageStorage messageStorage;
-        private T gateway;
+        private InstitutionGateway gateway;
 
         public CdmPublisher(
             CdmSubscriptionStorage subscriptionStorage,
             CdmStorage cdmStorage,
             IMessageStorage messageStorage,
-            T gateway)
+            InstitutionGateway gateway)
         {
             this.subscriptionStorage = subscriptionStorage;
             this.cdmStorage = cdmStorage;

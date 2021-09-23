@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ
 {
-    public class RabbitMqBroker: IBroker, IDisposable
+    public class Broker: IBroker, IDisposable
     {
         private IConnection connection;
         private IModel receiveChannel;

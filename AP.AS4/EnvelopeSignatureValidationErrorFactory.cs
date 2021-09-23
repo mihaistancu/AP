@@ -1,9 +1,9 @@
 ﻿using AP.Processing;
-using AP.Processing.Sync.EnvelopeValidation;
+using AP.Processing.Sync.SignatureValidation;
 
 namespace AP.AS4
 {
-    public class As4EnvelopeValidationErrorFactory : IEnvelopeValidationErrorFactory
+    public class EnvelopeSignatureValidationErrorFactory : IEnvelopeSignatureValidationErrorFactory
     {
         public Message Get(string validationMessage)
         {

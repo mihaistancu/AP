@@ -3,7 +3,7 @@ using AP.Processing.Sync.TlsCertificateValidation;
 
 namespace AP.AS4
 {
-    public class As4TlsCertificateValidationErrorFactory : ITlsCertificateValidationErrorFactory
+    public class TlsCertificateValidationErrorFactory : ITlsCertificateValidationErrorFactory
     {
         public Message Get(string validationMessage)
         {

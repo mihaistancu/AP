@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApConfig.cs" />
+    <Compile Include="CsnConfig.cs" />
+    <Compile Include="IrImporter.cs" />
     <Compile Include="IrStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\IrRequest.cs" />

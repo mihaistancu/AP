@@ -1,21 +1,21 @@
-﻿using AP.Processing;
-using AP.Processing.Async.Synchronization;
+﻿using AP.Gateways.Institution;
+using AP.Processing;
 using AP.Processing.Async.Synchronization.IR.Subscriptions;
 
 namespace AP.IR.Subscriptions
 {
-    public class IrPublisher<T> : IIrPublisher where T: IGateway
-    {
+    public class IrPublisher : IIrPublisher
+    { 
         private IrSubscriptionStorage irSubscriptionStorage;
         private IrStorage irStorage;
         private IMessageStorage messageStorage;
-        private T gateway;
+        private InstitutionGateway gateway;
 
         public IrPublisher(
             IrSubscriptionStorage irSubscriptionStorage,
             IrStorage irStorage,
             IMessageStorage messageStorage,
-            T gateway)
+            InstitutionGateway gateway)
         {
             this.irSubscriptionStorage = irSubscriptionStorage;
             this.irStorage = irStorage;

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AP.Web.Server.Owin
 {
-    public class OwinWebServer : IWebServer
+    public class WebServer : IWebServer
     {
         protected Router router;
 
-        public OwinWebServer(Router router)
+        public WebServer(Router router)
         {
             this.router = router;
         }

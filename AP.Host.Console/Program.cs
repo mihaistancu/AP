@@ -1,14 +1,17 @@
-﻿namespace AP.Host.Console
+﻿using Unity;
+
+namespace AP.Host.Console
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var store = new Store();
+            var container = new UnityContainer();
+            Registration.Setup(container);
 
-            store.Get<MessagingOrchestrator>().Start();
-            store.Get<MessagingServer>().Start();
-            store.Get<ConfigurationServer>().Start();
+            container.Resolve<MessagingOrchestrator>().Start();
+            container.Resolve<MessagingServer>().Start();
+            container.Resolve<ConfigurationServer>().Start();
 
             System.Console.WriteLine("Press [enter] to stop");
             System.Console.ReadLine();

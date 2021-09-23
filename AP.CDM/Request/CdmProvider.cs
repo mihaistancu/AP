@@ -1,21 +1,21 @@
-﻿using AP.Processing;
-using AP.Processing.Async.Synchronization;
+﻿using AP.Gateways.CSN;
+using AP.Processing;
 using AP.Processing.Async.Synchronization.CDM.Request;
 
 namespace AP.CDM
 {
-    public class CdmProvider<T> : ICdmProvider where T: IGateway
+    public class CdmProvider: ICdmProvider
     {
         private CdmRequestParser parser;
         private CdmStorage cdmStorage;
         private IMessageStorage messageStorage;
-        private T gateway;
+        private CsnGateway gateway;
 
         public CdmProvider(
             CdmRequestParser parser,
             CdmStorage cdmStorage,
             IMessageStorage messageStorage,
-            T gateway)
+            CsnGateway gateway)
         {
             this.parser = parser;
             this.cdmStorage = cdmStorage;
@@ -26,9 +26,9 @@ namespace AP.CDM
         public void Respond(Message message)
         {
             var request = parser.Parse(message);
-            var messages = cdmStorage.Get(request);
-            messageStorage.Save(messages);
-            gateway.Deliver(message);
+            var newMessage = cdmStorage.Get(request);
+            messageStorage.Save(newMessage);
+            gateway.Deliver(newMessage);
         }
     }
 }
