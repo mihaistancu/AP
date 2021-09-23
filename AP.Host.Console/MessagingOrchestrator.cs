@@ -29,7 +29,7 @@ namespace AP.Host.Console
 
         public void Start()
         {
-            orchestrator.Use(new Route 
+            orchestrator.Use(new Rule 
             { 
                 UseCase = UseCase.Business,
                 Domain = Domain.International,
@@ -41,7 +41,7 @@ namespace AP.Host.Console
                     store.Get<ForwardingWorker<InstitutionGateway>>())
             });
 
-            orchestrator.Use(new Route
+            orchestrator.Use(new Rule
             {
                 UseCase = UseCase.Business,
                 Domain = Domain.National,
@@ -53,7 +53,7 @@ namespace AP.Host.Console
                     store.Get<ForwardingWorker<ApGateway>>())
             });
 
-            orchestrator.Use(new Route
+            orchestrator.Use(new Rule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.International,
@@ -66,7 +66,7 @@ namespace AP.Host.Console
                     store.Get<IrSubscriptionsWorker>())
             });
 
-            orchestrator.Use(new Route
+            orchestrator.Use(new Rule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.International,
@@ -79,7 +79,7 @@ namespace AP.Host.Console
                     store.Get<CdmSubscriptionsWorker>())
             });
 
-            orchestrator.Use(new Route
+            orchestrator.Use(new Rule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.International,
@@ -91,7 +91,7 @@ namespace AP.Host.Console
                     store.Get<CdmReportWorker<CsnGateway>>())
             });
 
-            orchestrator.Use(new Route
+            orchestrator.Use(new Rule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.National,
@@ -103,7 +103,7 @@ namespace AP.Host.Console
                     store.Get<IrRequestWorker>())
             });
 
-            orchestrator.Use(new Route
+            orchestrator.Use(new Rule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.National,
@@ -115,7 +115,7 @@ namespace AP.Host.Console
                     store.Get<CdmRequestWorker>())
             });
 
-            orchestrator.Use(new Route
+            orchestrator.Use(new Rule
             {
                 UseCase = "*",
                 Domain = Domain.International,
@@ -126,7 +126,7 @@ namespace AP.Host.Console
                     store.Get<ForwardingWorker<InstitutionGateway>>())
             });
 
-            orchestrator.Use(new Route
+            orchestrator.Use(new Rule
             {
                 UseCase = "*",
                 Domain = Domain.National,

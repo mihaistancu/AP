@@ -1,6 +1,6 @@
 ﻿namespace AP.Processing.Async
 {
-    public class Route
+    public class Rule
     {
         public string UseCase { get; set; }
         public string Domain { get; set; }

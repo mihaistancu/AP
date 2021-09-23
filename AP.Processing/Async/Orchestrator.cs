@@ -5,7 +5,7 @@ namespace AP.Processing.Async
 {
     public class Orchestrator
     {
-        private List<Route> routes = new List<Route>();
+        private List<Rule> routes = new List<Rule>();
         private IMessageStorage storage;
         private MessageBroker broker;
 
@@ -17,7 +17,7 @@ namespace AP.Processing.Async
             this.broker = broker;
         }
 
-        public void Use(Route route)
+        public void Use(Rule route)
         {
             routes.Add(route);
         }
