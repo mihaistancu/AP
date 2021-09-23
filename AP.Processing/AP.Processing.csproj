@@ -47,6 +47,7 @@
     <Compile Include="Async\IBroker.cs" />
     <Compile Include="Async\IWorkers.cs" />
     <Compile Include="Async\MessageBroker.cs" />
+    <Compile Include="Async\Route.cs" />
     <Compile Include="Async\Synchronization\CDM\Report\ICdmReporter.cs" />
     <Compile Include="Async\Synchronization\CDM\Request\ICdmProvider.cs" />
     <Compile Include="Async\Synchronization\ICsnGateway.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="Async\Synchronization\CDM\Subscriptions\ICdmPublisher.cs" />
     <Compile Include="Async\DocumentValidation\IDocumentValidationErrorFactory.cs" />
     <Compile Include="Async\DocumentValidation\ValidationResult.cs" />
-    <Compile Include="Async\IOrchestratorConfig.cs" />
     <Compile Include="Async\Synchronization\IR\Subscriptions\IIrPublisher.cs" />
     <Compile Include="Async\Orchestrator.cs" />
     <Compile Include="Async\IWorker.cs" />

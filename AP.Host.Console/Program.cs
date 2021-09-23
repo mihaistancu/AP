@@ -8,7 +8,7 @@ namespace AP.Host.Console
         {
             var store = new Store();
 
-            store.Get<Orchestrator>().Start();
+            store.Get<MessagingOrchestrator>().Start();
             store.Get<MessagingServer>().Start();
             store.Get<ConfigurationServer>().Start();
 

@@ -59,8 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationServer.cs" />
+    <Compile Include="MessagingOrchestrator.cs" />
     <Compile Include="MessagingServer.cs" />
-    <Compile Include="OrchestratorConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Store.cs" />

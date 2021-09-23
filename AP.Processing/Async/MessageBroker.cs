@@ -30,7 +30,8 @@ namespace AP.Processing.Async
 
             var message = new Message
             {
-                Url = json.Value<string>("url"),
+                UseCase = json.Value<string>("useCase"),
+                Domain = json.Value<string>("domain"),
                 DocumentType = json.Value<string>("documentType"),
                 EnvelopeType = json.Value<string>("envelopeType")
             };
@@ -44,7 +45,8 @@ namespace AP.Processing.Async
 
             var json = new JObject(
                 new JProperty("workerId", workerId),
-                new JProperty("url", message.Url),
+                new JProperty("useCase", message.UseCase),
+                new JProperty("domain", message.Domain),
                 new JProperty("envelopeType", message.EnvelopeType),
                 new JProperty("documentType", message.DocumentType));
 

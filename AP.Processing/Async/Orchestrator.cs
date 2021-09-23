@@ -1,19 +1,25 @@
-﻿namespace AP.Processing.Async
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace AP.Processing.Async
 {
     public class Orchestrator
     {
-        private IOrchestratorConfig config;
+        private List<Route> routes = new List<Route>();
         private IMessageStorage storage;
         private MessageBroker broker;
 
         public Orchestrator(
-            IOrchestratorConfig config, 
             IMessageStorage storage,
             MessageBroker broker)
         {
-            this.config = config;
             this.storage = storage;
             this.broker = broker;
+        }
+
+        public void Use(Route route)
+        {
+            routes.Add(route);
         }
 
         public void Start()
@@ -23,7 +29,7 @@
 
         private void Handle(IWorker worker, Message message)
         {
-            var workflow = config.GetWorkflow(message);
+            var workflow = GetWorkflow(message);
             bool canContinue = worker.Handle(message);
 
             if (canContinue && !workflow.IsLast(worker))
@@ -39,9 +45,14 @@
 
         public virtual void ProcessAsync(Message message)
         {
-            var workflow = config.GetWorkflow(message);
+            var workflow = GetWorkflow(message);
             var worker = workflow.GetFirst();
             broker.Send(worker, message);
+        }
+
+        private Workflow GetWorkflow(Message message)
+        {
+            return routes.First(route => route.Matches(message)).Workflow;
         }
     }
 }

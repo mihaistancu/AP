@@ -64,7 +64,6 @@ namespace AP.Host.Console
             container.RegisterType<IEnvelopeSignatureValidator, EnvelopeSignatureValidator>(TypeLifetime.Singleton);
             container.RegisterType<ICertificateValidator, CertificateValidator>(TypeLifetime.Singleton);
 
-            container.RegisterType<IOrchestratorConfig, OrchestratorConfig>(TypeLifetime.Singleton);
             container.RegisterType<Orchestrator, Orchestrator>(TypeLifetime.Singleton);
 
             container.RegisterType<IMessageProvider, MessageProvider>(TypeLifetime.Singleton);

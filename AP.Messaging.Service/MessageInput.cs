@@ -16,7 +16,8 @@ namespace AP.Messaging.Service
         {
             return new Message
             {
-                Url = GetUrl(),
+                UseCase = UseCase.System,
+                Domain = Domain.International,
                 DocumentType = "SYN001",
                 EnvelopeType = EnvelopeType.UserMessage
             };
