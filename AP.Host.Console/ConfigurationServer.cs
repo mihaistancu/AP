@@ -7,20 +7,31 @@ namespace AP.Host.Console
     public class ConfigurationServer
     {
         private IWebServer server;
-        private Store store;
+        private GetAllRoutingRulesApi getAllRoutingRules;
+        private AddRoutingRuleApi addRoutingRule;
+        private UpdateRoutingRuleApi updateRoutingRule;
+        private DeleteRoutingRuleApi deleteRoutingRule;
 
-        public ConfigurationServer(IWebServer server, Store store)
+        public ConfigurationServer(
+            IWebServer server,
+            GetAllRoutingRulesApi getAllRoutingRules,
+            AddRoutingRuleApi addRoutingRule,
+            UpdateRoutingRuleApi updateRoutingRule,
+            DeleteRoutingRuleApi deleteRoutingRule)
         {
             this.server = server;
-            this.store = store;
+            this.getAllRoutingRules = getAllRoutingRules;
+            this.addRoutingRule = addRoutingRule;
+            this.updateRoutingRule = updateRoutingRule;
+            this.deleteRoutingRule = deleteRoutingRule;
         }
 
         public IDisposable Start()
         {
-            server.Map("GET", "/api/routing-rules", store.Get<GetAllRoutingRulesApi>());
-            server.Map("POST", "/api/routing-rules", store.Get<AddRoutingRuleApi>());
-            server.Map("PUT", "/api/routing-rules/{id}", store.Get<UpdateRoutingRuleApi>());
-            server.Map("DELETE", "/api/routing-rules/{id}", store.Get<DeleteRoutingRuleApi>());
+            server.Map("GET", "/api/routing-rules", getAllRoutingRules);
+            server.Map("POST", "/api/routing-rules", addRoutingRule);
+            server.Map("PUT", "/api/routing-rules/{id}", updateRoutingRule);
+            server.Map("DELETE", "/api/routing-rules/{id}", deleteRoutingRule);
 
             return server.Start("http://localhost:9090");
         }

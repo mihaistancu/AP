@@ -1,30 +1,17 @@
-﻿using AP.Gateways.AP;
-using AP.Gateways.CSN;
-using AP.Gateways.Institution;
-using AP.Processing;
+﻿using AP.Processing;
 using AP.Processing.Async;
-using AP.Processing.Async.Antimalware;
-using AP.Processing.Async.DocumentValidation;
-using AP.Processing.Async.Forwarding;
-using AP.Processing.Async.Synchronization.CDM.Import;
-using AP.Processing.Async.Synchronization.CDM.Report;
-using AP.Processing.Async.Synchronization.CDM.Request;
-using AP.Processing.Async.Synchronization.CDM.Subscriptions;
-using AP.Processing.Async.Synchronization.IR.Import;
-using AP.Processing.Async.Synchronization.IR.Request;
-using AP.Processing.Async.Synchronization.IR.Subscriptions;
 
 namespace AP.Host.Console
 {
     public class MessagingOrchestrator
     {
         private Orchestrator orchestrator;
-        private Store store;
+        private Workers workers;
 
-        public MessagingOrchestrator(Orchestrator orchestrator, Store store)
+        public MessagingOrchestrator(Orchestrator orchestrator, Workers workers)
         {
             this.orchestrator = orchestrator;
-            this.store = store;
+            this.workers = workers;
         }
 
         public void Start()
@@ -36,9 +23,9 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<ApGateway>>(),
-                    store.Get<DocumentValidationWorker<ApGateway>>(),
-                    store.Get<ForwardingWorker<InstitutionGateway>>())
+                    workers.ScanMessageFromAp,
+                    workers.ValidateDocumentFromAp,
+                    workers.ForwardToInstitution)
             });
 
             orchestrator.Use(new Rule
@@ -48,9 +35,9 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<InstitutionGateway>>(),
-                    store.Get<DocumentValidationWorker<InstitutionGateway>>(),
-                    store.Get<ForwardingWorker<ApGateway>>())
+                    workers.ScanMessageFromInstitution,
+                    workers.ValidateDocumentFromInstitution,
+                    workers.ForwardToAp)
             });
 
             orchestrator.Use(new Rule
@@ -60,10 +47,10 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN001",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<CsnGateway>>(),
-                    store.Get<DocumentValidationWorker<CsnGateway>>(),
-                    store.Get<IrImportWorker>(),
-                    store.Get<IrSubscriptionsWorker>())
+                    workers.ScanMessageFromCsn,
+                    workers.ValidateDocumentFromCsn,
+                    workers.ImportIr,
+                    workers.PublishIr)
             });
 
             orchestrator.Use(new Rule
@@ -73,10 +60,10 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN003",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<CsnGateway>>(),
-                    store.Get<DocumentValidationWorker<CsnGateway>>(),
-                    store.Get<CdmImportWorker>(),
-                    store.Get<CdmSubscriptionsWorker>())
+                    workers.ScanMessageFromCsn,
+                    workers.ValidateDocumentFromCsn,
+                    workers.ImportCdm,
+                    workers.PublishCdm)
             });
 
             orchestrator.Use(new Rule
@@ -86,9 +73,9 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN005",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<CsnGateway>>(),
-                    store.Get<DocumentValidationWorker<CsnGateway>>(),
-                    store.Get<CdmReportWorker<CsnGateway>>())
+                    workers.ScanMessageFromCsn,
+                    workers.ValidateDocumentFromCsn,
+                    workers.ReportCdm)
             });
 
             orchestrator.Use(new Rule
@@ -98,9 +85,9 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN002",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<InstitutionGateway>>(),
-                    store.Get<DocumentValidationWorker<InstitutionGateway>>(),
-                    store.Get<IrRequestWorker>())
+                    workers.ScanMessageFromInstitution,
+                    workers.ValidateDocumentFromInstitution,
+                    workers.ProvideIr)
             });
 
             orchestrator.Use(new Rule
@@ -110,9 +97,9 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN004",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<InstitutionGateway>>(),
-                    store.Get<DocumentValidationWorker<InstitutionGateway>>(),
-                    store.Get<CdmRequestWorker>())
+                    workers.ScanMessageFromInstitution,
+                    workers.ValidateDocumentFromInstitution,
+                    workers.ProvideCdm)
             });
 
             orchestrator.Use(new Rule
@@ -122,8 +109,8 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.Signal,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<ApGateway>>(),
-                    store.Get<ForwardingWorker<InstitutionGateway>>())
+                    workers.ScanMessageFromAp,
+                    workers.ForwardToInstitution)
             });
 
             orchestrator.Use(new Rule
@@ -133,8 +120,8 @@ namespace AP.Host.Console
                 EnvelopeType = EnvelopeType.Signal,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    store.Get<AntimalwareWorker<InstitutionGateway>>(),
-                    store.Get<ForwardingWorker<ApGateway>>())
+                    workers.ScanMessageFromInstitution,
+                    workers.ForwardToAp)
             });
 
             orchestrator.Start();

@@ -1,13 +1,5 @@
 ﻿using AP.Messaging.Service;
 using AP.Processing.Sync;
-using AP.Processing.Sync.AsyncProcessing;
-using AP.Processing.Sync.Decryption;
-using AP.Processing.Sync.EnvelopeValidation;
-using AP.Processing.Sync.Persistence;
-using AP.Processing.Sync.PullRequest;
-using AP.Processing.Sync.Receipt;
-using AP.Processing.Sync.SignatureValidation;
-using AP.Processing.Sync.TlsCertificateValidation;
 using AP.Web.Server;
 using System;
 
@@ -16,64 +8,64 @@ namespace AP.Host.Console
     public class MessagingServer
     {
         private IWebServer server;
-        private Store store;
+        private Handlers handlers;
 
-        public MessagingServer(IWebServer server, Store store)
+        public MessagingServer(IWebServer server, Handlers handlers)
         {
             this.server = server;
-            this.store = store;
+            this.handlers = handlers;
         }
 
         public IDisposable Start()
         {
             Map("/Business/Inbound", new Pipeline(
-                store.Get<TlsCertificateValidationHandler>(),
-                store.Get<DecryptionHandler>(),
-                store.Get<EnvelopeValidationHandler>(),
-                store.Get<PersistenceHandler>(),
-                store.Get<AsyncProcessingHandler>()));
+                handlers.ValidateTlsCertificate,
+                handlers.Decrypt,
+                handlers.ValidateEnvelope,
+                handlers.Persist,
+                handlers.ProcessAsync));
 
             Map("/Business/Outbox", new Pipeline(
-                store.Get<TlsCertificateValidationHandler>(),
-                store.Get<SignatureValidationHandler>(),
-                store.Get<EnvelopeValidationHandler>(),
-                store.Get<PersistenceHandler>(),
-                store.Get<AsyncProcessingHandler>()));
+                handlers.ValidateTlsCertificate,
+                handlers.ValidateSignature,
+                handlers.ValidateEnvelope,
+                handlers.Persist,
+                handlers.ProcessAsync));
 
             Map("/Business/Inbox", new Pipeline(
-                store.Get<TlsCertificateValidationHandler>(),
-                store.Get<SignatureValidationHandler>(),
-                store.Get<EnvelopeValidationHandler>(),
-                store.Get<PullRequestHandler>()));
+                handlers.ValidateTlsCertificate,
+                handlers.ValidateSignature,
+                handlers.ValidateEnvelope,
+                handlers.PullRequest));
 
             Map("/System/Inbound", new Pipeline(
-                store.Get<TlsCertificateValidationHandler>(),
-                store.Get<SignatureValidationHandler>(),
-                store.Get<EnvelopeValidationHandler>(),
-                store.Get<PersistenceHandler>(),
-                store.Get<AsyncProcessingHandler>(),
-                store.Get<ReceiptHandler>()));
+                handlers.ValidateTlsCertificate,
+                handlers.ValidateSignature,
+                handlers.ValidateEnvelope,
+                handlers.Persist,
+                handlers.ProcessAsync,
+                handlers.Receipt));
 
             Map("/System/Outbox", new Pipeline(
-                store.Get<TlsCertificateValidationHandler>(),
-                store.Get<SignatureValidationHandler>(),
-                store.Get<EnvelopeValidationHandler>(),
-                store.Get<PersistenceHandler>(),
-                store.Get<AsyncProcessingHandler>(),
-                store.Get<ReceiptHandler>()));
+                handlers.ValidateTlsCertificate,
+                handlers.ValidateSignature,
+                handlers.ValidateEnvelope,
+                handlers.Persist,
+                handlers.ProcessAsync,
+                handlers.Receipt));
 
             Map("/System/Inbox", new Pipeline(
-                store.Get<TlsCertificateValidationHandler>(),
-                store.Get<SignatureValidationHandler>(),
-                store.Get<EnvelopeValidationHandler>(),
-                store.Get<PullRequestHandler>()));
+                handlers.ValidateTlsCertificate,
+                handlers.ValidateSignature,
+                handlers.ValidateEnvelope,
+                handlers.PullRequest));
 
             return server.Start("http://localhost:9000");
         }
 
-        private void Map(string url, IHandler handler)
+        private void Map(string url, Pipeline pipeline)
         {
-            server.Map("POST", url, new MessageService(handler));
+            server.Map("POST", url, new MessageService(pipeline));
         }
     }
 }

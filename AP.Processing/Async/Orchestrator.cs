@@ -9,9 +9,7 @@ namespace AP.Processing.Async
         private IMessageStorage storage;
         private MessageBroker broker;
 
-        public Orchestrator(
-            IMessageStorage storage,
-            MessageBroker broker)
+        public Orchestrator(IMessageStorage storage, MessageBroker broker)
         {
             this.storage = storage;
             this.broker = broker;

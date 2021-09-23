@@ -2,7 +2,7 @@
 {
     public interface IWorkers
     {
-        IWorker Worker(string workerId);
-        string Id(IWorker worker);
+        IWorker Worker(string name);
+        string Name(IWorker worker);
     }
 }

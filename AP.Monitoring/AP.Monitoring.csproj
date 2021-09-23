@@ -41,24 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers\MonitoredEnvelopeValidationHandler.cs" />
-    <Compile Include="Handlers\MonitoredTlsCertificateValidationHandler.cs" />
-    <Compile Include="Handlers\MonitoredSignatureValidationHandler.cs" />
-    <Compile Include="Handlers\MonitoredPersistenceHandler.cs" />
-    <Compile Include="Handlers\MonitoredDecryptionHandler.cs" />
+    <Compile Include="MonitoredHandler.cs" />
     <Compile Include="MonitoredMessageQueue.cs" />
     <Compile Include="MonitoredMessageClient.cs" />
+    <Compile Include="MonitoredWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Workers\MonitoredAntimalwareWorker.cs" />
-    <Compile Include="Workers\MonitoredDeliveryWorker.cs" />
-    <Compile Include="Workers\MonitoredIrRequestWorker.cs" />
-    <Compile Include="Workers\MonitoredIrSubscriptionsWorker.cs" />
-    <Compile Include="Workers\MonitoredIrImportWorker.cs" />
-    <Compile Include="Workers\MonitoredCdmReportWorker.cs" />
-    <Compile Include="Workers\MonitoredDocumentValidationWorker.cs" />
-    <Compile Include="Workers\MonitoredCdmImportWorker.cs" />
-    <Compile Include="Workers\MonitoredCdmSubscriptionsWorker.cs" />
-    <Compile Include="Workers\MonitoredCdmRequestWorker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Messaging.Client\AP.Messaging.Client.csproj">
@@ -69,17 +56,9 @@
       <Project>{702A93B8-EE87-4FCA-A5A8-522169705EC1}</Project>
       <Name>AP.Messaging.Queue</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
-      <Project>{B5FA51C6-5DDB-4E52-8A56-2DBF6B6C1282}</Project>
-      <Name>AP.Middleware.RabbitMQ</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
       <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
       <Name>AP.Processing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Server.Owin\AP.Web.Server.Owin.csproj">
-      <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
-      <Name>AP.Web.Server.Owin</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

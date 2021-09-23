@@ -1,6 +1,4 @@
-﻿using AP.Processing.Async;
-
-namespace AP.Host.Console
+﻿namespace AP.Host.Console
 {
     class Program
     {

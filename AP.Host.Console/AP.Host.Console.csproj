@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationServer.cs" />
+    <Compile Include="Handlers.cs" />
     <Compile Include="MessagingOrchestrator.cs" />
     <Compile Include="MessagingServer.cs" />
     <Compile Include="Program.cs" />

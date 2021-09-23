@@ -25,7 +25,7 @@ namespace AP.Processing.Async
             var text = Encoding.UTF8.GetString(bytes);
             var json = JObject.Parse(text);
 
-            var workerId = json.Value<string>("workerId");
+            var workerId = json.Value<string>("workerName");
             var worker = workers.Worker(workerId);
 
             var message = new Message
@@ -41,10 +41,10 @@ namespace AP.Processing.Async
 
         public void Send(IWorker worker, Message message)
         {
-            var workerId = workers.Id(worker);
+            var workerName = workers.Name(worker);
 
             var json = new JObject(
-                new JProperty("workerId", workerId),
+                new JProperty("workerName", workerName),
                 new JProperty("useCase", message.UseCase),
                 new JProperty("domain", message.Domain),
                 new JProperty("envelopeType", message.EnvelopeType),
