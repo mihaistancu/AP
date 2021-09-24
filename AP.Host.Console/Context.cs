@@ -15,6 +15,7 @@ using AP.Messaging.Client;
 using AP.Messaging.Queue;
 using AP.Messaging.Service;
 using AP.Middleware.RabbitMQ;
+using AP.Monitoring;
 using AP.Processing.Async;
 using AP.Processing.Async.Antimalware;
 using AP.Processing.Async.DocumentValidation;
@@ -26,6 +27,7 @@ using AP.Processing.Async.Synchronization.CDM.Subscriptions;
 using AP.Processing.Async.Synchronization.IR.Import;
 using AP.Processing.Async.Synchronization.IR.Request;
 using AP.Processing.Async.Synchronization.IR.Subscriptions;
+using AP.Processing.Sync;
 using AP.Processing.Sync.AsyncProcessing;
 using AP.Processing.Sync.Decryption;
 using AP.Processing.Sync.EnvelopeValidation;
@@ -42,99 +44,108 @@ using AP.Web.Server.Owin;
 
 namespace AP.Host.Console
 {
-    public class Store
+    public class Context
     {
-        private HandlerFactory handlerFactory;
-        private WorkerFactory workerFactory;
-        private MessageStorage messageStorage;
-        private Orchestrator orchestrator;
-        private MessageServer messageServer;
-        private ConfigurationServer configurationServer;
+        private bool isMonitoringEnabled;
+
+        public Orchestrator Orchestrator { get; private set; }
+        public MessageServer MessageServer { get; private set; }
+        public ConfigurationServer ConfigurationServer { get; private set; }
         
+        public void SetMonitoring(bool isMonitoringEnabled)
+        {
+            this.isMonitoringEnabled = isMonitoringEnabled;
+        }
+
         public void RegisterDependencies()
         {
-            handlerFactory = new HandlerFactory();
-            workerFactory = new WorkerFactory();
-            messageStorage = new MessageStorage();
+            var handlerFactory = new HandlerFactory();
+            var workerFactory = new WorkerFactory();
+            var messageStorage = new MessageStorage();
             
-            orchestrator = new Orchestrator(new OrchestratorConfig(), messageStorage, new MessageBroker(new Broker()), workerFactory);
+            Orchestrator = new Orchestrator(new OrchestratorConfig(), messageStorage, new MessageBroker(new Broker()), workerFactory);
 
-            var messageClient = new MessageClient();
-            var messageQueue = new MessageQueue();
+            var messageClient = isMonitoringEnabled 
+                ? new MonitoredMessageClient() 
+                : new MessageClient();
+
+            var messageQueue = isMonitoringEnabled 
+                ? new MonitoredMessageQueue() 
+                : new MessageQueue();
 
             var csnGateway = new CsnGateway(new CsnConfig(), messageClient);
             var apGateway = new ApGateway(new Encryptor(), new ApConfig(), messageClient);
             var institutionGateway = new InstitutionGateway(new RoutingConfig(), messageClient, messageQueue);
 
-            var processAsync = new AsyncProcessingHandler(orchestrator);
-            handlerFactory.Set(Handlers.ProcessAsync, processAsync);
+            var processAsync = new AsyncProcessingHandler(Orchestrator);
+            handlerFactory.Set(Handlers.ProcessAsync, Handler(processAsync));
             
             var decrypt = new DecryptionHandler(new Decryptor());
-            handlerFactory.Set(Handlers.Decrypt, decrypt);
+            handlerFactory.Set(Handlers.Decrypt, Handler(decrypt));
             
             var validateEnvelope = new EnvelopeValidationHandler(new EnvelopeValidator(), new EnvelopeValidationErrorFactory());
-            handlerFactory.Set(Handlers.ValidateEnvelope, validateEnvelope);
+            handlerFactory.Set(Handlers.ValidateEnvelope, Handler(validateEnvelope));
             
             var persist = new PersistenceHandler(messageStorage);
-            handlerFactory.Set(Handlers.Persist, persist);
+            handlerFactory.Set(Handlers.Persist, Handler(persist));
             
             var pullRequest = new PullRequestHandler(new MessageProvider(messageQueue));
-            handlerFactory.Set(Handlers.PullRequest, pullRequest);
+            handlerFactory.Set(Handlers.PullRequest, Handler(pullRequest));
             
             var receipt = new ReceiptHandler(new ReceiptFactory());
-            handlerFactory.Set(Handlers.Receipt, receipt);
+            handlerFactory.Set(Handlers.Receipt, Handler(receipt));
             
             var validateSignature = new SignatureValidationHandler(new EnvelopeSignatureValidator(), new EnvelopeSignatureValidationErrorFactory());
-            handlerFactory.Set(Handlers.ValidateSignature, validateSignature);
+            handlerFactory.Set(Handlers.ValidateSignature, Handler(validateSignature));
             
             var validateTlsCertificate = new TlsCertificateValidationHandler(new CertificateValidator(), new TlsCertificateValidationErrorFactory());
-            handlerFactory.Set(Handlers.ValidateTlsCertificate, validateTlsCertificate);
+            handlerFactory.Set(Handlers.ValidateTlsCertificate, Handler(validateTlsCertificate));
 
             var scanner = new Scanner();
             var antimalwareErrorFactory = new AntimalwareErrorFactory();
             var scanMessageFromCsn = new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, csnGateway);
-            workerFactory.Set(Workers.ScanMessageFromCsn, scanMessageFromCsn);
+            workerFactory.Set(Workers.ScanMessageFromCsn, Worker(scanMessageFromCsn));
             var scanMessageFromAp = new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, apGateway);
-            workerFactory.Set(Workers.ScanMessageFromAp, scanMessageFromAp);
+            workerFactory.Set(Workers.ScanMessageFromAp, Worker(scanMessageFromAp));
             var scanMessageFromInstitution = new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, institutionGateway);
-            workerFactory.Set(Workers.ScanMessageFromInstitution, scanMessageFromInstitution);
+            workerFactory.Set(Workers.ScanMessageFromInstitution, Worker(scanMessageFromInstitution));
 
             var documentValidator = new DocumentValidator();
             var documentValidationErrorFactory = new DocumentValidationErrorFactory();
             var validateDocumentFromCsn = new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, csnGateway);
-            workerFactory.Set(Workers.ValidateDocumentFromCsn, validateDocumentFromCsn);
+            workerFactory.Set(Workers.ValidateDocumentFromCsn, Worker(validateDocumentFromCsn));
             var validateDocumentFromAp = new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, apGateway);
-            workerFactory.Set(Workers.ValidateDocumentFromAp, validateDocumentFromAp);
+            workerFactory.Set(Workers.ValidateDocumentFromAp, Worker(validateDocumentFromAp));
             var validateDocumentFromInstitution = new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, institutionGateway);
-            workerFactory.Set(Workers.ValidateDocumentFromInstitution, validateDocumentFromInstitution);
+            workerFactory.Set(Workers.ValidateDocumentFromInstitution, Worker(validateDocumentFromInstitution));
 
             var forwardToAp = new ForwardingWorker(apGateway);
-            workerFactory.Set(Workers.ForwardToAp, forwardToAp);
+            workerFactory.Set(Workers.ForwardToAp, Worker(forwardToAp));
             var forwardToInstitution = new ForwardingWorker(institutionGateway);
-            workerFactory.Set(Workers.ForwardToInstitution, forwardToInstitution);
+            workerFactory.Set(Workers.ForwardToInstitution, Worker(forwardToInstitution));
 
             var cdmStorage = new CdmStorage();
             var importCdm = new CdmImportWorker(new CdmImporter());
-            workerFactory.Set(Workers.ImportCdm, importCdm);
+            workerFactory.Set(Workers.ImportCdm, Worker(importCdm));
             var reportCdm = new CdmReportWorker(new CdmReporter(), csnGateway);
-            workerFactory.Set(Workers.ReportCdm, reportCdm);
+            workerFactory.Set(Workers.ReportCdm, Worker(reportCdm));
             var provideCdm = new CdmRequestWorker(new CdmProvider(new CdmRequestParser(), cdmStorage, messageStorage, csnGateway));
-            workerFactory.Set(Workers.ProvideCdm, provideCdm);
+            workerFactory.Set(Workers.ProvideCdm, Worker(provideCdm));
             var publishCdm = new CdmSubscriptionsWorker(new CdmPublisher(new CdmSubscriptionStorage(), cdmStorage, messageStorage, institutionGateway));
-            workerFactory.Set(Workers.PublishCdm, publishCdm);
+            workerFactory.Set(Workers.PublishCdm, Worker(publishCdm));
 
             var irStorage = new IrStorage();
             var importIr = new IrImportWorker(new IrImporter());
-            workerFactory.Set(Workers.ImportIr, importIr);
+            workerFactory.Set(Workers.ImportIr, Worker(importIr));
             var provideIr = new IrRequestWorker(new IrProvider(new IrRequestParser(), irStorage, messageStorage, institutionGateway));
-            workerFactory.Set(Workers.ProvideIr, provideIr);
+            workerFactory.Set(Workers.ProvideIr, Worker(provideIr));
             var publishIr = new IrSubscriptionsWorker(new IrPublisher(new IrSubscriptionStorage(), irStorage, messageStorage, institutionGateway));
-            workerFactory.Set(Workers.PublishIr, publishIr);
+            workerFactory.Set(Workers.PublishIr, Worker(publishIr));
 
-            messageServer = new MessageServer(new WebServer(), handlerFactory);
+            MessageServer = new MessageServer(new WebServer(), handlerFactory);
 
             var routingRuleStorage = new RoutingRuleStorage();
-            configurationServer = new ConfigurationServer(
+            ConfigurationServer = new ConfigurationServer(
                 new WebServer(), 
                 new GetAllRoutingRulesApi(routingRuleStorage),
                 new AddRoutingRuleApi(routingRuleStorage),
@@ -142,19 +153,14 @@ namespace AP.Host.Console
                 new DeleteRoutingRuleApi(routingRuleStorage));
         }
 
-        public Orchestrator GetOrchestrator()
+        private IHandler Handler(IHandler handler)
         {
-            return orchestrator;
+            return isMonitoringEnabled ? new MonitoredHandler(handler) : handler;
         }
 
-        public MessageServer GetMessageServer()
+        private IWorker Worker(IWorker worker)
         {
-            return messageServer;
-        }
-
-        public ConfigurationServer GetConfigurationServer()
-        {
-            return configurationServer;
+            return isMonitoringEnabled ? new MonitoredWorker(worker) : worker;
         }
     }
 }

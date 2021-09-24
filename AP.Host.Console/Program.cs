@@ -4,12 +4,13 @@
     {
         static void Main(string[] args)
         {
-            var store = new Store();
-            store.RegisterDependencies();
+            var context = new Context();
+            context.SetMonitoring(true);
+            context.RegisterDependencies();
             
-            store.GetOrchestrator().Start();
-            store.GetMessageServer().Start();
-            store.GetConfigurationServer().Start();
+            context.Orchestrator.Start();
+            context.MessageServer.Start();
+            context.ConfigurationServer.Start();
 
             System.Console.WriteLine("Press [enter] to stop");
             System.Console.ReadLine();

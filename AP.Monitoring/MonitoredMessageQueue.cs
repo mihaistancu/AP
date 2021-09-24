@@ -1,22 +1,22 @@
 ﻿using AP.Gateways.Institution;
+using AP.Messaging.Queue;
 using AP.Processing;
 using System;
 
 namespace AP.Monitoring
 {
-    public class MonitoredMessageQueue: IMessageQueue
+    public class MonitoredMessageQueue: MessageQueue
     {
-        private IMessageQueue queue;
-
-        public MonitoredMessageQueue(IMessageQueue queue)
-        {
-            this.queue = queue;
-        }
-
-        public void Enqueue(string channel, Message message)
+        public override void Enqueue(string channel, Message message)
         {
             Console.WriteLine("Queue");
-            queue.Enqueue(channel, message);
+            base.Enqueue(channel, message);
+        }
+
+        public override Message Dequeue(string channel)
+        {
+            Console.WriteLine("Dequeue");
+            return base.Dequeue(channel);
         }
     }
 }
