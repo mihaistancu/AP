@@ -1,15 +1,22 @@
-﻿using AP.Messaging.Client;
+﻿using AP.Gateways.Institution;
 using AP.Processing;
 using System;
 
 namespace AP.Monitoring
 {
-    public class MonitoredMessageClient: MessageClient
+    public class MonitoredMessageClient: IMessageClient
     {
-        public override void Send(string url, Message message)
+        private IMessageClient client;
+
+        public MonitoredMessageClient(IMessageClient client)
+        {
+            this.client = client;
+        }
+
+        public void Send(string url, Message message)
         {
             Console.WriteLine("Push");
-            base.Send(url, message);
+            client.Send(url, message);
         }
     }
 }

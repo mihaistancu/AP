@@ -46,11 +46,12 @@
   <ItemGroup>
     <Compile Include="Async\IBroker.cs" />
     <Compile Include="Async\MessageBroker.cs" />
-    <Compile Include="Async\Rule.cs" />
+    <Compile Include="Async\OrchestratorConfig.cs" />
+    <Compile Include="Async\OrchestratorRule.cs" />
     <Compile Include="Async\Synchronization\CDM\Report\ICdmReporter.cs" />
     <Compile Include="Async\Synchronization\CDM\Request\ICdmProvider.cs" />
     <Compile Include="Async\IGateway.cs" />
-    <Compile Include="Async\WorkerMap.cs" />
+    <Compile Include="Async\WorkerFactory.cs" />
     <Compile Include="IMessageStorage.cs" />
     <Compile Include="Async\Antimalware\IAntimalwareErrorFactory.cs" />
     <Compile Include="Async\Synchronization\CDM\Subscriptions\ICdmPublisher.cs" />
@@ -96,10 +97,10 @@
     <Compile Include="Sync\TlsCertificateValidation\TlsCertificateValidationHandler.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Sync\IOutput.cs" />
-    <Compile Include="Sync\Pipeline.cs" />
     <Compile Include="Sync\TlsCertificateValidation\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sync\IHandler.cs" />
+    <Compile Include="Async\Workers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

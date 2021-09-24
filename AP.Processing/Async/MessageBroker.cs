@@ -7,27 +7,24 @@ namespace AP.Processing.Async
     public class MessageBroker
     {
         private IBroker broker;
-        private WorkerMap map;
 
-        public MessageBroker(IBroker broker, WorkerMap map)
+        public MessageBroker(IBroker broker)
         {
             this.broker = broker;
-            this.map = map;
         }
 
-        public void Start(Action<IWorker, Message> handler)
+        public void Start(Action<string, Message> handler)
         {
             broker.Start(bytes => Handle(bytes, handler));
         }
 
-        private void Handle(byte[] bytes, Action<IWorker, Message> handler)
+        private void Handle(byte[] bytes, Action<string, Message> handler)
         {
             var text = Encoding.UTF8.GetString(bytes);
             var json = JObject.Parse(text);
 
             var workerName = json.Value<string>("workerName");
-            var worker = map.Worker(workerName);
-
+            
             var message = new Message
             {
                 UseCase = json.Value<string>("useCase"),
@@ -36,13 +33,11 @@ namespace AP.Processing.Async
                 EnvelopeType = json.Value<string>("envelopeType")
             };
 
-            handler.Invoke(worker, message);
+            handler.Invoke(workerName, message);
         }
 
-        public void Send(IWorker worker, Message message)
+        public void Send(string workerName, Message message)
         {
-            var workerName = map.Name(worker);
-
             var json = new JObject(
                 new JProperty("workerName", workerName),
                 new JProperty("useCase", message.UseCase),

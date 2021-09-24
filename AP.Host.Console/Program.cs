@@ -1,4 +1,6 @@
-﻿using AP.Host.Console.Dependencies;
+﻿using AP.Configuration.API;
+using AP.Messaging.Service;
+using AP.Processing.Async;
 
 namespace AP.Host.Console
 {
@@ -8,9 +10,10 @@ namespace AP.Host.Console
         {
             var store = new Store();
             store.RegisterDependencies();
+            store.EnableMonitoring();
 
-            store.Get<MessagingOrchestrator>().Start();
-            store.Get<MessagingServer>().Start();
+            store.Get<Orchestrator>().Start();
+            store.Get<MessageServer>().Start();
             store.Get<ConfigurationServer>().Start();
 
             System.Console.WriteLine("Press [enter] to stop");

@@ -1,130 +1,126 @@
-﻿using AP.Processing;
-using AP.Processing.Async;
+﻿using System.Collections.Generic;
+using System.Linq;
 
-namespace AP.Host.Console
+namespace AP.Processing.Async
 {
-    public class MessagingOrchestrator
+    public class OrchestratorConfig
     {
-        private Orchestrator orchestrator;
-        private Workers workers;
+        private List<OrchestratorRule> rules = new List<OrchestratorRule>();
 
-        public MessagingOrchestrator(Orchestrator orchestrator, Workers workers)
+        public void Load()
         {
-            this.orchestrator = orchestrator;
-            this.workers = workers;
-        }
-
-        public void Start()
-        {
-            orchestrator.Use(new Rule 
-            { 
+            rules.Add(new OrchestratorRule
+            {
                 UseCase = UseCase.Business,
                 Domain = Domain.International,
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromAp,
-                    workers.ValidateDocumentFromAp,
-                    workers.ForwardToInstitution)
+                    Workers.ScanMessageFromAp,
+                    Workers.ValidateDocumentFromAp,
+                    Workers.ForwardToInstitution)
             });
 
-            orchestrator.Use(new Rule
+            rules.Add(new OrchestratorRule
             {
                 UseCase = UseCase.Business,
                 Domain = Domain.National,
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromInstitution,
-                    workers.ValidateDocumentFromInstitution,
-                    workers.ForwardToAp)
+                    Workers.ScanMessageFromInstitution,
+                    Workers.ValidateDocumentFromInstitution,
+                    Workers.ForwardToAp)
             });
 
-            orchestrator.Use(new Rule
+            rules.Add(new OrchestratorRule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.International,
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN001",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromCsn,
-                    workers.ValidateDocumentFromCsn,
-                    workers.ImportIr,
-                    workers.PublishIr)
+                    Workers.ScanMessageFromCsn,
+                    Workers.ValidateDocumentFromCsn,
+                    Workers.ImportIr,
+                    Workers.PublishIr)
             });
 
-            orchestrator.Use(new Rule
+            rules.Add(new OrchestratorRule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.International,
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN003",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromCsn,
-                    workers.ValidateDocumentFromCsn,
-                    workers.ImportCdm,
-                    workers.PublishCdm)
+                    Workers.ScanMessageFromCsn,
+                    Workers.ValidateDocumentFromCsn,
+                    Workers.ImportCdm,
+                    Workers.PublishCdm)
             });
 
-            orchestrator.Use(new Rule
+            rules.Add(new OrchestratorRule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.International,
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN005",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromCsn,
-                    workers.ValidateDocumentFromCsn,
-                    workers.ReportCdm)
+                    Workers.ScanMessageFromCsn,
+                    Workers.ValidateDocumentFromCsn,
+                    Workers.ReportCdm)
             });
 
-            orchestrator.Use(new Rule
+            rules.Add(new OrchestratorRule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.National,
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN002",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromInstitution,
-                    workers.ValidateDocumentFromInstitution,
-                    workers.ProvideIr)
+                    Workers.ScanMessageFromInstitution,
+                    Workers.ValidateDocumentFromInstitution,
+                    Workers.ProvideIr)
             });
 
-            orchestrator.Use(new Rule
+            rules.Add(new OrchestratorRule
             {
                 UseCase = UseCase.System,
                 Domain = Domain.National,
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN004",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromInstitution,
-                    workers.ValidateDocumentFromInstitution,
-                    workers.ProvideCdm)
+                    Workers.ScanMessageFromInstitution,
+                    Workers.ValidateDocumentFromInstitution,
+                    Workers.ProvideCdm)
             });
 
-            orchestrator.Use(new Rule
+            rules.Add(new OrchestratorRule
             {
                 UseCase = "*",
                 Domain = Domain.International,
                 EnvelopeType = EnvelopeType.Signal,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromAp,
-                    workers.ForwardToInstitution)
+                    Workers.ScanMessageFromAp,
+                    Workers.ForwardToInstitution)
             });
 
-            orchestrator.Use(new Rule
+            rules.Add(new OrchestratorRule
             {
                 UseCase = "*",
                 Domain = Domain.National,
                 EnvelopeType = EnvelopeType.Signal,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    workers.ScanMessageFromInstitution,
-                    workers.ForwardToAp)
+                    Workers.ScanMessageFromInstitution,
+                    Workers.ForwardToAp)
             });
-
-            orchestrator.Start();
+        }
+        
+        public Workflow GetWorkflow(Message message)
+        {
+            return rules.First(rule => rule.Matches(message)).Workflow;
         }
     }
 }

@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HandlerFactory.cs" />
+    <Compile Include="Handlers.cs" />
     <Compile Include="MessageInput.cs" />
+    <Compile Include="MessageServer.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="MessageOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,39 +1,40 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace AP.Processing.Async
+﻿namespace AP.Processing.Async
 {
     public class Orchestrator
     {
-        private List<Rule> routes = new List<Rule>();
+        private OrchestratorConfig config;
         private IMessageStorage storage;
         private MessageBroker broker;
+        private WorkerFactory factory;
 
-        public Orchestrator(IMessageStorage storage, MessageBroker broker)
+        public Orchestrator(
+            OrchestratorConfig config,
+            IMessageStorage storage, 
+            MessageBroker broker,
+            WorkerFactory factory)
         {
+            this.config = config;
             this.storage = storage;
             this.broker = broker;
-        }
-
-        public void Use(Rule route)
-        {
-            routes.Add(route);
+            this.factory = factory;
         }
 
         public void Start()
         {
+            config.Load();
             broker.Start(Handle);
         }
 
-        private void Handle(IWorker worker, Message message)
+        private void Handle(string workerName, Message message)
         {
-            var workflow = GetWorkflow(message);
+            var workflow = config.GetWorkflow(message);
+            var worker = factory.Get(workerName);
             bool canContinue = worker.Handle(message);
 
-            if (canContinue && !workflow.IsLast(worker))
+            if (canContinue && !workflow.IsLast(workerName))
             {
-                var nextWorker = workflow.GetNext(worker);
-                broker.Send(nextWorker, message);
+                var nextWorkerName = workflow.GetNext(workerName);
+                broker.Send(nextWorkerName, message);
             }
             else
             {
@@ -43,14 +44,9 @@ namespace AP.Processing.Async
 
         public virtual void ProcessAsync(Message message)
         {
-            var workflow = GetWorkflow(message);
-            var worker = workflow.GetFirst();
-            broker.Send(worker, message);
-        }
-
-        private Workflow GetWorkflow(Message message)
-        {
-            return routes.First(route => route.Matches(message)).Workflow;
+            var workflow = config.GetWorkflow(message);
+            var workerName = workflow.GetFirst();
+            broker.Send(workerName, message);
         }
     }
 }

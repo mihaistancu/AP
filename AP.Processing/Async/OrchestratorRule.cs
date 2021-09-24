@@ -1,6 +1,6 @@
 ﻿namespace AP.Processing.Async
 {
-    public class Rule
+    public class OrchestratorRule
     {
         public string UseCase { get; set; }
         public string Domain { get; set; }

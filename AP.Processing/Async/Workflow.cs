@@ -4,25 +4,25 @@ namespace AP.Processing.Async
 {
     public class Workflow
     {
-        private IWorker[] workers;
+        private string[] workers;
 
-        public Workflow(params IWorker[] workers)
+        public Workflow(params string[] workers)
         {
             this.workers = workers;
         }
 
-        public IWorker GetFirst()
+        public string GetFirst()
         {
             return workers[0];
         }
 
-        public bool IsLast(IWorker worker)
+        public bool IsLast(string worker)
         {
-            IWorker last = workers[workers.Length - 1];
+            string last = workers[workers.Length - 1];
             return last == worker;
         }
 
-        public IWorker GetNext(IWorker worker)
+        public string GetNext(string worker)
         {
             int index = Array.FindIndex(workers, w => w == worker);
             return workers[index + 1];
