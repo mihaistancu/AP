@@ -44,7 +44,7 @@ using AP.Web.Server.Owin;
 
 namespace AP.Host.Console
 {
-    public class Context
+    public class Host
     {
         private bool isMonitoringEnabled;
 

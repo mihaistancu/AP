@@ -4,13 +4,13 @@
     {
         static void Main(string[] args)
         {
-            var context = new Context();
-            context.SetMonitoring(true);
-            context.RegisterDependencies();
+            var host = new Host();
+            host.SetMonitoring(true);
+            host.RegisterDependencies();
             
-            context.Orchestrator.Start();
-            context.MessageServer.Start();
-            context.ConfigurationServer.Start();
+            host.Orchestrator.Start();
+            host.MessageServer.Start();
+            host.ConfigurationServer.Start();
 
             System.Console.WriteLine("Press [enter] to stop");
             System.Console.ReadLine();
