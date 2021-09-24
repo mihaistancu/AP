@@ -7,12 +7,12 @@ namespace AP.Processing.Async
     public class MessageBroker
     {
         private IBroker broker;
-        private IWorkers workers;
+        private WorkerMap map;
 
-        public MessageBroker(IBroker broker, IWorkers workers)
+        public MessageBroker(IBroker broker, WorkerMap map)
         {
             this.broker = broker;
-            this.workers = workers;
+            this.map = map;
         }
 
         public void Start(Action<IWorker, Message> handler)
@@ -25,8 +25,8 @@ namespace AP.Processing.Async
             var text = Encoding.UTF8.GetString(bytes);
             var json = JObject.Parse(text);
 
-            var workerId = json.Value<string>("workerName");
-            var worker = workers.Worker(workerId);
+            var workerName = json.Value<string>("workerName");
+            var worker = map.Worker(workerName);
 
             var message = new Message
             {
@@ -41,7 +41,7 @@ namespace AP.Processing.Async
 
         public void Send(IWorker worker, Message message)
         {
-            var workerName = workers.Name(worker);
+            var workerName = map.Name(worker);
 
             var json = new JObject(
                 new JProperty("workerName", workerName),

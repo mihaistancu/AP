@@ -20,10 +20,9 @@ namespace AP.Host.Console
             container.RegisterType<MessageClient, MonitoredMessageClient>();
             container.RegisterType<MessageQueue, MonitoredMessageQueue>();
 
+            container.RegisterType<WorkerMap>(TypeLifetime.Singleton);
             container.RegisterType<RoutingRuleStorage>(TypeLifetime.Singleton);
             container.RegisterType<Orchestrator>(TypeLifetime.Singleton);
-            container.RegisterType<Handlers>(TypeLifetime.Singleton);
-            container.RegisterType<Workers>(TypeLifetime.Singleton);
         }
     }
 }

@@ -13,13 +13,13 @@ using AP.Processing.Async.Synchronization.CDM.Subscriptions;
 using AP.Processing.Async.Synchronization.IR.Import;
 using AP.Processing.Async.Synchronization.IR.Request;
 using AP.Processing.Async.Synchronization.IR.Subscriptions;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AP.Host.Console
 {
-    public class Workers : IWorkers
+    public class Workers
     {
+        private WorkerMap map;
+
         public IWorker ScanMessageFromCsn { get; private set; }
         public IWorker ScanMessageFromAp { get; private set; }
         public IWorker ScanMessageFromInstitution { get; private set; }
@@ -36,9 +36,8 @@ namespace AP.Host.Console
         public IWorker ProvideIr { get; private set; }
         public IWorker PublishIr { get; private set; }
 
-        Dictionary<string, IWorker> map = new Dictionary<string, IWorker>();
-
         public Workers(
+            WorkerMap map,
             AntimalwareWorker<CsnGateway> scanMessageFromCsn,
             AntimalwareWorker<ApGateway> scanMessageFromAp,
             AntimalwareWorker<InstitutionGateway> scanMessageFromInstitution,
@@ -55,6 +54,7 @@ namespace AP.Host.Console
             IrRequestWorker provideIr,
             IrSubscriptionsWorker publishIr)
         {
+            this.map = map;
             ScanMessageFromCsn = Map(scanMessageFromCsn, nameof(scanMessageFromCsn));
             ScanMessageFromAp = Map(scanMessageFromAp, nameof(scanMessageFromAp));
             ScanMessageFromInstitution = Map(scanMessageFromInstitution, nameof(scanMessageFromInstitution));
@@ -74,19 +74,7 @@ namespace AP.Host.Console
 
         private IWorker Map(IWorker worker, string name)
         {
-            var monitoredWorker = new MonitoredWorker(worker);
-            map[name] = monitoredWorker;
-            return monitoredWorker;
-        }
-
-        public IWorker Worker(string workerId)
-        {
-            return map[workerId];
-        }
-
-        public string Name(IWorker worker)
-        {
-            return map.Keys.Single(k => map[k] == worker);
+            return map.Add(new MonitoredWorker(worker), name);
         }
     }
 }

@@ -45,12 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Async\IBroker.cs" />
-    <Compile Include="Async\IWorkers.cs" />
     <Compile Include="Async\MessageBroker.cs" />
     <Compile Include="Async\Rule.cs" />
     <Compile Include="Async\Synchronization\CDM\Report\ICdmReporter.cs" />
     <Compile Include="Async\Synchronization\CDM\Request\ICdmProvider.cs" />
     <Compile Include="Async\Synchronization\ICsnGateway.cs" />
+    <Compile Include="Async\WorkerMap.cs" />
     <Compile Include="IMessageStorage.cs" />
     <Compile Include="Async\Antimalware\IAntimalwareErrorFactory.cs" />
     <Compile Include="Async\Synchronization\CDM\Subscriptions\ICdmPublisher.cs" />
