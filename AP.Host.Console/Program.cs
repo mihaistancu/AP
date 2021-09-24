@@ -1,4 +1,4 @@
-﻿using Unity;
+﻿using AP.Host.Console.Dependencies;
 
 namespace AP.Host.Console
 {
@@ -6,12 +6,12 @@ namespace AP.Host.Console
     {
         static void Main(string[] args)
         {
-            var container = new UnityContainer();
-            Registration.Setup(container);
+            var store = new Store();
+            store.RegisterDependencies();
 
-            container.Resolve<MessagingOrchestrator>().Start();
-            container.Resolve<MessagingServer>().Start();
-            container.Resolve<ConfigurationServer>().Start();
+            store.Get<MessagingOrchestrator>().Start();
+            store.Get<MessagingServer>().Start();
+            store.Get<ConfigurationServer>().Start();
 
             System.Console.WriteLine("Press [enter] to stop");
             System.Console.ReadLine();

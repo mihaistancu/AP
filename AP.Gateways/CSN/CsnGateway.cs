@@ -1,6 +1,6 @@
 ﻿using AP.Gateways.Institution;
 using AP.Processing;
-using AP.Processing.Async.Synchronization;
+using AP.Processing.Async;
 
 namespace AP.Gateways.CSN
 {

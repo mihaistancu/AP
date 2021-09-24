@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Async.Synchronization
+﻿namespace AP.Processing.Async
 {
     public interface IGateway
     {

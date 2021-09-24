@@ -49,7 +49,7 @@
     <Compile Include="Async\Rule.cs" />
     <Compile Include="Async\Synchronization\CDM\Report\ICdmReporter.cs" />
     <Compile Include="Async\Synchronization\CDM\Request\ICdmProvider.cs" />
-    <Compile Include="Async\Synchronization\ICsnGateway.cs" />
+    <Compile Include="Async\IGateway.cs" />
     <Compile Include="Async\WorkerMap.cs" />
     <Compile Include="IMessageStorage.cs" />
     <Compile Include="Async\Antimalware\IAntimalwareErrorFactory.cs" />

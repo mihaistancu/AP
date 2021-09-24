@@ -1,5 +1,5 @@
 ﻿using AP.Processing;
-using AP.Processing.Async.Synchronization;
+using AP.Processing.Async;
 
 namespace AP.Gateways.Institution
 {

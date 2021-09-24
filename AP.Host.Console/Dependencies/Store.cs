@@ -1,16 +1,26 @@
-﻿using Unity;
-using AP.Processing.Async;
-using AP.Routing;
-using Unity.RegistrationByConvention;
+﻿using AP.Gateways.CSN;
 using AP.Messaging.Client;
-using AP.Monitoring;
 using AP.Messaging.Queue;
+using AP.Monitoring;
+using AP.Processing.Async;
+using AP.Processing.Async.Antimalware;
+using AP.Routing;
+using Unity;
+using Unity.Injection;
+using Unity.RegistrationByConvention;
 
-namespace AP.Host.Console
+namespace AP.Host.Console.Dependencies
 {
-    public class Registration
+    public class Store
     {
-        public static void Setup(UnityContainer container)
+        UnityContainer container;
+
+        public Store()
+        {
+            container = new UnityContainer();
+        }
+
+        public void RegisterDependencies()
         {
             container.RegisterTypes(
                 AllClasses.FromAssembliesInBasePath(),
@@ -23,6 +33,11 @@ namespace AP.Host.Console
             container.RegisterType<WorkerMap>(TypeLifetime.Singleton);
             container.RegisterType<RoutingRuleStorage>(TypeLifetime.Singleton);
             container.RegisterType<Orchestrator>(TypeLifetime.Singleton);
+        }
+
+        public T Get<T>()
+        {
+            return container.Resolve<T>();
         }
     }
 }
