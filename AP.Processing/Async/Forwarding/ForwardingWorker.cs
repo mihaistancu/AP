@@ -1,10 +1,10 @@
 ﻿namespace AP.Processing.Async.Forwarding
 {
-    public class ForwardingWorker<T> : IWorker where T: IGateway
+    public class ForwardingWorker : IWorker
     {
-        private T gateway;
+        private IGateway gateway;
 
-        public ForwardingWorker(T gateway)
+        public ForwardingWorker(IGateway gateway)
         {
             this.gateway = gateway;
         }

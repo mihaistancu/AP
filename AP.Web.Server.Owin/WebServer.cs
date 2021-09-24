@@ -8,12 +8,7 @@ namespace AP.Web.Server.Owin
 {
     public class WebServer : IWebServer
     {
-        protected Router router;
-
-        public WebServer(Router router)
-        {
-            this.router = router;
-        }
+        private Router router = new Router();
 
         public IDisposable Start(string url)
         {

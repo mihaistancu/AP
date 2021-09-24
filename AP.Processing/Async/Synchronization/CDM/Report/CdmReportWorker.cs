@@ -1,11 +1,11 @@
 ﻿namespace AP.Processing.Async.Synchronization.CDM.Report
 {
-    public class CdmReportWorker<T> : IWorker where T : IGateway
+    public class CdmReportWorker : IWorker
     {
         private ICdmReporter reporter;
-        private T gateway;
+        private IGateway gateway;
 
-        public CdmReportWorker(ICdmReporter reporter, T gateway)
+        public CdmReportWorker(ICdmReporter reporter, IGateway gateway)
         {
             this.reporter = reporter;
             this.gateway = gateway;

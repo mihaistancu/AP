@@ -1,17 +1,17 @@
 ﻿namespace AP.Processing.Async.DocumentValidation
 {
-    public class DocumentValidationWorker<T> : IWorker where T: IGateway
+    public class DocumentValidationWorker : IWorker
     {
         private IDocumentValidator validator;
         private IDocumentValidationErrorFactory errorFactory;
         private IMessageStorage storage;
-        private T gateway;
+        private IGateway gateway;
 
         public DocumentValidationWorker(
             IDocumentValidator validator,
             IDocumentValidationErrorFactory errorFactory,
             IMessageStorage storage,
-            T gateway)
+            IGateway gateway)
         {
             this.validator = validator;
             this.errorFactory = errorFactory;
