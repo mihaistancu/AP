@@ -68,13 +68,13 @@
       <Project>{7ea4c423-e3c0-4e9e-b999-f2ac1370fc1d}</Project>
       <Name>AP.Dependencies</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Service\AP.Server.csproj">
-      <Project>{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}</Project>
-      <Name>AP.Server</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
       <Name>AP.Orchestration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
+      <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
+      <Name>AP.Server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

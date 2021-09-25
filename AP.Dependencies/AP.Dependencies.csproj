@@ -106,10 +106,6 @@
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messages</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Service\AP.Server.csproj">
-      <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
-      <Name>AP.Server</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Monitoring\AP.Monitoring.csproj">
       <Project>{03f9eaeb-4e9d-4e69-bc36-c9ebad6ff26d}</Project>
       <Name>AP.Monitoring</Name>
@@ -125,6 +121,10 @@
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
       <Project>{29df01a0-db14-46d1-90c9-c4a347af009a}</Project>
       <Name>AP.Routing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
+      <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
+      <Name>AP.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Signing\AP.Signing.csproj">
       <Project>{5105965c-cb56-4ad8-a383-de76bea64cc9}</Project>
