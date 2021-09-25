@@ -7,7 +7,7 @@ namespace AP.Host.Console
 {
     public class ConfigurationServerFactory
     {
-        public ConfigurationServer Get()
+        public static ConfigurationServer Get()
         {
             var routingRuleStorage = new RoutingRuleStorage();
 

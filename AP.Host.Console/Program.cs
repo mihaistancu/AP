@@ -4,12 +4,11 @@
     {
         static void Main(string[] args)
         {
-            var host = new Host();
-            host.RegisterDependencies();
+            Context.Build();
 
-            using (host.Orchestrator.Start())
-            using (host.MessageServer.Start())
-            using (host.ConfigurationServer.Start())
+            using (Context.Orchestrator.Start())
+            using (Context.MessageServer.Start())
+            using (Context.ConfigurationServer.Start())
             {
                 System.Console.WriteLine("Press [enter] to stop");
                 System.Console.ReadLine();

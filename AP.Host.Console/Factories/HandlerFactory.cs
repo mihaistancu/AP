@@ -27,14 +27,11 @@ namespace AP.Host.Console
         private Dictionary<string, IHandler> cache = new Dictionary<string, IHandler>();
         private Dictionary<string, Func<IHandler>> factories = new Dictionary<string, Func<IHandler>>();
 
-        public HandlerFactory(
-            Orchestrator orchestrator, 
-            MessageStorage messageStorage, 
-            MessageQueue messageQueue)
+        public HandlerFactory()
         {
             factories[Handler.ProcessAsync] = 
                 () => new MonitoredHandler(
-                    new AsyncProcessingHandler(orchestrator));
+                    new AsyncProcessingHandler(Context.Orchestrator));
 
             factories[Handler.Decrypt] =
                 () => new MonitoredHandler(
@@ -48,12 +45,12 @@ namespace AP.Host.Console
 
             factories[Handler.Persist] =
                 () => new MonitoredHandler(
-                    new PersistenceHandler(messageStorage));
+                    new PersistenceHandler(Context.MessageStorage));
 
             factories[Handler.PullRequest] =
                 () => new MonitoredHandler(
                     new PullRequestHandler(
-                        new MessageProvider(messageQueue)));
+                        new MessageProvider(Context.MessageQueue)));
                 
             factories[Handler.Receipt] = 
                 () => new MonitoredHandler(

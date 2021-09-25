@@ -52,13 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context.cs" />
     <Compile Include="Factories\ConfigurationServerFactory.cs" />
     <Compile Include="Factories\HandlerFactory.cs" />
     <Compile Include="Factories\MessageServerFactory.cs" />
     <Compile Include="Factories\OrchestratorFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Host.cs" />
     <Compile Include="Factories\WorkerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
