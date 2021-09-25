@@ -52,6 +52,10 @@
       <Project>{81cff28f-ccbd-4fb1-8559-9551ff737a0e}</Project>
       <Name>AP.Handlers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
+      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
+      <Name>AP.Messages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Messaging.Client\AP.Client.csproj">
       <Project>{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}</Project>
       <Name>AP.Client</Name>
@@ -59,10 +63,6 @@
     <ProjectReference Include="..\AP.Messaging.Queue\AP.Queue.csproj">
       <Project>{702A93B8-EE87-4FCA-A5A8-522169705EC1}</Project>
       <Name>AP.Queue</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging\AP.Messages.csproj">
-      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
-      <Name>AP.Messages</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
       <Project>{913e6e50-277d-4638-ad84-5196d0e033d8}</Project>

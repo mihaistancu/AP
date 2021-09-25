@@ -57,7 +57,7 @@
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
       <Name>AP.IO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging\AP.Messages.csproj">
+    <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messages</Name>
     </ProjectReference>

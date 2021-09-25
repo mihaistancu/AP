@@ -98,6 +98,10 @@
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
+      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
+      <Name>AP.Messages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Messaging.Client\AP.Client.csproj">
       <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
       <Name>AP.Client</Name>
@@ -109,10 +113,6 @@
     <ProjectReference Include="..\AP.Messaging.Service\AP.Server.csproj">
       <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
       <Name>AP.Server</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging\AP.Messages.csproj">
-      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
-      <Name>AP.Messages</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Monitoring\AP.Monitoring.csproj">
       <Project>{03f9eaeb-4e9d-4e69-bc36-c9ebad6ff26d}</Project>
