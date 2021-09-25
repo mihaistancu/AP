@@ -5,7 +5,6 @@
         static void Main(string[] args)
         {
             var host = new Host();
-            host.SetMonitoring(true);
             host.RegisterDependencies();
             
             host.Orchestrator.Start();
