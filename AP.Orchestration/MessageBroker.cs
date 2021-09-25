@@ -14,9 +14,9 @@ namespace AP.Orchestration
             this.broker = broker;
         }
 
-        public void Start(Action<string, Message> handler)
+        public IDisposable Start(Action<string, Message> handler)
         {
-            broker.Start(bytes => Handle(bytes, handler));
+            return broker.Start(bytes => Handle(bytes, handler));
         }
 
         private void Handle(byte[] bytes, Action<string, Message> handler)

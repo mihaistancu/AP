@@ -16,7 +16,7 @@ namespace AP.Messaging.Service
             this.getHandler = getHandler;
         }
 
-        public void Start()
+        public IDisposable Start()
         {
             Map("/Business/Inbound",
                 Handler.ValidateTlsCertificate,
@@ -60,7 +60,7 @@ namespace AP.Messaging.Service
                 Handler.ValidateEnvelope,
                 Handler.PullRequest);
 
-            server.Start("http://localhost:9000");
+            return server.Start("http://localhost:9000");
         }
 
         private void Map(string url, params string[] pipeline)

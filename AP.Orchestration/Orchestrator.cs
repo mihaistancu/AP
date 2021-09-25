@@ -23,10 +23,10 @@ namespace AP.Orchestration
             this.getWorker = getWorker;
         }
 
-        public void Start()
+        public IDisposable Start()
         {
             config.Load();
-            broker.Start(Handle);
+            return broker.Start(Handle);
         }
 
         private void Handle(string workerName, Message message)

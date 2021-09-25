@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace AP.Middleware.RabbitMQ
 {
-    public class RabbitMqBroker: IBroker, IDisposable
+    public class RabbitMqBroker: IBroker
     {
         private IConnection connection;
         private IModel receiveChannel;
 
-        public void Start(Action<byte[]> handler)
+        public IDisposable Start(Action<byte[]> handler)
         {
             var factory = new ConnectionFactory() { DispatchConsumersAsync = true };
             connection = factory.CreateConnection();
@@ -34,6 +34,8 @@ namespace AP.Middleware.RabbitMQ
                 queue: "hello",
                 autoAck: true,
                 consumer: consumer);
+
+            return new BrokerInternals(connection, receiveChannel);
         }
 
         public void Send(byte[] bytes)
@@ -46,12 +48,6 @@ namespace AP.Middleware.RabbitMQ
                     basicProperties: null,
                     body: bytes);
             }
-        }
-
-        public void Dispose()
-        {
-            connection.Dispose();
-            receiveChannel.Dispose();
         }
     }
 }

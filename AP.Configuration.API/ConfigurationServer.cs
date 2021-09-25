@@ -1,5 +1,6 @@
 ﻿using AP.Configuration.API.Routing;
 using AP.Web.Server;
+using System;
 
 namespace AP.Configuration.API
 {
@@ -25,14 +26,14 @@ namespace AP.Configuration.API
             this.deleteRoutingRule = deleteRoutingRule;
         }
 
-        public void Start()
+        public IDisposable Start()
         {
             server.Map("GET", "/api/routing-rules", getAllRoutingRules);
             server.Map("POST", "/api/routing-rules", addRoutingRule);
             server.Map("PUT", "/api/routing-rules/{id}", updateRoutingRule);
             server.Map("DELETE", "/api/routing-rules/{id}", deleteRoutingRule);
 
-            server.Start("http://localhost:9090");
+            return server.Start("http://localhost:9090");
         }
     }
 }
