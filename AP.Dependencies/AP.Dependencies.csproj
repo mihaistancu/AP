@@ -70,6 +70,10 @@
       <Project>{18b6b51a-f726-4ac5-b53f-2c0b922e8854}</Project>
       <Name>AP.Certificates</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Client\AP.Client.csproj">
+      <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
+      <Name>AP.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Configuration\AP.Configuration.csproj">
       <Project>{582b1f10-e26f-4fa7-adb7-25ecc14a8877}</Project>
       <Name>AP.Configuration</Name>
@@ -101,10 +105,6 @@
     <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Client\AP.Client.csproj">
-      <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
-      <Name>AP.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Messaging.Service\AP.Server.csproj">
       <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>

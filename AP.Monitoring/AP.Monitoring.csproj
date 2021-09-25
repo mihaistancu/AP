@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AP.Client\AP.Client.csproj">
+      <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
+      <Name>AP.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj">
       <Project>{81cff28f-ccbd-4fb1-8559-9551ff737a0e}</Project>
       <Name>AP.Handlers</Name>
@@ -55,10 +59,6 @@
     <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Client\AP.Client.csproj">
-      <Project>{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}</Project>
-      <Name>AP.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Queue\AP.Queue.csproj">
       <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>
