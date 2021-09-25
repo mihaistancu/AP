@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Scanner", "AP.Antimalware.Amsi\AP.Scanner.csproj", "{387B1707-0E51-47E6-B079-94861EA7E04C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Validation", "AP.Validation\AP.Validation.csproj", "{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.IR", "AP.IR\AP.IR.csproj", "{B5638D18-9A42-41CF-94BA-7F6E018EA018}"
@@ -53,16 +51,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Client", "AP.Client\AP.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Server", "AP.Server\AP.Server.csproj", "{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Scanner", "AP.Scanner\AP.Scanner.csproj", "{387B1707-0E51-47E6-B079-94861EA7E04C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{387B1707-0E51-47E6-B079-94861EA7E04C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{387B1707-0E51-47E6-B079-94861EA7E04C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{387B1707-0E51-47E6-B079-94861EA7E04C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{387B1707-0E51-47E6-B079-94861EA7E04C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -159,6 +155,10 @@ Global
 		{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{387B1707-0E51-47E6-B079-94861EA7E04C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387B1707-0E51-47E6-B079-94861EA7E04C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387B1707-0E51-47E6-B079-94861EA7E04C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387B1707-0E51-47E6-B079-94861EA7E04C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -50,10 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Antimalware.Amsi\AP.Scanner.csproj">
-      <Project>{387b1707-0e51-47e6-b079-94861ea7e04c}</Project>
-      <Name>AP.Scanner</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.AS4\AP.AS4.csproj">
       <Project>{c4b16e50-f49c-4388-b6ef-d20ca01152eb}</Project>
       <Name>AP.AS4</Name>
@@ -121,6 +117,10 @@
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
       <Project>{29df01a0-db14-46d1-90c9-c4a347af009a}</Project>
       <Name>AP.Routing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Scanner\AP.Scanner.csproj">
+      <Project>{387b1707-0e51-47e6-b079-94861ea7e04c}</Project>
+      <Name>AP.Scanner</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Server\AP.Server.csproj">
       <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
