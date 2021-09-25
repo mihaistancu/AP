@@ -74,6 +74,10 @@
       <Project>{C4B16E50-F49C-4388-B6EF-D20CA01152EB}</Project>
       <Name>AP.AS4</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Broker.RabbitMq\AP.Broker.RabbitMq.csproj">
+      <Project>{38DA337C-711A-4FDF-971C-29A71D4F76BA}</Project>
+      <Name>AP.Broker.RabbitMq</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.CDM\AP.CDM.csproj">
       <Project>{40b9536c-7c97-4110-9d97-bf55618297a9}</Project>
       <Name>AP.CDM</Name>
@@ -82,9 +86,9 @@
       <Project>{18B6B51A-F726-4AC5-B53F-2C0B922E8854}</Project>
       <Name>AP.Certificates</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Configuration.API\AP.Configuration.API.csproj">
-      <Project>{5a27ce8b-9282-4d84-8272-3f89cca858d6}</Project>
-      <Name>AP.Configuration.API</Name>
+    <ProjectReference Include="..\AP.Configuration.Service\AP.Configuration.Service.csproj">
+      <Project>{582b1f10-e26f-4fa7-adb7-25ecc14a8877}</Project>
+      <Name>AP.Configuration.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Cryptography\AP.Cryptography.csproj">
       <Project>{5F9C8BF4-34F7-4741-8A06-5016CD44BC08}</Project>
@@ -117,10 +121,6 @@
     <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messaging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
-      <Project>{b5fa51c6-5ddb-4e52-8a56-2dbf6b6c1282}</Project>
-      <Name>AP.Middleware.RabbitMQ</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Monitoring\AP.Monitoring.csproj">
       <Project>{03F9EAEB-4E9D-4E69-BC36-C9EBAD6FF26D}</Project>

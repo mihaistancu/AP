@@ -1,5 +1,5 @@
 ﻿using AP.Configuration.API;
-using AP.Configuration.API.Routing;
+using AP.Configuration.Service.Routing.API;
 using AP.Routing;
 using AP.Web.Server.Owin;
 

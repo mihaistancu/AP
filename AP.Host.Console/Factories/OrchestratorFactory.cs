@@ -1,6 +1,6 @@
-﻿using AP.Messaging.Client;
+﻿using AP.Broker.RabbitMq;
+using AP.Messaging.Client;
 using AP.Messaging.Queue;
-using AP.Middleware.RabbitMQ;
 using AP.Orchestration;
 using AP.Storage;
 

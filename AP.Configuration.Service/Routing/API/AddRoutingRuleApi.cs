@@ -1,14 +1,14 @@
-﻿using AP.Routing;
+﻿using AP.Configuration.API;
 using AP.Web.Server;
 using Newtonsoft.Json.Linq;
 
-namespace AP.Configuration.API.Routing
+namespace AP.Configuration.Service.Routing.API
 {
     public class AddRoutingRuleApi : JsonApi, IWebService
     {
-        private RoutingRuleStorage storage;
+        private IRoutingRuleStorage storage;
 
-        public AddRoutingRuleApi(RoutingRuleStorage storage)
+        public AddRoutingRuleApi(IRoutingRuleStorage storage)
         {
             this.storage = storage;
         }

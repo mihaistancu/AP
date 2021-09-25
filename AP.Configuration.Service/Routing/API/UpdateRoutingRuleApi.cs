@@ -1,13 +1,13 @@
-﻿using AP.Routing;
+﻿using AP.Configuration.API;
 using AP.Web.Server;
 
-namespace AP.Configuration.API.Routing
+namespace AP.Configuration.Service.Routing.API
 {
     public class UpdateRoutingRuleApi : JsonApi, IWebService
     {
-        private RoutingRuleStorage storage;
+        private IRoutingRuleStorage storage;
 
-        public UpdateRoutingRuleApi(RoutingRuleStorage storage)
+        public UpdateRoutingRuleApi(IRoutingRuleStorage storage)
         {
             this.storage = storage;
         }

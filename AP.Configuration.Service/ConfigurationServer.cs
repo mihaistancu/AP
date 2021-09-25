@@ -1,4 +1,4 @@
-﻿using AP.Configuration.API.Routing;
+﻿using AP.Configuration.Service.Routing.API;
 using AP.Web.Server;
 using System;
 

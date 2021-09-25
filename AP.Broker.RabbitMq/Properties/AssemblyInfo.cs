@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AP.Configuration.API")]
+[assembly: AssemblyTitle("AP.Broker.RabbitMq")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AP.Configuration.API")]
+[assembly: AssemblyProduct("AP.Broker.RabbitMq")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5a27ce8b-9282-4d84-8272-3f89cca858d6")]
+[assembly: Guid("38da337c-711a-4fdf-971c-29a71d4f76ba")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -4,9 +4,9 @@ using RabbitMQ.Client.Events;
 using System;
 using System.Threading.Tasks;
 
-namespace AP.Middleware.RabbitMQ
+namespace AP.Broker.RabbitMq
 {
-    public class RabbitMqBroker: IBroker
+    public class RabbitMqBroker : IBroker
     {
         private IConnection connection;
         private IModel receiveChannel;
@@ -39,7 +39,7 @@ namespace AP.Middleware.RabbitMQ
         }
 
         public void Send(byte[] bytes)
-        {   
+        {
             using (var sendChannel = connection.CreateModel())
             {
                 sendChannel.BasicPublish(

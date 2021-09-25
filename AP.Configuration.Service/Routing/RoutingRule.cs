@@ -1,4 +1,4 @@
-﻿namespace AP.Routing
+﻿namespace AP.Configuration.Service.Routing
 {
     public class RoutingRule
     {
