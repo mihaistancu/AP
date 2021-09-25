@@ -1,22 +1,24 @@
-﻿namespace AP.Processing.Async
+﻿using System;
+
+namespace AP.Processing.Async
 {
     public class Orchestrator
     {
         private OrchestratorConfig config;
         private IMessageStorage storage;
         private MessageBroker broker;
-        private WorkerFactory factory;
+        private Func<string, IWorker> getWorker;
 
         public Orchestrator(
             OrchestratorConfig config,
             IMessageStorage storage, 
             MessageBroker broker,
-            WorkerFactory factory)
+            Func<string, IWorker> getWorker)
         {
             this.config = config;
             this.storage = storage;
             this.broker = broker;
-            this.factory = factory;
+            this.getWorker = getWorker;
         }
 
         public void Start()
@@ -28,7 +30,7 @@
         private void Handle(string workerName, Message message)
         {
             var workflow = config.GetWorkflow(message);
-            var worker = factory.Get(workerName);
+            var worker = getWorker(workerName);
             bool canContinue = worker.Handle(message);
 
             if (canContinue && !workflow.IsLast(workerName))

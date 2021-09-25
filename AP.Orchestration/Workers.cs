@@ -2,20 +2,20 @@
 {
     public class Workers
     {
-        public static string ScanMessageFromCsn => nameof(ScanMessageFromCsn);
-        public static string ScanMessageFromAp => nameof(ScanMessageFromAp);
-        public static string ScanMessageFromInstitution => nameof(ScanMessageFromInstitution);
-        public static string ValidateDocumentFromCsn => nameof(ValidateDocumentFromCsn);
-        public static string ValidateDocumentFromAp => nameof(ValidateDocumentFromAp);
-        public static string ValidateDocumentFromInstitution => nameof(ValidateDocumentFromInstitution);
-        public static string ForwardToAp => nameof(ForwardToAp);
-        public static string ForwardToInstitution => nameof(ForwardToInstitution);
-        public static string ImportCdm => nameof(ImportCdm);
-        public static string ReportCdm => nameof(ReportCdm);
-        public static string ProvideCdm => nameof(ProvideCdm);
-        public static string PublishCdm => nameof(PublishCdm);
-        public static string ImportIr => nameof(ImportIr);
-        public static string ProvideIr => nameof(ProvideIr);
-        public static string PublishIr => nameof(PublishIr);
+        public const string ScanMessageFromCsn = "ScanMessageFromCsn";
+        public const string ScanMessageFromAp = "ScanMessageFromAp";
+        public const string ScanMessageFromInstitution = "ScanMessageFromInstitution";
+        public const string ValidateDocumentFromCsn = "ValidateDocumentFromCsn";
+        public const string ValidateDocumentFromAp = "ValidateDocumentFromAp";
+        public const string ValidateDocumentFromInstitution = "ValidateDocumentFromInstitution";
+        public const string ForwardToAp = "ForwardToAp";
+        public const string ForwardToInstitution = "ForwardToInstitution";
+        public const string ImportCdm = "ImportCdm";
+        public const string ReportCdm = "ReportCdm";
+        public const string ProvideCdm = "ProvideCdm";
+        public const string PublishCdm = "PublishCdm";
+        public const string ImportIr = "ImportIr";
+        public const string ProvideIr = "ProvideIr";
+        public const string PublishIr = "PublishIr";
     }
 }

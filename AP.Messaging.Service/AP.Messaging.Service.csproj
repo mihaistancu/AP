@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HandlerFactory.cs" />
     <Compile Include="Handlers.cs" />
     <Compile Include="MessageInput.cs" />
     <Compile Include="MessageServer.cs" />

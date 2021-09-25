@@ -1,5 +1,6 @@
-﻿using AP.Host.Console;
+﻿using AP.Processing.Sync;
 using AP.Web.Server;
+using System;
 using System.Linq;
 
 namespace AP.Messaging.Service
@@ -7,12 +8,12 @@ namespace AP.Messaging.Service
     public class MessageServer
     {
         private IWebServer server;
-        private HandlerFactory factory;
+        private Func<string, IHandler> getHandler;
 
-        public MessageServer(IWebServer server, HandlerFactory factory)
+        public MessageServer(IWebServer server, Func<string, IHandler> getHandler)
         {
             this.server = server;
-            this.factory = factory;
+            this.getHandler = getHandler;
         }
 
         public void Start()
@@ -64,7 +65,7 @@ namespace AP.Messaging.Service
 
         private void Map(string url, params string[] pipeline)
         {
-            var handlers = pipeline.Select(factory.Get);
+            var handlers = pipeline.Select(getHandler);
             server.Map("POST", url, new MessageService(handlers));
         }
     }

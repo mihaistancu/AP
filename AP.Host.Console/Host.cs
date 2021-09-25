@@ -41,6 +41,7 @@ using AP.Signing;
 using AP.Storage;
 using AP.Validation;
 using AP.Web.Server.Owin;
+using System;
 
 namespace AP.Host.Console
 {
@@ -59,12 +60,8 @@ namespace AP.Host.Console
 
         public void RegisterDependencies()
         {
-            var handlerFactory = new HandlerFactory();
-            var workerFactory = new WorkerFactory();
             var messageStorage = new MessageStorage();
             
-            Orchestrator = new Orchestrator(new OrchestratorConfig(), messageStorage, new MessageBroker(new RabbitMqBroker()), workerFactory);
-
             var messageClient = isMonitoringEnabled 
                 ? new MonitoredMessageClient() 
                 : new MessageClient();
@@ -77,73 +74,83 @@ namespace AP.Host.Console
             var apGateway = new ApGateway(new Encryptor(), new ApConfig(), messageClient);
             var institutionGateway = new InstitutionGateway(new RoutingConfig(), messageClient, messageQueue);
 
-            var processAsync = new AsyncProcessingHandler(Orchestrator);
-            handlerFactory.Set(Handlers.ProcessAsync, Handler(processAsync));
-            
-            var decrypt = new DecryptionHandler(new Decryptor());
-            handlerFactory.Set(Handlers.Decrypt, Handler(decrypt));
-            
-            var validateEnvelope = new EnvelopeValidationHandler(new EnvelopeValidator(), new EnvelopeValidationErrorFactory());
-            handlerFactory.Set(Handlers.ValidateEnvelope, Handler(validateEnvelope));
-            
-            var persist = new PersistenceHandler(messageStorage);
-            handlerFactory.Set(Handlers.Persist, Handler(persist));
-            
-            var pullRequest = new PullRequestHandler(new MessageProvider(messageQueue));
-            handlerFactory.Set(Handlers.PullRequest, Handler(pullRequest));
-            
-            var receipt = new ReceiptHandler(new ReceiptFactory());
-            handlerFactory.Set(Handlers.Receipt, Handler(receipt));
-            
-            var validateSignature = new SignatureValidationHandler(new EnvelopeSignatureValidator(), new EnvelopeSignatureValidationErrorFactory());
-            handlerFactory.Set(Handlers.ValidateSignature, Handler(validateSignature));
-            
-            var validateTlsCertificate = new TlsCertificateValidationHandler(new CertificateValidator(), new TlsCertificateValidationErrorFactory());
-            handlerFactory.Set(Handlers.ValidateTlsCertificate, Handler(validateTlsCertificate));
-
             var scanner = new AmsiScanner();
             var antimalwareErrorFactory = new AntimalwareErrorFactory();
-            var scanMessageFromCsn = new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, csnGateway);
-            workerFactory.Set(Workers.ScanMessageFromCsn, Worker(scanMessageFromCsn));
-            var scanMessageFromAp = new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, apGateway);
-            workerFactory.Set(Workers.ScanMessageFromAp, Worker(scanMessageFromAp));
-            var scanMessageFromInstitution = new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, institutionGateway);
-            workerFactory.Set(Workers.ScanMessageFromInstitution, Worker(scanMessageFromInstitution));
+            var scanMessageFromCsn = Worker(new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, csnGateway));
+            var scanMessageFromAp = Worker(new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, apGateway));
+            var scanMessageFromInstitution = Worker(new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, institutionGateway));
 
             var documentValidator = new DocumentValidator();
             var documentValidationErrorFactory = new DocumentValidationErrorFactory();
-            var validateDocumentFromCsn = new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, csnGateway);
-            workerFactory.Set(Workers.ValidateDocumentFromCsn, Worker(validateDocumentFromCsn));
-            var validateDocumentFromAp = new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, apGateway);
-            workerFactory.Set(Workers.ValidateDocumentFromAp, Worker(validateDocumentFromAp));
-            var validateDocumentFromInstitution = new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, institutionGateway);
-            workerFactory.Set(Workers.ValidateDocumentFromInstitution, Worker(validateDocumentFromInstitution));
+            var validateDocumentFromCsn = Worker(new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, csnGateway));
+            var validateDocumentFromAp = Worker(new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, apGateway));
+            var validateDocumentFromInstitution = Worker(new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, institutionGateway));
 
             var forwardToAp = new ForwardingWorker(apGateway);
-            workerFactory.Set(Workers.ForwardToAp, Worker(forwardToAp));
             var forwardToInstitution = new ForwardingWorker(institutionGateway);
-            workerFactory.Set(Workers.ForwardToInstitution, Worker(forwardToInstitution));
-
             var cdmStorage = new CdmStorage();
-            var importCdm = new CdmImportWorker(new CdmImporter());
-            workerFactory.Set(Workers.ImportCdm, Worker(importCdm));
-            var reportCdm = new CdmReportWorker(new CdmReporter(), csnGateway);
-            workerFactory.Set(Workers.ReportCdm, Worker(reportCdm));
-            var provideCdm = new CdmRequestWorker(new CdmProvider(new CdmRequestParser(), cdmStorage, messageStorage, csnGateway));
-            workerFactory.Set(Workers.ProvideCdm, Worker(provideCdm));
-            var publishCdm = new CdmSubscriptionsWorker(new CdmPublisher(new CdmSubscriptionStorage(), cdmStorage, messageStorage, institutionGateway));
-            workerFactory.Set(Workers.PublishCdm, Worker(publishCdm));
+            var importCdm = Worker(new CdmImportWorker(new CdmImporter()));
+            var reportCdm = Worker(new CdmReportWorker(new CdmReporter(), csnGateway));
+            var provideCdm = Worker(new CdmRequestWorker(new CdmProvider(new CdmRequestParser(), cdmStorage, messageStorage, csnGateway)));
+            var publishCdm = Worker(new CdmSubscriptionsWorker(new CdmPublisher(new CdmSubscriptionStorage(), cdmStorage, messageStorage, institutionGateway)));
 
             var irStorage = new IrStorage();
-            var importIr = new IrImportWorker(new IrImporter());
-            workerFactory.Set(Workers.ImportIr, Worker(importIr));
-            var provideIr = new IrRequestWorker(new IrProvider(new IrRequestParser(), irStorage, messageStorage, institutionGateway));
-            workerFactory.Set(Workers.ProvideIr, Worker(provideIr));
-            var publishIr = new IrSubscriptionsWorker(new IrPublisher(new IrSubscriptionStorage(), irStorage, messageStorage, institutionGateway));
-            workerFactory.Set(Workers.PublishIr, Worker(publishIr));
+            var importIr = Worker(new IrImportWorker(new IrImporter()));
+            var provideIr = Worker(new IrRequestWorker(new IrProvider(new IrRequestParser(), irStorage, messageStorage, institutionGateway)));
+            var publishIr = Worker(new IrSubscriptionsWorker(new IrPublisher(new IrSubscriptionStorage(), irStorage, messageStorage, institutionGateway)));
+            
+            Func<string, IWorker> getWorker = name =>
+            {
+                switch (name)
+                {
+                    case Workers.ScanMessageFromCsn: return scanMessageFromCsn;
+                    case Workers.ScanMessageFromAp: return scanMessageFromAp;
+                    case Workers.ScanMessageFromInstitution: return scanMessageFromInstitution;
+                    case Workers.ValidateDocumentFromCsn: return validateDocumentFromCsn;
+                    case Workers.ValidateDocumentFromAp: return validateDocumentFromAp;
+                    case Workers.ValidateDocumentFromInstitution: return validateDocumentFromInstitution;
+                    case Workers.ForwardToAp: return forwardToAp;
+                    case Workers.ForwardToInstitution: return forwardToInstitution;
+                    case Workers.ImportCdm: return importCdm;
+                    case Workers.ReportCdm: return reportCdm;
+                    case Workers.ProvideCdm: return provideCdm;
+                    case Workers.PublishCdm: return publishCdm;
+                    case Workers.ImportIr: return importIr;
+                    case Workers.ProvideIr: return provideIr;
+                    case Workers.PublishIr: return publishIr;
+                }
+                throw new Exception("Uknown worker");
+            };
 
-            MessageServer = new MessageServer(new OwinWebServer(), handlerFactory);
+            Orchestrator = new Orchestrator(new OrchestratorConfig(), messageStorage, new MessageBroker(new RabbitMqBroker()), getWorker);
 
+            var processAsync = Handler(new AsyncProcessingHandler(Orchestrator));
+            var decrypt = Handler(new DecryptionHandler(new Decryptor()));
+            var validateEnvelope = Handler(new EnvelopeValidationHandler(new EnvelopeValidator(), new EnvelopeValidationErrorFactory()));
+            var persist = Handler(new PersistenceHandler(messageStorage));
+            var pullRequest = Handler(new PullRequestHandler(new MessageProvider(messageQueue)));
+            var receipt = Handler(new ReceiptHandler(new ReceiptFactory()));
+            var validateSignature = Handler(new SignatureValidationHandler(new EnvelopeSignatureValidator(), new EnvelopeSignatureValidationErrorFactory()));
+            var validateTlsCertificate = Handler(new TlsCertificateValidationHandler(new CertificateValidator(), new TlsCertificateValidationErrorFactory()));
+
+            Func<string, IHandler> getHandler = name =>
+            {
+                switch (name)
+                {
+                    case Handlers.ProcessAsync: return processAsync;
+                    case Handlers.Decrypt: return decrypt;
+                    case Handlers.ValidateEnvelope: return validateEnvelope;
+                    case Handlers.Persist: return persist;
+                    case Handlers.PullRequest: return pullRequest;
+                    case Handlers.Receipt: return receipt;
+                    case Handlers.ValidateSignature: return validateSignature;
+                    case Handlers.ValidateTlsCertificate: return validateTlsCertificate;
+                }
+                throw new Exception("Uknown worker");
+            };
+
+            MessageServer = new MessageServer(new OwinWebServer(), getHandler);
+            
             var routingRuleStorage = new RoutingRuleStorage();
             ConfigurationServer = new ConfigurationServer(
                 new OwinWebServer(), 
