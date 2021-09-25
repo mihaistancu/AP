@@ -106,10 +106,6 @@
       <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
       <Name>AP.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Queue\AP.Queue.csproj">
-      <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>
-      <Name>AP.Queue</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Messaging.Service\AP.Server.csproj">
       <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
       <Name>AP.Server</Name>
@@ -121,6 +117,10 @@
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
       <Name>AP.Orchestration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Queue\AP.Queue.csproj">
+      <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>
+      <Name>AP.Queue</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
       <Project>{29df01a0-db14-46d1-90c9-c4a347af009a}</Project>

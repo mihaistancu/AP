@@ -60,8 +60,8 @@
       <Project>{9D4B7206-FCB5-4FAB-AF6B-1F2AC7D8D5EC}</Project>
       <Name>AP.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Queue\AP.Queue.csproj">
-      <Project>{702A93B8-EE87-4FCA-A5A8-522169705EC1}</Project>
+    <ProjectReference Include="..\AP.Queue\AP.Queue.csproj">
+      <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>
       <Name>AP.Queue</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
