@@ -46,9 +46,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
-      <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
-      <Name>AP.Processing</Name>
+    <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj">
+      <Project>{81CFF28F-CCBD-4FB1-8559-9551FF737A0E}</Project>
+      <Name>AP.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
+      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
+      <Name>AP.Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
+      <Project>{913E6E50-277D-4638-AD84-5196D0E033D8}</Project>
+      <Name>AP.Workers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

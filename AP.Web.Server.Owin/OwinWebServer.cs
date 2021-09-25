@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AP.Web.Server.Owin
 {
-    public class WebServer : IWebServer
+    public class OwinWebServer : IWebServer
     {
         private Router router = new Router();
 

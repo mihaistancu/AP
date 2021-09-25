@@ -1,5 +1,4 @@
-﻿using AP.Gateways.Institution;
-using AP.Messaging.Client;
+﻿using AP.Messaging.Client;
 using AP.Processing;
 using System;
 

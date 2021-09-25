@@ -63,7 +63,7 @@ namespace AP.Host.Console
             var workerFactory = new WorkerFactory();
             var messageStorage = new MessageStorage();
             
-            Orchestrator = new Orchestrator(new OrchestratorConfig(), messageStorage, new MessageBroker(new Broker()), workerFactory);
+            Orchestrator = new Orchestrator(new OrchestratorConfig(), messageStorage, new MessageBroker(new RabbitMqBroker()), workerFactory);
 
             var messageClient = isMonitoringEnabled 
                 ? new MonitoredMessageClient() 
@@ -101,7 +101,7 @@ namespace AP.Host.Console
             var validateTlsCertificate = new TlsCertificateValidationHandler(new CertificateValidator(), new TlsCertificateValidationErrorFactory());
             handlerFactory.Set(Handlers.ValidateTlsCertificate, Handler(validateTlsCertificate));
 
-            var scanner = new Scanner();
+            var scanner = new AmsiScanner();
             var antimalwareErrorFactory = new AntimalwareErrorFactory();
             var scanMessageFromCsn = new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, csnGateway);
             workerFactory.Set(Workers.ScanMessageFromCsn, Worker(scanMessageFromCsn));
@@ -142,11 +142,11 @@ namespace AP.Host.Console
             var publishIr = new IrSubscriptionsWorker(new IrPublisher(new IrSubscriptionStorage(), irStorage, messageStorage, institutionGateway));
             workerFactory.Set(Workers.PublishIr, Worker(publishIr));
 
-            MessageServer = new MessageServer(new WebServer(), handlerFactory);
+            MessageServer = new MessageServer(new OwinWebServer(), handlerFactory);
 
             var routingRuleStorage = new RoutingRuleStorage();
             ConfigurationServer = new ConfigurationServer(
-                new WebServer(), 
+                new OwinWebServer(), 
                 new GetAllRoutingRulesApi(routingRuleStorage),
                 new AddRoutingRuleApi(routingRuleStorage),
                 new UpdateRoutingRuleApi(routingRuleStorage),

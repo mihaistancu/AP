@@ -98,6 +98,10 @@
       <Project>{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}</Project>
       <Name>AP.Gateways</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj">
+      <Project>{81cff28f-ccbd-4fb1-8559-9551ff737a0e}</Project>
+      <Name>AP.Handlers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.IR\AP.IR.csproj">
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>
@@ -114,6 +118,10 @@
       <Project>{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}</Project>
       <Name>AP.Messaging.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
+      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
+      <Name>AP.Messaging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Middleware.RabbitMQ\AP.Middleware.RabbitMQ.csproj">
       <Project>{b5fa51c6-5ddb-4e52-8a56-2dbf6b6c1282}</Project>
       <Name>AP.Middleware.RabbitMQ</Name>
@@ -122,9 +130,9 @@
       <Project>{03F9EAEB-4E9D-4E69-BC36-C9EBAD6FF26D}</Project>
       <Name>AP.Monitoring</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
-      <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
-      <Name>AP.Processing</Name>
+    <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
+      <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
+      <Name>AP.Orchestration</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
       <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
@@ -149,6 +157,10 @@
     <ProjectReference Include="..\AP.Web.Server\AP.Web.Server.csproj">
       <Project>{C4764DD2-4ABD-408D-96E7-451B15AA9025}</Project>
       <Name>AP.Web.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
+      <Project>{913e6e50-277d-4638-ad84-5196d0e033d8}</Project>
+      <Name>AP.Workers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

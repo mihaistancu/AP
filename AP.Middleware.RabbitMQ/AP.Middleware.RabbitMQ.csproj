@@ -66,7 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Broker.cs" />
+    <Compile Include="RabbitMqBroker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,13 +74,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
-      <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
-      <Name>AP.Processing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
-      <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
-      <Name>AP.Routing</Name>
+    <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
+      <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
+      <Name>AP.Orchestration</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

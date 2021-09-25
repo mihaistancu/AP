@@ -50,13 +50,17 @@
       <Project>{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}</Project>
       <Name>AP.Gateways</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Processing\AP.Processing.csproj">
-      <Project>{4b656307-8e04-44de-a978-6d016b2fad4d}</Project>
-      <Name>AP.Processing</Name>
+    <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj">
+      <Project>{81cff28f-ccbd-4fb1-8559-9551ff737a0e}</Project>
+      <Name>AP.Handlers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
-      <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
-      <Name>AP.Routing</Name>
+    <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
+      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
+      <Name>AP.Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
+      <Project>{913e6e50-277d-4638-ad84-5196d0e033d8}</Project>
+      <Name>AP.Workers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
