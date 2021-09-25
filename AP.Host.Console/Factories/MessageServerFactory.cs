@@ -12,7 +12,10 @@ namespace AP.Host.Console
         private MessageStorage messageStorage;
         private MessageQueue messageQueue;
 
-        public MessageServerFactory(Orchestrator orchestrator, MessageStorage messageStorage, MessageQueue messageQueue)
+        public MessageServerFactory(
+            Orchestrator orchestrator, 
+            MessageStorage messageStorage, 
+            MessageQueue messageQueue)
         {
             this.orchestrator = orchestrator;
             this.messageStorage = messageStorage;
