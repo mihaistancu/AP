@@ -1,6 +1,7 @@
 ﻿using AP.Handlers.PullRequest;
+using AP.Messages;
 
-namespace AP.Messaging.Queue
+namespace AP.Queue
 {
     public class MessageProvider : IMessageProvider
     {

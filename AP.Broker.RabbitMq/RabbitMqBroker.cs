@@ -4,7 +4,7 @@ using RabbitMQ.Client.Events;
 using System;
 using System.Threading.Tasks;
 
-namespace AP.Broker.RabbitMq
+namespace AP.Broker
 {
     public class RabbitMqBroker : IBroker
     {

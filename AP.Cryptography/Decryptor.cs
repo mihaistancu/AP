@@ -1,5 +1,5 @@
 ﻿using AP.Handlers.Decryption;
-using AP.Messaging;
+using AP.Messages;
 
 namespace AP.Cryptography
 {

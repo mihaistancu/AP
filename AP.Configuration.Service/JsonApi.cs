@@ -1,9 +1,9 @@
-﻿using AP.Web.Server;
+﻿using AP.IO;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Text;
 
-namespace AP.Configuration.API
+namespace AP.Configuration
 {
     public class JsonApi
     {

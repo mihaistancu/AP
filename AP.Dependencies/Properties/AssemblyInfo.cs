@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AP.IO")]
+[assembly: AssemblyTitle("AP.Dependencies")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AP.IO")]
+[assembly: AssemblyProduct("AP.Dependencies")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c4764dd2-4abd-408d-96e7-451b15aa9025")]
+[assembly: Guid("7ea4c423-e3c0-4e9e-b999-f2ac1370fc1d")]
 
 // Version information for an assembly consists of the following four values:
 //

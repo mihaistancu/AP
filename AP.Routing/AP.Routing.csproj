@@ -46,17 +46,17 @@
     <Compile Include="RoutingRuleStorage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Configuration.Service\AP.Configuration.Service.csproj">
+    <ProjectReference Include="..\AP.Configuration.Service\AP.Configuration.csproj">
       <Project>{582B1F10-E26F-4FA7-ADB7-25ECC14A8877}</Project>
-      <Name>AP.Configuration.Service</Name>
+      <Name>AP.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">
       <Project>{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}</Project>
       <Name>AP.Gateways</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
+    <ProjectReference Include="..\AP.Messaging\AP.Messages.csproj">
       <Project>{EF1676A4-4F7F-4DEE-A147-B9E5CA608D17}</Project>
-      <Name>AP.Messaging</Name>
+      <Name>AP.Messages</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

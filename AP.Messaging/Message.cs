@@ -1,4 +1,4 @@
-﻿namespace AP.Messaging
+﻿namespace AP.Messages
 {
     public class Message
     {

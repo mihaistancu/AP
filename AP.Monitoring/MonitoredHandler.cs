@@ -1,5 +1,5 @@
 ﻿using AP.Handlers;
-using AP.Messaging;
+using AP.Messages;
 using System;
 
 namespace AP.Monitoring

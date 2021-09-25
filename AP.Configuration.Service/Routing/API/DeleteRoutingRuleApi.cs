@@ -1,6 +1,6 @@
-﻿using AP.Web.Server;
+﻿using AP.IO;
 
-namespace AP.Configuration.Service.Routing.API
+namespace AP.Configuration.Routing.API
 {
     public class DeleteRoutingRuleApi : IWebService
     {

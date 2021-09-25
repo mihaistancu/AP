@@ -1,8 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using AP.IO;
+using Microsoft.Owin;
 using System.Collections.Generic;
 using System.IO;
 
-namespace AP.Web.Server.Owin
+namespace AP.Https
 {
     public class WebInput : IWebInput
     {

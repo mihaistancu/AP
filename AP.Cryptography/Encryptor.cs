@@ -1,5 +1,5 @@
 ﻿using AP.Gateways.AP;
-using AP.Messaging;
+using AP.Messages;
 
 namespace AP.Cryptography
 {

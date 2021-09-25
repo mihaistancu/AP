@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace AP.Web.Server
+namespace AP.IO
 {
     public interface IWebInput
     {

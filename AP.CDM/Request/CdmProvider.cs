@@ -1,5 +1,5 @@
 ﻿using AP.Gateways.CSN;
-using AP.Messaging;
+using AP.Messages;
 using AP.Workers.Synchronization.CDM.Request;
 
 namespace AP.CDM

@@ -1,5 +1,5 @@
 ﻿using AP.Gateways.Institution;
-using AP.Messaging;
+using AP.Messages;
 
 namespace AP.Routing
 {

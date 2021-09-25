@@ -1,9 +1,9 @@
-﻿using AP.Configuration.API;
-using AP.Configuration.Service.Routing.API;
+﻿using AP.Configuration;
+using AP.Configuration.Routing.API;
+using AP.Https;
 using AP.Routing;
-using AP.Web.Server.Owin;
 
-namespace AP.Host.Console
+namespace AP.Dependencies.Factories
 {
     public class ConfigurationServerFactory
     {

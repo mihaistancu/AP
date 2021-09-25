@@ -1,4 +1,4 @@
-﻿using AP.Messaging;
+﻿using AP.Messages;
 using System;
 
 namespace AP.IR.Request

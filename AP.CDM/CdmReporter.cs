@@ -1,4 +1,4 @@
-﻿using AP.Messaging;
+﻿using AP.Messages;
 using AP.Workers.Synchronization.CDM.Report;
 
 namespace AP.CDM

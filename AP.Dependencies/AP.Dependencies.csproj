@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{24423105-889B-4721-AF52-0F9D2E29DB16}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>AP.Host.Console</RootNamespace>
-    <AssemblyName>AP.Host.Console</AssemblyName>
+    <ProjectGuid>{7EA4C423-E3C0-4E9E-B999-F2AC1370FC1D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AP.Dependencies</RootNamespace>
+    <AssemblyName>AP.Dependencies</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,17 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.4.2.0\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,45 +46,40 @@
     <Compile Include="Factories\HandlerFactory.cs" />
     <Compile Include="Factories\MessageServerFactory.cs" />
     <Compile Include="Factories\OrchestratorFactory.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Factories\WorkerFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AP.Antimalware.Amsi\AP.Antimalware.Amsi.csproj">
+    <ProjectReference Include="..\AP.Antimalware.Amsi\AP.Scanner.csproj">
       <Project>{387b1707-0e51-47e6-b079-94861ea7e04c}</Project>
-      <Name>AP.Antimalware.Amsi</Name>
+      <Name>AP.Scanner</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.AS4\AP.AS4.csproj">
-      <Project>{C4B16E50-F49C-4388-B6EF-D20CA01152EB}</Project>
+      <Project>{c4b16e50-f49c-4388-b6ef-d20ca01152eb}</Project>
       <Name>AP.AS4</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Broker.RabbitMq\AP.Broker.RabbitMq.csproj">
-      <Project>{38DA337C-711A-4FDF-971C-29A71D4F76BA}</Project>
-      <Name>AP.Broker.RabbitMq</Name>
+    <ProjectReference Include="..\AP.Broker.RabbitMq\AP.Broker.csproj">
+      <Project>{38da337c-711a-4fdf-971c-29a71d4f76ba}</Project>
+      <Name>AP.Broker</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.CDM\AP.CDM.csproj">
       <Project>{40b9536c-7c97-4110-9d97-bf55618297a9}</Project>
       <Name>AP.CDM</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Certificates\AP.Certificates.csproj">
-      <Project>{18B6B51A-F726-4AC5-B53F-2C0B922E8854}</Project>
+      <Project>{18b6b51a-f726-4ac5-b53f-2c0b922e8854}</Project>
       <Name>AP.Certificates</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Configuration.Service\AP.Configuration.Service.csproj">
+    <ProjectReference Include="..\AP.Configuration.Service\AP.Configuration.csproj">
       <Project>{582b1f10-e26f-4fa7-adb7-25ecc14a8877}</Project>
-      <Name>AP.Configuration.Service</Name>
+      <Name>AP.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Cryptography\AP.Cryptography.csproj">
-      <Project>{5F9C8BF4-34F7-4741-8A06-5016CD44BC08}</Project>
+      <Project>{5f9c8bf4-34f7-4741-8a06-5016cd44bc08}</Project>
       <Name>AP.Cryptography</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">
-      <Project>{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}</Project>
+      <Project>{3000cfb2-4e38-4fb0-84a1-b9c279f0bca5}</Project>
       <Name>AP.Gateways</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj">
@@ -106,24 +90,24 @@
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Client\AP.Messaging.Client.csproj">
+    <ProjectReference Include="..\AP.Messaging.Client\AP.Client.csproj">
       <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
-      <Name>AP.Messaging.Client</Name>
+      <Name>AP.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Queue\AP.Messaging.Queue.csproj">
+    <ProjectReference Include="..\AP.Messaging.Queue\AP.Queue.csproj">
       <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>
-      <Name>AP.Messaging.Queue</Name>
+      <Name>AP.Queue</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging.Service\AP.Messaging.Service.csproj">
-      <Project>{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}</Project>
-      <Name>AP.Messaging.Service</Name>
+    <ProjectReference Include="..\AP.Messaging.Service\AP.Server.csproj">
+      <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
+      <Name>AP.Server</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
+    <ProjectReference Include="..\AP.Messaging\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
-      <Name>AP.Messaging</Name>
+      <Name>AP.Messages</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Monitoring\AP.Monitoring.csproj">
-      <Project>{03F9EAEB-4E9D-4E69-BC36-C9EBAD6FF26D}</Project>
+      <Project>{03f9eaeb-4e9d-4e69-bc36-c9ebad6ff26d}</Project>
       <Name>AP.Monitoring</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
@@ -131,28 +115,28 @@
       <Name>AP.Orchestration</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
-      <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
+      <Project>{29df01a0-db14-46d1-90c9-c4a347af009a}</Project>
       <Name>AP.Routing</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Signing\AP.Signing.csproj">
-      <Project>{5105965C-CB56-4AD8-A383-DE76BEA64CC9}</Project>
+      <Project>{5105965c-cb56-4ad8-a383-de76bea64cc9}</Project>
       <Name>AP.Signing</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Storage\AP.Storage.csproj">
-      <Project>{EBDD1A1F-4F6B-4675-BA97-2688CE2C1BEC}</Project>
+      <Project>{ebdd1a1f-4f6b-4675-ba97-2688ce2c1bec}</Project>
       <Name>AP.Storage</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Validation\AP.Validation.csproj">
-      <Project>{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}</Project>
+      <Project>{4e640ab5-8eaa-4895-b30f-a9d922a12edc}</Project>
       <Name>AP.Validation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Server.Owin\AP.Web.Server.Owin.csproj">
-      <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
-      <Name>AP.Web.Server.Owin</Name>
+    <ProjectReference Include="..\AP.Web.Server.Owin\AP.Https.csproj">
+      <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
+      <Name>AP.Https</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Server\AP.Web.Server.csproj">
-      <Project>{C4764DD2-4ABD-408D-96E7-451B15AA9025}</Project>
-      <Name>AP.Web.Server</Name>
+    <ProjectReference Include="..\AP.Web.Server\AP.IO.csproj">
+      <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
+      <Name>AP.IO</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
       <Project>{913e6e50-277d-4638-ad84-5196d0e033d8}</Project>

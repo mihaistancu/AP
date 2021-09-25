@@ -1,5 +1,5 @@
 ﻿using AP.Gateways.Institution;
-using AP.Messaging;
+using AP.Messages;
 using AP.Workers.Synchronization.CDM.Subscriptions;
 
 namespace AP.CDM

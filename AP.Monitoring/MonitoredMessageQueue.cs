@@ -1,5 +1,5 @@
-﻿using AP.Messaging;
-using AP.Messaging.Queue;
+﻿using AP.Messages;
+using AP.Queue;
 using System;
 
 namespace AP.Monitoring

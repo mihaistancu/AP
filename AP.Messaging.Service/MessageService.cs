@@ -1,8 +1,8 @@
 ﻿using AP.Handlers;
-using AP.Web.Server;
+using AP.IO;
 using System.Collections.Generic;
 
-namespace AP.Messaging.Service
+namespace AP.Server
 {
     public class MessageService : IWebService
     {
@@ -18,7 +18,7 @@ namespace AP.Messaging.Service
             var input = new MessageInput(webInput);
             var output = new MessageOutput(webOutput);
             var message = input.GetMessage();
-            
+
             foreach (var handler in handlers)
             {
                 handler.Handle(message, output);

@@ -1,4 +1,4 @@
-﻿namespace AP.Web.Server
+﻿namespace AP.IO
 {
     public interface IWebOutput
     {

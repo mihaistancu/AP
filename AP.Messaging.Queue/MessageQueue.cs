@@ -1,6 +1,7 @@
 ﻿using AP.Gateways.Institution;
+using AP.Messages;
 
-namespace AP.Messaging.Queue
+namespace AP.Queue
 {
     public class MessageQueue : IMessageQueue
     {

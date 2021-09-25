@@ -1,4 +1,6 @@
-﻿namespace AP.Host.Console
+﻿using AP.Dependencies;
+
+namespace AP.Host
 {
     class Program
     {

@@ -1,6 +1,7 @@
 ﻿using AP.Gateways.Institution;
+using AP.Messages;
 
-namespace AP.Messaging.Client
+namespace AP.Client
 {
     public class MessageClient : IMessageClient
     {

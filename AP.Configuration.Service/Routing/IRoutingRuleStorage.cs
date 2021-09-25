@@ -1,4 +1,4 @@
-﻿namespace AP.Configuration.Service.Routing
+﻿namespace AP.Configuration.Routing
 {
     public interface IRoutingRuleStorage
     {

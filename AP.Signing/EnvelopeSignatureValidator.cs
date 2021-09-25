@@ -1,5 +1,5 @@
 ﻿using AP.Handlers.SignatureValidation;
-using AP.Messaging;
+using AP.Messages;
 
 namespace AP.Signing
 {

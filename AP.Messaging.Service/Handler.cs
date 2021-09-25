@@ -1,4 +1,4 @@
-﻿namespace AP.Messaging.Service
+﻿namespace AP.Server
 {
     public class Handler
     {

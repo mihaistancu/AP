@@ -53,9 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
+    <ProjectReference Include="..\AP.Messaging\AP.Messages.csproj">
       <Project>{EF1676A4-4F7F-4DEE-A147-B9E5CA608D17}</Project>
-      <Name>AP.Messaging</Name>
+      <Name>AP.Messages</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
       <Project>{913E6E50-277D-4638-AD84-5196D0E033D8}</Project>

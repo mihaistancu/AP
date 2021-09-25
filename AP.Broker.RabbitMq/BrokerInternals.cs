@@ -1,7 +1,7 @@
 ﻿using RabbitMQ.Client;
 using System;
 
-namespace AP.Broker.RabbitMq
+namespace AP.Broker
 {
     public class BrokerInternals : IDisposable
     {

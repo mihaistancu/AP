@@ -1,8 +1,8 @@
-﻿using AP.Configuration.Service.Routing.API;
-using AP.Web.Server;
+﻿using AP.Configuration.Routing.API;
+using AP.IO;
 using System;
 
-namespace AP.Configuration.API
+namespace AP.Configuration
 {
     public class ConfigurationServer
     {

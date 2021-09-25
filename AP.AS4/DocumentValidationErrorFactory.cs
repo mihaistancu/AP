@@ -1,4 +1,4 @@
-﻿using AP.Messaging;
+﻿using AP.Messages;
 using AP.Workers.DocumentValidation;
 
 namespace AP.AS4

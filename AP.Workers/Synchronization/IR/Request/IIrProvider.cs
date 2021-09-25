@@ -1,4 +1,4 @@
-﻿using AP.Messaging;
+﻿using AP.Messages;
 
 namespace AP.Workers.Synchronization.IR.Request
 {

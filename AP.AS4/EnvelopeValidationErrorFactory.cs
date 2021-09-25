@@ -1,5 +1,5 @@
 ﻿using AP.Handlers.EnvelopeValidation;
-using AP.Messaging;
+using AP.Messages;
 
 namespace AP.AS4
 {

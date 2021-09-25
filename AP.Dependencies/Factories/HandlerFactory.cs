@@ -10,17 +10,15 @@ using AP.Handlers.PullRequest;
 using AP.Handlers.Receipt;
 using AP.Handlers.SignatureValidation;
 using AP.Handlers.TlsCertificateValidation;
-using AP.Messaging.Queue;
-using AP.Messaging.Service;
 using AP.Monitoring;
-using AP.Orchestration;
+using AP.Queue;
+using AP.Server;
 using AP.Signing;
-using AP.Storage;
 using AP.Validation;
 using System;
 using System.Collections.Generic;
 
-namespace AP.Host.Console
+namespace AP.Dependencies.Factories
 {
     public class HandlerFactory
     {
@@ -29,7 +27,7 @@ namespace AP.Host.Console
 
         public HandlerFactory()
         {
-            factories[Handler.ProcessAsync] = 
+            factories[Handler.ProcessAsync] =
                 () => new MonitoredHandler(
                     new AsyncProcessingHandler(Context.Orchestrator));
 
@@ -40,7 +38,7 @@ namespace AP.Host.Console
             factories[Handler.ValidateEnvelope] =
                 () => new MonitoredHandler(
                     new EnvelopeValidationHandler(
-                        new EnvelopeValidator(), 
+                        new EnvelopeValidator(),
                         new EnvelopeValidationErrorFactory()));
 
             factories[Handler.Persist] =
@@ -51,8 +49,8 @@ namespace AP.Host.Console
                 () => new MonitoredHandler(
                     new PullRequestHandler(
                         new MessageProvider(Context.MessageQueue)));
-                
-            factories[Handler.Receipt] = 
+
+            factories[Handler.Receipt] =
                 () => new MonitoredHandler(
                     new ReceiptHandler(
                         new ReceiptFactory()));

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}</ProjectGuid>
+    <ProjectGuid>{EF1676A4-4F7F-4DEE-A147-B9E5CA608D17}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AP.Messaging.Service</RootNamespace>
-    <AssemblyName>AP.Messaging.Service</AssemblyName>
+    <RootNamespace>AP.Messages</RootNamespace>
+    <AssemblyName>AP.Messages</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,26 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handler.cs" />
-    <Compile Include="MessageInput.cs" />
-    <Compile Include="MessageServer.cs" />
-    <Compile Include="MessageService.cs" />
-    <Compile Include="MessageOutput.cs" />
+    <Compile Include="Certificate.cs" />
+    <Compile Include="Domain.cs" />
+    <Compile Include="EnvelopeType.cs" />
+    <Compile Include="IMessageStorage.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj">
-      <Project>{81cff28f-ccbd-4fb1-8559-9551ff737a0e}</Project>
-      <Name>AP.Handlers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
-      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
-      <Name>AP.Messaging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Server\AP.Web.Server.csproj">
-      <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
-      <Name>AP.Web.Server</Name>
-    </ProjectReference>
+    <Compile Include="UseCase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

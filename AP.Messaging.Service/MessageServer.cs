@@ -1,9 +1,9 @@
 ﻿using AP.Handlers;
-using AP.Web.Server;
+using AP.IO;
 using System;
 using System.Linq;
 
-namespace AP.Messaging.Service
+namespace AP.Server
 {
     public class MessageServer
     {

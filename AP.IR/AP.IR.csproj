@@ -58,9 +58,9 @@
       <Project>{3000CFB2-4E38-4FB0-84A1-B9C279F0BCA5}</Project>
       <Name>AP.Gateways</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Messaging\AP.Messaging.csproj">
+    <ProjectReference Include="..\AP.Messaging\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
-      <Name>AP.Messaging</Name>
+      <Name>AP.Messages</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
       <Project>{29df01a0-db14-46d1-90c9-c4a347af009a}</Project>

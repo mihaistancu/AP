@@ -1,7 +1,7 @@
-﻿using AP.Broker.RabbitMq;
+﻿using AP.Broker;
 using AP.Orchestration;
 
-namespace AP.Host.Console
+namespace AP.Dependencies.Factories
 {
     public class OrchestratorFactory
     {
@@ -10,9 +10,9 @@ namespace AP.Host.Console
             var workerFactory = new WorkerFactory();
 
             return new Orchestrator(
-                new OrchestratorConfig(), 
-                Context.MessageStorage, 
-                new MessageBroker(new RabbitMqBroker()), 
+                new OrchestratorConfig(),
+                Context.MessageStorage,
+                new MessageBroker(new RabbitMqBroker()),
                 workerFactory.Get);
         }
     }

@@ -1,12 +1,13 @@
-﻿using AP.Configuration.API;
-using AP.Messaging.Client;
-using AP.Messaging.Queue;
-using AP.Messaging.Service;
+﻿using AP.Client;
+using AP.Configuration;
+using AP.Dependencies.Factories;
 using AP.Monitoring;
 using AP.Orchestration;
+using AP.Queue;
+using AP.Server;
 using AP.Storage;
 
-namespace AP.Host.Console
+namespace AP.Dependencies
 {
     public class Context
     {

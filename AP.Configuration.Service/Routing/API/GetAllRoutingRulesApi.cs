@@ -1,9 +1,8 @@
-﻿using AP.Configuration.API;
-using AP.Web.Server;
+﻿using AP.IO;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
-namespace AP.Configuration.Service.Routing.API
+namespace AP.Configuration.Routing.API
 {
     public class GetAllRoutingRulesApi : JsonApi, IWebService
     {

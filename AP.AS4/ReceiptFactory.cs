@@ -1,5 +1,5 @@
 ﻿using AP.Handlers.Receipt;
-using AP.Messaging;
+using AP.Messages;
 
 namespace AP.AS4
 {

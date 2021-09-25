@@ -1,4 +1,4 @@
-﻿using AP.Configuration.Service.Routing;
+﻿using AP.Configuration.Routing;
 using System.Collections.Generic;
 using System.Linq;
 

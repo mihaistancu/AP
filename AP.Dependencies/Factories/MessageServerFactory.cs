@@ -1,7 +1,7 @@
-﻿using AP.Messaging.Service;
-using AP.Web.Server.Owin;
+﻿using AP.Https;
+using AP.Server;
 
-namespace AP.Host.Console
+namespace AP.Dependencies.Factories
 {
     public class MessageServerFactory
     {

@@ -1,6 +1,7 @@
-﻿using Microsoft.Owin;
+﻿using AP.IO;
+using Microsoft.Owin;
 
-namespace AP.Web.Server.Owin
+namespace AP.Https
 {
     public class WebOutput : IWebOutput
     {

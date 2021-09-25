@@ -1,5 +1,5 @@
 ﻿using AP.Handlers.TlsCertificateValidation;
-using AP.Messaging;
+using AP.Messages;
 
 namespace AP.Certificates
 {
