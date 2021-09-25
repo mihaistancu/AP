@@ -46,8 +46,8 @@
     <Compile Include="RoutingRuleStorage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Configuration.Service\AP.Configuration.csproj">
-      <Project>{582B1F10-E26F-4FA7-ADB7-25ECC14A8877}</Project>
+    <ProjectReference Include="..\AP.Configuration\AP.Configuration.csproj">
+      <Project>{582b1f10-e26f-4fa7-adb7-25ecc14a8877}</Project>
       <Name>AP.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">

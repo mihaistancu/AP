@@ -60,7 +60,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Configuration.Service\AP.Configuration.csproj">
+    <ProjectReference Include="..\AP.Configuration\AP.Configuration.csproj">
       <Project>{582b1f10-e26f-4fa7-adb7-25ecc14a8877}</Project>
       <Name>AP.Configuration</Name>
     </ProjectReference>
