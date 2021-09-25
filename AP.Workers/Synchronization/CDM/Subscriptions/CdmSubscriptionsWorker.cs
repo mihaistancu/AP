@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Synchronization.CDM.Subscriptions
+﻿using AP.Messaging;
+
+namespace AP.Workers.Synchronization.CDM.Subscriptions
 {
     public class CdmSubscriptionsWorker : IWorker
     {

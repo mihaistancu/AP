@@ -1,5 +1,5 @@
-﻿using AP.Processing;
-using AP.Processing.Sync.EnvelopeValidation;
+﻿using AP.Handlers.EnvelopeValidation;
+using AP.Messaging;
 
 namespace AP.AS4
 {

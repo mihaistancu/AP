@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Sync.TlsCertificateValidation
+﻿namespace AP.Handlers.TlsCertificateValidation
 {
     public class ValidationResult
     {

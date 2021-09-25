@@ -1,4 +1,4 @@
-﻿namespace AP.Processing
+﻿namespace AP.Messaging
 {
     public class UseCase
     {

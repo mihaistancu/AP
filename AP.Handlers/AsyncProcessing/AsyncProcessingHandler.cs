@@ -1,6 +1,7 @@
-﻿using AP.Processing.Async;
+﻿using AP.Messaging;
+using AP.Orchestration;
 
-namespace AP.Processing.Sync.AsyncProcessing
+namespace AP.Handlers.AsyncProcessing
 {
     public class AsyncProcessingHandler : IHandler
     {

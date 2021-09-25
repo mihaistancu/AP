@@ -1,6 +1,6 @@
 ﻿using AP.Gateways.Institution;
-using AP.Processing;
-using AP.Processing.Async.Synchronization.IR.Subscriptions;
+using AP.Messaging;
+using AP.Workers.Synchronization.IR.Subscriptions;
 
 namespace AP.IR.Subscriptions
 {

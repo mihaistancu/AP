@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync.Receipt
+﻿using AP.Messaging;
+
+namespace AP.Handlers.Receipt
 {
     public interface IReceiptFactory
     {

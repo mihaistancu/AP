@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Sync.SignatureValidation
+﻿namespace AP.Handlers.SignatureValidation
 {
     public class ValidationResult
     {

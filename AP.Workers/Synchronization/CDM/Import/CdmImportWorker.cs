@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Synchronization.CDM.Import
+﻿using AP.Messaging;
+
+namespace AP.Workers.Synchronization.CDM.Import
 {
     public class CdmImportWorker : IWorker
     {

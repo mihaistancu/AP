@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync.TlsCertificateValidation
+﻿using AP.Messaging;
+
+namespace AP.Handlers.TlsCertificateValidation
 {
     public class TlsCertificateValidationHandler : IHandler
     {

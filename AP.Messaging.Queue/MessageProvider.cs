@@ -1,5 +1,4 @@
-﻿using AP.Processing;
-using AP.Processing.Sync.PullRequest;
+﻿using AP.Handlers.PullRequest;
 
 namespace AP.Messaging.Queue
 {

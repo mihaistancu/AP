@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync.PullRequest
+﻿using AP.Messaging;
+
+namespace AP.Handlers.PullRequest
 {
     public class PullRequestHandler : IHandler
     {

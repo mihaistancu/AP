@@ -1,5 +1,5 @@
-﻿using AP.Processing;
-using AP.Processing.Sync.Receipt;
+﻿using AP.Handlers.Receipt;
+using AP.Messaging;
 
 namespace AP.AS4
 {

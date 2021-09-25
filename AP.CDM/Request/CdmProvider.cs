@@ -1,6 +1,6 @@
 ﻿using AP.Gateways.CSN;
-using AP.Processing;
-using AP.Processing.Async.Synchronization.CDM.Request;
+using AP.Messaging;
+using AP.Workers.Synchronization.CDM.Request;
 
 namespace AP.CDM
 {

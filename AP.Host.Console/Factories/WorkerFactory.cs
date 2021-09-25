@@ -11,20 +11,21 @@ using AP.IR.Subscriptions;
 using AP.Messaging.Client;
 using AP.Messaging.Queue;
 using AP.Monitoring;
-using AP.Processing.Async;
-using AP.Processing.Async.Antimalware;
-using AP.Processing.Async.DocumentValidation;
-using AP.Processing.Async.Forwarding;
-using AP.Processing.Async.Synchronization.CDM.Import;
-using AP.Processing.Async.Synchronization.CDM.Report;
-using AP.Processing.Async.Synchronization.CDM.Request;
-using AP.Processing.Async.Synchronization.CDM.Subscriptions;
-using AP.Processing.Async.Synchronization.IR.Import;
-using AP.Processing.Async.Synchronization.IR.Request;
-using AP.Processing.Async.Synchronization.IR.Subscriptions;
+using AP.Orchestration;
 using AP.Routing;
 using AP.Storage;
 using AP.Validation;
+using AP.Workers;
+using AP.Workers.Antimalware;
+using AP.Workers.DocumentValidation;
+using AP.Workers.Forwarding;
+using AP.Workers.Synchronization.CDM.Import;
+using AP.Workers.Synchronization.CDM.Report;
+using AP.Workers.Synchronization.CDM.Request;
+using AP.Workers.Synchronization.CDM.Subscriptions;
+using AP.Workers.Synchronization.IR.Import;
+using AP.Workers.Synchronization.IR.Request;
+using AP.Workers.Synchronization.IR.Subscriptions;
 using System;
 using System.Collections.Generic;
 
@@ -50,66 +51,66 @@ namespace AP.Host.Console
             var documentValidationErrorFactory = new DocumentValidationErrorFactory();
             var antimalwareErrorFactory = new AntimalwareErrorFactory();
 
-            factories[Workers.ScanMessageFromCsn] = 
+            factories[Worker.ScanMessageFromCsn] = 
                 () => new MonitoredWorker(
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, csnGateway));
 
-            factories[Workers.ScanMessageFromAp] = 
+            factories[Worker.ScanMessageFromAp] = 
                 () => new MonitoredWorker(
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, apGateway));
 
-            factories[Workers.ScanMessageFromInstitution] = 
+            factories[Worker.ScanMessageFromInstitution] = 
                 () => new MonitoredWorker(
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, messageStorage, institutionGateway));
             
-            factories[Workers.ValidateDocumentFromCsn] = 
+            factories[Worker.ValidateDocumentFromCsn] = 
                 () => new MonitoredWorker(
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, csnGateway));
                 
-            factories[Workers.ValidateDocumentFromAp] = 
+            factories[Worker.ValidateDocumentFromAp] = 
                 () => new MonitoredWorker(
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, apGateway));
 
-            factories[Workers.ValidateDocumentFromInstitution] = 
+            factories[Worker.ValidateDocumentFromInstitution] = 
                 () => new MonitoredWorker(
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, messageStorage, institutionGateway));
 
-            factories[Workers.ForwardToAp] = 
+            factories[Worker.ForwardToAp] = 
                 () => new MonitoredWorker(
                     new ForwardingWorker(apGateway));
                 
-            factories[Workers.ForwardToInstitution] = 
+            factories[Worker.ForwardToInstitution] = 
                 () => new MonitoredWorker(
                     new ForwardingWorker(institutionGateway));
                 
-            factories[Workers.ImportCdm] = 
+            factories[Worker.ImportCdm] = 
                 () => new MonitoredWorker(
                     new CdmImportWorker(new CdmImporter()));
                 
-            factories[Workers.ReportCdm] = 
+            factories[Worker.ReportCdm] = 
                 () => new MonitoredWorker(
                     new CdmReportWorker(new CdmReporter(), csnGateway));
                 
-            factories[Workers.ProvideCdm] = 
+            factories[Worker.ProvideCdm] = 
                 () => new MonitoredWorker(
                     new CdmRequestWorker(
                         new CdmProvider(new CdmRequestParser(), cdmStorage, messageStorage, csnGateway)));
                 
-            factories[Workers.PublishCdm] = 
+            factories[Worker.PublishCdm] = 
                 () => new MonitoredWorker(
                     new CdmSubscriptionsWorker(
                         new CdmPublisher(new CdmSubscriptionStorage(), cdmStorage, messageStorage, institutionGateway)));
                 
-            factories[Workers.ImportIr] = 
+            factories[Worker.ImportIr] = 
                 () => new MonitoredWorker(
                     new IrImportWorker(new IrImporter()));
                 
-            factories[Workers.ProvideIr] = 
+            factories[Worker.ProvideIr] = 
                 () => new MonitoredWorker(
                     new IrRequestWorker(
                         new IrProvider(new IrRequestParser(), irStorage, messageStorage, institutionGateway)));
                 
-            factories[Workers.PublishIr] = 
+            factories[Worker.PublishIr] = 
                 () => new MonitoredWorker(
                     new IrSubscriptionsWorker(
                         new IrPublisher(new IrSubscriptionStorage(), irStorage, messageStorage, institutionGateway)));

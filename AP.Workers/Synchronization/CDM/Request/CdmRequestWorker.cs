@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Synchronization.CDM.Request
+﻿using AP.Messaging;
+
+namespace AP.Workers.Synchronization.CDM.Request
 {
     public class CdmRequestWorker : IWorker
     {

@@ -1,6 +1,6 @@
 ﻿using AP.Gateways.Institution;
-using AP.Processing;
-using AP.Processing.Async.Synchronization.IR.Request;
+using AP.Messaging;
+using AP.Workers.Synchronization.IR.Request;
 
 namespace AP.IR.Request
 {

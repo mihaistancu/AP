@@ -1,5 +1,5 @@
-﻿using AP.Processing;
-using AP.Processing.Sync.SignatureValidation;
+﻿using AP.Handlers.SignatureValidation;
+using AP.Messaging;
 
 namespace AP.Signing
 {

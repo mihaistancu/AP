@@ -2,7 +2,7 @@
 using AP.Gateways.CSN;
 using AP.IR.Request;
 using AP.IR.Subscriptions;
-using AP.Processing;
+using AP.Messaging;
 
 namespace AP.IR
 {

@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync.Persistence
+﻿using AP.Messaging;
+
+namespace AP.Handlers.Persistence
 {
     public class PersistenceHandler : IHandler
     {

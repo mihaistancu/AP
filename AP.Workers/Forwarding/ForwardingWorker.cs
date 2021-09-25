@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Forwarding
+﻿using AP.Messaging;
+
+namespace AP.Workers.Forwarding
 {
     public class ForwardingWorker : IWorker
     {

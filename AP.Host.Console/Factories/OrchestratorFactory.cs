@@ -1,7 +1,7 @@
 ﻿using AP.Messaging.Client;
 using AP.Messaging.Queue;
 using AP.Middleware.RabbitMQ;
-using AP.Processing.Async;
+using AP.Orchestration;
 using AP.Storage;
 
 namespace AP.Host.Console

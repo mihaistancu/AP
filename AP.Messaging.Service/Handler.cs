@@ -1,6 +1,6 @@
 ﻿namespace AP.Messaging.Service
 {
-    public class Handlers
+    public class Handler
     {
         public const string ProcessAsync = "ProcessAsync";
         public const string Decrypt = "Decrypt";

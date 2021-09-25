@@ -1,6 +1,6 @@
-﻿namespace AP.Processing.Async
+﻿namespace AP.Orchestration
 {
-    public class Workers
+    public class Worker
     {
         public const string ScanMessageFromCsn = "ScanMessageFromCsn";
         public const string ScanMessageFromAp = "ScanMessageFromAp";

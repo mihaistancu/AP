@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Synchronization.IR.Import
+﻿using AP.Messaging;
+
+namespace AP.Workers.Synchronization.IR.Import
 {
     public class IrImportWorker : IWorker
     {

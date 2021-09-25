@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AP.Processing.Async
+namespace AP.Orchestration
 {
     public class Workflow
     {

@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Synchronization.IR.Subscriptions
+﻿using AP.Messaging;
+
+namespace AP.Workers.Synchronization.IR.Subscriptions
 {
     public class IrSubscriptionsWorker : IWorker
     {

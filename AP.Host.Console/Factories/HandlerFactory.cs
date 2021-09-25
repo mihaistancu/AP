@@ -1,19 +1,19 @@
 ﻿using AP.AS4;
 using AP.Certificates;
 using AP.Cryptography;
+using AP.Handlers;
+using AP.Handlers.AsyncProcessing;
+using AP.Handlers.Decryption;
+using AP.Handlers.EnvelopeValidation;
+using AP.Handlers.Persistence;
+using AP.Handlers.PullRequest;
+using AP.Handlers.Receipt;
+using AP.Handlers.SignatureValidation;
+using AP.Handlers.TlsCertificateValidation;
 using AP.Messaging.Queue;
 using AP.Messaging.Service;
 using AP.Monitoring;
-using AP.Processing.Async;
-using AP.Processing.Sync;
-using AP.Processing.Sync.AsyncProcessing;
-using AP.Processing.Sync.Decryption;
-using AP.Processing.Sync.EnvelopeValidation;
-using AP.Processing.Sync.Persistence;
-using AP.Processing.Sync.PullRequest;
-using AP.Processing.Sync.Receipt;
-using AP.Processing.Sync.SignatureValidation;
-using AP.Processing.Sync.TlsCertificateValidation;
+using AP.Orchestration;
 using AP.Signing;
 using AP.Storage;
 using AP.Validation;
@@ -32,41 +32,41 @@ namespace AP.Host.Console
             MessageStorage messageStorage, 
             MessageQueue messageQueue)
         {
-            factories[Handlers.ProcessAsync] = 
+            factories[Handler.ProcessAsync] = 
                 () => new MonitoredHandler(
                     new AsyncProcessingHandler(orchestrator));
 
-            factories[Handlers.Decrypt] =
+            factories[Handler.Decrypt] =
                 () => new MonitoredHandler(
                     new DecryptionHandler(new Decryptor()));
 
-            factories[Handlers.ValidateEnvelope] =
+            factories[Handler.ValidateEnvelope] =
                 () => new MonitoredHandler(
                     new EnvelopeValidationHandler(
                         new EnvelopeValidator(), 
                         new EnvelopeValidationErrorFactory()));
 
-            factories[Handlers.Persist] =
+            factories[Handler.Persist] =
                 () => new MonitoredHandler(
                     new PersistenceHandler(messageStorage));
 
-            factories[Handlers.PullRequest] =
+            factories[Handler.PullRequest] =
                 () => new MonitoredHandler(
                     new PullRequestHandler(
                         new MessageProvider(messageQueue)));
                 
-            factories[Handlers.Receipt] = 
+            factories[Handler.Receipt] = 
                 () => new MonitoredHandler(
                     new ReceiptHandler(
                         new ReceiptFactory()));
 
-            factories[Handlers.ValidateSignature] =
+            factories[Handler.ValidateSignature] =
                 () => new MonitoredHandler(
                     new SignatureValidationHandler(
                         new EnvelopeSignatureValidator(),
                         new EnvelopeSignatureValidationErrorFactory()));
 
-            factories[Handlers.ValidateTlsCertificate] =
+            factories[Handler.ValidateTlsCertificate] =
                     () => new MonitoredHandler(
                         new TlsCertificateValidationHandler(
                             new CertificateValidator(),

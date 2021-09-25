@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync.Decryption
+﻿using AP.Messaging;
+
+namespace AP.Handlers.Decryption
 {
     public class DecryptionHandler : IHandler
     {

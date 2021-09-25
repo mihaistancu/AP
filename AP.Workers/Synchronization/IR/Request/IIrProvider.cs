@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.Synchronization.IR.Request
+﻿using AP.Messaging;
+
+namespace AP.Workers.Synchronization.IR.Request
 {
     public interface IIrProvider
     {

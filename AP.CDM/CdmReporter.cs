@@ -1,5 +1,5 @@
-﻿using AP.Processing;
-using AP.Processing.Async.Synchronization.CDM.Report;
+﻿using AP.Messaging;
+using AP.Workers.Synchronization.CDM.Report;
 
 namespace AP.CDM
 {

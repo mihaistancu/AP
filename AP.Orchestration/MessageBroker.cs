@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using AP.Messaging;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Text;
 
-namespace AP.Processing.Async
+namespace AP.Orchestration
 {
     public class MessageBroker
     {
@@ -24,7 +25,7 @@ namespace AP.Processing.Async
             var json = JObject.Parse(text);
 
             var workerName = json.Value<string>("workerName");
-            
+
             var message = new Message
             {
                 UseCase = json.Value<string>("useCase"),

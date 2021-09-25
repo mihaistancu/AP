@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using AP.Messaging;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace AP.Processing.Async
+namespace AP.Orchestration
 {
     public class OrchestratorConfig
     {
@@ -16,9 +17,9 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromAp,
-                    Workers.ValidateDocumentFromAp,
-                    Workers.ForwardToInstitution)
+                    Worker.ScanMessageFromAp,
+                    Worker.ValidateDocumentFromAp,
+                    Worker.ForwardToInstitution)
             });
 
             rules.Add(new OrchestratorRule
@@ -28,9 +29,9 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromInstitution,
-                    Workers.ValidateDocumentFromInstitution,
-                    Workers.ForwardToAp)
+                    Worker.ScanMessageFromInstitution,
+                    Worker.ValidateDocumentFromInstitution,
+                    Worker.ForwardToAp)
             });
 
             rules.Add(new OrchestratorRule
@@ -40,10 +41,10 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN001",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromCsn,
-                    Workers.ValidateDocumentFromCsn,
-                    Workers.ImportIr,
-                    Workers.PublishIr)
+                    Worker.ScanMessageFromCsn,
+                    Worker.ValidateDocumentFromCsn,
+                    Worker.ImportIr,
+                    Worker.PublishIr)
             });
 
             rules.Add(new OrchestratorRule
@@ -53,10 +54,10 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN003",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromCsn,
-                    Workers.ValidateDocumentFromCsn,
-                    Workers.ImportCdm,
-                    Workers.PublishCdm)
+                    Worker.ScanMessageFromCsn,
+                    Worker.ValidateDocumentFromCsn,
+                    Worker.ImportCdm,
+                    Worker.PublishCdm)
             });
 
             rules.Add(new OrchestratorRule
@@ -66,9 +67,9 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN005",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromCsn,
-                    Workers.ValidateDocumentFromCsn,
-                    Workers.ReportCdm)
+                    Worker.ScanMessageFromCsn,
+                    Worker.ValidateDocumentFromCsn,
+                    Worker.ReportCdm)
             });
 
             rules.Add(new OrchestratorRule
@@ -78,9 +79,9 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN002",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromInstitution,
-                    Workers.ValidateDocumentFromInstitution,
-                    Workers.ProvideIr)
+                    Worker.ScanMessageFromInstitution,
+                    Worker.ValidateDocumentFromInstitution,
+                    Worker.ProvideIr)
             });
 
             rules.Add(new OrchestratorRule
@@ -90,9 +91,9 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.UserMessage,
                 DocumentType = "SYN004",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromInstitution,
-                    Workers.ValidateDocumentFromInstitution,
-                    Workers.ProvideCdm)
+                    Worker.ScanMessageFromInstitution,
+                    Worker.ValidateDocumentFromInstitution,
+                    Worker.ProvideCdm)
             });
 
             rules.Add(new OrchestratorRule
@@ -102,8 +103,8 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.Signal,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromAp,
-                    Workers.ForwardToInstitution)
+                    Worker.ScanMessageFromAp,
+                    Worker.ForwardToInstitution)
             });
 
             rules.Add(new OrchestratorRule
@@ -113,11 +114,11 @@ namespace AP.Processing.Async
                 EnvelopeType = EnvelopeType.Signal,
                 DocumentType = "*",
                 Workflow = new Workflow(
-                    Workers.ScanMessageFromInstitution,
-                    Workers.ForwardToAp)
+                    Worker.ScanMessageFromInstitution,
+                    Worker.ForwardToAp)
             });
         }
-        
+
         public Workflow GetWorkflow(Message message)
         {
             return rules.First(rule => rule.Matches(message)).Workflow;

@@ -1,5 +1,5 @@
-﻿using AP.Processing;
-using AP.Processing.Async.Synchronization.IR.Import;
+﻿using AP.Messaging;
+using AP.Workers.Synchronization.IR.Import;
 
 namespace AP.IR
 {

@@ -1,5 +1,5 @@
-﻿using AP.Processing;
-using AP.Processing.Async.Synchronization.CDM.Import;
+﻿using AP.Messaging;
+using AP.Workers.Synchronization.CDM.Import;
 
 namespace AP.CDM
 {

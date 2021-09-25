@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AP.Messaging;
+using AP.Workers;
+using System;
 
-namespace AP.Processing.Async
+namespace AP.Orchestration
 {
     public class Orchestrator
     {
@@ -11,7 +13,7 @@ namespace AP.Processing.Async
 
         public Orchestrator(
             OrchestratorConfig config,
-            IMessageStorage storage, 
+            IMessageStorage storage,
             MessageBroker broker,
             Func<string, IWorker> getWorker)
         {

@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync.EnvelopeValidation
+﻿using AP.Messaging;
+
+namespace AP.Handlers.EnvelopeValidation
 {
     public interface IEnvelopeValidator
     {

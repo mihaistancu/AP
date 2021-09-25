@@ -1,5 +1,5 @@
-﻿using AP.Processing;
-using AP.Processing.Async.DocumentValidation;
+﻿using AP.Messaging;
+using AP.Workers.DocumentValidation;
 
 namespace AP.AS4
 {

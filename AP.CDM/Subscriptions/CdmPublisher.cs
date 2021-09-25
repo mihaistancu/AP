@@ -1,6 +1,6 @@
 ﻿using AP.Gateways.Institution;
-using AP.Processing;
-using AP.Processing.Async.Synchronization.CDM.Subscriptions;
+using AP.Messaging;
+using AP.Workers.Synchronization.CDM.Subscriptions;
 
 namespace AP.CDM
 {

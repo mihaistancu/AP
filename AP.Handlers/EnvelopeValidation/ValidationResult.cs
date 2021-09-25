@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Sync.EnvelopeValidation
+﻿namespace AP.Handlers.EnvelopeValidation
 {
     public class ValidationResult
     {

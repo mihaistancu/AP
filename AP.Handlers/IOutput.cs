@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Sync
+﻿using AP.Messaging;
+
+namespace AP.Handlers
 {
     public interface IOutput
     {

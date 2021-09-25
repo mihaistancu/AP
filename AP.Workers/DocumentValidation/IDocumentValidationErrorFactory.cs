@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async.DocumentValidation
+﻿using AP.Messaging;
+
+namespace AP.Workers.DocumentValidation
 {
     public interface IDocumentValidationErrorFactory
     {

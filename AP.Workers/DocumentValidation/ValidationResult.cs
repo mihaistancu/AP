@@ -1,4 +1,4 @@
-﻿namespace AP.Processing.Async.DocumentValidation
+﻿namespace AP.Workers.DocumentValidation
 {
     public class ValidationResult
     {

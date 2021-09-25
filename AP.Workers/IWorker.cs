@@ -1,4 +1,6 @@
-﻿namespace AP.Processing.Async
+﻿using AP.Messaging;
+
+namespace AP.Workers
 {
     public interface IWorker
     {
