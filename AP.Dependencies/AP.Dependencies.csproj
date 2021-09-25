@@ -90,6 +90,10 @@
       <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
       <Name>AP.Https</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.IO\AP.IO.csproj">
+      <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
+      <Name>AP.IO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.IR\AP.IR.csproj">
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>
@@ -133,10 +137,6 @@
     <ProjectReference Include="..\AP.Validation\AP.Validation.csproj">
       <Project>{4e640ab5-8eaa-4895-b30f-a9d922a12edc}</Project>
       <Name>AP.Validation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Server\AP.IO.csproj">
-      <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
-      <Name>AP.IO</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
       <Project>{913e6e50-277d-4638-ad84-5196d0e033d8}</Project>

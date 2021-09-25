@@ -53,13 +53,13 @@
       <Project>{81cff28f-ccbd-4fb1-8559-9551ff737a0e}</Project>
       <Name>AP.Handlers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.IO\AP.IO.csproj">
+      <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
+      <Name>AP.IO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Messaging\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Web.Server\AP.IO.csproj">
-      <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
-      <Name>AP.IO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
