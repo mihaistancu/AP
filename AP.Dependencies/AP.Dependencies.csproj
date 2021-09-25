@@ -58,7 +58,7 @@
       <Project>{c4b16e50-f49c-4388-b6ef-d20ca01152eb}</Project>
       <Name>AP.AS4</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Broker.RabbitMq\AP.Broker.csproj">
+    <ProjectReference Include="..\AP.Broker\AP.Broker.csproj">
       <Project>{38da337c-711a-4fdf-971c-29a71d4f76ba}</Project>
       <Name>AP.Broker</Name>
     </ProjectReference>
