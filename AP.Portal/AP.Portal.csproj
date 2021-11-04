@@ -49,7 +49,7 @@
       <Project>{582B1F10-E26F-4FA7-ADB7-25ECC14A8877}</Project>
       <Name>AP.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.IO\AP.Http.csproj">
+    <ProjectReference Include="..\AP.Http\AP.Http.csproj">
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
       <Name>AP.Http</Name>
     </ProjectReference>
