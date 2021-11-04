@@ -9,18 +9,18 @@ namespace AP.Orchestration
         private OrchestratorConfig config;
         private IMessageStorage storage;
         private MessageBroker broker;
-        private Func<string, IWorker> getWorker;
+        private IWorkerFactory factory;
 
         public Orchestrator(
             OrchestratorConfig config,
             IMessageStorage storage,
             MessageBroker broker,
-            Func<string, IWorker> getWorker)
+            IWorkerFactory factory)
         {
             this.config = config;
             this.storage = storage;
             this.broker = broker;
-            this.getWorker = getWorker;
+            this.factory = factory;
         }
 
         public IDisposable Start()
@@ -32,7 +32,7 @@ namespace AP.Orchestration
         private void Handle(string workerName, Message message)
         {
             var workflow = config.GetWorkflow(message);
-            var worker = getWorker(workerName);
+            var worker = factory.Get(workerName);
             bool canContinue = worker.Handle(message);
 
             if (canContinue && !workflow.IsLast(workerName))

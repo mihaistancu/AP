@@ -68,6 +68,18 @@
       <Project>{7ea4c423-e3c0-4e9e-b999-f2ac1370fc1d}</Project>
       <Name>AP.Dependencies</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj">
+      <Project>{81CFF28F-CCBD-4FB1-8559-9551FF737A0E}</Project>
+      <Name>AP.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Https\AP.Https.csproj">
+      <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
+      <Name>AP.Https</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.IO\AP.IO.csproj">
+      <Project>{C4764DD2-4ABD-408D-96E7-451B15AA9025}</Project>
+      <Name>AP.IO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
       <Name>AP.Orchestration</Name>

@@ -1,4 +1,6 @@
 ﻿using AP.Dependencies;
+using AP.Https;
+using System;
 
 namespace AP.Host
 {
@@ -8,13 +10,33 @@ namespace AP.Host
         {
             Context.Build();
 
-            using (Context.Orchestrator.Start())
-            using (Context.MessageServer.Start())
-            using (Context.PortalServer.Start())
+            using (StartOrchestrator())
+            using (StartMessagingServer())
+            using (StartPortalServer())
             {
-                System.Console.WriteLine("Press [enter] to stop");
-                System.Console.ReadLine();
+                Console.WriteLine("Press [enter] to stop");
+                Console.ReadLine();
             }
+        }
+
+        private static IDisposable StartOrchestrator()
+        {
+            return Context.Orchestrator.Start();
+        }
+
+        private static IDisposable StartMessagingServer()
+        {
+            var messaging = new OwinHttpServer();
+            Context.MessageEndpoints.Apply(messaging);
+            return messaging.Start("http://localhost:9000");
+        }
+
+        private static IDisposable StartPortalServer()
+        {
+            var portal = new OwinHttpServer();
+            Context.ApiRoutes.Apply(portal);
+            Context.SpaRoutes.Apply(portal);
+            return portal.Start("http://localhost:9090");
         }
     }
 }

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace AP.Dependencies.Factories
 {
-    public class HandlerFactory
+    public class HandlerFactory: IHandlerFactory
     {
         private Dictionary<string, IHandler> cache = new Dictionary<string, IHandler>();
         private Dictionary<string, Func<IHandler>> factories = new Dictionary<string, Func<IHandler>>();

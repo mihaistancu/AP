@@ -28,7 +28,7 @@ using System.Collections.Generic;
 
 namespace AP.Dependencies.Factories
 {
-    public class WorkerFactory
+    public class WorkerFactory: IWorkerFactory
     {
         private Dictionary<string, IWorker> cache = new Dictionary<string, IWorker>();
         private Dictionary<string, Func<IWorker>> factories = new Dictionary<string, Func<IWorker>>();

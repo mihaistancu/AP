@@ -1,72 +1,66 @@
-﻿using AP.Handlers;
-using AP.IO;
-using System;
+﻿using AP.IO;
 using System.Linq;
 
 namespace AP.Server
 {
-    public class MessageServer
+    public class MessageEndpoints
     {
-        private IHttpServer server;
-        private Func<string, IHandler> getHandler;
+        private IHandlerFactory factory;
 
-        public MessageServer(IHttpServer server, Func<string, IHandler> getHandler)
+        public MessageEndpoints(IHandlerFactory factory)
         {
-            this.server = server;
-            this.getHandler = getHandler;
+            this.factory = factory;
         }
 
-        public IDisposable Start()
+        public void Apply(IHttpServer server)
         {
-            Map("/Business/Inbound",
+            server.Map("POST", "/Business/Inbound", Map(
                 Handler.ValidateTlsCertificate,
                 Handler.Decrypt,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
-                Handler.ProcessAsync);
+                Handler.ProcessAsync));
 
-            Map("/Business/Outbox",
+            server.Map("POST", "/Business/Outbox", Map(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
-                Handler.ProcessAsync);
+                Handler.ProcessAsync));
 
-            Map("/Business/Inbox",
+            server.Map("POST", "/Business/Inbox", Map(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
-                Handler.PullRequest);
+                Handler.PullRequest));
 
-            Map("/System/Inbound",
-                Handler.ValidateTlsCertificate,
-                Handler.ValidateSignature,
-                Handler.ValidateEnvelope,
-                Handler.Persist,
-                Handler.ProcessAsync,
-                Handler.Receipt);
-
-            Map("/System/Outbox",
+            server.Map("POST", "/System/Inbound", Map(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
                 Handler.ProcessAsync,
-                Handler.Receipt);
+                Handler.Receipt));
 
-            Map("/System/Inbox",
+            server.Map("POST", "/System/Outbox", Map(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
-                Handler.PullRequest);
+                Handler.Persist,
+                Handler.ProcessAsync,
+                Handler.Receipt));
 
-            return server.Start("http://localhost:9000");
+            server.Map("POST", "/System/Inbox", Map(
+                Handler.ValidateTlsCertificate,
+                Handler.ValidateSignature,
+                Handler.ValidateEnvelope,
+                Handler.PullRequest));
         }
 
-        private void Map(string url, params string[] pipeline)
+        private MessageService Map(params string[] pipeline)
         {
-            var handlers = pipeline.Select(getHandler);
-            server.Map("POST", url, new MessageService(handlers));
+            var handlers = pipeline.Select(factory.Get);
+            return new MessageService(handlers);
         }
     }
 }
