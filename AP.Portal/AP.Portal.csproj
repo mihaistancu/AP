@@ -56,29 +56,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="spa\.browserslistrc" />
-    <None Include="spa\.gitignore" />
-    <None Include="spa\angular.json" />
-    <None Include="spa\package.json" />
-    <None Include="spa\README.md" />
-    <None Include="spa\src\assets\.gitkeep" />
-    <None Include="spa\tsconfig.app.json" />
-    <None Include="spa\tsconfig.base.json" />
-    <None Include="spa\tsconfig.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="spa\src\favicon.ico" />
-    <Content Include="spa\src\index.html" />
-    <Content Include="spa\src\styles.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="spa\src\app\app-routing.module.ts" />
-    <TypeScriptCompile Include="spa\src\app\app.component.ts" />
-    <TypeScriptCompile Include="spa\src\app\app.module.ts" />
-    <TypeScriptCompile Include="spa\src\environments\environment.prod.ts" />
-    <TypeScriptCompile Include="spa\src\environments\environment.ts" />
-    <TypeScriptCompile Include="spa\src\main.ts" />
-    <TypeScriptCompile Include="spa\src\polyfills.ts" />
+    <None Include="spa\**\*" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
