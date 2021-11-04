@@ -83,13 +83,13 @@
       <Project>{81cff28f-ccbd-4fb1-8559-9551ff737a0e}</Project>
       <Name>AP.Handlers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Https\AP.Https.csproj">
+    <ProjectReference Include="..\AP.Https\AP.Server.csproj">
       <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
-      <Name>AP.Https</Name>
+      <Name>AP.Server</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.IO\AP.IO.csproj">
+    <ProjectReference Include="..\AP.IO\AP.Http.csproj">
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
-      <Name>AP.IO</Name>
+      <Name>AP.Http</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.IR\AP.IR.csproj">
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
@@ -123,9 +123,9 @@
       <Project>{387b1707-0e51-47e6-b079-94861ea7e04c}</Project>
       <Name>AP.Scanner</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
+    <ProjectReference Include="..\AP.Server\AP.Endpoints.csproj">
       <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
-      <Name>AP.Server</Name>
+      <Name>AP.Endpoints</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Signing\AP.Signing.csproj">
       <Project>{5105965c-cb56-4ad8-a383-de76bea64cc9}</Project>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AP.Server")]
+[assembly: AssemblyTitle("AP.Endpoints")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AP.Server")]
+[assembly: AssemblyProduct("AP.Endpoints")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

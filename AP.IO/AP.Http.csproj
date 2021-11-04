@@ -7,8 +7,8 @@
     <ProjectGuid>{C4764DD2-4ABD-408D-96E7-451B15AA9025}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AP.IO</RootNamespace>
-    <AssemblyName>AP.IO</AssemblyName>
+    <RootNamespace>AP.Http</RootNamespace>
+    <AssemblyName>AP.Http</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

@@ -72,13 +72,13 @@
       <Project>{81CFF28F-CCBD-4FB1-8559-9551FF737A0E}</Project>
       <Name>AP.Handlers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Https\AP.Https.csproj">
+    <ProjectReference Include="..\AP.Https\AP.Server.csproj">
       <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
-      <Name>AP.Https</Name>
+      <Name>AP.Server</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.IO\AP.IO.csproj">
+    <ProjectReference Include="..\AP.IO\AP.Http.csproj">
       <Project>{C4764DD2-4ABD-408D-96E7-451B15AA9025}</Project>
-      <Name>AP.IO</Name>
+      <Name>AP.Http</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
@@ -88,9 +88,9 @@
       <Project>{166AC0EB-7ED9-4245-8929-6CE527062602}</Project>
       <Name>AP.Portal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
+    <ProjectReference Include="..\AP.Server\AP.Endpoints.csproj">
       <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
-      <Name>AP.Server</Name>
+      <Name>AP.Endpoints</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

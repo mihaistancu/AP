@@ -7,8 +7,8 @@
     <ProjectGuid>{6EDD7763-FB31-4EAF-AE9B-1D71D2382689}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AP.Server</RootNamespace>
-    <AssemblyName>AP.Server</AssemblyName>
+    <RootNamespace>AP.Endpoints</RootNamespace>
+    <AssemblyName>AP.Endpoints</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -54,9 +54,9 @@
       <Project>{81cff28f-ccbd-4fb1-8559-9551ff737a0e}</Project>
       <Name>AP.Handlers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.IO\AP.IO.csproj">
+    <ProjectReference Include="..\AP.IO\AP.Http.csproj">
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
-      <Name>AP.IO</Name>
+      <Name>AP.Http</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
