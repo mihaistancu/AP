@@ -7,19 +7,23 @@ namespace AP.Portal
     public class PortalServer
     {
         private IWebServer server;
-        private ApiRoutes routes;
+        private ApiRoutes apiRoutes;
+        private SpaRoutes spaRoutes;
 
-        public PortalServer(IWebServer server, ApiRoutes routes)
+        public PortalServer(
+            IWebServer server, 
+            ApiRoutes apiRoutes,
+            SpaRoutes spaRoutes)
         {
             this.server = server;
-            this.routes = routes;
+            this.apiRoutes = apiRoutes;
+            this.spaRoutes = spaRoutes;
         }
 
         public IDisposable Start()
         {
-            routes.Apply(server);
-
-            server.Map("GET", "/*", new GetStaticFile("./dist"));
+            apiRoutes.Apply(server);
+            spaRoutes.Apply(server);
 
             return server.Start("http://localhost:9090");
         }

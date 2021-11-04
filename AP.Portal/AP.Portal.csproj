@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetStaticFile.cs" />
+    <Compile Include="SpaRoutes.cs" />
     <Compile Include="PortalServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

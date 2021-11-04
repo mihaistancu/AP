@@ -12,15 +12,17 @@ namespace AP.Dependencies.Factories
         {
             var routingRuleStorage = new RoutingRuleStorage();
 
-            var routes = new ApiRoutes(
+            var apiRoutes = new ApiRoutes(
                 new GetAllRoutingRulesApi(routingRuleStorage),
                 new AddRoutingRuleApi(routingRuleStorage),
                 new UpdateRoutingRuleApi(routingRuleStorage),
                 new DeleteRoutingRuleApi(routingRuleStorage));
 
+            var spaRoutes = new SpaRoutes();
+
             var server = new OwinWebServer();
 
-            return new PortalServer(server, routes);
+            return new PortalServer(server, apiRoutes, spaRoutes);
         }
     }
 }

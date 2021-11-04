@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="Factories\ConfigurationRoutesFactory.cs" />
+    <Compile Include="Factories\PortalServerFactory.cs" />
     <Compile Include="Factories\HandlerFactory.cs" />
     <Compile Include="Factories\MessageServerFactory.cs" />
     <Compile Include="Factories\OrchestratorFactory.cs" />
