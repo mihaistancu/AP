@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace AP.Configuration.Routing.API
 {
-    public class AddRoutingRuleApi : JsonApi, IHttpHandler
+    public class AddRoutingRuleApi : JsonApi
     {
         private IRoutingRuleStorage storage;
 

@@ -44,7 +44,6 @@
     <Compile Include="IHttpInput.cs" />
     <Compile Include="IHttpOutput.cs" />
     <Compile Include="IHttpServer.cs" />
-    <Compile Include="IHttpHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

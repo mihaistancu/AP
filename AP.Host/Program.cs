@@ -1,5 +1,6 @@
 ﻿using AP.Dependencies;
 using AP.Server;
+using AP.Web;
 using System;
 
 namespace AP.Host
@@ -35,7 +36,8 @@ namespace AP.Host
         {
             var portal = new OwinHttpServer();
             Context.ConfigurationApi.Apply(portal);
-            Context.StaticFiles.Apply(portal);
+            var spa = new StaticFileRoutes("./portal");
+            spa.Apply(portal);
             return portal.Start("http://localhost:9090");
         }
     }

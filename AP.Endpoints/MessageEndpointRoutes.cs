@@ -1,4 +1,5 @@
 ﻿using AP.Http;
+using System;
 using System.Linq;
 
 namespace AP.Endpoints
@@ -14,27 +15,27 @@ namespace AP.Endpoints
 
         public void Apply(IHttpServer server)
         {
-            server.Map("POST", "/Business/Inbound", Map(
+            server.Map("POST", "/Business/Inbound", Execute(
                 Handler.ValidateTlsCertificate,
                 Handler.Decrypt,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
                 Handler.ProcessAsync));
 
-            server.Map("POST", "/Business/Outbox", Map(
+            server.Map("POST", "/Business/Outbox", Execute(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
                 Handler.ProcessAsync));
 
-            server.Map("POST", "/Business/Inbox", Map(
+            server.Map("POST", "/Business/Inbox", Execute(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.PullRequest));
 
-            server.Map("POST", "/System/Inbound", Map(
+            server.Map("POST", "/System/Inbound", Execute(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
@@ -42,7 +43,7 @@ namespace AP.Endpoints
                 Handler.ProcessAsync,
                 Handler.Receipt));
 
-            server.Map("POST", "/System/Outbox", Map(
+            server.Map("POST", "/System/Outbox", Execute(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
@@ -50,17 +51,29 @@ namespace AP.Endpoints
                 Handler.ProcessAsync,
                 Handler.Receipt));
 
-            server.Map("POST", "/System/Inbox", Map(
+            server.Map("POST", "/System/Inbox", Execute(
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.PullRequest));
         }
 
-        private MessageHandler Map(params string[] pipeline)
+        public Action<IHttpInput, IHttpOutput> Execute(params string[] pipeline)
         {
-            var handlers = pipeline.Select(factory.Get);
-            return new MessageHandler(handlers);
+            return (IHttpInput httpInput, IHttpOutput httpOutput) =>
+            {
+                var input = new MessageInput(httpInput);
+                var output = new MessageOutput(httpOutput);
+                var message = input.GetMessage();
+                var handlers = pipeline.Select(factory.Get);
+
+                foreach (var handler in handlers)
+                {
+                    handler.Handle(message, output);
+
+                    if (output.IsMessageSent()) return;
+                }
+            };
         }
     }
 }

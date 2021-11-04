@@ -21,7 +21,6 @@ namespace AP.Dependencies
         public static MessageQueue MessageQueue { get; set; }
         public static MessageEndpointRoutes MessageEndpoints { get; set; }
         public static ConfigurationApiRoutes ConfigurationApi { get; set; }
-        public static StaticFileRoutes StaticFiles { get; set; }
 
         public static void Build()
         {
@@ -31,7 +30,6 @@ namespace AP.Dependencies
             Orchestrator = BuildOrchestrator();
             MessageEndpoints = BuildMessageEndpoints();
             ConfigurationApi = BuildConfigurationApi();
-            StaticFiles = new StaticFileRoutes();
         }
 
         private static Orchestrator BuildOrchestrator()

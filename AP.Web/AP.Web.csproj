@@ -41,9 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetDefaultFile.cs" />
-    <Compile Include="GetFromPath.cs" />
-    <Compile Include="GetStaticFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticFileRoutes.cs" />
   </ItemGroup>

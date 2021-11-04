@@ -2,7 +2,7 @@
 
 namespace AP.Configuration.Routing.API
 {
-    public class UpdateRoutingRuleApi : JsonApi, IHttpHandler
+    public class UpdateRoutingRuleApi : JsonApi
     {
         private IRoutingRuleStorage storage;
 

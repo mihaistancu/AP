@@ -2,7 +2,7 @@
 
 namespace AP.Configuration.Routing.API
 {
-    public class DeleteRoutingRuleApi : IHttpHandler
+    public class DeleteRoutingRuleApi
     {
         private IRoutingRuleStorage storage;
 

@@ -1,4 +1,5 @@
 ﻿using AP.Http;
+using System;
 using System.Collections.Generic;
 
 namespace AP.Server
@@ -7,7 +8,7 @@ namespace AP.Server
     {
         public string Method { get; set; }
         public string Path { get; set; }
-        public IHttpHandler Handler { get; set; }
+        public Action<IHttpInput, IHttpOutput> Execute { get; set; }
 
         public bool Matches(string method, string url, Dictionary<string, string> parameters)
         {

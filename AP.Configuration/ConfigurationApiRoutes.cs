@@ -24,10 +24,10 @@ namespace AP.Configuration
 
         public void Apply(IHttpServer server)
         {
-            server.Map("GET", "/api/routing-rules", getAllRoutingRules);
-            server.Map("POST", "/api/routing-rules", addRoutingRule);
-            server.Map("PUT", "/api/routing-rules/{id}", updateRoutingRule);
-            server.Map("DELETE", "/api/routing-rules/{id}", deleteRoutingRule);
+            server.Map("GET", "/api/routing-rules", getAllRoutingRules.Handle);
+            server.Map("POST", "/api/routing-rules", addRoutingRule.Handle);
+            server.Map("PUT", "/api/routing-rules/{id}", updateRoutingRule.Handle);
+            server.Map("DELETE", "/api/routing-rules/{id}", deleteRoutingRule.Handle);
         }
     }
 }

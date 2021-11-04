@@ -45,7 +45,6 @@
     <Compile Include="IHandlerFactory.cs" />
     <Compile Include="MessageInput.cs" />
     <Compile Include="MessageEndpointRoutes.cs" />
-    <Compile Include="MessageHandler.cs" />
     <Compile Include="MessageOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
