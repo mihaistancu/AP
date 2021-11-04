@@ -75,6 +75,10 @@
       <Project>{5f9c8bf4-34f7-4741-8a06-5016cd44bc08}</Project>
       <Name>AP.Cryptography</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Endpoints\AP.Endpoints.csproj">
+      <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
+      <Name>AP.Endpoints</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">
       <Project>{3000cfb2-4e38-4fb0-84a1-b9c279f0bca5}</Project>
       <Name>AP.Gateways</Name>
@@ -122,10 +126,6 @@
     <ProjectReference Include="..\AP.Scanner\AP.Scanner.csproj">
       <Project>{387b1707-0e51-47e6-b079-94861ea7e04c}</Project>
       <Name>AP.Scanner</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Server\AP.Endpoints.csproj">
-      <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
-      <Name>AP.Endpoints</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Signing\AP.Signing.csproj">
       <Project>{5105965c-cb56-4ad8-a383-de76bea64cc9}</Project>
