@@ -3,12 +3,12 @@ using System;
 
 namespace AP.Broker
 {
-    public class BrokerInternals : IDisposable
+    public class RabbitMqConnection : IDisposable
     {
         private IConnection connection;
         private IModel model;
 
-        public BrokerInternals(IConnection connection, IModel model)
+        public RabbitMqConnection(IConnection connection, IModel model)
         {
             this.connection = connection;
             this.model = model;

@@ -35,7 +35,7 @@ namespace AP.Broker
                 autoAck: true,
                 consumer: consumer);
 
-            return new BrokerInternals(connection, receiveChannel);
+            return new RabbitMqConnection(connection, receiveChannel);
         }
 
         public void Send(byte[] bytes)
