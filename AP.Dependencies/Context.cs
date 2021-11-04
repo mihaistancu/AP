@@ -19,9 +19,9 @@ namespace AP.Dependencies
         public static Orchestrator Orchestrator { get; set; }
         public static MessageClient MessageClient { get; set; }
         public static MessageQueue MessageQueue { get; set; }
-        public static MessageEndpoints MessageEndpoints { get; set; }
-        public static ApiRoutes ApiRoutes { get; set; }
-        public static SpaRoutes SpaRoutes { get; set; }
+        public static MessageEndpointRoutes MessageEndpoints { get; set; }
+        public static ConfigurationApiRoutes ConfigurationApi { get; set; }
+        public static StaticFileRoutes StaticFiles { get; set; }
 
         public static void Build()
         {
@@ -30,8 +30,8 @@ namespace AP.Dependencies
             MessageQueue = new MonitoredMessageQueue();
             Orchestrator = BuildOrchestrator();
             MessageEndpoints = BuildMessageEndpoints();
-            ApiRoutes = BuildApiRoutes();
-            SpaRoutes = new SpaRoutes();
+            ConfigurationApi = BuildConfigurationApi();
+            StaticFiles = new StaticFileRoutes();
         }
 
         private static Orchestrator BuildOrchestrator()
@@ -43,16 +43,16 @@ namespace AP.Dependencies
                 new WorkerFactory());
         }
 
-        private static MessageEndpoints BuildMessageEndpoints()
+        private static MessageEndpointRoutes BuildMessageEndpoints()
         {
-            return new MessageEndpoints(new HandlerFactory());
+            return new MessageEndpointRoutes(new HandlerFactory());
         }
 
-        private static ApiRoutes BuildApiRoutes()
+        private static ConfigurationApiRoutes BuildConfigurationApi()
         {
             var routingRuleStorage = new RoutingRuleStorage();
 
-            return new ApiRoutes(
+            return new ConfigurationApiRoutes(
                 new GetAllRoutingRulesApi(routingRuleStorage),
                 new AddRoutingRuleApi(routingRuleStorage),
                 new UpdateRoutingRuleApi(routingRuleStorage),

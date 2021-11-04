@@ -26,7 +26,7 @@ namespace AP.Server
                 {
                     var input = new HttpInput(parameters, request);
                     var output = new HttpOutput(response);
-                    route.Service.Handle(input, output);
+                    route.Handler.Handle(input, output);
                     return;
                 }
             }

@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace AP.Endpoints
 {
-    public class MessageEndpoints
+    public class MessageEndpointRoutes
     {
         private IHandlerFactory factory;
 
-        public MessageEndpoints(IHandlerFactory factory)
+        public MessageEndpointRoutes(IHandlerFactory factory)
         {
             this.factory = factory;
         }

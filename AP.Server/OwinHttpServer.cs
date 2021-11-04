@@ -21,13 +21,13 @@ namespace AP.Server
             appBuilder.Run(Handle);
         }
 
-        public void Map(string method, string path, IHttpHandler service)
+        public void Map(string method, string path, IHttpHandler handler)
         {
             router.Add(new Route
             {
                 Method = method,
                 Path = path,
-                Service = service
+                Handler = handler
             });
         }
 

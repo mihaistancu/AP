@@ -34,8 +34,8 @@ namespace AP.Host
         private static IDisposable StartPortalServer()
         {
             var portal = new OwinHttpServer();
-            Context.ApiRoutes.Apply(portal);
-            Context.SpaRoutes.Apply(portal);
+            Context.ConfigurationApi.Apply(portal);
+            Context.StaticFiles.Apply(portal);
             return portal.Start("http://localhost:9090");
         }
     }

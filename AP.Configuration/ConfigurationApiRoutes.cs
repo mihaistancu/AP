@@ -3,14 +3,14 @@ using AP.Http;
 
 namespace AP.Configuration
 {
-    public class ApiRoutes
+    public class ConfigurationApiRoutes
     {
         private GetAllRoutingRulesApi getAllRoutingRules;
         private AddRoutingRuleApi addRoutingRule;
         private UpdateRoutingRuleApi updateRoutingRule;
         private DeleteRoutingRuleApi deleteRoutingRule;
 
-        public ApiRoutes(
+        public ConfigurationApiRoutes(
             GetAllRoutingRulesApi getAllRoutingRules,
             AddRoutingRuleApi addRoutingRule,
             UpdateRoutingRuleApi updateRoutingRule,

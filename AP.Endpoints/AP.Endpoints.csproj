@@ -44,7 +44,7 @@
     <Compile Include="Handler.cs" />
     <Compile Include="IHandlerFactory.cs" />
     <Compile Include="MessageInput.cs" />
-    <Compile Include="MessageEndpoints.cs" />
+    <Compile Include="MessageEndpointRoutes.cs" />
     <Compile Include="MessageHandler.cs" />
     <Compile Include="MessageOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
