@@ -58,13 +58,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Https\AP.Server.csproj">
-      <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
-      <Name>AP.Server</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Http\AP.Http.csproj">
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
       <Name>AP.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
+      <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
+      <Name>AP.Server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

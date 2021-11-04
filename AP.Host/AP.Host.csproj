@@ -76,10 +76,6 @@
       <Project>{81CFF28F-CCBD-4FB1-8559-9551FF737A0E}</Project>
       <Name>AP.Handlers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Https\AP.Server.csproj">
-      <Project>{A70498D3-0AD1-4DB4-A251-43D6026C074A}</Project>
-      <Name>AP.Server</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Http\AP.Http.csproj">
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
       <Name>AP.Http</Name>
@@ -91,6 +87,10 @@
     <ProjectReference Include="..\AP.Portal\AP.Portal.csproj">
       <Project>{166AC0EB-7ED9-4245-8929-6CE527062602}</Project>
       <Name>AP.Portal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Server\AP.Server.csproj">
+      <Project>{a70498d3-0ad1-4db4-a251-43d6026c074a}</Project>
+      <Name>AP.Server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
