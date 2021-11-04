@@ -23,9 +23,9 @@ namespace AP.Server
             };
         }
 
-        public string GetUrl()
+        public string GetPath()
         {
-            return input.GetUrl();
+            return input.GetPath();
         }
     }
 }

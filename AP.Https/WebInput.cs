@@ -10,7 +10,7 @@ namespace AP.Https
         private Dictionary<string, string> parameters;
         private IOwinRequest request;
 
-        public string GetUrl()
+        public string GetPath()
         {
             return request.Uri.AbsolutePath;
         }

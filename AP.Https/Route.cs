@@ -22,7 +22,11 @@ namespace AP.Https
 
             for (int i = 0; i < pathTokens.Length; i++)
             {
-                if (pathTokens[i] == urlTokens[i])
+                if (pathTokens[i] == "*")
+                {
+                    return true;
+                }
+                else if (pathTokens[i] == urlTokens[i])
                 {
                     continue;
                 }

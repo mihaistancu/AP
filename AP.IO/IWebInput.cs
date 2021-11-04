@@ -5,7 +5,7 @@ namespace AP.IO
     public interface IWebInput
     {
         Stream GetBody();
-        string GetUrl();
+        string GetPath();
         string Get(string key);
     }
 }

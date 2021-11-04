@@ -16,7 +16,8 @@ namespace AP.Dependencies.Factories
                 new GetAllRoutingRulesApi(routingRuleStorage),
                 new AddRoutingRuleApi(routingRuleStorage),
                 new UpdateRoutingRuleApi(routingRuleStorage),
-                new DeleteRoutingRuleApi(routingRuleStorage));
+                new DeleteRoutingRuleApi(routingRuleStorage),
+                new GetStaticFile("./dist"));
         }
     }
 }

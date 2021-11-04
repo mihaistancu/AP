@@ -11,19 +11,22 @@ namespace AP.Configuration
         private AddRoutingRuleApi addRoutingRule;
         private UpdateRoutingRuleApi updateRoutingRule;
         private DeleteRoutingRuleApi deleteRoutingRule;
+        private GetStaticFile getStaticFile;
 
         public ConfigurationServer(
             IWebServer server,
             GetAllRoutingRulesApi getAllRoutingRules,
             AddRoutingRuleApi addRoutingRule,
             UpdateRoutingRuleApi updateRoutingRule,
-            DeleteRoutingRuleApi deleteRoutingRule)
+            DeleteRoutingRuleApi deleteRoutingRule, 
+            GetStaticFile getStaticFile)
         {
             this.server = server;
             this.getAllRoutingRules = getAllRoutingRules;
             this.addRoutingRule = addRoutingRule;
             this.updateRoutingRule = updateRoutingRule;
             this.deleteRoutingRule = deleteRoutingRule;
+            this.getStaticFile = getStaticFile;
         }
 
         public IDisposable Start()
@@ -32,6 +35,7 @@ namespace AP.Configuration
             server.Map("POST", "/api/routing-rules", addRoutingRule);
             server.Map("PUT", "/api/routing-rules/{id}", updateRoutingRule);
             server.Map("DELETE", "/api/routing-rules/{id}", deleteRoutingRule);
+            server.Map("GET", "/*", getStaticFile);
 
             return server.Start("http://localhost:9090");
         }
