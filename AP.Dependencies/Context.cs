@@ -8,8 +8,8 @@ using AP.Monitoring;
 using AP.Orchestration;
 using AP.Queue;
 using AP.Routing;
-using AP.Server;
 using AP.Storage;
+using AP.Web;
 
 namespace AP.Dependencies
 {

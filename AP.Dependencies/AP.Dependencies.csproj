@@ -107,10 +107,6 @@
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
       <Name>AP.Orchestration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Portal\AP.Portal.csproj">
-      <Project>{166AC0EB-7ED9-4245-8929-6CE527062602}</Project>
-      <Name>AP.Portal</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Queue\AP.Queue.csproj">
       <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>
       <Name>AP.Queue</Name>
@@ -138,6 +134,10 @@
     <ProjectReference Include="..\AP.Validation\AP.Validation.csproj">
       <Project>{4e640ab5-8eaa-4895-b30f-a9d922a12edc}</Project>
       <Name>AP.Validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Web\AP.Web.csproj">
+      <Project>{f03dc904-cdbd-4e41-b49a-ff0f3fec4426}</Project>
+      <Name>AP.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Workers\AP.Workers.csproj">
       <Project>{913e6e50-277d-4638-ad84-5196d0e033d8}</Project>

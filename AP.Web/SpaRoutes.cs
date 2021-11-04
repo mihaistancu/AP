@@ -1,7 +1,7 @@
 ﻿using AP.Http;
 using System.IO;
 
-namespace AP.Configuration
+namespace AP.Web
 {
     public class SpaRoutes
     {  
