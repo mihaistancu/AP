@@ -1,14 +1,14 @@
 ﻿using AP.Handlers;
-using AP.IO;
+using AP.Http;
 using System.Collections.Generic;
 
-namespace AP.Server
+namespace AP.Endpoints
 {
-    public class MessageService : IHttpHandler
+    public class MessageHandler : IHttpHandler
     {
         private IEnumerable<IHandler> handlers;
 
-        public MessageService(IEnumerable<IHandler> handlers)
+        public MessageHandler(IEnumerable<IHandler> handlers)
         {
             this.handlers = handlers;
         }

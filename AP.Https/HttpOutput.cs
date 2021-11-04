@@ -1,7 +1,7 @@
-﻿using AP.IO;
+﻿using AP.Http;
 using Microsoft.Owin;
 
-namespace AP.Https
+namespace AP.Server
 {
     public class HttpOutput : IHttpOutput
     {

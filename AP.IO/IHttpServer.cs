@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AP.IO
+namespace AP.Http
 {
     public interface IHttpServer
     {

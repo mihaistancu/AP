@@ -1,11 +1,11 @@
-﻿using AP.IO;
+﻿using AP.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Hosting;
 using Owin;
 using System;
 using System.Threading.Tasks;
 
-namespace AP.Https
+namespace AP.Server
 {
     public class OwinHttpServer : IHttpServer
     {

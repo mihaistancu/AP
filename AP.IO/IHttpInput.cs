@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace AP.IO
+namespace AP.Http
 {
     public interface IHttpInput
     {

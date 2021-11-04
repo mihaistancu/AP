@@ -1,7 +1,7 @@
-﻿using AP.IO;
+﻿using AP.Http;
 using System.Linq;
 
-namespace AP.Server
+namespace AP.Endpoints
 {
     public class MessageEndpoints
     {
@@ -57,10 +57,10 @@ namespace AP.Server
                 Handler.PullRequest));
         }
 
-        private MessageService Map(params string[] pipeline)
+        private MessageHandler Map(params string[] pipeline)
         {
             var handlers = pipeline.Select(factory.Get);
-            return new MessageService(handlers);
+            return new MessageHandler(handlers);
         }
     }
 }

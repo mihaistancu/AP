@@ -1,6 +1,6 @@
 ﻿using AP.Handlers;
 
-namespace AP.Server
+namespace AP.Endpoints
 {
     public interface IHandlerFactory
     {

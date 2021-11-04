@@ -1,4 +1,4 @@
-﻿namespace AP.IO
+﻿namespace AP.Http
 {
     public interface IHttpHandler
     {

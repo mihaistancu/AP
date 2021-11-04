@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using System.Collections.Generic;
 
-namespace AP.Https
+namespace AP.Server
 {
     public class Router
     {

@@ -1,6 +1,7 @@
 ﻿using AP.AS4;
 using AP.Certificates;
 using AP.Cryptography;
+using AP.Endpoints;
 using AP.Handlers;
 using AP.Handlers.AsyncProcessing;
 using AP.Handlers.Decryption;

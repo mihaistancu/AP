@@ -3,6 +3,7 @@ using AP.Client;
 using AP.Configuration;
 using AP.Configuration.Routing.API;
 using AP.Dependencies.Factories;
+using AP.Endpoints;
 using AP.Monitoring;
 using AP.Orchestration;
 using AP.Queue;

@@ -1,4 +1,4 @@
-﻿namespace AP.Server
+﻿namespace AP.Endpoints
 {
     public class Handler
     {

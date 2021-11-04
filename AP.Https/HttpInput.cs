@@ -1,9 +1,9 @@
-﻿using AP.IO;
+﻿using AP.Http;
 using Microsoft.Owin;
 using System.Collections.Generic;
 using System.IO;
 
-namespace AP.Https
+namespace AP.Server
 {
     public class HttpInput : IHttpInput
     {

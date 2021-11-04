@@ -1,8 +1,8 @@
 ﻿using AP.Handlers;
-using AP.IO;
+using AP.Http;
 using AP.Messages;
 
-namespace AP.Server
+namespace AP.Endpoints
 {
     public class MessageOutput : IOutput
     {
