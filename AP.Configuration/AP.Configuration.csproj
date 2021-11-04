@@ -44,8 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationServer.cs" />
-    <Compile Include="GetStaticFile.cs" />
+    <Compile Include="ApiRoutes.cs" />
     <Compile Include="JsonApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\API\AddRoutingRuleApi.cs" />

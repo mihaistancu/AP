@@ -3,7 +3,7 @@ using System.IO;
 
 namespace AP.Configuration
 {
-    public class GetStaticFile: IWebService
+    public class GetStaticFile: IWebHandler
     {
         private string root;
 

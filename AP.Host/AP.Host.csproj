@@ -72,6 +72,10 @@
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
       <Name>AP.Orchestration</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Portal\AP.Portal.csproj">
+      <Project>{166AC0EB-7ED9-4245-8929-6CE527062602}</Project>
+      <Name>AP.Portal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Server\AP.Server.csproj">
       <Project>{6edd7763-fb31-4eaf-ae9b-1d71d2382689}</Project>
       <Name>AP.Server</Name>

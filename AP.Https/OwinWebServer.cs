@@ -21,7 +21,7 @@ namespace AP.Https
             appBuilder.Run(Handle);
         }
 
-        public void Map(string method, string path, IWebService service)
+        public void Map(string method, string path, IWebHandler service)
         {
             router.Add(new Route
             {

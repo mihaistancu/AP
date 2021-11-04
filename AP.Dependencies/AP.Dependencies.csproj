@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="Factories\ConfigurationServerFactory.cs" />
+    <Compile Include="Factories\ConfigurationRoutesFactory.cs" />
     <Compile Include="Factories\HandlerFactory.cs" />
     <Compile Include="Factories\MessageServerFactory.cs" />
     <Compile Include="Factories\OrchestratorFactory.cs" />
@@ -109,6 +109,10 @@
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
       <Name>AP.Orchestration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Portal\AP.Portal.csproj">
+      <Project>{166AC0EB-7ED9-4245-8929-6CE527062602}</Project>
+      <Name>AP.Portal</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Queue\AP.Queue.csproj">
       <Project>{702a93b8-ee87-4fca-a5a8-522169705ec1}</Project>

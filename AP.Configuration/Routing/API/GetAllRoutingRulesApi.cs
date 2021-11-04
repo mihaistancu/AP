@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AP.Configuration.Routing.API
 {
-    public class GetAllRoutingRulesApi : JsonApi, IWebService
+    public class GetAllRoutingRulesApi : JsonApi, IWebHandler
     {
         private IRoutingRuleStorage storage;
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AP.Server
 {
-    public class MessageService : IWebService
+    public class MessageService : IWebHandler
     {
         private IEnumerable<IHandler> handlers;
 

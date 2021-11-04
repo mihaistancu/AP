@@ -1,6 +1,6 @@
 ﻿namespace AP.IO
 {
-    public interface IWebService
+    public interface IWebHandler
     {
         void Handle(IWebInput input, IWebOutput output);
     }
