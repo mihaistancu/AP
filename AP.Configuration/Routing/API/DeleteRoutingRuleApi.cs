@@ -2,7 +2,7 @@
 
 namespace AP.Configuration.Routing.API
 {
-    public class DeleteRoutingRuleApi : IWebHandler
+    public class DeleteRoutingRuleApi : IHttpHandler
     {
         private IRoutingRuleStorage storage;
 
@@ -11,7 +11,7 @@ namespace AP.Configuration.Routing.API
             this.storage = storage;
         }
 
-        public void Handle(IWebInput input, IWebOutput output)
+        public void Handle(IHttpInput input, IHttpOutput output)
         {
             string id = input.Get("id");
             storage.Delete(id);

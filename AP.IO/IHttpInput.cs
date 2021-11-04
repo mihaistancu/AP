@@ -2,7 +2,7 @@
 
 namespace AP.IO
 {
-    public interface IWebInput
+    public interface IHttpInput
     {
         Stream GetBody();
         string GetPath();

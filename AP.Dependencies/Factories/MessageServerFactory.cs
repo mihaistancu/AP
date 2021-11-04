@@ -9,7 +9,7 @@ namespace AP.Dependencies.Factories
         {
             var handlerFactory = new HandlerFactory();
 
-            return new MessageServer(new OwinWebServer(), handlerFactory.Get);
+            return new MessageServer(new OwinHttpServer(), handlerFactory.Get);
         }
     }
 }

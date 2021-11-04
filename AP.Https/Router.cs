@@ -24,8 +24,8 @@ namespace AP.Https
 
                 if (isMatched)
                 {
-                    var input = new WebInput(parameters, request);
-                    var output = new WebOutput(response);
+                    var input = new HttpInput(parameters, request);
+                    var output = new HttpOutput(response);
                     route.Service.Handle(input, output);
                     return;
                 }

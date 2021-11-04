@@ -20,7 +20,7 @@ namespace AP.Dependencies.Factories
 
             var spaRoutes = new SpaRoutes();
 
-            var server = new OwinWebServer();
+            var server = new OwinHttpServer();
 
             return new PortalServer(server, apiRoutes, spaRoutes);
         }

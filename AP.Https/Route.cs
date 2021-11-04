@@ -7,7 +7,7 @@ namespace AP.Https
     {
         public string Method { get; set; }
         public string Path { get; set; }
-        public IWebHandler Service { get; set; }
+        public IHttpHandler Service { get; set; }
 
         public bool Matches(string method, string url, Dictionary<string, string> parameters)
         {

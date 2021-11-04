@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AP.Https
 {
-    public class WebInput : IWebInput
+    public class HttpInput : IHttpInput
     {
         private Dictionary<string, string> parameters;
         private IOwinRequest request;
@@ -20,7 +20,7 @@ namespace AP.Https
             return request.Body;
         }
 
-        public WebInput(Dictionary<string, string> parameters, IOwinRequest request)
+        public HttpInput(Dictionary<string, string> parameters, IOwinRequest request)
         {
             this.parameters = parameters;
             this.request = request;

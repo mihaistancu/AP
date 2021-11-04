@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AP.Server
 {
-    public class MessageService : IWebHandler
+    public class MessageService : IHttpHandler
     {
         private IEnumerable<IHandler> handlers;
 
@@ -13,10 +13,10 @@ namespace AP.Server
             this.handlers = handlers;
         }
 
-        public void Handle(IWebInput webInput, IWebOutput webOutput)
+        public void Handle(IHttpInput httpInput, IHttpOutput httpOutput)
         {
-            var input = new MessageInput(webInput);
-            var output = new MessageOutput(webOutput);
+            var input = new MessageInput(httpInput);
+            var output = new MessageOutput(httpOutput);
             var message = input.GetMessage();
 
             foreach (var handler in handlers)

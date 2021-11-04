@@ -6,12 +6,12 @@ namespace AP.Portal
 {
     public class PortalServer
     {
-        private IWebServer server;
+        private IHttpServer server;
         private ApiRoutes apiRoutes;
         private SpaRoutes spaRoutes;
 
         public PortalServer(
-            IWebServer server, 
+            IHttpServer server, 
             ApiRoutes apiRoutes,
             SpaRoutes spaRoutes)
         {

@@ -65,12 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WebInput.cs" />
-    <Compile Include="WebOutput.cs" />
+    <Compile Include="HttpInput.cs" />
+    <Compile Include="HttpOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Router.cs" />
-    <Compile Include="OwinWebServer.cs" />
+    <Compile Include="OwinHttpServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

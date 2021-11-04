@@ -7,14 +7,14 @@ namespace AP.Configuration
 {
     public class JsonApi
     {
-        public JObject ReadJson(IWebInput input)
+        public JObject ReadJson(IHttpInput input)
         {
             var reader = new StreamReader(input.GetBody());
             var text = reader.ReadToEnd();
             return JObject.Parse(text);
         }
 
-        public void WriteJson(JToken json, IWebOutput output)
+        public void WriteJson(JToken json, IHttpOutput output)
         {
             var text = json.ToString();
             var bytes = Encoding.UTF8.GetBytes(text);

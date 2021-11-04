@@ -1,6 +1,6 @@
 ﻿namespace AP.IO
 {
-    public interface IWebOutput
+    public interface IHttpOutput
     {
         void ContentType(string contentType);
         void Send(byte[] bytes);

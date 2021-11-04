@@ -5,9 +5,9 @@ namespace AP.Server
 {
     public class MessageInput
     {
-        private IWebInput input;
+        private IHttpInput input;
 
-        public MessageInput(IWebInput input)
+        public MessageInput(IHttpInput input)
         {
             this.input = input;
         }

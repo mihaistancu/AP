@@ -5,23 +5,23 @@ namespace AP.Configuration
 {
     public class SpaRoutes
     {  
-        public void Apply(IWebServer server)
+        public void Apply(IHttpServer server)
         {
             server.Map("GET", "/*", new GetStaticFile());
             server.Map("GET", "/", new GetDefaultFile());
         }
 
-        public class GetStaticFile : GetFromPath, IWebHandler
+        public class GetStaticFile : GetFromPath, IHttpHandler
         {
-            public void Handle(IWebInput input, IWebOutput output)
+            public void Handle(IHttpInput input, IHttpOutput output)
             {
                 Handle(input.GetPath(), output);
             }
         }
 
-        public class GetDefaultFile : GetFromPath, IWebHandler
+        public class GetDefaultFile : GetFromPath, IHttpHandler
         {
-            public void Handle(IWebInput input, IWebOutput output)
+            public void Handle(IHttpInput input, IHttpOutput output)
             {
                 Handle("index.html", output);
             }
@@ -29,7 +29,7 @@ namespace AP.Configuration
 
         public class GetFromPath
         {
-            public void Handle(string path, IWebOutput output)
+            public void Handle(string path, IHttpOutput output)
             {
                 var filePath = Path.Combine("./dist", path);
                 var bytes = File.ReadAllBytes(filePath);

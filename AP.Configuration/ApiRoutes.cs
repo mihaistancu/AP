@@ -22,7 +22,7 @@ namespace AP.Configuration
             this.deleteRoutingRule = deleteRoutingRule;
         }
 
-        public void Apply(IWebServer server)
+        public void Apply(IHttpServer server)
         {
             server.Map("GET", "/api/routing-rules", getAllRoutingRules);
             server.Map("POST", "/api/routing-rules", addRoutingRule);

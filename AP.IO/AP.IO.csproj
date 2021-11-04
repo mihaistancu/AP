@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IWebInput.cs" />
-    <Compile Include="IWebOutput.cs" />
-    <Compile Include="IWebServer.cs" />
-    <Compile Include="IWebHandler.cs" />
+    <Compile Include="IHttpInput.cs" />
+    <Compile Include="IHttpOutput.cs" />
+    <Compile Include="IHttpServer.cs" />
+    <Compile Include="IHttpHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

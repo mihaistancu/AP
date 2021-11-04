@@ -3,11 +3,11 @@ using Microsoft.Owin;
 
 namespace AP.Https
 {
-    public class WebOutput : IWebOutput
+    public class HttpOutput : IHttpOutput
     {
         private IOwinResponse response;
 
-        public WebOutput(IOwinResponse response)
+        public HttpOutput(IOwinResponse response)
         {
             this.response = response;
         }

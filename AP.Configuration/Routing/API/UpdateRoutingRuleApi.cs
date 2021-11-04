@@ -2,7 +2,7 @@
 
 namespace AP.Configuration.Routing.API
 {
-    public class UpdateRoutingRuleApi : JsonApi, IWebHandler
+    public class UpdateRoutingRuleApi : JsonApi, IHttpHandler
     {
         private IRoutingRuleStorage storage;
 
@@ -11,7 +11,7 @@ namespace AP.Configuration.Routing.API
             this.storage = storage;
         }
 
-        public void Handle(IWebInput input, IWebOutput output)
+        public void Handle(IHttpInput input, IHttpOutput output)
         {
             var id = input.Get("id");
             var rule = GetRule(input);
@@ -19,7 +19,7 @@ namespace AP.Configuration.Routing.API
             output.Status(204);
         }
 
-        private RoutingRule GetRule(IWebInput input)
+        private RoutingRule GetRule(IHttpInput input)
         {
             var json = ReadJson(input);
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AP.Https
 {
-    public class OwinWebServer : IWebServer
+    public class OwinHttpServer : IHttpServer
     {
         private Router router = new Router();
 
@@ -21,7 +21,7 @@ namespace AP.Https
             appBuilder.Run(Handle);
         }
 
-        public void Map(string method, string path, IWebHandler service)
+        public void Map(string method, string path, IHttpHandler service)
         {
             router.Add(new Route
             {

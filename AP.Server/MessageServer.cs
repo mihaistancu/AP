@@ -7,10 +7,10 @@ namespace AP.Server
 {
     public class MessageServer
     {
-        private IWebServer server;
+        private IHttpServer server;
         private Func<string, IHandler> getHandler;
 
-        public MessageServer(IWebServer server, Func<string, IHandler> getHandler)
+        public MessageServer(IHttpServer server, Func<string, IHandler> getHandler)
         {
             this.server = server;
             this.getHandler = getHandler;
