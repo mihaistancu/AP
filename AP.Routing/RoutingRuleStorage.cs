@@ -9,6 +9,15 @@ namespace AP.Routing
         static int id;
         private List<RoutingRule> rules = new List<RoutingRule>();
 
+        public RoutingRuleStorage()
+        {
+            rules.Add(new RoutingRule
+            {
+                Id = "1",
+                Address = "a"
+            });
+        }
+
         public RoutingRule[] GetAll()
         {
             return rules.ToArray();
