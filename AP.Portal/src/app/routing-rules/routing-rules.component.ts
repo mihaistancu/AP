@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RoutingRule } from './routing-rules.model';
+import { RoutingRulesService } from './routing-rules.service';
 
 @Component({
   selector: 'app-routing-rules',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoutingRulesComponent implements OnInit {
 
-  constructor() { }
+  rules$: Observable<RoutingRule[]>;
+
+  constructor(
+    public service: RoutingRulesService
+  ) { }
 
   ngOnInit(): void {
+    this.rules$ = this.service.getRules();
   }
 
 }

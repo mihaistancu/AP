@@ -1,1 +1,5 @@
-<p>routing-rules works!</p>
+<p>Routing</p>
+
+<li *ngFor="let rule of rules$ | async">
+  {{rule.id}}
+</li>
