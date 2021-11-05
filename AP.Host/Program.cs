@@ -29,16 +29,16 @@ namespace AP.Host
         {
             var messaging = new OwinHttpServer();
             Context.MessageEndpoints.Apply(messaging);
-            return messaging.Start("http://localhost:9000");
+            return messaging.Start(Config.MessagingServerBaseUrl);
         }
 
         private static IDisposable StartPortalServer()
         {
             var portal = new OwinHttpServer();
             Context.ConfigurationApi.Apply(portal);
-            var spa = new StaticFileRoutes("./portal");
+            var spa = new StaticFileRoutes(Config.PortalStaticFilesPath);
             spa.Apply(portal);
-            return portal.Start("http://localhost:9090");
-        }
+            return portal.Start(Config.PortalServerBaseUrl);
+        }   
     }
 }
