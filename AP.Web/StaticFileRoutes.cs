@@ -14,13 +14,18 @@ namespace AP.Web
 
         public void Apply(IHttpServer server)
         {
-            server.Map("GET", "/", (input, output) => {
-                Serve("index.html", output);
-            });
+            server.Map("GET", "/", ServeIndexPage, IsAuthorized);
+            server.Map("GET", "/*", ServePageByPath, IsAuthorized);
+        }
 
-            server.Map("GET", "/*", (input, output) => {
-                Serve(input.GetPath(), output);
-            });
+        private void ServeIndexPage(IHttpInput input, IHttpOutput output) 
+        {
+            Serve("index.html", output);
+        }
+
+        private void ServePageByPath(IHttpInput input, IHttpOutput output)
+        {
+            Serve(input.GetPath(), output);
         }
 
         private void Serve(string path, IHttpOutput output)
@@ -29,5 +34,10 @@ namespace AP.Web
             var bytes = File.ReadAllBytes(filePath);
             output.Send(bytes);
         }
+
+        private bool IsAuthorized(IHttpInput input)
+        {
+            return true;
+        } 
     }
 }

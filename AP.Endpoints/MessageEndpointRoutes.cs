@@ -1,5 +1,4 @@
 ﻿using AP.Http;
-using System;
 using System.Linq;
 
 namespace AP.Endpoints
@@ -15,65 +14,75 @@ namespace AP.Endpoints
 
         public void Apply(IHttpServer server)
         {
-            server.Map("POST", "/Business/Inbound", Execute(
+            Map(server, "/Business/Inbound", 
                 Handler.ValidateTlsCertificate,
                 Handler.Decrypt,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
-                Handler.ProcessAsync));
+                Handler.ProcessAsync);
 
-            server.Map("POST", "/Business/Outbox", Execute(
+            Map(server, "/Business/Outbox", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
-                Handler.ProcessAsync));
+                Handler.ProcessAsync);
 
-            server.Map("POST", "/Business/Inbox", Execute(
+            Map(server, "/Business/Inbox", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
-                Handler.PullRequest));
+                Handler.PullRequest);
 
-            server.Map("POST", "/System/Inbound", Execute(
-                Handler.ValidateTlsCertificate,
-                Handler.ValidateSignature,
-                Handler.ValidateEnvelope,
-                Handler.Persist,
-                Handler.ProcessAsync,
-                Handler.Receipt));
-
-            server.Map("POST", "/System/Outbox", Execute(
+            Map(server, "/System/Inbound", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
                 Handler.ProcessAsync,
-                Handler.Receipt));
+                Handler.Receipt);
 
-            server.Map("POST", "/System/Inbox", Execute(
+            Map(server, "/System/Outbox", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
-                Handler.PullRequest));
+                Handler.Persist,
+                Handler.ProcessAsync,
+                Handler.Receipt);
+
+            Map(server, "/System/Inbox", 
+                Handler.ValidateTlsCertificate,
+                Handler.ValidateSignature,
+                Handler.ValidateEnvelope,
+                Handler.PullRequest);
         }
 
-        public Action<IHttpInput, IHttpOutput> Execute(params string[] pipeline)
+        private void Map(IHttpServer server, string path, params string[] pipeline)
         {
-            return (IHttpInput httpInput, IHttpOutput httpOutput) =>
+            server.Map("POST", path, (httpInput, httpOutput) =>
             {
                 var input = new MessageInput(httpInput);
                 var output = new MessageOutput(httpOutput);
-                var message = input.GetMessage();
-                var handlers = pipeline.Select(factory.Get);
+                Process(input, output, pipeline);
+            }, AllowAll);
+        }
 
-                foreach (var handler in handlers)
-                {
-                    handler.Handle(message, output);
+        private void Process(MessageInput input, MessageOutput output, params string[] pipeline)
+        {
+            var message = input.GetMessage();
+            var handlers = pipeline.Select(factory.Get);
 
-                    if (output.IsMessageSent()) return;
-                }
-            };
+            foreach (var handler in handlers)
+            {
+                handler.Handle(message, output);
+
+                if (output.IsMessageSent()) return;
+            }
+        }
+
+        private bool AllowAll(IHttpInput input)
+        {
+            return true;
         }
     }
 }

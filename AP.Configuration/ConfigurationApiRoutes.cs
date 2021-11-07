@@ -24,10 +24,15 @@ namespace AP.Configuration
 
         public void Apply(IHttpServer server)
         {
-            server.Map("GET", "/api/routing-rules", getAllRoutingRules.Handle);
-            server.Map("POST", "/api/routing-rules", addRoutingRule.Handle);
-            server.Map("PUT", "/api/routing-rules/{id}", updateRoutingRule.Handle);
-            server.Map("DELETE", "/api/routing-rules/{id}", deleteRoutingRule.Handle);
+            server.Map("GET", "/api/routing-rules", getAllRoutingRules.Handle, AllowOperators);
+            server.Map("POST", "/api/routing-rules", addRoutingRule.Handle, AllowOperators);
+            server.Map("PUT", "/api/routing-rules/{id}", updateRoutingRule.Handle, AllowOperators);
+            server.Map("DELETE", "/api/routing-rules/{id}", deleteRoutingRule.Handle, AllowOperators);
+        }
+
+        public bool AllowOperators(IHttpInput input)
+        {
+            return true;
         }
     }
 }

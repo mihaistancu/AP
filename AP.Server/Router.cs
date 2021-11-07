@@ -25,6 +25,11 @@ namespace AP.Server
                 if (isMatched)
                 {
                     var input = new HttpInput(parameters, request);
+                    if (!route.IsAuthorized(input))
+                    {
+                        response.StatusCode = 401;
+                        return;
+                    }
                     var output = new HttpOutput(response);
                     route.Execute(input, output);
                     return;
