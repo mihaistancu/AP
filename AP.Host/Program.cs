@@ -1,6 +1,5 @@
 ﻿using AP.Dependencies;
 using AP.Server;
-using AP.Web;
 using System;
 
 namespace AP.Host
@@ -29,16 +28,15 @@ namespace AP.Host
         {
             var messaging = new OwinHttpServer();
             Context.MessageEndpoints.Apply(messaging);
-            return messaging.Start(Config.MessagingServerBaseUrl);
+            return messaging.Start("http://localhost:9000");
         }
 
         private static IDisposable StartPortalServer()
         {
             var portal = new OwinHttpServer();
             Context.ConfigurationApi.Apply(portal);
-            var spa = new StaticFileRoutes(Config.PortalStaticFilesPath);
-            spa.Apply(portal);
-            return portal.Start(Config.PortalServerBaseUrl);
+            Context.PortalSpa.Apply(portal);
+            return portal.Start("http://localhost:9090");
         }   
     }
 }

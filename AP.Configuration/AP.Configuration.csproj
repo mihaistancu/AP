@@ -58,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AP.Authorization\AP.Authorization.csproj">
+      <Project>{5720708F-4ECC-4710-9FA3-FDE53EFEB3E5}</Project>
+      <Name>AP.Authorization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Http\AP.Http.csproj">
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
       <Name>AP.Http</Name>
