@@ -24,15 +24,13 @@ namespace AP.Server
         public void Map(
             string method, 
             string path, 
-            Action<IHttpInput, IHttpOutput> execute, 
-            Func<IHttpInput, bool> isAuthorized)
+            HttpHandler handle)
         {
             router.Add(new Route
             {
                 Method = method,
                 Path = path,
-                Execute = execute,
-                IsAuthorized = isAuthorized
+                Handle = handle
             });
         }
 

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpHandler.cs" />
     <Compile Include="IHttpInput.cs" />
     <Compile Include="IHttpOutput.cs" />
     <Compile Include="IHttpServer.cs" />

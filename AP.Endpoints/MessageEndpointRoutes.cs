@@ -64,7 +64,7 @@ namespace AP.Endpoints
                 var input = new MessageInput(httpInput);
                 var output = new MessageOutput(httpOutput);
                 Process(input, output, pipeline);
-            }, AllowAll);
+            });
         }
 
         private void Process(MessageInput input, MessageOutput output, params string[] pipeline)

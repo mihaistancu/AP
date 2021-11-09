@@ -8,8 +8,7 @@ namespace AP.Server
     {
         public string Method { get; set; }
         public string Path { get; set; }
-        public Action<IHttpInput, IHttpOutput> Execute { get; set; }
-        public Func<IHttpInput, bool> IsAuthorized { get; set; }
+        public HttpHandler Handle { get; set; }
 
         public bool Matches(string method, string url, Dictionary<string, string> parameters)
         {

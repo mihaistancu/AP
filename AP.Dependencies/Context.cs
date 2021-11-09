@@ -66,17 +66,16 @@ namespace AP.Dependencies
             var authenticator = new Authenticator(new ActiveDirectory(), new CookieFactory(), ClaimsStorage);
             
             return new ApiRoutes(
-                Authorizer,
-                authenticator,
-                new GetAllRoutingRulesApi(routingRuleStorage),
-                new AddRoutingRuleApi(routingRuleStorage),
-                new UpdateRoutingRuleApi(routingRuleStorage),
-                new DeleteRoutingRuleApi(routingRuleStorage));
+                authenticator.Authenticate,
+                new GetAllRoutingRulesApi(routingRuleStorage).Handle,
+                new AddRoutingRuleApi(routingRuleStorage).Handle,
+                new UpdateRoutingRuleApi(routingRuleStorage).Handle,
+                new DeleteRoutingRuleApi(routingRuleStorage).Handle);
         }
 
         private static SpaRoutes BuildPortalSpa()
         {
-            return new SpaRoutes(Authorizer);
+            return new SpaRoutes();
         }
     }
 }
