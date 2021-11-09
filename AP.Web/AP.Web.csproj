@@ -41,14 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileServer.cs" />
+    <Compile Include="Authentication\AuthenticationResult.cs" />
+    <Compile Include="Authentication\Authenticator.cs" />
+    <Compile Include="Authorization\Authorizer.cs" />
+    <Compile Include="Authentication\CredentialsReader.cs" />
+    <Compile Include="Routes\ApiRoutes.cs" />
+    <Compile Include="Cookies\Cookie.cs" />
+    <Compile Include="Cookies\CookieParser.cs" />
+    <Compile Include="Files\FileServer.cs" />
+    <Compile Include="Identity\Claims.cs" />
+    <Compile Include="Identity\ClaimsStorage.cs" />
+    <Compile Include="Routes\LoginRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PortalSpaRoutes.cs" />
+    <Compile Include="Routes\SpaRoutes.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Authorization\AP.Authorization.csproj">
-      <Project>{5720708F-4ECC-4710-9FA3-FDE53EFEB3E5}</Project>
-      <Name>AP.Authorization</Name>
+    <ProjectReference Include="..\AP.Configuration\AP.Configuration.csproj">
+      <Project>{582B1F10-E26F-4FA7-ADB7-25ECC14A8877}</Project>
+      <Name>AP.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Http\AP.Http.csproj">
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>

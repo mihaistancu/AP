@@ -1,18 +1,18 @@
-﻿using AP.Authorization;
-using AP.Broker;
+﻿using AP.Broker;
 using AP.Client;
-using AP.Configuration;
 using AP.Configuration.Routing.API;
 using AP.Dependencies.Factories;
 using AP.Endpoints;
-using AP.Identity;
-using AP.Login;
 using AP.Monitoring;
 using AP.Orchestration;
 using AP.Queue;
 using AP.Routing;
 using AP.Storage;
-using AP.Web;
+using AP.Web.Authentication;
+using AP.Web.Authorization;
+using AP.Web.Files;
+using AP.Web.Identity;
+using AP.Web.Routes;
 
 namespace AP.Dependencies
 {
@@ -25,9 +25,9 @@ namespace AP.Dependencies
         public static ClaimsStorage ClaimsStorage { get; set; }
         public static Authorizer Authorizer { get; set; }
         public static MessageEndpointRoutes MessageEndpoints { get; set; }
-        public static ConfigurationApiRoutes ConfigurationApi { get; set; }
+        public static ApiRoutes PortalApi { get; set; }
         public static LoginRoutes Login { get; set; }
-        public static PortalSpaRoutes PortalSpa { get; set; }
+        public static SpaRoutes PortalSpa { get; set; }
 
         public static void Build()
         {
@@ -38,7 +38,7 @@ namespace AP.Dependencies
             Orchestrator = BuildOrchestrator();
             Authorizer = BuildAuthorizer();
             MessageEndpoints = BuildMessageEndpoints();
-            ConfigurationApi = BuildConfigurationApi();
+            PortalApi = BuildPortalApi();
             Login = BuildLogin();
             PortalSpa = BuildPortalSpa();
         }
@@ -62,11 +62,11 @@ namespace AP.Dependencies
             return new MessageEndpointRoutes(new HandlerFactory());
         }
 
-        private static ConfigurationApiRoutes BuildConfigurationApi()
+        private static ApiRoutes BuildPortalApi()
         {
             var routingRuleStorage = new RoutingRuleStorage();
 
-            return new ConfigurationApiRoutes(
+            return new ApiRoutes(
                 Authorizer,
                 new GetAllRoutingRulesApi(routingRuleStorage),
                 new AddRoutingRuleApi(routingRuleStorage),
@@ -76,12 +76,12 @@ namespace AP.Dependencies
 
         private static LoginRoutes BuildLogin()
         {
-            return new LoginRoutes(new EmbeddedResourceServer(), ClaimsStorage);
+            return new LoginRoutes(new FileServer(), new Authenticator(), ClaimsStorage);
         }
 
-        private static PortalSpaRoutes BuildPortalSpa()
+        private static SpaRoutes BuildPortalSpa()
         {
-            return new PortalSpaRoutes(new FileServer(), Authorizer);
+            return new SpaRoutes(new FileServer(), Authorizer);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AP.Identity
+namespace AP.Web.Identity
 {
     public class Claims
     {

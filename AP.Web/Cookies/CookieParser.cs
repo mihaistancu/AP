@@ -1,6 +1,6 @@
 ﻿using AP.Http;
 
-namespace AP.Cookies
+namespace AP.Web.Cookies
 {
     public class CookieParser
     {

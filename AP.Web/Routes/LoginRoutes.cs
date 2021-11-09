@@ -1,17 +1,18 @@
-﻿using AP.Authentication;
-using AP.Http;
-using AP.Identity;
+﻿using AP.Http;
+using AP.Web.Authentication;
+using AP.Web.Identity;
+using AP.Web.Files;
 
-namespace AP.Login
+namespace AP.Web.Routes
 {
     public class LoginRoutes
     {
-        private EmbeddedResourceServer server;
+        private FileServer server;
         private Authenticator authenticator;
         private ClaimsStorage storage;
 
         public LoginRoutes(
-            EmbeddedResourceServer server, 
+            FileServer server,
             Authenticator authenticator,
             ClaimsStorage storage)
         {
@@ -28,7 +29,7 @@ namespace AP.Login
 
         private void ServeLoginPage(IHttpInput input, IHttpOutput output)
         {
-            server.Serve("login.html", output);
+            server.Serve("login/index.html", output);
         }
 
         private void Authenticate(IHttpInput input, IHttpOutput output)
@@ -41,7 +42,7 @@ namespace AP.Login
             }
         }
 
-        private bool AllowAnyone(IHttpInput input) 
+        private bool AllowAnyone(IHttpInput input)
         {
             return true;
         }

@@ -1,6 +1,6 @@
-﻿using AP.Identity;
+﻿using AP.Web.Identity;
 
-namespace AP.Authentication
+namespace AP.Web.Authentication
 {
     public class AuthenticationResult
     {

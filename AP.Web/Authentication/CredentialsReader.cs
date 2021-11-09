@@ -1,6 +1,6 @@
 ﻿using AP.Http;
 
-namespace AP.Login
+namespace AP.Web.Authentication
 {
     public class CredentialsReader
     {

@@ -82,15 +82,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{AA49
 		run.ps1 = run.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Identity", "AP.Identity\AP.Identity.csproj", "{85E8DDE6-5AB0-41BD-938E-6361251A7456}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Cookies", "AP.Cookies\AP.Cookies.csproj", "{6FBD20FB-BD8A-46D8-804E-CF4BB6C12A0B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Authorization", "AP.Authorization\AP.Authorization.csproj", "{5720708F-4ECC-4710-9FA3-FDE53EFEB3E5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Login", "AP.Login\AP.Login.csproj", "{E2A36C80-B66E-4A91-ACE6-8C33DB1DD268}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Authentication", "AP.Authentication\AP.Authentication.csproj", "{39766F45-0C87-4153-95C5-A15A1A7C5F9C}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AP.Login", "AP.Login\", "{91A5E02B-9B8A-421E-8D47-F49BDBA801CD}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51973"
+		Debug.AspNetCompiler.PhysicalPath = "AP.Login\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51973\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51973"
+		Release.AspNetCompiler.PhysicalPath = "AP.Login\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51973\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51973"
+		SlnRelativePath = "AP.Login\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -204,26 +215,10 @@ Global
 		{F03DC904-CDBD-4E41-B49A-FF0F3FEC4426}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90B1C71F-68C1-452E-919C-7DE0334BE005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90B1C71F-68C1-452E-919C-7DE0334BE005}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{85E8DDE6-5AB0-41BD-938E-6361251A7456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85E8DDE6-5AB0-41BD-938E-6361251A7456}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85E8DDE6-5AB0-41BD-938E-6361251A7456}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85E8DDE6-5AB0-41BD-938E-6361251A7456}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6FBD20FB-BD8A-46D8-804E-CF4BB6C12A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6FBD20FB-BD8A-46D8-804E-CF4BB6C12A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6FBD20FB-BD8A-46D8-804E-CF4BB6C12A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6FBD20FB-BD8A-46D8-804E-CF4BB6C12A0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5720708F-4ECC-4710-9FA3-FDE53EFEB3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5720708F-4ECC-4710-9FA3-FDE53EFEB3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5720708F-4ECC-4710-9FA3-FDE53EFEB3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5720708F-4ECC-4710-9FA3-FDE53EFEB3E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2A36C80-B66E-4A91-ACE6-8C33DB1DD268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2A36C80-B66E-4A91-ACE6-8C33DB1DD268}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2A36C80-B66E-4A91-ACE6-8C33DB1DD268}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2A36C80-B66E-4A91-ACE6-8C33DB1DD268}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39766F45-0C87-4153-95C5-A15A1A7C5F9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39766F45-0C87-4153-95C5-A15A1A7C5F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39766F45-0C87-4153-95C5-A15A1A7C5F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39766F45-0C87-4153-95C5-A15A1A7C5F9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A5E02B-9B8A-421E-8D47-F49BDBA801CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A5E02B-9B8A-421E-8D47-F49BDBA801CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A5E02B-9B8A-421E-8D47-F49BDBA801CD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A5E02B-9B8A-421E-8D47-F49BDBA801CD}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

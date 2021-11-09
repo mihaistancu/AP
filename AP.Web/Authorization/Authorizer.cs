@@ -1,8 +1,8 @@
-﻿using AP.Cookies;
-using AP.Http;
-using AP.Identity;
+﻿using AP.Http;
+using AP.Web.Cookies;
+using AP.Web.Identity;
 
-namespace AP.Authorization
+namespace AP.Web.Authorization
 {
     public class Authorizer
     {
@@ -13,7 +13,7 @@ namespace AP.Authorization
             this.storage = storage;
         }
 
-        public bool AllowOperators(IHttpInput input) 
+        public bool AllowOperators(IHttpInput input)
         {
             var parser = new CookieParser(input);
             var cookie = parser.Get("auth");

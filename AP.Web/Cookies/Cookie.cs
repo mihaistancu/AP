@@ -1,4 +1,4 @@
-﻿namespace AP.Cookies
+﻿namespace AP.Web.Cookies
 {
     public class Cookie
     {

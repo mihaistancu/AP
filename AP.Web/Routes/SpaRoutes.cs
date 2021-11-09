@@ -1,15 +1,16 @@
-﻿using AP.Authorization;
-using AP.Http;
+﻿using AP.Http;
+using AP.Web.Authorization;
+using AP.Web.Files;
 using System.IO;
 
-namespace AP.Web
+namespace AP.Web.Routes
 {
-    public partial class PortalSpaRoutes
+    public partial class SpaRoutes
     {
         private FileServer server;
         private Authorizer authorizer;
 
-        public PortalSpaRoutes(FileServer server, Authorizer authorizer)
+        public SpaRoutes(FileServer server, Authorizer authorizer)
         {
             this.server = server;
             this.authorizer = authorizer;
@@ -21,7 +22,7 @@ namespace AP.Web
             server.Map("GET", "/*", ServePageByPath, authorizer.AllowAuthenticated);
         }
 
-        private void ServeIndexPage(IHttpInput input, IHttpOutput output) 
+        private void ServeIndexPage(IHttpInput input, IHttpOutput output)
         {
             server.Serve(FromPortal("index.html"), output);
         }

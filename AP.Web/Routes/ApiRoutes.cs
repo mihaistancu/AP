@@ -1,10 +1,10 @@
-﻿using AP.Authorization;
-using AP.Configuration.Routing.API;
+﻿using AP.Configuration.Routing.API;
 using AP.Http;
+using AP.Web.Authorization;
 
-namespace AP.Configuration
+namespace AP.Web.Routes
 {
-    public class ConfigurationApiRoutes
+    public class ApiRoutes
     {
         private Authorizer authorizer;
         private GetAllRoutingRulesApi getAllRoutingRules;
@@ -12,7 +12,7 @@ namespace AP.Configuration
         private UpdateRoutingRuleApi updateRoutingRule;
         private DeleteRoutingRuleApi deleteRoutingRule;
 
-        public ConfigurationApiRoutes(
+        public ApiRoutes(
             Authorizer authorizer,
             GetAllRoutingRulesApi getAllRoutingRules,
             AddRoutingRuleApi addRoutingRule,

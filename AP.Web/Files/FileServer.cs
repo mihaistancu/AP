@@ -2,10 +2,10 @@
 using System.IO;
 using System.Reflection;
 
-namespace AP.Web
+namespace AP.Web.Files
 {
     public class FileServer
-    {   
+    {
         public void Serve(string relativePath, IHttpOutput output)
         {
             var path = Path.Combine(ExecutableRoot, relativePath);
