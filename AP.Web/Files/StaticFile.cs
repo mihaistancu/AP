@@ -4,9 +4,9 @@ using System.Reflection;
 
 namespace AP.Web.Files
 {
-    public class FileServer
+    public class StaticFile
     {
-        public void Serve(string relativePath, IHttpOutput output)
+        public static void Serve(string relativePath, IHttpOutput output)
         {
             var path = Path.Combine(ExecutableRoot, relativePath);
             var bytes = File.ReadAllBytes(path);

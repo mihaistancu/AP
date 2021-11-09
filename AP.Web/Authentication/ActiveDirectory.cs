@@ -6,5 +6,10 @@
         {
             return true;
         }
+
+        public string[] Groups(string username)
+        {
+            return new[] { "security-officers" };
+        }
     }
 }

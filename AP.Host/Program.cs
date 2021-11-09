@@ -35,7 +35,6 @@ namespace AP.Host
         {
             var portal = new OwinHttpServer();
             Context.PortalApi.Apply(portal);
-            Context.Login.Apply(portal);
             Context.PortalSpa.Apply(portal);
             return portal.Start("http://localhost:9090");
         }

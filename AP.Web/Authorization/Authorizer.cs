@@ -26,5 +26,10 @@ namespace AP.Web.Authorization
         {
             return true;
         }
+
+        public bool AllowAnonymous(IHttpInput input)
+        {
+            return true;
+        }
     }
 }

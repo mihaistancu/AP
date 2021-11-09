@@ -26,7 +26,6 @@ namespace AP.Dependencies
         public static Authorizer Authorizer { get; set; }
         public static MessageEndpointRoutes MessageEndpoints { get; set; }
         public static ApiRoutes PortalApi { get; set; }
-        public static LoginRoutes Login { get; set; }
         public static SpaRoutes PortalSpa { get; set; }
 
         public static void Build()
@@ -39,7 +38,6 @@ namespace AP.Dependencies
             Authorizer = BuildAuthorizer();
             MessageEndpoints = BuildMessageEndpoints();
             PortalApi = BuildPortalApi();
-            Login = BuildLogin();
             PortalSpa = BuildPortalSpa();
         }
 
@@ -65,24 +63,20 @@ namespace AP.Dependencies
         private static ApiRoutes BuildPortalApi()
         {
             var routingRuleStorage = new RoutingRuleStorage();
-
+            var authenticator = new Authenticator(new ActiveDirectory(), new CookieFactory(), ClaimsStorage);
+            
             return new ApiRoutes(
                 Authorizer,
+                authenticator,
                 new GetAllRoutingRulesApi(routingRuleStorage),
                 new AddRoutingRuleApi(routingRuleStorage),
                 new UpdateRoutingRuleApi(routingRuleStorage),
                 new DeleteRoutingRuleApi(routingRuleStorage));
         }
 
-        private static LoginRoutes BuildLogin()
-        {
-            var authenticator = new Authenticator(new ActiveDirectory(), ClaimsStorage);
-            return new LoginRoutes(new FileServer(), authenticator);
-        }
-
         private static SpaRoutes BuildPortalSpa()
         {
-            return new SpaRoutes(new FileServer(), Authorizer);
+            return new SpaRoutes(Authorizer);
         }
     }
 }

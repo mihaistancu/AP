@@ -42,17 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\ActiveDirectory.cs" />
+    <Compile Include="Authentication\CookieFactory.cs" />
     <Compile Include="Authentication\Authenticator.cs" />
     <Compile Include="Authorization\Authorizer.cs" />
     <Compile Include="Authentication\CredentialsReader.cs" />
     <Compile Include="Cookies\CookieWriter.cs" />
+    <Compile Include="Files\Login.cs" />
+    <Compile Include="Files\Portal.cs" />
     <Compile Include="Routes\ApiRoutes.cs" />
     <Compile Include="Cookies\Cookie.cs" />
     <Compile Include="Cookies\CookieReader.cs" />
-    <Compile Include="Files\FileServer.cs" />
+    <Compile Include="Files\StaticFile.cs" />
     <Compile Include="Identity\Claims.cs" />
     <Compile Include="Identity\ClaimsStorage.cs" />
-    <Compile Include="Routes\LoginRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routes\SpaRoutes.cs" />
   </ItemGroup>
