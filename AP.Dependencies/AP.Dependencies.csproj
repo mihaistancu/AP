@@ -67,10 +67,6 @@
       <Project>{9d4b7206-fcb5-4fab-af6b-1f2ac7d8d5ec}</Project>
       <Name>AP.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Configuration\AP.Configuration.csproj">
-      <Project>{582b1f10-e26f-4fa7-adb7-25ecc14a8877}</Project>
-      <Name>AP.Configuration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Cryptography\AP.Cryptography.csproj">
       <Project>{5f9c8bf4-34f7-4741-8a06-5016cd44bc08}</Project>
       <Name>AP.Cryptography</Name>

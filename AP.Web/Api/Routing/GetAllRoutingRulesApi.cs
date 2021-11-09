@@ -1,24 +1,26 @@
 ﻿using AP.Http;
+using AP.Routing;
+using AP.Routing.UseCases;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
-namespace AP.Configuration.Routing.API
+namespace AP.Web.Api.Routing
 {
-    public class GetAllRoutingRulesApi : JsonApi
+    public class GetAllRoutingRulesApi
     {
-        private IRoutingRuleStorage storage;
+        private GetAllRoutingRules useCase;
 
-        public GetAllRoutingRulesApi(IRoutingRuleStorage storage)
+        public GetAllRoutingRulesApi(GetAllRoutingRules useCase)
         {
-            this.storage = storage;
+            this.useCase = useCase;
         }
 
         public void Handle(IHttpInput input, IHttpOutput output)
         {
-            var rules = storage.GetAll();
+            var rules = useCase.GetAll();
             var json = GetResult(rules);
             output.Status(200);
-            WriteJson(json, output);
+            Json.Write(json, output);
         }
 
         private JArray GetResult(RoutingRule[] rules)

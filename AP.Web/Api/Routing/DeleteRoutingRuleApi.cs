@@ -1,20 +1,21 @@
 ﻿using AP.Http;
+using AP.Routing.UseCases;
 
-namespace AP.Configuration.Routing.API
+namespace AP.Web.Api.Routing
 {
     public class DeleteRoutingRuleApi
     {
-        private IRoutingRuleStorage storage;
+        private DeleteRoutingRule useCase;
 
-        public DeleteRoutingRuleApi(IRoutingRuleStorage storage)
+        public DeleteRoutingRuleApi(DeleteRoutingRule useCase)
         {
-            this.storage = storage;
+            this.useCase = useCase;
         }
 
         public void Handle(IHttpInput input, IHttpOutput output)
         {
             string id = input.Get("id");
-            storage.Delete(id);
+            useCase.Delete(id);
             output.Status(204);
         }
     }

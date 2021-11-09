@@ -1,10 +1,9 @@
-﻿using AP.Configuration.Routing;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace AP.Routing
 {
-    public class RoutingRuleStorage : IRoutingRuleStorage
+    public class RoutingRuleStorage
     {
         static int id;
         private List<RoutingRule> rules = new List<RoutingRule>();

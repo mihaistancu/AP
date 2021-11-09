@@ -1,13 +1,15 @@
 ﻿using AP.Broker;
 using AP.Client;
-using AP.Configuration.Routing.API;
 using AP.Dependencies.Factories;
 using AP.Endpoints;
 using AP.Monitoring;
 using AP.Orchestration;
 using AP.Queue;
 using AP.Routing;
+using AP.Routing.UseCases;
 using AP.Storage;
+using AP.Web.Api.Authentication;
+using AP.Web.Api.Routing;
 using AP.Web.Authentication;
 using AP.Web.Authorization;
 using AP.Web.Files;
@@ -62,15 +64,20 @@ namespace AP.Dependencies
 
         private static ApiRoutes BuildPortalApi()
         {
-            var routingRuleStorage = new RoutingRuleStorage();
+            var storage = new RoutingRuleStorage();
             var authenticator = new Authenticator(new ActiveDirectory(), ClaimsStorage);
-            
+
+            var getAllRoutingRules = new GetAllRoutingRulesApi(new GetAllRoutingRules(storage));
+            var addRoutingRule = new AddRoutingRuleApi(new AddRoutingRule(storage));
+            var updateRoutingRule = new UpdateRoutingRuleApi(new UpdateRoutingRule(storage));
+            var deleteRoutingRule = new DeleteRoutingRuleApi(new DeleteRoutingRule(storage));
+
             return new ApiRoutes(
                 authenticator.Authenticate,
-                Authorizer.ApiForOperators(new GetAllRoutingRulesApi(routingRuleStorage).Handle),
-                Authorizer.ApiForAdministrators(new AddRoutingRuleApi(routingRuleStorage).Handle),
-                Authorizer.ApiForAdministrators(new UpdateRoutingRuleApi(routingRuleStorage).Handle),
-                Authorizer.ApiForAdministrators(new DeleteRoutingRuleApi(routingRuleStorage).Handle));
+                Authorizer.ApiForOperators(getAllRoutingRules.Handle),
+                Authorizer.ApiForAdministrators(addRoutingRule.Handle),
+                Authorizer.ApiForAdministrators(updateRoutingRule.Handle),
+                Authorizer.ApiForAdministrators(deleteRoutingRule.Handle));
         }
 
         private static SpaRoutes BuildPortalSpa()

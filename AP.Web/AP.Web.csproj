@@ -44,10 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\ActiveDirectory.cs" />
-    <Compile Include="Authentication\Authenticator.cs" />
+    <Compile Include="Api\Authentication\ActiveDirectory.cs" />
+    <Compile Include="Api\Authentication\Authenticator.cs" />
+    <Compile Include="Api\Json.cs" />
+    <Compile Include="Api\Routing\AddRoutingRuleApi.cs" />
+    <Compile Include="Api\Routing\DeleteRoutingRuleApi.cs" />
+    <Compile Include="Api\Routing\GetAllRoutingRulesApi.cs" />
+    <Compile Include="Api\Routing\UpdateRoutingRuleApi.cs" />
     <Compile Include="Authorization\Authorizer.cs" />
-    <Compile Include="Authentication\Credentials.cs" />
     <Compile Include="Files\Login.cs" />
     <Compile Include="Files\Portal.cs" />
     <Compile Include="Routes\ApiRoutes.cs" />
@@ -58,13 +62,13 @@
     <Compile Include="Routes\SpaRoutes.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Configuration\AP.Configuration.csproj">
-      <Project>{582B1F10-E26F-4FA7-ADB7-25ECC14A8877}</Project>
-      <Name>AP.Configuration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Http\AP.Http.csproj">
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
       <Name>AP.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Routing\AP.Routing.csproj">
+      <Project>{29DF01A0-DB14-46D1-90C9-C4A347AF009A}</Project>
+      <Name>AP.Routing</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

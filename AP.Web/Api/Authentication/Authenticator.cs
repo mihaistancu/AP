@@ -1,8 +1,9 @@
 ﻿using AP.Http;
+using AP.Web.Authentication;
 using AP.Web.Identity;
 using System;
 
-namespace AP.Web.Authentication
+namespace AP.Web.Api.Authentication
 {
     public class Authenticator
     {
@@ -10,7 +11,7 @@ namespace AP.Web.Authentication
         private ClaimsStorage storage;
 
         public Authenticator(
-            ActiveDirectory activeDirectory, 
+            ActiveDirectory activeDirectory,
             ClaimsStorage storage)
         {
             this.activeDirectory = activeDirectory;
@@ -19,9 +20,9 @@ namespace AP.Web.Authentication
 
         public void Authenticate(IHttpInput input, IHttpOutput output)
         {
-            var (username, password) = Credentials.Parse(input);
+            var (username, password) = Parse(input);
             bool isValid = activeDirectory.IsValid(username, password);
-            
+
             if (isValid)
             {
                 var token = Guid.NewGuid().ToString();
@@ -33,6 +34,15 @@ namespace AP.Web.Authentication
             {
                 output.Status(401);
             }
+        }
+
+        public static (string, string) Parse(IHttpInput input)
+        {
+            var json = Json.Read(input);
+
+            return (
+                json.Value<string>("username"),
+                json.Value<string>("password"));
         }
 
         private Claims GetClaims(string username)

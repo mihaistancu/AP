@@ -3,18 +3,18 @@ using System.IO;
 using System.Text;
 using AP.Http;
 
-namespace AP.Configuration
+namespace AP.Web.Api
 {
-    public class JsonApi
+    public class Json
     {
-        public JObject ReadJson(IHttpInput input)
+        public static JObject Read(IHttpInput input)
         {
             var reader = new StreamReader(input.GetBody());
             var text = reader.ReadToEnd();
             return JObject.Parse(text);
         }
 
-        public void WriteJson(JToken json, IHttpOutput output)
+        public static void Write(JToken json, IHttpOutput output)
         {
             var text = json.ToString();
             var bytes = Encoding.UTF8.GetBytes(text);
