@@ -18,69 +18,62 @@ namespace AP.Web.Authorization
             this.storage = storage;
         }
 
-        public HttpHandler AllowOperators(HttpHandler handle)
+        public HttpHandler ApiForOperators(HttpHandler handle)
         {
-            return AllowApi(handle, OperatorsGroup, AdministratorsGroup, SecurityOfficersGroup);
+            return Allow(handle, false, OperatorsGroup, AdministratorsGroup, SecurityOfficersGroup);
         }
 
-        public HttpHandler AllowAdministrators(HttpHandler handle)
+        public HttpHandler ApiForAdministrators(HttpHandler handle)
         {
-            return AllowApi(handle, AdministratorsGroup, SecurityOfficersGroup);
+            return Allow(handle, false, AdministratorsGroup, SecurityOfficersGroup);
         }
 
-        public HttpHandler AllowSecurityOfficers(HttpHandler handle)
+        public HttpHandler ApiForSecurityOfficers(HttpHandler handle)
         {
-            return AllowApi(handle, SecurityOfficersGroup);
+            return Allow(handle, false, SecurityOfficersGroup);
         }
 
-        private HttpHandler AllowApi(HttpHandler handle, params string[] groups)
+        public HttpHandler StaticFilesForOperators(HttpHandler handle)
+        {
+            return Allow(handle, true, OperatorsGroup, AdministratorsGroup, SecurityOfficersGroup);
+        }
+
+        private HttpHandler Allow(HttpHandler handle, bool showLoginOnFailure, params string[] groups)
         {
             return (input, output) =>
             {
-                var token = input.GetCookie("auth");
+                int status = Check(input, groups);
 
-                if (token == null)
-                {
-                    output.Status(401);
-                }
-                else if (IsAllowed(token, groups))
+                output.Status(status);
+
+                if (status == 200)
                 {
                     handle(input, output);
                 }
-                else
+                else if (showLoginOnFailure)
                 {
-                    output.Status(403);
-                }
-            };
-        }
-
-        public HttpHandler AllowStaticFile(HttpHandler handle)
-        {
-            return (input, output) =>
-            {
-                var token = input.GetCookie("auth");
-
-                if (token == null)
-                {
-                    output.Status(401);
-                    Login.Serve(output);
-                }
-                else if (IsAllowed(token, OperatorsGroup, AdministratorsGroup, SecurityOfficersGroup))
-                {
-                    handle(input, output);
-                }
-                else
-                {
-                    output.Status(403);
                     Login.Serve(output);
                 }
             };
         }
 
-        private bool IsAllowed(string token, params string[] groups)
+        private int Check(IHttpInput input, params string[] groups)
         {
+            var token = input.GetCookie("auth");
+            if (token == null)
+            {
+                return 401;
+            }
             var claims = storage.Get(token);
-            return groups.Any(group => claims.Has("group", group));
+            if (claims == null)
+            {
+                return 403;
+            }
+            if (groups.Any(group => claims.Has("group", group)))
+            {
+                return 200;
+            }
+            return 403;
         }
     }
 }
