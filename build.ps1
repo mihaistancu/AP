@@ -9,7 +9,7 @@ function Build-Solution {
 }
 
 function Build-Login {
-	Copy-Item AP.Login -Destination $OutputPath\login -Recurse
+	Copy-Item AP.Login\* -Destination $OutputPath\login -Recurse
 }
 
 function Build-Portal {

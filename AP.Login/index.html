@@ -2,9 +2,39 @@
 <html>
 <head>
     <title>Login</title>
+    <script>
+        window.onload = () => {
+            login.onsubmit = async (e) => {
+                e.preventDefault();
+
+                let response = await fetch('api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: username.value,
+                        password: password.value,
+                    }),
+                });
+
+                let status = await response.status;
+                if (status == 401) {
+                    error.classList.remove('hidden');
+                }
+                else {
+                    location.reload();
+                }
+            };
+        }
+    </script>
+    <style>
+        .hidden 
+        {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <form>
+    <form id="login">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" />
 
@@ -12,6 +42,7 @@
         <input type="password" id="password" name="password" />
 
         <button type="submit">Login</button>
+        <p id="error" class="hidden">Incorrect username or password</p>
     </form>
 </body>
 </html>
