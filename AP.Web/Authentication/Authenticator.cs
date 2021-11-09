@@ -1,35 +1,33 @@
 ﻿using AP.Http;
-using AP.Web.Cookies;
 using AP.Web.Identity;
+using System;
 
 namespace AP.Web.Authentication
 {
     public class Authenticator
     {
         private ActiveDirectory activeDirectory;
-        private CookieFactory factory;
         private ClaimsStorage storage;
 
         public Authenticator(
             ActiveDirectory activeDirectory, 
-            CookieFactory factory,
             ClaimsStorage storage)
         {
             this.activeDirectory = activeDirectory;
-            this.factory = factory;
             this.storage = storage;
         }
 
         public void Authenticate(IHttpInput input, IHttpOutput output)
         {
-            var reader = new CredentialsReader(input);
-            bool isValid = activeDirectory.IsValid(reader.Username, reader.Password);
+            var (username, password) = Credentials.Parse(input);
+            bool isValid = activeDirectory.IsValid(username, password);
             
             if (isValid)
             {
-                var claims = GetClaims(reader.Username);
-                var cookie = SetAuthenticationCookie(output);
-                storage.Set(cookie.Value, claims);
+                var token = Guid.NewGuid().ToString();
+                var claims = GetClaims(username);
+                output.AddCookie("auth", token);
+                storage.Set(token, claims);
             }
             else
             {
@@ -46,14 +44,6 @@ namespace AP.Web.Authentication
                 claims.Add("group", group);
             }
             return claims;
-        }
-
-        private Cookie SetAuthenticationCookie(IHttpOutput output)
-        {
-            var cookie = factory.CreateAuthenticationCookie();
-            var writer = new CookieWriter(output);
-            writer.Write(cookie);
-            return cookie;
         }
     }
 }

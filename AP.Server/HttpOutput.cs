@@ -22,6 +22,11 @@ namespace AP.Server
             response.ContentType = contentType;
         }
 
+        public void AddCookie(string key, string value)
+        {
+            response.Cookies.Append(key, value);
+        }
+
         public void Status(int status)
         {
             response.StatusCode = status;

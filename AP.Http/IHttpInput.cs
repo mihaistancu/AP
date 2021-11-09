@@ -7,5 +7,6 @@ namespace AP.Http
         Stream GetBody();
         string GetPath();
         string Get(string key);
+        string GetCookie(string key);
     }
 }

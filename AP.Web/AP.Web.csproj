@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,16 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\ActiveDirectory.cs" />
-    <Compile Include="Authentication\CookieFactory.cs" />
     <Compile Include="Authentication\Authenticator.cs" />
     <Compile Include="Authorization\Authorizer.cs" />
-    <Compile Include="Authentication\CredentialsReader.cs" />
-    <Compile Include="Cookies\CookieWriter.cs" />
+    <Compile Include="Authentication\Credentials.cs" />
     <Compile Include="Files\Login.cs" />
     <Compile Include="Files\Portal.cs" />
     <Compile Include="Routes\ApiRoutes.cs" />
-    <Compile Include="Cookies\Cookie.cs" />
-    <Compile Include="Cookies\CookieReader.cs" />
     <Compile Include="Files\StaticFile.cs" />
     <Compile Include="Identity\Claims.cs" />
     <Compile Include="Identity\ClaimsStorage.cs" />
@@ -67,6 +66,10 @@
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
       <Name>AP.Http</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

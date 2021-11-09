@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using AP.Http;
-using AP.Web.Cookies;
 using AP.Web.Files;
 using AP.Web.Identity;
 
@@ -38,13 +37,13 @@ namespace AP.Web.Authorization
         {
             return (input, output) =>
             {
-                var cookie = GetCookie(input);
+                var token = input.GetCookie("auth");
 
-                if (cookie == null)
+                if (token == null)
                 {
                     output.Status(401);
                 }
-                else if (IsAllowed(cookie.Value, groups))
+                else if (IsAllowed(token, groups))
                 {
                     handle(input, output);
                 }
@@ -59,14 +58,14 @@ namespace AP.Web.Authorization
         {
             return (input, output) =>
             {
-                var cookie = GetCookie(input);
+                var token = input.GetCookie("auth");
 
-                if (cookie == null)
+                if (token == null)
                 {
                     output.Status(401);
                     Login.Serve(output);
                 }
-                else if (IsAllowed(cookie.Value, OperatorsGroup, AdministratorsGroup, SecurityOfficersGroup))
+                else if (IsAllowed(token, OperatorsGroup, AdministratorsGroup, SecurityOfficersGroup))
                 {
                     handle(input, output);
                 }
@@ -76,12 +75,6 @@ namespace AP.Web.Authorization
                     Login.Serve(output);
                 }
             };
-        }
-
-        private Cookie GetCookie(IHttpInput input)
-        {
-            var parser = new CookieReader(input);
-            return parser.Get("auth");
         }
 
         private bool IsAllowed(string token, params string[] groups)

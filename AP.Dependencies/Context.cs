@@ -63,7 +63,7 @@ namespace AP.Dependencies
         private static ApiRoutes BuildPortalApi()
         {
             var routingRuleStorage = new RoutingRuleStorage();
-            var authenticator = new Authenticator(new ActiveDirectory(), new CookieFactory(), ClaimsStorage);
+            var authenticator = new Authenticator(new ActiveDirectory(), ClaimsStorage);
             
             return new ApiRoutes(
                 authenticator.Authenticate,

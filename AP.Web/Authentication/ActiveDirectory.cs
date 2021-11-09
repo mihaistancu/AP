@@ -4,12 +4,19 @@
     {
         public bool IsValid(string username, string password)
         {
-            return true;
+            return username == "op" && password == "pass";
         }
 
         public string[] Groups(string username)
         {
-            return new[] { "security-officers" };
+            if (username == "op")
+            {
+                return new[] { "AD-operators" };
+            }
+            else
+            {
+                return new[] { "AD-administrators" };
+            }
         }
     }
 }
