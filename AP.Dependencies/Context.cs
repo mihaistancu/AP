@@ -65,7 +65,7 @@ namespace AP.Dependencies
         private static ApiRoutes BuildPortalApi()
         {
             var storage = new RoutingRuleStorage();
-            var authenticator = new Authenticator(new ActiveDirectory(), ClaimsStorage);
+            var authentication = new AuthenticationApi(new ActiveDirectory(), ClaimsStorage);
 
             var getAllRoutingRules = new GetAllRoutingRulesApi(new GetAllRoutingRules(storage));
             var addRoutingRule = new AddRoutingRuleApi(new AddRoutingRule(storage));
@@ -73,7 +73,7 @@ namespace AP.Dependencies
             var deleteRoutingRule = new DeleteRoutingRuleApi(new DeleteRoutingRule(storage));
 
             return new ApiRoutes(
-                authenticator.Authenticate,
+                authentication.Authenticate,
                 Authorizer.ApiForOperators(getAllRoutingRules.Handle),
                 Authorizer.ApiForAdministrators(addRoutingRule.Handle),
                 Authorizer.ApiForAdministrators(updateRoutingRule.Handle),

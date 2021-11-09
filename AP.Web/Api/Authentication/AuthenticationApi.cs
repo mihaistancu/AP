@@ -5,12 +5,12 @@ using System;
 
 namespace AP.Web.Api.Authentication
 {
-    public class Authenticator
+    public class AuthenticationApi
     {
         private ActiveDirectory activeDirectory;
         private ClaimsStorage storage;
 
-        public Authenticator(
+        public AuthenticationApi(
             ActiveDirectory activeDirectory,
             ClaimsStorage storage)
         {

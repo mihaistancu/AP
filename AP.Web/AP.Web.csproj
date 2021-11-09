@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Authentication\ActiveDirectory.cs" />
-    <Compile Include="Api\Authentication\Authenticator.cs" />
+    <Compile Include="Api\Authentication\AuthenticationApi.cs" />
     <Compile Include="Api\Json.cs" />
     <Compile Include="Api\Routing\AddRoutingRuleApi.cs" />
     <Compile Include="Api\Routing\DeleteRoutingRuleApi.cs" />
