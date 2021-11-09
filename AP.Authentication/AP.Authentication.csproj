@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E2A36C80-B66E-4A91-ACE6-8C33DB1DD268}</ProjectGuid>
+    <ProjectGuid>{39766F45-0C87-4153-95C5-A15A1A7C5F9C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AP.Login</RootNamespace>
-    <AssemblyName>AP.Login</AssemblyName>
+    <RootNamespace>AP.Authentication</RootNamespace>
+    <AssemblyName>AP.Authentication</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,27 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmbeddedResourceServer.cs" />
-    <Compile Include="CredentialsReader.cs" />
-    <Compile Include="LoginRoutes.cs" />
+    <Compile Include="AuthenticationResult.cs" />
+    <Compile Include="Authenticator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Authentication\AP.Authentication.csproj">
-      <Project>{39766F45-0C87-4153-95C5-A15A1A7C5F9C}</Project>
-      <Name>AP.Authentication</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Http\AP.Http.csproj">
-      <Project>{C4764DD2-4ABD-408D-96E7-451B15AA9025}</Project>
-      <Name>AP.Http</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Identity\AP.Identity.csproj">
       <Project>{85E8DDE6-5AB0-41BD-938E-6361251A7456}</Project>
       <Name>AP.Identity</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="login.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

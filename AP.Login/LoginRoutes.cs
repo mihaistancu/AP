@@ -1,4 +1,5 @@
-﻿using AP.Http;
+﻿using AP.Authentication;
+using AP.Http;
 using AP.Identity;
 
 namespace AP.Login
@@ -6,11 +7,16 @@ namespace AP.Login
     public class LoginRoutes
     {
         private EmbeddedResourceServer server;
+        private Authenticator authenticator;
         private ClaimsStorage storage;
 
-        public LoginRoutes(EmbeddedResourceServer server, ClaimsStorage storage)
+        public LoginRoutes(
+            EmbeddedResourceServer server, 
+            Authenticator authenticator,
+            ClaimsStorage storage)
         {
             this.server = server;
+            this.authenticator = authenticator;
             this.storage = storage;
         }
 
@@ -27,7 +33,12 @@ namespace AP.Login
 
         private void Authenticate(IHttpInput input, IHttpOutput output)
         {
-            storage.Set("", new Claims());
+            var reader = new CredentialsReader(input);
+            var result = authenticator.Authenticate(reader.Username, reader.Password);
+            if (result.IsAuthenticated)
+            {
+                storage.Set("", result.Claims);
+            }
         }
 
         private bool AllowAnyone(IHttpInput input) 
