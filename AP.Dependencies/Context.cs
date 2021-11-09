@@ -76,7 +76,8 @@ namespace AP.Dependencies
 
         private static LoginRoutes BuildLogin()
         {
-            return new LoginRoutes(new FileServer(), new Authenticator(), ClaimsStorage);
+            var authenticator = new Authenticator(new ActiveDirectory(), ClaimsStorage);
+            return new LoginRoutes(new FileServer(), authenticator);
         }
 
         private static SpaRoutes BuildPortalSpa()

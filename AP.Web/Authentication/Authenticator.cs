@@ -1,16 +1,33 @@
-﻿using AP.Web.Identity;
+﻿using AP.Http;
+using AP.Web.Cookies;
+using AP.Web.Identity;
 
 namespace AP.Web.Authentication
 {
     public class Authenticator
     {
-        public AuthenticationResult Authenticate(string username, string password)
+        private ActiveDirectory activeDirectory;
+        private ClaimsStorage storage;
+
+        public Authenticator(ActiveDirectory activeDirectory, ClaimsStorage storage)
         {
-            return new AuthenticationResult
+            this.activeDirectory = activeDirectory;
+            this.storage = storage;
+        }
+
+        public void Authenticate(IHttpInput input, IHttpOutput output)
+        {
+            var reader = new CredentialsReader(input);
+            bool isValid = activeDirectory.IsValid(reader.Username, reader.Password);
+            
+            if (isValid)
             {
-                IsAuthenticated = true,
-                Claims = new Claims()
-            };
+                var claims = new Claims();
+                var cookie = new Cookie();
+                var writer = new CookieWriter(output);
+                writer.Write(cookie);
+                storage.Set(cookie.Value, claims);
+            }
         }
     }
 }

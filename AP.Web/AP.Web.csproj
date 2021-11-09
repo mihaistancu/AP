@@ -41,13 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\AuthenticationResult.cs" />
+    <Compile Include="Authentication\ActiveDirectory.cs" />
     <Compile Include="Authentication\Authenticator.cs" />
     <Compile Include="Authorization\Authorizer.cs" />
     <Compile Include="Authentication\CredentialsReader.cs" />
+    <Compile Include="Cookies\CookieWriter.cs" />
     <Compile Include="Routes\ApiRoutes.cs" />
     <Compile Include="Cookies\Cookie.cs" />
-    <Compile Include="Cookies\CookieParser.cs" />
+    <Compile Include="Cookies\CookieReader.cs" />
     <Compile Include="Files\FileServer.cs" />
     <Compile Include="Identity\Claims.cs" />
     <Compile Include="Identity\ClaimsStorage.cs" />

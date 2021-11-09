@@ -2,11 +2,11 @@
 
 namespace AP.Web.Cookies
 {
-    public class CookieParser
+    public class CookieReader
     {
         private IHttpInput input;
 
-        public CookieParser(IHttpInput input)
+        public CookieReader(IHttpInput input)
         {
             this.input = input;
         }

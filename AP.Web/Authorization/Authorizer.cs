@@ -15,7 +15,7 @@ namespace AP.Web.Authorization
 
         public bool AllowOperators(IHttpInput input)
         {
-            var parser = new CookieParser(input);
+            var parser = new CookieReader(input);
             var cookie = parser.Get("auth");
             var claims = storage.Get(cookie.Value);
             var result = claims.Has("group", "operators");
