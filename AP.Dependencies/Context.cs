@@ -67,15 +67,17 @@ namespace AP.Dependencies
             
             return new ApiRoutes(
                 authenticator.Authenticate,
-                new GetAllRoutingRulesApi(routingRuleStorage).Handle,
-                new AddRoutingRuleApi(routingRuleStorage).Handle,
-                new UpdateRoutingRuleApi(routingRuleStorage).Handle,
-                new DeleteRoutingRuleApi(routingRuleStorage).Handle);
+                Authorizer.AllowOperators(new GetAllRoutingRulesApi(routingRuleStorage).Handle),
+                Authorizer.AllowAdministrators(new AddRoutingRuleApi(routingRuleStorage).Handle),
+                Authorizer.AllowAdministrators(new UpdateRoutingRuleApi(routingRuleStorage).Handle),
+                Authorizer.AllowAdministrators(new DeleteRoutingRuleApi(routingRuleStorage).Handle));
         }
 
         private static SpaRoutes BuildPortalSpa()
         {
-            return new SpaRoutes();
+            return new SpaRoutes(
+                Authorizer.AllowStaticFile(Portal.ServeIndex),
+                Authorizer.AllowStaticFile(Portal.ServeAsset));
         }
     }
 }

@@ -5,14 +5,14 @@ namespace AP.Web.Files
 {
     public class Portal
     {
-        public static void ServeIndex(IHttpOutput output)
+        public static void ServeIndex(IHttpInput input, IHttpOutput output)
         {
             StaticFile.Serve(FromPortal("index.html"), output);
         }
 
-        public static void Serve(string path, IHttpOutput output)
+        public static void ServeAsset(IHttpInput input, IHttpOutput output)
         {
-            StaticFile.Serve(FromPortal(path), output);
+            StaticFile.Serve(FromPortal(input.GetPath()), output);
         }
 
         private static string FromPortal(string path)

@@ -5,20 +5,19 @@ namespace AP.Web.Routes
 {
     public partial class SpaRoutes
     {
+        private HttpHandler serveSpaIndex;
+        private HttpHandler serveSpaAssets;
+
+        public SpaRoutes(HttpHandler serveSpaIndex, HttpHandler serveSpaAssets)
+        {
+            this.serveSpaIndex = serveSpaIndex;
+            this.serveSpaAssets = serveSpaAssets;
+        }
+
         public void Apply(IHttpServer server)
         {
-            server.Map("GET", "/", ServeIndex);
-            server.Map("GET", "/*", Serve);
-        }
-
-        private void ServeIndex(IHttpInput input, IHttpOutput output)
-        {
-            Portal.ServeIndex(output);
-        }
-
-        private void Serve(IHttpInput input, IHttpOutput output)
-        {
-            Portal.Serve(input.GetPath(), output);
+            server.Map("GET", "/", serveSpaIndex);
+            server.Map("GET", "/*", serveSpaAssets);
         }
     }
 }
