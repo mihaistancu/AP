@@ -6,10 +6,8 @@ using AP.Monitoring;
 using AP.Orchestration;
 using AP.Queue;
 using AP.Routing;
-using AP.Routing.UseCases;
 using AP.Storage;
 using AP.Web.Api.Authentication;
-using AP.Web.Api.Routing;
 using AP.Web.Authentication;
 using AP.Web.Authorization;
 using AP.Web.Files;
@@ -67,19 +65,9 @@ namespace AP.Dependencies
             var storage = new RoutingRuleStorage();
             var authentication = new AuthenticationApi(new ActiveDirectory(), ClaimsStorage);
 
-            var addRoutingRule = new AddRoutingRuleApi(new AddRoutingRule(storage));
-            var updateRoutingRule = new UpdateRoutingRuleApi(new UpdateRoutingRule(storage));
-            var deleteRoutingRule = new DeleteRoutingRuleApi(new DeleteRoutingRule(storage));
-            var createGroupWithInstitution = new CreateGroupWithInstitutionApi(new CreateGroupWithInstitution(storage));
-            var getAllGroups = new GetAllGroupsApi(new GetAllGroups(storage));
-
             return new ApiRoutes(
-                authentication.Authenticate,
-                Authorizer.ApiForAdministrators(addRoutingRule.Handle),
-                Authorizer.ApiForAdministrators(updateRoutingRule.Handle),
-                Authorizer.ApiForAdministrators(deleteRoutingRule.Handle),
-                createGroupWithInstitution.Handle,
-                getAllGroups.Handle);
+                authentication.Authenticate
+                );
         }
 
         private static SpaRoutes BuildPortalSpa()
