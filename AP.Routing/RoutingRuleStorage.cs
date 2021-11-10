@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace AP.Routing
@@ -17,8 +16,29 @@ namespace AP.Routing
                 Address = "a"
             });
         }
-
         public Dictionary<string, string> institutions = new Dictionary<string, string>();
+
+        public List<Group> GetAllGroups()
+        {
+            var result = new Dictionary<string, Group>();
+
+            var groups = institutions.Values.Distinct();
+            foreach (var group in groups)
+            {
+                result[group] = new Group
+                {
+                    GroupId = group,
+                    InstitutionIds = new List<string>()
+                };
+            }
+
+            foreach (var institution in institutions)
+            {
+                result[institution.Value].InstitutionIds.Add(institution.Key);
+            }
+
+            return result.Values.ToList();
+        }
 
         public void AddInstitutionToGroup(string institution, string group)
         {

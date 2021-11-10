@@ -16,6 +16,10 @@ export class RoutingRulesService {
     return this.http.get<RoutingRule[]>('/api/routing-rules');
   }
 
+  getAllGroups(): Observable<Group[]> {
+    return this.http.get<Group[]>('/api/groups');
+  }
+
   createGroupWith(institutionId: string) : Observable<Group> {
     return this.http.post<Group>('/api/groups', {
       institutionId: institutionId

@@ -7,3 +7,9 @@
   <button (click)="saveGroup()">Save</button>
   <button (click)="cancelGroup()">Cancel</button>
 </div>
+
+<div *ngFor="let group of groups">
+  <span *ngFor="let institutionId of group.institutionIds">
+    {{institutionId}}
+  </span>
+ </div>

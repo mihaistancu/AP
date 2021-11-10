@@ -50,6 +50,7 @@
     <Compile Include="Api\Routing\CreateGroupWithInstitutionApi.cs" />
     <Compile Include="Api\Routing\AddRoutingRuleApi.cs" />
     <Compile Include="Api\Routing\DeleteRoutingRuleApi.cs" />
+    <Compile Include="Api\Routing\GetAllGroupsApi.cs" />
     <Compile Include="Api\Routing\GetAllRoutingRulesApi.cs" />
     <Compile Include="Api\Routing\UpdateRoutingRuleApi.cs" />
     <Compile Include="Authorization\Authorizer.cs" />

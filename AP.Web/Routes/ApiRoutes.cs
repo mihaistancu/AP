@@ -10,14 +10,16 @@ namespace AP.Web.Routes
         private HttpHandler updateRoutingRule;
         private HttpHandler deleteRoutingRule;
         private HttpHandler createGroupWithInstitution;
+        private HttpHandler getAllGroups;
 
         public ApiRoutes(
             HttpHandler authenticate,
             HttpHandler getAllRoutingRules,
             HttpHandler addRoutingRule,
             HttpHandler updateRoutingRule,
-            HttpHandler deleteRoutingRule, 
-            HttpHandler createGroupWithInstitution)
+            HttpHandler deleteRoutingRule,
+            HttpHandler createGroupWithInstitution, 
+            HttpHandler getAllGroups)
         {
             this.authenticate = authenticate;
 
@@ -26,6 +28,7 @@ namespace AP.Web.Routes
             this.updateRoutingRule = updateRoutingRule;
             this.deleteRoutingRule = deleteRoutingRule;
             this.createGroupWithInstitution = createGroupWithInstitution;
+            this.getAllGroups = getAllGroups;
         }
 
         public void Apply(IHttpServer server)
@@ -38,6 +41,7 @@ namespace AP.Web.Routes
             server.Map("DELETE", "/api/routing-rules/{id}", deleteRoutingRule);
 
             server.Map("POST", "/api/groups", createGroupWithInstitution);
+            server.Map("GET", "/api/groups", getAllGroups);
         }
     }
 }

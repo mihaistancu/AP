@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RoutingRule } from './routing-rules.model';
+import { Group, RoutingRule } from './routing-rules.model';
 import { RoutingRulesService } from './routing-rules.service';
 
 @Component({
@@ -10,17 +10,17 @@ import { RoutingRulesService } from './routing-rules.service';
 })
 export class RoutingRulesComponent implements OnInit {
 
-  rules$: Observable<RoutingRule[]>;
-
   constructor(
     public service: RoutingRulesService
   ) { }
 
+  public groups: Group[];
   public isAddingNewGroup: boolean;
   public institutionId: string;
 
   ngOnInit(): void {
-    this.rules$ = this.service.getRules();
+    this.service.getAllGroups()
+      .subscribe(groups => this.groups = groups);
   }
 
   addGroup() {
@@ -29,7 +29,12 @@ export class RoutingRulesComponent implements OnInit {
 
   saveGroup() {
     this.service.createGroupWith(this.institutionId)
-      .subscribe(group => { console.log(group.groupId); });
+      .subscribe(group => {
+        this.groups.unshift({
+          groupId: group.groupId,
+          institutionIds: [this.institutionId]
+        });
+      });
 
     this.isAddingNewGroup = false;
   }
