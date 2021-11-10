@@ -45,6 +45,7 @@
     <Compile Include="RoutingConfig.cs" />
     <Compile Include="RoutingRule.cs" />
     <Compile Include="RoutingRuleStorage.cs" />
+    <Compile Include="UseCases\CreateGroupWithInstitution.cs" />
     <Compile Include="UseCases\UpdateRoutingRule.cs" />
     <Compile Include="UseCases\GetAllRoutingRules.cs" />
     <Compile Include="UseCases\DeleteRoutingRule.cs" />

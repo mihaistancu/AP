@@ -3,7 +3,7 @@
 <button (click)="addGroup()">Add group</button>
 
 <div *ngIf="isAddingNewGroup">
-  <input type="text" placeholder="institution" [(ngModel)]="institution" />
+  <input type="text" placeholder="institution" [(ngModel)]="institutionId" />
   <button (click)="saveGroup()">Save</button>
-  {{institution}}
+  <button (click)="cancelGroup()">Cancel</button>
 </div>

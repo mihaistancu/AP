@@ -17,7 +17,7 @@ export class RoutingRulesComponent implements OnInit {
   ) { }
 
   public isAddingNewGroup: boolean;
-  public institution: string;
+  public institutionId: string;
 
   ngOnInit(): void {
     this.rules$ = this.service.getRules();
@@ -28,6 +28,14 @@ export class RoutingRulesComponent implements OnInit {
   }
 
   saveGroup() {
+    this.service.createGroupWith(this.institutionId)
+      .subscribe(group => { console.log(group.groupId); });
+
     this.isAddingNewGroup = false;
+  }
+
+  cancelGroup() {
+    this.isAddingNewGroup = false;
+    this.institutionId = '';
   }
 }

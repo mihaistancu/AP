@@ -71,13 +71,15 @@ namespace AP.Dependencies
             var addRoutingRule = new AddRoutingRuleApi(new AddRoutingRule(storage));
             var updateRoutingRule = new UpdateRoutingRuleApi(new UpdateRoutingRule(storage));
             var deleteRoutingRule = new DeleteRoutingRuleApi(new DeleteRoutingRule(storage));
+            var createGroupWithInstitution = new CreateGroupWithInstitutionApi(new CreateGroupWithInstitution(storage));
 
             return new ApiRoutes(
                 authentication.Authenticate,
                 Authorizer.ApiForOperators(getAllRoutingRules.Handle),
                 Authorizer.ApiForAdministrators(addRoutingRule.Handle),
                 Authorizer.ApiForAdministrators(updateRoutingRule.Handle),
-                Authorizer.ApiForAdministrators(deleteRoutingRule.Handle));
+                Authorizer.ApiForAdministrators(deleteRoutingRule.Handle),
+                createGroupWithInstitution.Handle);
         }
 
         private static SpaRoutes BuildPortalSpa()

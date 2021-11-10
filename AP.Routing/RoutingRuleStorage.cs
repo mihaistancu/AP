@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AP.Routing
@@ -15,6 +16,13 @@ namespace AP.Routing
                 Id = "1",
                 Address = "a"
             });
+        }
+
+        public Dictionary<string, string> institutions = new Dictionary<string, string>();
+
+        public void AddInstitutionToGroup(string institution, string group)
+        {
+            institutions[institution] = group;
         }
 
         public RoutingRule[] GetAll()
