@@ -34,6 +34,7 @@ export class RoutingRulesComponent implements OnInit {
           groupId: group.groupId,
           institutionIds: [this.institutionId]
         });
+        this.institutionId = '';
       });
 
     this.isAddingNewGroup = false;
