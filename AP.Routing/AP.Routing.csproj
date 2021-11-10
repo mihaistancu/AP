@@ -49,7 +49,6 @@
     <Compile Include="UseCases\CreateGroupWithInstitution.cs" />
     <Compile Include="UseCases\GetAllGroups.cs" />
     <Compile Include="UseCases\UpdateRoutingRule.cs" />
-    <Compile Include="UseCases\GetAllRoutingRules.cs" />
     <Compile Include="UseCases\DeleteRoutingRule.cs" />
     <Compile Include="UseCases\AddRoutingRule.cs" />
   </ItemGroup>
