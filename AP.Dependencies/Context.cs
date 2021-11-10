@@ -6,8 +6,10 @@ using AP.Monitoring;
 using AP.Orchestration;
 using AP.Queue;
 using AP.Routing;
+using AP.Routing.UseCases;
 using AP.Storage;
 using AP.Web.Api.Authentication;
+using AP.Web.Api.Routing;
 using AP.Web.Authentication;
 using AP.Web.Authorization;
 using AP.Web.Files;
@@ -62,12 +64,13 @@ namespace AP.Dependencies
 
         private static ApiRoutes BuildPortalApi()
         {
-            var storage = new RoutingRuleStorage();
+            var storage = new RoutingStorage();
             var authentication = new AuthenticationApi(new ActiveDirectory(), ClaimsStorage);
+            var getAllGroups = new GetAllGroupsApi(new GetAllGroups(storage));
 
             return new ApiRoutes(
-                authentication.Authenticate
-                );
+                authentication.Authenticate,
+                getAllGroups.Handle);
         }
 
         private static SpaRoutes BuildPortalSpa()
