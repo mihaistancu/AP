@@ -29,7 +29,9 @@ namespace AP.Web.Api.Routing
             return new JArray(
                 from g in groups
                 select new JObject(
-                    new JProperty("groupId", g.GroupId)));
+                    new JProperty("groupId", g.GroupId),
+                    new JProperty("institutionIds",
+                        new JArray(g.InstitutionIds))));
         }
     }
 }

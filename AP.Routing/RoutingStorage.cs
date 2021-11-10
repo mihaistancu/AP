@@ -10,17 +10,20 @@ namespace AP.Routing
         {
             groups.Add(new Group
             {
-                GroupId = "1"
+                GroupId = "1",
+                InstitutionIds = new List<string> { "a", "b" }
             });
 
             groups.Add(new Group
             {
-                GroupId = "2"
+                GroupId = "2",
+                InstitutionIds = new List<string> { "x", "y", "z" }
             });
 
             groups.Add(new Group
             {
-                GroupId = "3"
+                GroupId = "3",
+                InstitutionIds = new List<string> { "m", "n" }
             });
         }
 

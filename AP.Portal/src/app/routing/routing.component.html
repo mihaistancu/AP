@@ -1,5 +1,7 @@
 <h2>Routing</h2>
 
 <div *ngFor="let group of groups">
-  x
+  <span *ngFor="let institutionId of group.institutionIds">
+    {{institutionId}}
+  </span>
 </div>
