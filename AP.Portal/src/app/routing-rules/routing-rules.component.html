@@ -1,5 +1,8 @@
-<p>Routing</p>
+<h2>Routing</h2>
 
-<li *ngFor="let rule of rules$ | async">
-  {{rule.id}}
-</li>
+<button (click)="addGroup()">Add group</button>
+
+<div *ngIf="isAddingNewGroup">
+  <input type="text" placeholder="institution" />
+  <button (click)="saveGroup()">Save</button>
+</div>

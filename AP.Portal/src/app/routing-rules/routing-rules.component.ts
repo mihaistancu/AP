@@ -16,8 +16,18 @@ export class RoutingRulesComponent implements OnInit {
     public service: RoutingRulesService
   ) { }
 
+  public isAddingNewGroup: boolean;
+  public institution: string;
+
   ngOnInit(): void {
     this.rules$ = this.service.getRules();
   }
 
+  addGroup() {
+    this.isAddingNewGroup = true;
+  }
+
+  saveGroup() {
+    this.isAddingNewGroup = false;
+  }
 }
