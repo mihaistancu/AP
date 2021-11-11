@@ -1,24 +1,6 @@
 <h2>Routing</h2>
 
 <div *ngFor="let group of groups">
-  <span *ngFor="let institutionId of group.institutionIds">
-    {{institutionId}}
-  </span>
-  <button (click)="delete(group)">Delete Group</button>
-  <div>
-    Push
-    <div *ngFor="let rule of group.pushRules">
-      {{rule.name}} {{rule.url}}
-      <br />
-      {{rule.condition}}
-    </div>
-  </div>
-  <div>
-    Pull
-    <div *ngFor="let rule of group.pullRules">
-      {{rule.name}} {{rule.url}}
-      <br />
-      {{rule.condition}}
-    </div>
-  </div>
+  <button (click)="delete(group)">Delete</button>
+  <app-group [group]="group"></app-group>
 </div>
