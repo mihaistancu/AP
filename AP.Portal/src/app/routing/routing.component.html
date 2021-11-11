@@ -4,6 +4,7 @@
   <span *ngFor="let institutionId of group.institutionIds">
     {{institutionId}}
   </span>
+  <button (click)="delete(group)">Delete Group</button>
   <div>
     Push
     <div *ngFor="let rule of group.pushRules">
@@ -20,5 +21,4 @@
       {{rule.condition}}
     </div>
   </div>
-  
 </div>

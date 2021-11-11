@@ -7,10 +7,13 @@ import { Group } from './routing.model';
   providedIn: 'root'
 })
 export class RoutingService {
-
   constructor(public http: HttpClient) { }
 
   getAllGroups(): Observable<Group[]> {
     return this.http.get<Group[]>('/api/routing/groups');
+  }
+
+  delete(groupId: string) {
+    return this.http.delete(`/api/routing/groups/${groupId}`);
   }
 }

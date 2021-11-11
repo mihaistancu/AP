@@ -67,10 +67,12 @@ namespace AP.Dependencies
             var storage = new RoutingStorage();
             var authentication = new AuthenticationApi(new ActiveDirectory(), ClaimsStorage);
             var getAllGroups = new GetAllGroupsApi(new GetAllGroups(storage));
+            var deleteGroup = new DeleteGroupApi(new DeleteGroup(storage));
 
             return new ApiRoutes(
                 authentication.Authenticate,
-                getAllGroups.Handle);
+                getAllGroups.Handle,
+                deleteGroup.Handle);
         }
 
         private static SpaRoutes BuildPortalSpa()

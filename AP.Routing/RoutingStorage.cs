@@ -73,5 +73,11 @@ namespace AP.Routing
         {
             return groups;
         }
+
+        public void DeleteGroup(string groupId)
+        {
+            var group = groups.Find(g => g.GroupId == groupId);
+            groups.Remove(group);
+        }
     }
 }
