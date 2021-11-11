@@ -6,19 +6,16 @@
 </div>
 
 <div>
-  Push Rules
-  <div *ngFor="let rule of group.pushRules">
-    {{rule.name}} {{rule.url}}
-    <br />
-    {{rule.condition}}
-  </div>
-</div>
-
-<div>
-  Pull Rules
-  <div *ngFor="let rule of group.pullRules">
-    {{rule.name}} {{rule.url}}
-    <br />
-    {{rule.condition}}
+  Rules
+  <div *ngFor="let rule of group.rules">
+    <div *ngIf="rule.type == 'push'">
+      {{rule.name}}: push to {{rule.url}}
+    </div>
+    <div *ngIf="rule.type == 'pull'">
+      {{rule.name}}: queue on {{rule.url}}
+    </div>
+    <div>
+      {{rule.condition}}
+    </div>
   </div>
 </div>

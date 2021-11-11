@@ -32,16 +32,11 @@ namespace AP.Web.Api.Routing
                     new JProperty("groupId", g.GroupId),
                     new JProperty("institutionIds",
                         new JArray(g.InstitutionIds)),
-                    new JProperty("pushRules",
-                        new JArray(from r in g.PushRules
+                    new JProperty("rules",
+                        new JArray(from r in g.Rules
                                    select new JObject(
                                        new JProperty("name", r.Name),
-                                       new JProperty("url", r.Url),
-                                       new JProperty("condition", r.Condition)))),
-                    new JProperty("pullRules",
-                        new JArray(from r in g.PullRules
-                                   select new JObject(
-                                       new JProperty("name", r.Name),
+                                       new JProperty("type", r.Type),
                                        new JProperty("url", r.Url),
                                        new JProperty("condition", r.Condition))))));
         }

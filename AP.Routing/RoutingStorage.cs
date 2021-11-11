@@ -12,19 +12,18 @@ namespace AP.Routing
             {
                 GroupId = "1",
                 InstitutionIds = new List<string> { "a", "b" },
-                PushRules = new List<Rule>
+                Rules = new List<Rule>
                 {
                     new Rule
                     {
                          Name = "r1",
+                         Type = "push",
                          Url = "https://r1"
                     },
-                },
-                PullRules = new List<Rule>
-                {
                     new Rule
                     {
                         Name = "r2",
+                        Type = "pull",
                         Url = "https://ap/r2"
                     }
                 }
@@ -34,34 +33,35 @@ namespace AP.Routing
             {
                 GroupId = "2",
                 InstitutionIds = new List<string> { "x", "y", "z" },
-                PushRules = new List<Rule>
+                Rules = new List<Rule>
                 {
                     new Rule
                     {
                          Name = "r3",
+                         Type = "push",
                          Url = "https://r3",
                          Condition = "SED = P_BUC_01"
                     },
                     new Rule
                     {
                         Name = "r4",
+                        Type = "push",
                         Url = "https://r4",
                         Condition = "SED = P_BUC_02"
                     }
-                },
-                PullRules = new List<Rule>()
+                }
             });
 
             groups.Add(new Group
             {
                 GroupId = "3",
                 InstitutionIds = new List<string> { "m", "n" },
-                PushRules = new List<Rule>(),
-                PullRules = new List<Rule>
+                Rules = new List<Rule>
                 {
                     new Rule
                     {
                         Name = "r5",
+                        Type = "pull",
                         Url = "https://ap/r5",
                         Condition = "SED = P_BUC_03"
                     }

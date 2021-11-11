@@ -6,7 +6,6 @@ namespace AP.Routing
     {
         public string GroupId { get; set; }
         public List<string> InstitutionIds { get; set; }
-        public List<Rule> PushRules { get; set; }
-        public List<Rule> PullRules { get; set; }
+        public List<Rule> Rules { get; set; }
     }
 }

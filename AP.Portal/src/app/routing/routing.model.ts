@@ -1,12 +1,12 @@
 export interface Group {
   groupId: string;
   institutionIds: string[];
-  pushRules: Rule[],
-  pullRules: Rule[]
+  rules: Rule[],
 }
 
 export interface Rule {
   name: string;
+  type: string;
   url: string;
   condition: string;
 }
