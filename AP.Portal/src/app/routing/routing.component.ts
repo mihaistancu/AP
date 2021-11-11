@@ -20,11 +20,9 @@ export class RoutingComponent implements OnInit {
   }
 
   delete(group: Group) {
-    this.service.delete(group.groupId).subscribe(
-      _ => {
-        const index = this.groups.indexOf(group, 0);
-        this.groups.splice(index, 1);
-      }
-    );
+    this.service.delete(group.groupId).subscribe(_ => {
+      const index = this.groups.indexOf(group, 0);
+      this.groups.splice(index, 1);
+    });
   }
 }
