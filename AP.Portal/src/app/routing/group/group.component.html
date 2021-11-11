@@ -7,15 +7,5 @@
 
 <div>
   Rules
-  <div *ngFor="let rule of group.rules">
-    <div *ngIf="rule.type == 'push'">
-      {{rule.name}}: push to {{rule.url}}
-    </div>
-    <div *ngIf="rule.type == 'pull'">
-      {{rule.name}}: queue on {{rule.url}}
-    </div>
-    <div>
-      {{rule.condition}}
-    </div>
-  </div>
+  <app-rule *ngFor="let rule of group.rules" [rule]="rule"></app-rule>
 </div>

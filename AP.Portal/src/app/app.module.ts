@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoutingComponent } from './routing/routing.component';
 import { GroupComponent } from './routing/group/group.component';
+import { RuleComponent } from './routing/group/rule/rule.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoutingComponent,
-    GroupComponent
+    GroupComponent,
+    RuleComponent
   ],
   imports: [
     BrowserModule,
