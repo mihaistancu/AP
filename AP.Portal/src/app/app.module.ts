@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { RoutingComponent } from './routing/routing.component';
 import { GroupComponent } from './routing/group/group.component';
 import { RuleComponent } from './routing/group/rule/rule.component';
+import { GroupEditorComponent } from './routing/group-editor/group-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoutingComponent,
     GroupComponent,
-    RuleComponent
+    RuleComponent,
+    GroupEditorComponent
   ],
   imports: [
     BrowserModule,
