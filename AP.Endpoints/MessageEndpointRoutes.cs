@@ -79,10 +79,5 @@ namespace AP.Endpoints
                 if (output.IsMessageSent()) return;
             }
         }
-
-        private bool AllowAll(IHttpInput input)
-        {
-            return true;
-        }
     }
 }
