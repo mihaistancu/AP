@@ -4,4 +4,21 @@
   <span *ngFor="let institutionId of group.institutionIds">
     {{institutionId}}
   </span>
+  <div>
+    Push
+    <div *ngFor="let rule of group.pushRules">
+      {{rule.name}} {{rule.url}}
+      <br />
+      {{rule.condition}}
+    </div>
+  </div>
+  <div>
+    Pull
+    <div *ngFor="let rule of group.pullRules">
+      {{rule.name}} {{rule.url}}
+      <br />
+      {{rule.condition}}
+    </div>
+  </div>
+  
 </div>
