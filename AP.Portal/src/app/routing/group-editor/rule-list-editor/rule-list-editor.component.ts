@@ -25,6 +25,15 @@ export class RuleListEditorComponent implements OnInit {
     this.notify();
   }
 
+  add() {
+    this.rules.unshift({
+      name: '',
+      type: 'pull',
+      url: '',
+      condition: ''
+    });
+  }
+
   notify() {
     this.rulesChange.emit(this.rules);
   }
