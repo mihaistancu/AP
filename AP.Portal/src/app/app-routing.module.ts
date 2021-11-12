@@ -5,7 +5,7 @@ import { RoutingComponent } from './routing/routing.component';
 
 const routes: Routes = [
   { path: 'routing', component: RoutingComponent },
-  { path: 'routing/:id', component: GroupEditorComponent }
+  { path: 'routing/edit/:id', component: GroupEditorComponent }
 ];
 
 @NgModule({

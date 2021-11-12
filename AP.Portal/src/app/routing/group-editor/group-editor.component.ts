@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Group } from '../routing.model';
 import { RoutingService } from '../routing.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-group-editor',
