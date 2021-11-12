@@ -9,6 +9,7 @@ import { RoutingComponent } from './routing/routing.component';
 import { GroupComponent } from './routing/group/group.component';
 import { RuleComponent } from './routing/group/rule/rule.component';
 import { GroupEditorComponent } from './routing/group-editor/group-editor.component';
+import { InstitutionListEditorComponent } from './routing/group-editor/institution-list-editor/institution-list-editor.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GroupEditorComponent } from './routing/group-editor/group-editor.compon
     RoutingComponent,
     GroupComponent,
     RuleComponent,
-    GroupEditorComponent
+    GroupEditorComponent,
+    InstitutionListEditorComponent
   ],
   imports: [
     BrowserModule,

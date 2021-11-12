@@ -1,8 +1,6 @@
 <div>
   Institutions
-  <span *ngFor="let institutionId of group.institutionIds">
-    {{institutionId}}
-  </span>
+  <app-institution-list-editor [institutionIds]="group.institutionIds"></app-institution-list-editor>
 </div>
 
 <div>

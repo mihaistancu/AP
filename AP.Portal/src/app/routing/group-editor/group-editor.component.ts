@@ -19,6 +19,6 @@ export class GroupEditorComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.service.getGroup(id).subscribe(g => { this.group = g; console.log("hello"); });
+    this.service.getGroup(id).subscribe(group => { this.group = group; });
   }
 }
