@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Group } from '../routing.model';
-import { RoutingService } from '../routing.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Group, Rule } from '../routing.model';
 
 @Component({
   selector: 'app-group-editor',
@@ -10,21 +8,22 @@ import { RoutingService } from '../routing.service';
 })
 export class GroupEditorComponent implements OnInit {
 
-  public id: string;
-  public group: Group;
+  @Input() public group: Group;
+  @Output() public groupChange = new EventEmitter<Group>();
 
   constructor(
-    private route: ActivatedRoute,
-    private service: RoutingService
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.service.getGroup(this.id).subscribe(group => { this.group = group; });
   }
 
-  save() {
-    this.service.update(this.id, this.group).subscribe(_ => { });
+  notifyInstitutionIds(institutionIds: string[]) {
+    this.group.institutionIds = institutionIds;
+    this.groupChange.emit(this.group);
   }
 
+  notifyRules(rules: Rule[]) {
+    this.group.rules = rules;
+    this.groupChange.emit(this.group);
+  }
 }

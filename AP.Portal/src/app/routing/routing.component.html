@@ -1,7 +1,7 @@
 <h2>Routing</h2>
 
 <div *ngFor="let group of groups">
-  <button routerLink="/routing/edit/{{group.groupId}}">Edit</button>
+  <button routerLink="/routing/update/{{group.groupId}}">Edit</button>
   <button (click)="delete(group)">Delete</button>
   <app-group [group]="group"></app-group>
 </div>

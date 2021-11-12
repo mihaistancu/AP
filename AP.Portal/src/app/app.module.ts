@@ -12,6 +12,7 @@ import { GroupEditorComponent } from './routing/group-editor/group-editor.compon
 import { InstitutionListEditorComponent } from './routing/group-editor/institution-list-editor/institution-list-editor.component';
 import { RuleEditorComponent } from './routing/group-editor/rule-editor/rule-editor.component';
 import { RuleListEditorComponent } from './routing/group-editor/rule-list-editor/rule-list-editor.component';
+import { GroupUpdaterComponent } from './routing/group-updater/group-updater.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RuleListEditorComponent } from './routing/group-editor/rule-list-editor
     GroupEditorComponent,
     InstitutionListEditorComponent,
     RuleEditorComponent,
-    RuleListEditorComponent
+    RuleListEditorComponent,
+    GroupUpdaterComponent
   ],
   imports: [
     BrowserModule,
