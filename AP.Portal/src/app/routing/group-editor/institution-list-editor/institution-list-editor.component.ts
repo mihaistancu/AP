@@ -25,7 +25,16 @@ export class InstitutionListEditorComponent implements OnInit {
     this.notify();
   }
 
+  add() {
+    this.institutionIds.push('');
+    this.notify();
+  }
+
   notify() {
     this.institutionIdsChange.emit(this.institutionIds);
+  }
+
+  trackByIndex(index: number) {
+    return index;
   }
 }

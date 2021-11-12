@@ -1,5 +1,6 @@
 Institutions
-<ng-container *ngFor="let institutionId of institutionIds; let i=index">
+<ng-container *ngFor="let institutionId of institutionIds; let i=index; trackBy: trackByIndex">
   <input type="text" [value]="institutionIds[i]" (change)="onChange($event.target.value, i)"/>
   <button (click)="delete(i)">x</button>
 </ng-container>
+<button (click)="add()">+</button>
