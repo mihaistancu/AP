@@ -16,8 +16,7 @@ export class GroupEditorComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: RoutingService,
-    private location: Location
+    private service: RoutingService
   ) { }
 
   ngOnInit(): void {
@@ -27,10 +26,6 @@ export class GroupEditorComponent implements OnInit {
 
   save() {
     this.service.update(this.id, this.group).subscribe(_ => { });
-  }
-
-  goBack() {
-    this.location.back();
   }
 
   trackById(index: number) {
