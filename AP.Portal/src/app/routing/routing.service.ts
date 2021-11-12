@@ -24,4 +24,8 @@ export class RoutingService {
   update(groupId: string, group: Group) {
     return this.http.put(`/api/routing/groups/${groupId}`, group);
   }
+
+  create(group: Group) {
+    return this.http.post('/api/routing/groups', group);
+  }
 }
