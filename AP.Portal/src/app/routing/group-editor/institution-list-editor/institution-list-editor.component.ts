@@ -15,4 +15,7 @@ export class InstitutionListEditorComponent implements OnInit {
     console.log(this.institutionIds);
   }
 
+  delete(index: number) {
+    this.institutionIds.splice(index, 1);
+  }
 }

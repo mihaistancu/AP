@@ -1,3 +1,5 @@
-<span *ngFor="let institutionId of institutionIds">
-  {{institutionId}}
-</span>
+Institutions
+<ng-container *ngFor="let institutionId of institutionIds; let i=index">
+  <input type="text" [(ngModel)]="institutionIds[i]" />
+  <button (click)="delete(i)">x</button>
+</ng-container>
