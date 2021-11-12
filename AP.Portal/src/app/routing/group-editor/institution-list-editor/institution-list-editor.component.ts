@@ -15,11 +15,6 @@ export class InstitutionListEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onChange(value: string, index: number) {
-    this.institutionIds[index] = value;
-    this.notify();
-  }
-
   delete(index: number) {
     this.institutionIds.splice(index, 1);
     this.notify();
@@ -32,6 +27,7 @@ export class InstitutionListEditorComponent implements OnInit {
 
   notify() {
     this.institutionIdsChange.emit(this.institutionIds);
+    console.log(this.institutionIds);
   }
 
   trackByIndex(index: number) {
