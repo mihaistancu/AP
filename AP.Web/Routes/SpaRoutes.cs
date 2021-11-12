@@ -4,19 +4,16 @@ namespace AP.Web.Routes
 {
     public partial class SpaRoutes
     {
-        private HttpHandler serveSpaIndex;
-        private HttpHandler serveSpaAssets;
+        private HttpHandler serveSpa;
 
-        public SpaRoutes(HttpHandler serveSpaIndex, HttpHandler serveSpaAssets)
+        public SpaRoutes(HttpHandler serveSpa)
         {
-            this.serveSpaIndex = serveSpaIndex;
-            this.serveSpaAssets = serveSpaAssets;
+            this.serveSpa = serveSpa;
         }
 
         public void Apply(IHttpServer server)
         {
-            server.Map("GET", "/", serveSpaIndex);
-            server.Map("GET", "/*", serveSpaAssets);
+            server.Map("GET", "*", serveSpa);
         }
     }
 }

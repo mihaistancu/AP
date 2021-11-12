@@ -80,8 +80,7 @@ namespace AP.Dependencies
         private static SpaRoutes BuildPortalSpa()
         {
             return new SpaRoutes(
-                Authorizer.StaticFilesForOperators(Portal.ServeIndex),
-                Authorizer.StaticFilesForOperators(Portal.ServeAsset));
+                Authorizer.StaticFilesForOperators(Portal.Serve));
         }
     }
 }

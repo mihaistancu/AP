@@ -5,16 +5,22 @@ namespace AP.Web.Files
 {
     public class Portal
     {
-        public static void ServeIndex(IHttpInput input, IHttpOutput output)
-        {
-            StaticFile.Serve(FromPortal("index.html"), output);
-        }
+        private static string Index => FromPortal("index.html");
 
-        public static void ServeAsset(IHttpInput input, IHttpOutput output)
+        public static void Serve(IHttpInput input, IHttpOutput output)
         {
-            StaticFile.Serve(FromPortal(input.GetPath()), output);
-        }
+            var path = FromPortal(input.GetPath());
 
+            if (StaticFile.Exists(path))
+            {
+                StaticFile.Serve(path, output);
+            }
+            else
+            {
+                StaticFile.Serve(Index, output);
+            }
+        }
+        
         private static string FromPortal(string path)
         {
             return Path.Combine("portal", path.Trim('/'));

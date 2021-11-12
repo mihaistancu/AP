@@ -14,6 +14,8 @@ namespace AP.Server
         {
             if (Method != method) return false;
 
+            if (Path == "*") return true;
+
             var pathTokens = Path.Split('/');
             var urlTokens = url.Split('/');
 
@@ -23,11 +25,7 @@ namespace AP.Server
 
             for (int i = 0; i < pathTokens.Length; i++)
             {
-                if (pathTokens[i] == "*")
-                {
-                    return true;
-                }
-                else if (pathTokens[i] == urlTokens[i])
+                if (pathTokens[i] == urlTokens[i])
                 {
                     continue;
                 }
