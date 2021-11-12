@@ -13,6 +13,10 @@ export class RoutingService {
     return this.http.get<Group[]>('/api/routing/groups');
   }
 
+  getGroup(groupId: string): Observable<Group> {
+    return this.http.get<Group>(`/api/routing/groups/${groupId}`);
+  }
+
   delete(groupId: string) {
     return this.http.delete(`/api/routing/groups/${groupId}`);
   }

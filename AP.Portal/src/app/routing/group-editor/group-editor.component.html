@@ -1,1 +1,11 @@
-{{id}}
+<div>
+  Institutions
+  <span *ngFor="let institutionId of group.institutionIds">
+    {{institutionId}}
+  </span>
+</div>
+
+<div>
+  Rules
+  <app-rule *ngFor="let rule of group.rules" [rule]="rule"></app-rule>
+</div>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AP.Routing
 {
@@ -69,6 +70,11 @@ namespace AP.Routing
             });
         }
 
+        public Group GetGroup(string groupId)
+        {
+            return groups.Find(g => g.GroupId == groupId);
+        }
+
         public List<Group> GetAll()
         {
             return groups;
@@ -76,7 +82,7 @@ namespace AP.Routing
 
         public void DeleteGroup(string groupId)
         {
-            var group = groups.Find(g => g.GroupId == groupId);
+            var group = GetGroup(groupId);
             groups.Remove(group);
         }
     }

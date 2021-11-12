@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Group } from '../routing.model';
 import { RoutingService } from '../routing.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { RoutingService } from '../routing.service';
 })
 export class GroupEditorComponent implements OnInit {
 
-  public id: string;
+  public group: Group;
 
   constructor(
     private route: ActivatedRoute,
@@ -17,7 +18,7 @@ export class GroupEditorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
+    this.service.getGroup(id).subscribe(g => { this.group = g; console.log("hello"); });
   }
-
 }

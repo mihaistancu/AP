@@ -7,15 +7,18 @@ namespace AP.Web.Routes
         private HttpHandler authenticate;
         private HttpHandler getAllGroups;
         private HttpHandler deleteGroup;
+        private HttpHandler getGroup;
 
         public ApiRoutes(
             HttpHandler authenticate,
             HttpHandler getAllGroups, 
-            HttpHandler deleteGroup)
+            HttpHandler deleteGroup,
+            HttpHandler getGroup)
         {
             this.authenticate = authenticate;
             this.getAllGroups = getAllGroups;
             this.deleteGroup = deleteGroup;
+            this.getGroup = getGroup;
         }
 
         public void Apply(IHttpServer server)
@@ -24,6 +27,7 @@ namespace AP.Web.Routes
 
             server.Map("GET", "/api/routing/groups", getAllGroups);
             server.Map("DELETE", "/api/routing/groups/{id}", deleteGroup);
+            server.Map("GET", "/api/routing/groups/{id}", getGroup);
         }
     }
 }
