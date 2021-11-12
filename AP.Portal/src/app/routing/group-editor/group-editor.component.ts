@@ -27,7 +27,4 @@ export class GroupEditorComponent implements OnInit {
     this.service.update(this.id, this.group).subscribe(_ => { });
   }
 
-  trackById(index: number) {
-    return index;
-  }
 }

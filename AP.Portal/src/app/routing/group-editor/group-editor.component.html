@@ -1,12 +1,7 @@
 <ng-container *ngIf="group">
   <app-institution-list-editor [(institutionIds)]="group.institutionIds"></app-institution-list-editor>
 
-  <div>
-    Rules
-    <app-rule-editor *ngFor="let rule of group.rules; let i=index; trackBy: trackByIndex"
-                     [(rule)]="group.rules[i]">
-    </app-rule-editor>
-  </div>
+  <app-rule-list-editor [(rules)]="group.rules"></app-rule-list-editor>
 
   <button (click)="save()">Save</button>
 
