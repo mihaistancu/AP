@@ -2,5 +2,6 @@
 
 <div *ngFor="let group of groups">
   <button (click)="delete(group)">Delete</button>
+  <a href="routing/{{group.groupId}}">Edit</a>
   <app-group [group]="group"></app-group>
 </div>
