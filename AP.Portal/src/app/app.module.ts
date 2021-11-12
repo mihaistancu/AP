@@ -10,6 +10,7 @@ import { GroupComponent } from './routing/group/group.component';
 import { RuleComponent } from './routing/group/rule/rule.component';
 import { GroupEditorComponent } from './routing/group-editor/group-editor.component';
 import { InstitutionListEditorComponent } from './routing/group-editor/institution-list-editor/institution-list-editor.component';
+import { RuleEditorComponent } from './routing/group-editor/rule-editor/rule-editor.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InstitutionListEditorComponent } from './routing/group-editor/instituti
     GroupComponent,
     RuleComponent,
     GroupEditorComponent,
-    InstitutionListEditorComponent
+    InstitutionListEditorComponent,
+    RuleEditorComponent
   ],
   imports: [
     BrowserModule,

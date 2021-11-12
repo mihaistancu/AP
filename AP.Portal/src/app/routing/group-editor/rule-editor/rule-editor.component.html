@@ -1,0 +1,9 @@
+<div *ngIf="rule.type == 'push'">
+  {{rule.name}}: push to {{rule.url}}
+</div>
+<div *ngIf="rule.type == 'pull'">
+  {{rule.name}}: queue on {{rule.url}}
+</div>
+<div>
+  {{rule.condition}}
+</div>

@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Rule } from '../../routing.model';
 
 @Component({
-  selector: 'app-rule',
-  templateUrl: './rule.component.html',
-  styleUrls: ['./rule.component.css']
+  selector: 'app-rule-editor',
+  templateUrl: './rule-editor.component.html',
+  styleUrls: ['./rule-editor.component.css']
 })
-export class RuleComponent implements OnInit {
+export class RuleEditorComponent implements OnInit {
 
   @Input() rule: Rule;
 
