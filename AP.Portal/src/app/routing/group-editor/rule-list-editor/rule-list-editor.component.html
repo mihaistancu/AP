@@ -1,4 +1,7 @@
-Rules
-<app-rule-editor *ngFor="let rule of rules; let i=index; trackBy: trackByIndex"
-                 [(rule)]="rules[i]">
-</app-rule-editor>
+<div>
+  Rules
+</div>
+<div *ngFor="let rule of rules; let i=index; trackBy: trackByIndex">
+  <app-rule-editor [(rule)]="rules[i]"></app-rule-editor>
+  <button (click)="delete(i)">x</button>
+</div>

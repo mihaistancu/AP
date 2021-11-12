@@ -9,7 +9,7 @@ import { Rule } from '../../routing.model';
 export class RuleListEditorComponent implements OnInit {
 
   @Input() public rules: Rule[];
-  @Output() public rulesChange = new EventEmitter<string[]>();
+  @Output() public rulesChange = new EventEmitter<Rule[]>();
 
   constructor() { }
 
@@ -20,4 +20,12 @@ export class RuleListEditorComponent implements OnInit {
     return index;
   }
 
+  delete(index: number) {
+    this.rules.splice(index, 1);
+    this.notify();
+  }
+
+  notify() {
+    this.rulesChange.emit(this.rules);
+  }
 }

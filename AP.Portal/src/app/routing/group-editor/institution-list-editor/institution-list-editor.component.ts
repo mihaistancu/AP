@@ -27,7 +27,6 @@ export class InstitutionListEditorComponent implements OnInit {
 
   notify() {
     this.institutionIdsChange.emit(this.institutionIds);
-    console.log(this.institutionIds);
   }
 
   trackByIndex(index: number) {
