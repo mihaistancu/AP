@@ -69,12 +69,14 @@ namespace AP.Dependencies
             var getAllGroups = new GetAllGroupsApi(new GetAllGroups(storage));
             var deleteGroup = new DeleteGroupApi(new DeleteGroup(storage));
             var getGroup = new GetGroupApi(new GetGroup(storage));
+            var updateGroup = new UpdateGroupApi(new UpdateGroup(storage));
 
             return new ApiRoutes(
                 authentication.Authenticate,
                 getAllGroups.Handle,
                 deleteGroup.Handle,
-                getGroup.Handle);
+                getGroup.Handle,
+                updateGroup.Handle);
         }
 
         private static SpaRoutes BuildPortalSpa()

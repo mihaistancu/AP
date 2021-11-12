@@ -20,4 +20,8 @@ export class RoutingService {
   delete(groupId: string) {
     return this.http.delete(`/api/routing/groups/${groupId}`);
   }
+
+  update(groupId: string, group: Group) {
+    return this.http.put(`/api/routing/groups/${groupId}`, group);
+  }
 }

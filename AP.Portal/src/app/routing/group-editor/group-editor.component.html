@@ -3,6 +3,12 @@
 
   <div>
     Rules
-    <app-rule-editor *ngFor="let rule of group.rules" [(rule)]="rule"></app-rule-editor>
+    <app-rule-editor *ngFor="let rule of group.rules; let i=index; trackBy: trackByIndex"
+                     [(rule)]="group.rules[i]">
+    </app-rule-editor>
   </div>
+
+  <button (click)="save()">Save</button>
+
+  <button (click)="goBack()">Back</button>
 </ng-container>

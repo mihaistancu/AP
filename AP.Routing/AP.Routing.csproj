@@ -49,6 +49,7 @@
     <Compile Include="UseCases\DeleteGroup.cs" />
     <Compile Include="UseCases\GetAllGroups.cs" />
     <Compile Include="UseCases\GetGroup.cs" />
+    <Compile Include="UseCases\UpdateGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">
