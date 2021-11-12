@@ -1,6 +1,8 @@
-<app-institution-list-editor [institutionIds]="group.institutionIds"></app-institution-list-editor>
+<ng-container *ngIf="group">
+  <app-institution-list-editor [(institutionIds)]="group.institutionIds"></app-institution-list-editor>
 
-<div>
-  Rules
-  <app-rule *ngFor="let rule of group.rules" [rule]="rule"></app-rule>
-</div>
+  <div>
+    Rules
+    <app-rule *ngFor="let rule of group.rules" [rule]="rule"></app-rule>
+  </div>
+</ng-container>

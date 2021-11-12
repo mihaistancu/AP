@@ -1,5 +1,5 @@
 Institutions
 <ng-container *ngFor="let institutionId of institutionIds; let i=index">
-  <input type="text" [(ngModel)]="institutionIds[i]" />
+  <input type="text" [value]="institutionIds[i]" (change)="onChange($event.target.value, i)"/>
   <button (click)="delete(i)">x</button>
 </ng-container>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-institution-list-editor',
@@ -8,14 +8,24 @@ import { Component, Input, OnInit } from '@angular/core';
 export class InstitutionListEditorComponent implements OnInit {
 
   @Input() public institutionIds: string[];
+  @Output() public institutionIdsChange = new EventEmitter<string[]>();
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.institutionIds);
+  }
+
+  onChange(value: string, index: number) {
+    this.institutionIds[index] = value;
+    this.notify();
   }
 
   delete(index: number) {
     this.institutionIds.splice(index, 1);
+    this.notify();
+  }
+
+  notify() {
+    this.institutionIdsChange.emit(this.institutionIds);
   }
 }
