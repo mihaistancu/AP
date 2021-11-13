@@ -70,13 +70,15 @@ namespace AP.Dependencies
             var deleteGroup = new DeleteGroupApi(new DeleteGroup(storage));
             var getGroup = new GetGroupApi(new GetGroup(storage));
             var updateGroup = new UpdateGroupApi(new UpdateGroup(storage));
+            var createGroup = new CreateGroupApi(new CreateGroup(storage));
 
             return new ApiRoutes(
                 authentication.Authenticate,
                 getAllGroups.Handle,
                 deleteGroup.Handle,
                 getGroup.Handle,
-                updateGroup.Handle);
+                updateGroup.Handle,
+                createGroup.Handle);
         }
 
         private static SpaRoutes BuildPortalSpa()

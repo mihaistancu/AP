@@ -70,6 +70,11 @@ namespace AP.Routing
             });
         }
 
+        public void Add(Group group)
+        {
+            groups.Add(group);
+        }
+
         public void Update(Group group)
         {
             DeleteGroup(group.GroupId);

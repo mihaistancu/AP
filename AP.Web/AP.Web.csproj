@@ -47,6 +47,7 @@
     <Compile Include="Api\Authentication\ActiveDirectory.cs" />
     <Compile Include="Api\Authentication\AuthenticationApi.cs" />
     <Compile Include="Api\Json.cs" />
+    <Compile Include="Api\Routing\CreateGroupApi.cs" />
     <Compile Include="Api\Routing\DeleteGroupApi.cs" />
     <Compile Include="Api\Routing\GetAllGroupsApi.cs" />
     <Compile Include="Api\Routing\GetGroupApi.cs" />

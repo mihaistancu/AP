@@ -9,19 +9,22 @@ namespace AP.Web.Routes
         private HttpHandler deleteGroup;
         private HttpHandler getGroup;
         private HttpHandler updateGroup;
+        private HttpHandler createGroup;
 
         public ApiRoutes(
             HttpHandler authenticate,
             HttpHandler getAllGroups, 
             HttpHandler deleteGroup,
             HttpHandler getGroup,
-            HttpHandler updateGroup)
+            HttpHandler updateGroup,
+            HttpHandler createGroup)
         {
             this.authenticate = authenticate;
             this.getAllGroups = getAllGroups;
             this.deleteGroup = deleteGroup;
             this.getGroup = getGroup;
             this.updateGroup = updateGroup;
+            this.createGroup = createGroup;
         }
 
         public void Apply(IHttpServer server)
@@ -32,6 +35,7 @@ namespace AP.Web.Routes
             server.Map("DELETE", "/api/routing/groups/{id}", deleteGroup);
             server.Map("GET", "/api/routing/groups/{id}", getGroup);
             server.Map("PUT", "/api/routing/groups/{id}", updateGroup);
+            server.Map("POST", "/api/routing/groups", createGroup);
         }
     }
 }
