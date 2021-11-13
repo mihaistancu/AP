@@ -1,9 +1,6 @@
 ﻿using AP.Http;
-using AP.Routing;
 using AP.Routing.UseCases;
 using AP.Web.Api.Routing.Serialization;
-using Newtonsoft.Json.Linq;
-using System.Linq;
 
 namespace AP.Web.Api.Routing
 {
