@@ -51,6 +51,7 @@
     <Compile Include="UseCases\GetAllGroups.cs" />
     <Compile Include="UseCases\GetGroup.cs" />
     <Compile Include="UseCases\UpdateGroup.cs" />
+    <Compile Include="UseCases\UpdatePullRules.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj">

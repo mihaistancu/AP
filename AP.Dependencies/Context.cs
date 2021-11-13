@@ -69,8 +69,9 @@ namespace AP.Dependencies
             var getAllGroups = new GetAllGroupsApi(new GetAllGroups(storage));
             var deleteGroup = new DeleteGroupApi(new DeleteGroup(storage));
             var getGroup = new GetGroupApi(new GetGroup(storage));
-            var updateGroup = new UpdateGroupApi(new UpdateGroup(storage));
-            var createGroup = new CreateGroupApi(new CreateGroup(storage));
+            var updatePullRules = new UpdatePullRules();
+            var updateGroup = new UpdateGroupApi(new UpdateGroup(storage, updatePullRules));
+            var createGroup = new CreateGroupApi(new CreateGroup(storage, updatePullRules));
 
             return new ApiRoutes(
                 authentication.Authenticate,

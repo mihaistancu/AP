@@ -3,27 +3,18 @@
     public class UpdateGroup
     {
         private RoutingStorage storage;
+        private UpdatePullRules updatePullRules;
 
-        public UpdateGroup(RoutingStorage storage)
+        public UpdateGroup(RoutingStorage storage, UpdatePullRules updatePullRules)
         {
             this.storage = storage;
+            this.updatePullRules = updatePullRules;
         }
 
         public void Update(Group group)
         {
-            UpdatePullUrls(group);
+            updatePullRules.Update(group);
             storage.Update(group);
-        }
-
-        private void UpdatePullUrls(Group group)
-        {
-            foreach (var rule in group.Rules)
-            {
-                if (rule.Type == "pull")
-                {
-                    rule.Url = $"https://ap/{rule.Name}";
-                }
-            }
         }
     }
 }
