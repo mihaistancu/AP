@@ -1,9 +1,6 @@
 ﻿using AP.Http;
-using AP.Routing;
 using AP.Routing.UseCases;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Linq;
+using AP.Web.Api.Routing.Serialization;
 
 namespace AP.Web.Api.Routing
 {
@@ -19,26 +16,9 @@ namespace AP.Web.Api.Routing
         public void Handle(IHttpInput input, IHttpOutput output)
         {
             var groups = useCase.GetAll();
-            var json = GetResult(groups);
+            var json = ToJson.Map(groups);
             output.Status(200);
             Json.Write(json, output);
-        }
-
-        private JArray GetResult(List<Group> groups)
-        {
-            return new JArray(
-                from g in groups
-                select new JObject(
-                    new JProperty("groupId", g.GroupId),
-                    new JProperty("institutionIds",
-                        new JArray(g.InstitutionIds)),
-                    new JProperty("rules",
-                        new JArray(from r in g.Rules
-                                   select new JObject(
-                                       new JProperty("name", r.Name),
-                                       new JProperty("type", r.Type),
-                                       new JProperty("url", r.Url),
-                                       new JProperty("condition", r.Condition))))));
         }
     }
 }

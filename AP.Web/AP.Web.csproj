@@ -51,6 +51,7 @@
     <Compile Include="Api\Routing\DeleteGroupApi.cs" />
     <Compile Include="Api\Routing\GetAllGroupsApi.cs" />
     <Compile Include="Api\Routing\GetGroupApi.cs" />
+    <Compile Include="Api\Routing\Serialization\ToJson.cs" />
     <Compile Include="Api\Routing\UpdateGroupApi.cs" />
     <Compile Include="Authorization\Authorizer.cs" />
     <Compile Include="Files\Login.cs" />
