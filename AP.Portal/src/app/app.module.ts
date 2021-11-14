@@ -15,6 +15,7 @@ import { RuleListEditorComponent } from './routing/group-editor/rule-list-editor
 import { GroupUpdaterComponent } from './routing/group-updater/group-updater.component';
 import { GroupCreatorComponent } from './routing/group-creator/group-creator.component';
 import { ConditionEditorComponent } from './routing/group-editor/condition-editor/condition-editor.component';
+import { ConditionComponent } from './routing/group/condition/condition.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ConditionEditorComponent } from './routing/group-editor/condition-edito
     RuleListEditorComponent,
     GroupUpdaterComponent,
     GroupCreatorComponent,
-    ConditionEditorComponent
+    ConditionEditorComponent,
+    ConditionComponent
   ],
   imports: [
     BrowserModule,
