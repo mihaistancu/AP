@@ -29,8 +29,7 @@ export class RuleListEditorComponent implements OnInit {
     this.rules.unshift({
       name: '',
       type: 'pull',
-      url: '',
-      condition: ''
+      url: ''
     });
   }
 

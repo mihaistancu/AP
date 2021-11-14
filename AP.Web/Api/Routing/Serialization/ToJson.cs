@@ -55,15 +55,15 @@ namespace AP.Web.Api.Routing.Serialization
             {
                 return new JObject(
                     new JProperty("type", "equals"),
-                    new JProperty("subject", equals.Subject),
-                    new JProperty("expectedValue", equals.ExpectedValue));
+                    new JProperty("key", equals.Subject),
+                    new JProperty("value", equals.ExpectedValue));
             }
             else if (condition is Matches matches)
             {
                 return new JObject(
                     new JProperty("type", "matches"),
-                    new JProperty("subject", matches.Subject),
-                    new JProperty("expectedPattern", matches.ExpectedPattern));
+                    new JProperty("key", matches.Subject),
+                    new JProperty("value", matches.ExpectedPattern));
             }
             throw new Exception("Cannot serialize condition to JSON");
         }

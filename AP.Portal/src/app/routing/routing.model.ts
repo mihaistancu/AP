@@ -8,5 +8,18 @@ export interface Rule {
   name: string;
   type: string;
   url: string;
-  condition: string;
+  condition?: Condition;
 }
+
+export interface Predicate {
+  type: string;
+  key: string;
+  value: string;
+}
+
+export interface Aggregate {
+  type: string;
+  children: Condition[]
+}
+
+export type Condition = Predicate | Aggregate;

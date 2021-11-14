@@ -38,13 +38,13 @@ namespace AP.Web.Api.Routing.Serialization
             {
                 case "equals": return new Equals
                 {
-                    Subject = json.Value<string>("subject"),
-                    ExpectedValue = json.Value<string>("expectedValue")
+                    Subject = json.Value<string>("key"),
+                    ExpectedValue = json.Value<string>("value")
                 };
                 case "matches": return new Matches
                 {
-                    Subject = json.Value<string>("subject"),
-                    ExpectedPattern = json.Value<string>("expectedPattern")
+                    Subject = json.Value<string>("key"),
+                    ExpectedPattern = json.Value<string>("value")
                 };
                 case "any": return new Any
                 {
