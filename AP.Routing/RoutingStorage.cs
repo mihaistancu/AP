@@ -42,10 +42,54 @@ namespace AP.Routing
                          Name = "r3",
                          Type = "push",
                          Url = "https://r3",
-                         Condition = new Equals
+                         Condition = new Any
                          {
-                             Subject = "SED",
-                             ExpectedValue = "P_BUC_01"
+                             Children = new List<ICondition>
+                             {
+                                 new Equals
+                                 {
+                                    Subject = "SED",
+                                    ExpectedValue = "P_BUC_01"
+                                 },
+                                 new Matches
+                                 {
+                                     Subject = "SED",
+                                     ExpectedPattern = "regex1"
+                                 },
+                                 new All
+                                 {
+                                     Children = new List<ICondition>
+                                     {
+                                         new Equals
+                                         {
+                                            Subject = "SED",
+                                            ExpectedValue = "P_BUC_02"
+                                         },
+                                         new Matches
+                                         {
+                                             Subject = "SED",
+                                             ExpectedPattern = "regex2"
+                                         },
+                                         new Any
+                                         {
+                                             Children = new List<ICondition>
+                                             {
+                                                 new Equals
+                                                 {
+                                                    Subject = "SED",
+                                                    ExpectedValue = "P_BUC_03"
+                                                 },
+                                                 new Matches
+                                                 {
+                                                     Subject = "SED",
+                                                     ExpectedPattern = "regex3"
+                                                 }
+                                             }
+                                         }
+                                     }
+                                 }
+                             }
+                             
                          }
                     },
                     new Rule
