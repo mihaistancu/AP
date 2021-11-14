@@ -11,16 +11,13 @@ export class ConditionEditorComponent implements OnInit {
   @Input() condition: Condition;
   @Output() conditionChange = new EventEmitter<Condition>();
 
-  public conditionText;
-
   constructor() { }
 
   ngOnInit(): void {
-    this.conditionText = JSON.stringify(this.condition);
+    
   }
 
   notify() {
-    this.condition = JSON.parse(this.conditionText);
     this.conditionChange.emit(this.condition);
   }
 }

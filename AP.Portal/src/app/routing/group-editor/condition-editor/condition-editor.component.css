@@ -1,5 +1,5 @@
 div::before {
-  content: "-"
+  content: " - "
 }
 
 div {
