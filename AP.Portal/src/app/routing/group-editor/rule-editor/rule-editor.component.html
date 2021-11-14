@@ -12,4 +12,6 @@
   <input id="url" [(ngModel)]="rule.url" (input)="notify()"/>
 </ng-container>
 
-<app-condition-editor [(condition)]="rule.condition"></app-condition-editor>
+<div *ngIf="rule.condition">
+  <app-condition-editor [(condition)]="rule.condition"></app-condition-editor>
+</div>

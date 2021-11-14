@@ -1,3 +1,21 @@
-<textarea [(ngModel)]="conditionText" (input)="notify()">
+<ng-container *ngIf="condition.type == 'equals'">
+  {{condition.key}} is {{condition.value}}
+</ng-container>
 
-</textarea>
+<ng-container *ngIf="condition.type == 'matches'">
+  {{condition.key}} matches {{condition.value}}
+</ng-container>
+
+<ng-container *ngIf="condition.type == 'all'">
+  all of the following conditions are true:
+  <div *ngFor="let child of condition.children">
+    <app-condition [condition]="child"></app-condition>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="condition.type == 'any'">
+  any of the following conditions is true:
+  <div *ngFor="let child of condition.children">
+    <app-condition [condition]="child"></app-condition>
+  </div>
+</ng-container>

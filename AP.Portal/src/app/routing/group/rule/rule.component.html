@@ -4,4 +4,6 @@
 <div *ngIf="rule.type == 'pull'">
   {{rule.name}}: queue on {{rule.url}}
 </div>
-<app-condition [condition]="rule.condition"></app-condition>
+<div *ngIf="rule.condition">
+  <app-condition [condition]="rule.condition"></app-condition>
+</div>
