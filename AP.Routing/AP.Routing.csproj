@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Conditions\All.cs" />
+    <Compile Include="Entities\Conditions\Any.cs" />
+    <Compile Include="Entities\Conditions\Matches.cs" />
     <Compile Include="Entities\Group.cs" />
+    <Compile Include="Entities\Conditions\ICondition.cs" />
+    <Compile Include="Entities\Conditions\Equals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Rule.cs" />
     <Compile Include="RoutingConfig.cs" />

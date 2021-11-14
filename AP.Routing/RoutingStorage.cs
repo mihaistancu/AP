@@ -1,5 +1,5 @@
 ﻿using AP.Routing.Entities;
-using System;
+using AP.Routing.Entities.Conditions;
 using System.Collections.Generic;
 
 namespace AP.Routing
@@ -42,14 +42,22 @@ namespace AP.Routing
                          Name = "r3",
                          Type = "push",
                          Url = "https://r3",
-                         Condition = "SED = P_BUC_01"
+                         Condition = new Equals
+                         {
+                             Subject = "SED",
+                             ExpectedValue = "P_BUC_01"
+                         }
                     },
                     new Rule
                     {
                         Name = "r4",
                         Type = "push",
                         Url = "https://r4",
-                        Condition = "SED = P_BUC_02"
+                        Condition  = new Equals
+                        {
+                            Subject = "SED",
+                            ExpectedValue = "P_BUC_02"
+                        }
                     }
                 }
             });
@@ -65,7 +73,11 @@ namespace AP.Routing
                         Name = "r5",
                         Type = "pull",
                         Url = "https://ap/r5",
-                        Condition = "SED = P_BUC_03"
+                        Condition = new Equals
+                        {
+                            Subject = "SED",
+                            ExpectedValue = "P_BUC_03"
+                        }
                     }
                 }
             });
