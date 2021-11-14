@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AP.Routing.Entities;
+using System.Collections.Generic;
 
 namespace AP.Routing.UseCases
 {

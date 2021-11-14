@@ -1,4 +1,4 @@
-﻿namespace AP.Routing
+﻿namespace AP.Routing.Entities
 {
     public class Rule
     {

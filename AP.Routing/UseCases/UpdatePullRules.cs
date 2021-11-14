@@ -1,4 +1,6 @@
-﻿namespace AP.Routing.UseCases
+﻿using AP.Routing.Entities;
+
+namespace AP.Routing.UseCases
 {
     public class UpdatePullRules
     {

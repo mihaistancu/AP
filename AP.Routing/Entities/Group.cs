@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AP.Routing
+namespace AP.Routing.Entities
 {
     public class Group
     {

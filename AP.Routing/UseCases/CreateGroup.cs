@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP.Routing.Entities;
+using System;
 
 namespace AP.Routing.UseCases
 {
