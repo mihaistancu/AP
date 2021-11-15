@@ -1,21 +1,27 @@
 <ng-container *ngIf="condition.type == 'equals' || condition.type == 'matches'">
-  <input [(ngModel)]="condition.key" />
+  <input [(ngModel)]="condition.key" (input)="notify()" />
   
-  <select [(ngModel)]="condition.type">
+  <select [(ngModel)]="condition.type" (change)="notify()">
     <option value="equals">is</option>
     <option value="matches">matches</option>
   </select>
 
-  <input [(ngModel)]="condition.value" />
+  <input [(ngModel)]="condition.value" (input)="notify()"/>
 </ng-container>
 
 <ng-container *ngIf="condition.type == 'all' || condition.type == 'any'">
-  <select [(ngModel)]="condition.type">
+  <select [(ngModel)]="condition.type" (change)="notify()">
     <option value="any">Any</option>
     <option value="all">All</option>
   </select>
   of the following conditions are true:
-  <div *ngFor="let child of condition.children">
-    <app-condition-editor [condition]="child"></app-condition-editor>
+  <button (click)="addPredicate(condition)">+</button>
+  <button (click)="addAggregate(condition)">...</button>
+  <div *ngIf="condition.children.length == 0">
+    Please add a child condition
+  </div>
+  <div *ngFor="let child of condition.children; let i=index">
+    <button (click)="deleteChild(condition, i)">x</button>
+    <app-condition-editor [(condition)]="condition.children[i]"></app-condition-editor>
   </div>
 </ng-container>

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Condition } from '../../routing.model';
+import { Aggregate, Condition } from '../../routing.model';
 
 @Component({
   selector: 'app-condition-editor',
@@ -15,6 +15,32 @@ export class ConditionEditorComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  addPredicate(condition: Aggregate) {
+    condition.children.unshift({
+      type: 'equals',
+      key: '',
+      value: ''
+    });
+    this.notify();
+  }
+
+  addAggregate(condition: Aggregate) {
+    condition.children.unshift({
+      type: 'all',
+      children: [{
+        type: 'equals',
+        key: '',
+        value: ''
+      }]
+    });
+    this.notify();
+  }
+
+  deleteChild(condition: Aggregate, index: number) {
+    condition.children.splice(index, 1);
+    this.notify();
   }
 
   notify() {

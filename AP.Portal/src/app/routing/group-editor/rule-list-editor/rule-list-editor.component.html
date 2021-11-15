@@ -3,6 +3,6 @@
   <button (click)="add()">+</button>
 </div>
 <div *ngFor="let rule of rules; let i=index; trackBy: trackByIndex">
-  <app-rule-editor [(rule)]="rules[i]"></app-rule-editor>
   <button (click)="delete(i)">x</button>
+  <app-rule-editor [(rule)]="rules[i]"></app-rule-editor>
 </div>
