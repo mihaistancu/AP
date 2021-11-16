@@ -7,6 +7,10 @@
   </ng-container>
 </div>
 
+<div *ngIf="endpoint.type == 'pull'">
+  Authorization list: {{endpoint.authorizationList}}
+</div>
+
 <ng-container *ngIf="endpoint.type=='push'">
   Business messages for any of the institutions in this group are pushed to this endpoint
 </ng-container>

@@ -26,16 +26,22 @@ namespace AP.Web.Api.Routing.Serialization
 
         private static JObject Map(Endpoint endpoint)
         {
-            return endpoint.BusinessMessageRule == null
-            ? new JObject(
-                new JProperty("name", endpoint.Name),
-                new JProperty("type", endpoint.Type),
-                new JProperty("url", endpoint.Url))
-            : new JObject(
-                new JProperty("name", endpoint.Name),
-                new JProperty("type", endpoint.Type),
-                new JProperty("url", endpoint.Url),
-                new JProperty("businessMessageRule", Map(endpoint.BusinessMessageRule)));
+            var json = new JObject();
+            json.Add("name", endpoint.Name);
+            json.Add("type", endpoint.Type);
+            json.Add("url", endpoint.Url);
+
+            if (endpoint.BusinessMessageRule != null)
+            {
+                json.Add("businessMessageRule", Map(endpoint.BusinessMessageRule));
+            }
+
+            if (endpoint.Type == "pull")
+            {
+                json.Add("authorizationList", endpoint.AuthorizationList);
+            }
+
+            return json;
         }
 
         private static JObject Map(IBusinessMessageRule rule)

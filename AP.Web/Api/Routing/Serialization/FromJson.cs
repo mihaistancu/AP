@@ -26,6 +26,9 @@ namespace AP.Web.Api.Routing.Serialization
                 Url = json.Value<string>("type") == "push"
                     ? json.Value<string>("url")
                     : null,
+                AuthorizationList = json.Value<string>("type") == "pull"
+                    ? json.Value<string>("authorizationList")
+                    : null,
                 BusinessMessageRule = json["businessMessageRule"] != null
                     ? GetBusinessMessageRule(json["businessMessageRule"])
                     : null

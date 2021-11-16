@@ -8,6 +8,7 @@ export interface Endpoint {
   name: string;
   type: string;
   url: string;
+  authorizationList?: string;
   businessMessageRule?: BusinessMessageRule;
 }
 
