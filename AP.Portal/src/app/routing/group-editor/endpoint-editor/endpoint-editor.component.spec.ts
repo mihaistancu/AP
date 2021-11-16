@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RuleEditorComponent } from './rule-editor.component';
+import { EndpointEditorComponent } from './endpoint-editor.component';
 
-describe('RuleEditorComponent', () => {
-  let component: RuleEditorComponent;
-  let fixture: ComponentFixture<RuleEditorComponent>;
+describe('EndpointEditorComponent', () => {
+  let component: EndpointEditorComponent;
+  let fixture: ComponentFixture<EndpointEditorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RuleEditorComponent ]
+      declarations: [EndpointEditorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RuleEditorComponent);
+    fixture = TestBed.createComponent(EndpointEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

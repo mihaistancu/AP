@@ -4,5 +4,5 @@
 </div>
 <div *ngFor="let endpoint of endpoints; let i=index; trackBy: trackByIndex">
   <button (click)="delete(i)">x</button>
-  <app-rule-editor [(endpoint)]="endpoints[i]"></app-rule-editor>
+  <app-endpoint-editor [(endpoint)]="endpoints[i]"></app-endpoint-editor>
 </div>

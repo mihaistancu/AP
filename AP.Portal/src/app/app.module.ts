@@ -10,7 +10,7 @@ import { GroupComponent } from './routing/group/group.component';
 import { EndpointComponent } from './routing/group/endpoint/endpoint.component';
 import { GroupEditorComponent } from './routing/group-editor/group-editor.component';
 import { InstitutionListEditorComponent } from './routing/group-editor/institution-list-editor/institution-list-editor.component';
-import { RuleEditorComponent } from './routing/group-editor/rule-editor/rule-editor.component';
+import { EndpointEditorComponent } from './routing/group-editor/endpoint-editor/endpoint-editor.component';
 import { EndpointListEditorComponent } from './routing/group-editor/endpoint-list-editor/endpoint-list-editor.component';
 import { GroupUpdaterComponent } from './routing/group-updater/group-updater.component';
 import { GroupCreatorComponent } from './routing/group-creator/group-creator.component';
@@ -25,7 +25,7 @@ import { BusinessMessageRuleComponent } from './routing/group/business-message-r
     EndpointComponent,
     GroupEditorComponent,
     InstitutionListEditorComponent,
-    RuleEditorComponent,
+    EndpointEditorComponent,
     EndpointListEditorComponent,
     GroupUpdaterComponent,
     GroupCreatorComponent,
