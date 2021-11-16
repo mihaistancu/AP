@@ -21,7 +21,7 @@ export class InstitutionListEditorComponent implements OnInit {
   }
 
   add() {
-    this.institutionIds.push('');
+    this.institutionIds.unshift('');
     this.notify();
   }
 
