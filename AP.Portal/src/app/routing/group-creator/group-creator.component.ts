@@ -12,7 +12,7 @@ export class GroupCreatorComponent implements OnInit {
   public group: Group = {
     groupId: '',
     institutionIds: [],
-    rules: []
+    endpoints: []
   }
 
   constructor(public service: RoutingService) { }

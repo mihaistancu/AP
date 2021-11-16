@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Group, Rule } from '../routing.model';
+import { Group, Endpoint } from '../routing.model';
 
 @Component({
   selector: 'app-group-editor',
@@ -22,8 +22,8 @@ export class GroupEditorComponent implements OnInit {
     this.groupChange.emit(this.group);
   }
 
-  notifyRules(rules: Rule[]) {
-    this.group.rules = rules;
+  notifyEndpoints(endpoints: Endpoint[]) {
+    this.group.endpoints = endpoints;
     this.groupChange.emit(this.group);
   }
 }

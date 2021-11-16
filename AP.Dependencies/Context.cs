@@ -69,7 +69,7 @@ namespace AP.Dependencies
             var getAllGroups = new GetAllGroupsApi(new GetAllGroups(storage));
             var deleteGroup = new DeleteGroupApi(new DeleteGroup(storage));
             var getGroup = new GetGroupApi(new GetGroup(storage));
-            var updatePullRules = new UpdatePullRules();
+            var updatePullRules = new UpdatePullEndpoints();
             var updateGroup = new UpdateGroupApi(new UpdateGroup(storage, updatePullRules));
             var createGroup = new CreateGroupApi(new CreateGroup(storage, updatePullRules));
 

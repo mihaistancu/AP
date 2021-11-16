@@ -1,17 +1,17 @@
-<label for="name">Rule name</label>
-<input id="name" type="text" [(ngModel)]="rule.name" (input)="notify()"/>
+<label for="name">Endpoint name</label>
+<input id="name" type="text" [(ngModel)]="endpoint.name" (input)="notify()"/>
 
-<label for="type">Rule type</label>
-<select id="name" [(ngModel)]="rule.type" (change)="notify()">
+<label for="type">Endpoint type</label>
+<select id="name" [(ngModel)]="endpoint.type" (change)="notify()">
   <option value="push">Push</option>
   <option value="pull">Pull</option>
 </select>
 
-<ng-container *ngIf="rule.type == 'push'">
+<ng-container *ngIf="endpoint.type == 'push'">
   <label for="url">Destination url</label>
-  <input id="url" [(ngModel)]="rule.url" (input)="notify()"/>
+  <input id="url" [(ngModel)]="endpoint.url" (input)="notify()"/>
 </ng-container>
 
-<div *ngIf="rule.condition">
-  <app-condition-editor [(condition)]="rule.condition"></app-condition-editor>
+<div *ngIf="endpoint.businessMessageRule">
+  <app-condition-editor [(rule)]="endpoint.businessMessageRule"></app-condition-editor>
 </div>

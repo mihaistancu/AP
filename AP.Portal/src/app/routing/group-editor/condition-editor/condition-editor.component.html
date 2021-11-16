@@ -1,27 +1,27 @@
-<ng-container *ngIf="condition.type == 'equals' || condition.type == 'matches'">
-  <input [(ngModel)]="condition.key" (input)="notify()" />
+<ng-container *ngIf="rule.type == 'equals' || rule.type == 'matches'">
+  <input [(ngModel)]="rule.key" (input)="notify()" />
   
-  <select [(ngModel)]="condition.type" (change)="notify()">
+  <select [(ngModel)]="rule.type" (change)="notify()">
     <option value="equals">is</option>
     <option value="matches">matches</option>
   </select>
 
-  <input [(ngModel)]="condition.value" (input)="notify()"/>
+  <input [(ngModel)]="rule.value" (input)="notify()"/>
 </ng-container>
 
-<ng-container *ngIf="condition.type == 'all' || condition.type == 'any'">
-  <select [(ngModel)]="condition.type" (change)="notify()">
+<ng-container *ngIf="rule.type == 'all' || rule.type == 'any'">
+  <select [(ngModel)]="rule.type" (change)="notify()">
     <option value="any">Any</option>
     <option value="all">All</option>
   </select>
   of the following conditions are true:
-  <button (click)="addPredicate(condition)">+</button>
-  <button (click)="addAggregate(condition)">...</button>
-  <div *ngIf="condition.children.length == 0">
+  <button (click)="addPredicate(rule)">+</button>
+  <button (click)="addAggregate(rule)">...</button>
+  <div *ngIf="rule.children.length == 0">
     Add child conditions, otherwise this condition will be ignored
   </div>
-  <div *ngFor="let child of condition.children; let i=index">
-    <button (click)="deleteChild(condition, i)">x</button>
-    <app-condition-editor [(condition)]="condition.children[i]"></app-condition-editor>
+  <div *ngFor="let child of rule.children; let i=index">
+    <button (click)="deleteChild(rule, i)">x</button>
+    <app-condition-editor [(rule)]="rule.children[i]"></app-condition-editor>
   </div>
 </ng-container>

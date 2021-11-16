@@ -6,18 +6,18 @@ namespace AP.Routing.UseCases
     public class CreateGroup
     {
         private RoutingStorage storage;
-        private UpdatePullRules updatePullRules;
+        private UpdatePullEndpoints updatePullEndpoints;
 
-        public CreateGroup(RoutingStorage storage, UpdatePullRules updatePullRules)
+        public CreateGroup(RoutingStorage storage, UpdatePullEndpoints updatePullEndpoints)
         {
             this.storage = storage;
-            this.updatePullRules = updatePullRules;
+            this.updatePullEndpoints = updatePullEndpoints;
         }
 
         public Group Create(Group group)
         {
             group.GroupId = Guid.NewGuid().ToString();
-            updatePullRules.Update(group);
+            updatePullEndpoints.Update(group);
             storage.Add(group);
             return group;
         }

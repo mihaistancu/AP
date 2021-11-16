@@ -1,12 +1,12 @@
-﻿using AP.Routing.Entities.Conditions;
+﻿using AP.Routing.Entities.BusinessMessageRules;
 
 namespace AP.Routing.Entities
 {
-    public class Rule
+    public class Endpoint
     {
         public string Name { get; set; }
         public string Type { get; set; }
         public string Url { get; set; }
-        public ICondition Condition { get; set; }
+        public IBusinessMessageRule BusinessMessageRule { get; set; }
     }
 }

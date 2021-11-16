@@ -1,14 +1,14 @@
 export interface Group {
   groupId: string;
   institutionIds: string[];
-  rules: Rule[],
+  endpoints: Endpoint[],
 }
 
-export interface Rule {
+export interface Endpoint {
   name: string;
   type: string;
   url: string;
-  condition?: Condition;
+  businessMessageRule?: BusinessMessageRule;
 }
 
 export interface Predicate {
@@ -19,7 +19,7 @@ export interface Predicate {
 
 export interface Aggregate {
   type: string;
-  children: Condition[]
+  children: BusinessMessageRule[]
 }
 
-export type Condition = Predicate | Aggregate;
+export type BusinessMessageRule = Predicate | Aggregate;

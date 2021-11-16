@@ -1,21 +1,21 @@
-<ng-container *ngIf="condition.type == 'equals'">
-  {{condition.key}} is {{condition.value}}
+<ng-container *ngIf="rule.type == 'equals'">
+  {{rule.key}} is {{rule.value}}
 </ng-container>
 
-<ng-container *ngIf="condition.type == 'matches'">
-  {{condition.key}} matches {{condition.value}}
+<ng-container *ngIf="rule.type == 'matches'">
+  {{rule.key}} matches {{rule.value}}
 </ng-container>
 
-<ng-container *ngIf="condition.type == 'all'">
-  All of the following conditions are true:
-  <div *ngFor="let child of condition.children" >
-    <app-condition [condition]="child"></app-condition>
+<ng-container *ngIf="rule.type == 'all'">
+  All of the following rules are true:
+  <div *ngFor="let child of rule.children" >
+    <app-condition [rule]="child"></app-condition>
   </div>
 </ng-container>
 
-<ng-container *ngIf="condition.type == 'any'">
-  Any of the following conditions is true:
-  <div *ngFor="let child of condition.children">
-    <app-condition [condition]="child"></app-condition>
+<ng-container *ngIf="rule.type == 'any'">
+  Any of the following rules is true:
+  <div *ngFor="let child of rule.children">
+    <app-condition [rule]="child"></app-condition>
   </div>
 </ng-container>

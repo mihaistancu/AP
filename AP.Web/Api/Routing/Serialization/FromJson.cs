@@ -1,5 +1,5 @@
 ﻿using AP.Routing.Entities;
-using AP.Routing.Entities.Conditions;
+using AP.Routing.Entities.BusinessMessageRules;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
@@ -13,26 +13,26 @@ namespace AP.Web.Api.Routing.Serialization
             return new Group
             {
                 InstitutionIds = json["institutionIds"].Values<string>().ToList(),
-                Rules = json["rules"].Select(GetRule).ToList()
+                Endpoints = json["rules"].Select(GetEndpoint).ToList()
             };
         }
 
-        public static Rule GetRule(JToken json)
+        public static Endpoint GetEndpoint(JToken json)
         {
-            return new Rule
+            return new Endpoint
             {
                 Name = json.Value<string>("name"),
                 Type = json.Value<string>("type"),
                 Url = json.Value<string>("type") == "push"
                     ? json.Value<string>("url")
                     : null,
-                Condition = json["condition"].HasValues
-                    ? GetCondition(json["condition"])
+                BusinessMessageRule = json["businessMessageRule"].HasValues
+                    ? GetBusinessMessageRule(json["businessMessageRule"])
                     : null
             };
         }
 
-        public static ICondition GetCondition(JToken json)
+        public static IBusinessMessageRule GetBusinessMessageRule(JToken json)
         {
             switch (json.Value<string>("type"))
             {
@@ -48,14 +48,14 @@ namespace AP.Web.Api.Routing.Serialization
                 };
                 case "any": return new Any
                 {
-                    Children = json["children"].Select(GetCondition).ToList()
+                    Children = json["children"].Select(GetBusinessMessageRule).ToList()
                 };
                 case "all": return new All
                 {
-                    Children = json["children"].Select(GetCondition).ToList()
+                    Children = json["children"].Select(GetBusinessMessageRule).ToList()
                 };
             }
-            throw new Exception("Cannot deserialize condition from JSON");
+            throw new Exception("Cannot deserialize business message rule from JSON");
         }
     }
 }

@@ -1,9 +1,9 @@
-<div *ngIf="rule.type == 'push'">
-  {{rule.name}}: push to {{rule.url}}
+<div *ngIf="endpoint.type == 'push'">
+  {{endpoint.name}}: push to {{endpoint.url}}
 </div>
-<div *ngIf="rule.type == 'pull'">
-  {{rule.name}}: queue on {{rule.url}}
+<div *ngIf="endpoint.type == 'pull'">
+  {{endpoint.name}}: queue on {{endpoint.url}}
 </div>
-<div *ngIf="rule.condition">
-  <app-condition [condition]="rule.condition"></app-condition>
+<div *ngIf="endpoint.businessMessageRule">
+  <app-condition [rule]="endpoint.businessMessageRule"></app-condition>
 </div>

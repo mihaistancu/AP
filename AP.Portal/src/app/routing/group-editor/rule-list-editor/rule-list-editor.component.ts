@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Rule } from '../../routing.model';
+import { Endpoint } from '../../routing.model';
 
 @Component({
   selector: 'app-rule-list-editor',
@@ -8,8 +8,8 @@ import { Rule } from '../../routing.model';
 })
 export class RuleListEditorComponent implements OnInit {
 
-  @Input() public rules: Rule[];
-  @Output() public rulesChange = new EventEmitter<Rule[]>();
+  @Input() public endpoints: Endpoint[];
+  @Output() public endpointsChange = new EventEmitter<Endpoint[]>();
 
   constructor() { }
 
@@ -21,12 +21,12 @@ export class RuleListEditorComponent implements OnInit {
   }
 
   delete(index: number) {
-    this.rules.splice(index, 1);
+    this.endpoints.splice(index, 1);
     this.notify();
   }
 
   add() {
-    this.rules.unshift({
+    this.endpoints.unshift({
       name: '',
       type: 'pull',
       url: ''
@@ -34,6 +34,6 @@ export class RuleListEditorComponent implements OnInit {
   }
 
   notify() {
-    this.rulesChange.emit(this.rules);
+    this.endpointsChange.emit(this.endpoints);
   }
 }

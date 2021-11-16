@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Rule } from '../../routing.model';
+import { Endpoint } from '../../routing.model';
 
 @Component({
   selector: 'app-rule',
@@ -8,7 +8,7 @@ import { Rule } from '../../routing.model';
 })
 export class RuleComponent implements OnInit {
 
-  @Input() rule: Rule;
+  @Input() endpoint: Endpoint;
 
   constructor() { }
 

@@ -1,5 +1,5 @@
 ﻿using AP.Routing.Entities;
-using AP.Routing.Entities.Conditions;
+using AP.Routing.Entities.BusinessMessageRules;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -20,52 +20,52 @@ namespace AP.Web.Api.Routing.Serialization
                 new JProperty("groupId", group.GroupId),
                 new JProperty("institutionIds",
                     new JArray(group.InstitutionIds)),
-                new JProperty("rules",
-                    new JArray(group.Rules.Select(Map))));
+                new JProperty("endpoints",
+                    new JArray(group.Endpoints.Select(Map))));
         }
 
-        private static JObject Map(Rule rule)
+        private static JObject Map(Endpoint endpoint)
         {
             return new JObject(
-                new JProperty("name", rule.Name),
-                new JProperty("type", rule.Type),
-                new JProperty("url", rule.Url),
-                new JProperty("condition", Map(rule.Condition)));
+                new JProperty("name", endpoint.Name),
+                new JProperty("type", endpoint.Type),
+                new JProperty("url", endpoint.Url),
+                new JProperty("businessMessageRule", Map(endpoint.BusinessMessageRule)));
         }
 
-        private static JObject Map(ICondition condition)
+        private static JObject Map(IBusinessMessageRule rule)
         {
-            if (condition == null)
+            if (rule == null)
             {
                 return null;
             }
-            else if (condition is Any any)
+            else if (rule is Any any)
             {
                 return new JObject(
                     new JProperty("type", "any"),
                     new JProperty("children", new JArray(any.Children.Select(Map))));
             }
-            else if (condition is All all)
+            else if (rule is All all)
             {
                 return new JObject(
                     new JProperty("type", "all"),
                     new JProperty("children", new JArray(all.Children.Select(Map))));
             }
-            else if (condition is Equals equals)
+            else if (rule is Equals equals)
             {
                 return new JObject(
                     new JProperty("type", "equals"),
                     new JProperty("key", equals.Subject),
                     new JProperty("value", equals.ExpectedValue));
             }
-            else if (condition is Matches matches)
+            else if (rule is Matches matches)
             {
                 return new JObject(
                     new JProperty("type", "matches"),
                     new JProperty("key", matches.Subject),
                     new JProperty("value", matches.ExpectedPattern));
             }
-            throw new Exception("Cannot serialize condition to JSON");
+            throw new Exception("Cannot serialize business message rule to JSON");
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using AP.Routing.Entities;
-using AP.Routing.Entities.Conditions;
+using AP.Routing.Entities.BusinessMessageRules;
 using System.Collections.Generic;
 
 namespace AP.Routing
@@ -14,15 +14,15 @@ namespace AP.Routing
             {
                 GroupId = "1",
                 InstitutionIds = new List<string> { "a", "b" },
-                Rules = new List<Rule>
+                Endpoints = new List<Endpoint>
                 {
-                    new Rule
+                    new Endpoint
                     {
                          Name = "r1",
                          Type = "push",
                          Url = "https://r1"
                     },
-                    new Rule
+                    new Endpoint
                     {
                         Name = "r2",
                         Type = "pull",
@@ -35,16 +35,16 @@ namespace AP.Routing
             {
                 GroupId = "2",
                 InstitutionIds = new List<string> { "x", "y", "z" },
-                Rules = new List<Rule>
+                Endpoints = new List<Endpoint>
                 {
-                    new Rule
+                    new Endpoint
                     {
                          Name = "r3",
                          Type = "push",
                          Url = "https://r3",
-                         Condition = new Any
+                         BusinessMessageRule = new Any
                          {
-                             Children = new List<ICondition>
+                             Children = new List<IBusinessMessageRule>
                              {
                                  new Equals
                                  {
@@ -58,7 +58,7 @@ namespace AP.Routing
                                  },
                                  new All
                                  {
-                                     Children = new List<ICondition>
+                                     Children = new List<IBusinessMessageRule>
                                      {
                                          new Equals
                                          {
@@ -72,7 +72,7 @@ namespace AP.Routing
                                          },
                                          new Any
                                          {
-                                             Children = new List<ICondition>
+                                             Children = new List<IBusinessMessageRule>
                                              {
                                                  new Equals
                                                  {
@@ -92,12 +92,12 @@ namespace AP.Routing
                              
                          }
                     },
-                    new Rule
+                    new Endpoint
                     {
                         Name = "r4",
                         Type = "push",
                         Url = "https://r4",
-                        Condition  = new Equals
+                        BusinessMessageRule  = new Equals
                         {
                             Subject = "SED",
                             ExpectedValue = "P_BUC_02"
@@ -110,14 +110,14 @@ namespace AP.Routing
             {
                 GroupId = "3",
                 InstitutionIds = new List<string> { "m", "n" },
-                Rules = new List<Rule>
+                Endpoints = new List<Endpoint>
                 {
-                    new Rule
+                    new Endpoint
                     {
                         Name = "r5",
                         Type = "pull",
                         Url = "https://ap/r5",
-                        Condition = new Equals
+                        BusinessMessageRule = new Equals
                         {
                             Subject = "SED",
                             ExpectedValue = "P_BUC_03"

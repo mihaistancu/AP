@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Condition } from '../../routing.model';
+import { BusinessMessageRule } from '../../routing.model';
 
 @Component({
   selector: 'app-condition',
@@ -8,7 +8,7 @@ import { Condition } from '../../routing.model';
 })
 export class ConditionComponent implements OnInit {
 
-  @Input() public condition: Condition;
+  @Input() public rule: BusinessMessageRule;
 
   constructor() { }
 

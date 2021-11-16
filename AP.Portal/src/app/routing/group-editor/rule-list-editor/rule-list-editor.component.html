@@ -1,8 +1,8 @@
 <div>
-  Rules
+  Endpoints
   <button (click)="add()">+</button>
 </div>
-<div *ngFor="let rule of rules; let i=index; trackBy: trackByIndex">
+<div *ngFor="let endpoint of endpoints; let i=index; trackBy: trackByIndex">
   <button (click)="delete(i)">x</button>
-  <app-rule-editor [(rule)]="rules[i]"></app-rule-editor>
+  <app-rule-editor [(endpoint)]="endpoints[i]"></app-rule-editor>
 </div>

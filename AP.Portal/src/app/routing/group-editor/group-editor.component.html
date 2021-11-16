@@ -1,5 +1,5 @@
 <app-institution-list-editor [institutionIds]="group.institutionIds" (institutionIdsChange)="notifyInstitutionIds($event)"></app-institution-list-editor>
 
-<app-rule-list-editor [rules]="group.rules" (rulesChange)="notifyRules($event)"></app-rule-list-editor>
+<app-rule-list-editor [endpoints]="group.endpoints" (endpointsChange)="notifyEndpoints($event)"></app-rule-list-editor>
 
 <button routerLink="/routing">Go To Routing</button>

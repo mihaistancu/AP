@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Rule } from '../../routing.model';
+import { Endpoint } from '../../routing.model';
 
 @Component({
   selector: 'app-rule-editor',
@@ -8,8 +8,8 @@ import { Rule } from '../../routing.model';
 })
 export class RuleEditorComponent implements OnInit {
 
-  @Input() rule: Rule;
-  @Output() ruleChange = new EventEmitter<Rule>();
+  @Input() endpoint: Endpoint;
+  @Output() endpointChange = new EventEmitter<Endpoint>();
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class RuleEditorComponent implements OnInit {
   }
 
   notify() {
-    this.ruleChange.emit(this.rule);
+    this.endpointChange.emit(this.endpoint);
   }
 
 }

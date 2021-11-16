@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Aggregate, Condition } from '../../routing.model';
+import { Aggregate, BusinessMessageRule } from '../../routing.model';
 
 @Component({
   selector: 'app-condition-editor',
@@ -8,8 +8,8 @@ import { Aggregate, Condition } from '../../routing.model';
 })
 export class ConditionEditorComponent implements OnInit {
 
-  @Input() condition: Condition;
-  @Output() conditionChange = new EventEmitter<Condition>();
+  @Input() rule: BusinessMessageRule;
+  @Output() ruleChange = new EventEmitter<BusinessMessageRule>();
 
   constructor() { }
 
@@ -17,8 +17,8 @@ export class ConditionEditorComponent implements OnInit {
     
   }
 
-  addPredicate(condition: Aggregate) {
-    condition.children.unshift({
+  addPredicate(rule: Aggregate) {
+    rule.children.unshift({
       type: 'equals',
       key: '',
       value: ''
@@ -26,8 +26,8 @@ export class ConditionEditorComponent implements OnInit {
     this.notify();
   }
 
-  addAggregate(condition: Aggregate) {
-    condition.children.unshift({
+  addAggregate(rule: Aggregate) {
+    rule.children.unshift({
       type: 'all',
       children: [{
         type: 'equals',
@@ -38,12 +38,12 @@ export class ConditionEditorComponent implements OnInit {
     this.notify();
   }
 
-  deleteChild(condition: Aggregate, index: number) {
-    condition.children.splice(index, 1);
+  deleteChild(rule: Aggregate, index: number) {
+    rule.children.splice(index, 1);
     this.notify();
   }
 
   notify() {
-    this.conditionChange.emit(this.condition);
+    this.ruleChange.emit(this.rule);
   }
 }
