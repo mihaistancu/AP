@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Endpoint } from '../../routing.model';
 
 @Component({
-  selector: 'app-rule-list-editor',
-  templateUrl: './rule-list-editor.component.html',
-  styleUrls: ['./rule-list-editor.component.css']
+  selector: 'app-endpoint-list-editor',
+  templateUrl: './endpoint-list-editor.component.html',
+  styleUrls: ['./endpoint-list-editor.component.css']
 })
-export class RuleListEditorComponent implements OnInit {
+export class EndpointListEditorComponent implements OnInit {
 
   @Input() public endpoints: Endpoint[];
   @Output() public endpointsChange = new EventEmitter<Endpoint[]>();
