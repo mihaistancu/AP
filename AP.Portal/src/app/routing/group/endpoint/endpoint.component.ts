@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Endpoint } from '../../routing.model';
 
 @Component({
-  selector: 'app-rule',
-  templateUrl: './rule.component.html',
-  styleUrls: ['./rule.component.css']
+  selector: 'app-endpoint',
+  templateUrl: './endpoint.component.html',
+  styleUrls: ['./endpoint.component.css']
 })
-export class RuleComponent implements OnInit {
+export class EndpointComponent implements OnInit {
 
   @Input() endpoint: Endpoint;
 

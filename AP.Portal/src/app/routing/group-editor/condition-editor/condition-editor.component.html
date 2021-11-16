@@ -14,11 +14,11 @@
     <option value="any">Any</option>
     <option value="all">All</option>
   </select>
-  of the following conditions are true:
+  of the following rules:
   <button (click)="addPredicate(rule)">+</button>
   <button (click)="addAggregate(rule)">...</button>
   <div *ngIf="rule.children.length == 0">
-    Add child conditions, otherwise this condition will be ignored
+    Add child rules, otherwise this rule is ignored
   </div>
   <div *ngFor="let child of rule.children; let i=index">
     <button (click)="deleteChild(rule, i)">x</button>

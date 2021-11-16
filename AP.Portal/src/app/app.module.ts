@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoutingComponent } from './routing/routing.component';
 import { GroupComponent } from './routing/group/group.component';
-import { RuleComponent } from './routing/group/rule/rule.component';
+import { EndpointComponent } from './routing/group/endpoint/endpoint.component';
 import { GroupEditorComponent } from './routing/group-editor/group-editor.component';
 import { InstitutionListEditorComponent } from './routing/group-editor/institution-list-editor/institution-list-editor.component';
 import { RuleEditorComponent } from './routing/group-editor/rule-editor/rule-editor.component';
@@ -22,7 +22,7 @@ import { ConditionComponent } from './routing/group/condition/condition.componen
     AppComponent,
     RoutingComponent,
     GroupComponent,
-    RuleComponent,
+    EndpointComponent,
     GroupEditorComponent,
     InstitutionListEditorComponent,
     RuleEditorComponent,
