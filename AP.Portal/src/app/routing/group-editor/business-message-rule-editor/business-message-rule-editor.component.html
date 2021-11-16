@@ -22,6 +22,6 @@
   </div>
   <div *ngFor="let child of rule.children; let i=index">
     <button (click)="deleteChild(rule, i)">x</button>
-    <app-condition-editor [(rule)]="rule.children[i]"></app-condition-editor>
+    <app-business-message-rule-editor [(rule)]="rule.children[i]"></app-business-message-rule-editor>
   </div>
 </ng-container>

@@ -14,7 +14,7 @@ import { EndpointEditorComponent } from './routing/group-editor/endpoint-editor/
 import { EndpointListEditorComponent } from './routing/group-editor/endpoint-list-editor/endpoint-list-editor.component';
 import { GroupUpdaterComponent } from './routing/group-updater/group-updater.component';
 import { GroupCreatorComponent } from './routing/group-creator/group-creator.component';
-import { ConditionEditorComponent } from './routing/group-editor/condition-editor/condition-editor.component';
+import { BusinessMessageRuleEditorComponent } from './routing/group-editor/business-message-rule-editor/business-message-rule-editor.component';
 import { BusinessMessageRuleComponent } from './routing/group/business-message-rule/business-message-rule.component';
 
 @NgModule({
@@ -29,7 +29,7 @@ import { BusinessMessageRuleComponent } from './routing/group/business-message-r
     EndpointListEditorComponent,
     GroupUpdaterComponent,
     GroupCreatorComponent,
-    ConditionEditorComponent,
+    BusinessMessageRuleEditorComponent,
     BusinessMessageRuleComponent
   ],
   imports: [

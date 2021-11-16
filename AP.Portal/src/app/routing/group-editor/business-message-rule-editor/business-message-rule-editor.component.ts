@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Aggregate, BusinessMessageRule } from '../../routing.model';
 
 @Component({
-  selector: 'app-condition-editor',
-  templateUrl: './condition-editor.component.html',
-  styleUrls: ['./condition-editor.component.css']
+  selector: 'app-business-message-rule-editor',
+  templateUrl: './business-message-rule-editor.component.html',
+  styleUrls: ['./business-message-rule-editor.component.css']
 })
-export class ConditionEditorComponent implements OnInit {
+export class BusinessMessageRuleEditorComponent implements OnInit {
 
   @Input() rule: BusinessMessageRule;
   @Output() ruleChange = new EventEmitter<BusinessMessageRule>();
