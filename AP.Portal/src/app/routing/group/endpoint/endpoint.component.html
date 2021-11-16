@@ -5,5 +5,5 @@
   {{endpoint.name}}: queue on {{endpoint.url}}
 </div>
 <div *ngIf="endpoint.businessMessageRule">
-  <app-condition [rule]="endpoint.businessMessageRule"></app-condition>
+  <app-business-message-rule [rule]="endpoint.businessMessageRule"></app-business-message-rule>
 </div>
