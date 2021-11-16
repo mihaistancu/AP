@@ -1,11 +1,11 @@
-<div>
+<div class="institutions">
   Institutions
   <span *ngFor="let institutionId of group.institutionIds">
     {{institutionId}}
   </span>
 </div>
 
-<div>
+<div class="endpoints">
   Endpoints
   <app-endpoint *ngFor="let endpoint of group.endpoints" [endpoint]="endpoint"></app-endpoint>
 </div>

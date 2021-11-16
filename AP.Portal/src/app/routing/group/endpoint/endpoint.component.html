@@ -1,9 +1,15 @@
-<div *ngIf="endpoint.type == 'push'">
-  {{endpoint.name}}: push to {{endpoint.url}}
+<div class="endpoint">
+  <ng-container *ngIf="endpoint.type == 'push'">
+    {{endpoint.name}}: push to {{endpoint.url}}
+  </ng-container>
+  <ng-container *ngIf="endpoint.type == 'pull'">
+    {{endpoint.name}}: queue on {{endpoint.url}}
+  </ng-container>
 </div>
-<div *ngIf="endpoint.type == 'pull'">
-  {{endpoint.name}}: queue on {{endpoint.url}}
-</div>
-<div *ngIf="endpoint.businessMessageRule">
+
+<div *ngIf="endpoint.businessMessageRule; else elseBlock">
   <app-business-message-rule [rule]="endpoint.businessMessageRule"></app-business-message-rule>
 </div>
+<ng-template #elseBlock>
+  All business messages are delivered using this endpoint
+</ng-template>
