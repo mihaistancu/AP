@@ -1,6 +1,9 @@
-Institutions
-<ng-container *ngFor="let institutionId of institutionIds; let i=index; trackBy: trackByIndex">
+<h3>
+  Institutions
+  <button (click)="add()">Add Institution</button>
+</h3>
+<div *ngFor="let institutionId of institutionIds; let i=index; trackBy: trackByIndex">
   <input type="text" [(ngModel)]="institutionIds[i]" (input)="notify()"/>
-  <button (click)="delete(i)">x</button>
-</ng-container>
-<button (click)="add()">+</button>
+  <button (click)="delete(i)">Delete institution</button>
+</div>
+

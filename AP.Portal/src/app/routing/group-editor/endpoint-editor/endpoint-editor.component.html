@@ -1,16 +1,18 @@
-<label for="name">Endpoint name</label>
-<input id="name" type="text" [(ngModel)]="endpoint.name" (input)="notify()" />
+<div>
+  <label for="name">Endpoint name</label>
+  <input id="name" type="text" [(ngModel)]="endpoint.name" (input)="notify()" />
 
-<label for="type">Endpoint type</label>
-<select id="name" [(ngModel)]="endpoint.type" (change)="notify()">
-  <option value="push">Push</option>
-  <option value="pull">Pull</option>
-</select>
+  <label for="type">Endpoint type</label>
+  <select id="name" [(ngModel)]="endpoint.type" (change)="notify()">
+    <option value="push">Push</option>
+    <option value="pull">Pull</option>
+  </select>
 
-<ng-container *ngIf="endpoint.type == 'push'">
-  <label for="url">Destination url</label>
-  <input id="url" [(ngModel)]="endpoint.url" (input)="notify()" />
-</ng-container>
+  <ng-container *ngIf="endpoint.type == 'push'">
+    <label for="url">Destination url</label>
+    <input id="url" [(ngModel)]="endpoint.url" (input)="notify()" />
+  </ng-container>
+</div>
 
 <div>
   <ng-container *ngIf="endpoint.type=='push'">

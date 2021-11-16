@@ -1,8 +1,9 @@
-<div>
+<h3>
   Endpoints
   <button (click)="add()">Add Endpoint</button>
-</div>
-<div *ngFor="let endpoint of endpoints; let i=index; trackBy: trackByIndex">
-  <button (click)="delete(i)">x</button>
+</h3>
+
+<div class="endpoint" *ngFor="let endpoint of endpoints; let i=index; trackBy: trackByIndex">
+  <button (click)="delete(i)">Delete Endpoint</button>
   <app-endpoint-editor [(endpoint)]="endpoints[i]"></app-endpoint-editor>
 </div>
