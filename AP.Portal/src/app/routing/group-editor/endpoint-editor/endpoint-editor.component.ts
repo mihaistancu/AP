@@ -20,4 +20,25 @@ export class EndpointEditorComponent implements OnInit {
     this.endpointChange.emit(this.endpoint);
   }
 
+  deleteRule() {
+    delete this.endpoint.businessMessageRule;
+    this.notify();
+  }
+
+  createSimpleRule() {
+    this.endpoint.businessMessageRule = {
+      type: 'equals',
+      key: '',
+      value: ''
+    };
+    this.notify();
+  }
+
+  createCompositeRule() {
+    this.endpoint.businessMessageRule = {
+      type: 'any',
+      children: []
+    };
+    this.notify();
+  }
 }

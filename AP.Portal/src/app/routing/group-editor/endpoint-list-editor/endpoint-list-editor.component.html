@@ -1,6 +1,6 @@
 <div>
   Endpoints
-  <button (click)="add()">+</button>
+  <button (click)="add()">Add Endpoint</button>
 </div>
 <div *ngFor="let endpoint of endpoints; let i=index; trackBy: trackByIndex">
   <button (click)="delete(i)">x</button>

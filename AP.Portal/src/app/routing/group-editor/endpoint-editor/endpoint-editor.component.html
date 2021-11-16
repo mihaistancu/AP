@@ -1,5 +1,5 @@
 <label for="name">Endpoint name</label>
-<input id="name" type="text" [(ngModel)]="endpoint.name" (input)="notify()"/>
+<input id="name" type="text" [(ngModel)]="endpoint.name" (input)="notify()" />
 
 <label for="type">Endpoint type</label>
 <select id="name" [(ngModel)]="endpoint.type" (change)="notify()">
@@ -9,9 +9,26 @@
 
 <ng-container *ngIf="endpoint.type == 'push'">
   <label for="url">Destination url</label>
-  <input id="url" [(ngModel)]="endpoint.url" (input)="notify()"/>
+  <input id="url" [(ngModel)]="endpoint.url" (input)="notify()" />
 </ng-container>
 
-<div *ngIf="endpoint.businessMessageRule">
-  <app-business-message-rule-editor [(rule)]="endpoint.businessMessageRule"></app-business-message-rule-editor>
+<div>
+  <ng-container *ngIf="endpoint.type=='push'">
+    Business messages for any of the institutions in this group are pushed to this endpoint
+  </ng-container>
+  <ng-container *ngIf="endpoint.type=='pull'">
+    Business messages for any of the institutions in this group can be pulled from this endpoint
+  </ng-container>
+
+  <ng-container *ngIf="endpoint.businessMessageRule; else elseBlock">
+    if
+    <div>
+      <button (click)="deleteRule()">x</button>
+      <app-business-message-rule-editor [(rule)]="endpoint.businessMessageRule"></app-business-message-rule-editor>
+    </div>
+  </ng-container>
+  <ng-template #elseBlock>
+    <button (click)="createSimpleRule()">Create simple rule</button>
+    <button (click)="createCompositeRule()">Create composite rule</button>
+  </ng-template>
 </div>
