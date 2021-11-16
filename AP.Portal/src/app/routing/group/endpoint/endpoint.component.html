@@ -3,13 +3,18 @@
     {{endpoint.name}}: push to {{endpoint.url}}
   </ng-container>
   <ng-container *ngIf="endpoint.type == 'pull'">
-    {{endpoint.name}}: queue on {{endpoint.url}}
+    {{endpoint.name}}: pull from {{endpoint.url}}
   </ng-container>
 </div>
 
-<div *ngIf="endpoint.businessMessageRule; else elseBlock">
+<ng-container *ngIf="endpoint.type=='push'">
+  Business messages for any of the institutions in this group are pushed to this endpoint
+</ng-container>
+<ng-container *ngIf="endpoint.type=='pull'">
+  Business messages for any of the institutions in this group can be pulled from this endpoint
+</ng-container>
+
+<ng-container *ngIf="endpoint.businessMessageRule">
+  if they match 
   <app-business-message-rule [rule]="endpoint.businessMessageRule"></app-business-message-rule>
-</div>
-<ng-template #elseBlock>
-  All business messages are delivered using this endpoint
-</ng-template>
+</ng-container>

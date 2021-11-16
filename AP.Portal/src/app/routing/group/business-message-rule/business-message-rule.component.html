@@ -7,14 +7,14 @@
 </ng-container>
 
 <ng-container *ngIf="rule.type == 'all'">
-  All of the following rules:
+  all of the following rules:
   <div *ngFor="let child of rule.children" >
     <app-business-message-rule [rule]="child"></app-business-message-rule>
   </div>
 </ng-container>
 
 <ng-container *ngIf="rule.type == 'any'">
-  Any of the following rules:
+  any of the following rules:
   <div *ngFor="let child of rule.children">
     <app-business-message-rule [rule]="child"></app-business-message-rule>
   </div>
