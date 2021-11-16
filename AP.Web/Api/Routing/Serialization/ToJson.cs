@@ -26,7 +26,12 @@ namespace AP.Web.Api.Routing.Serialization
 
         private static JObject Map(Endpoint endpoint)
         {
-            return new JObject(
+            return endpoint.BusinessMessageRule == null
+            ? new JObject(
+                new JProperty("name", endpoint.Name),
+                new JProperty("type", endpoint.Type),
+                new JProperty("url", endpoint.Url))
+            : new JObject(
                 new JProperty("name", endpoint.Name),
                 new JProperty("type", endpoint.Type),
                 new JProperty("url", endpoint.Url),
@@ -35,11 +40,7 @@ namespace AP.Web.Api.Routing.Serialization
 
         private static JObject Map(IBusinessMessageRule rule)
         {
-            if (rule == null)
-            {
-                return null;
-            }
-            else if (rule is Any any)
+            if (rule is Any any)
             {
                 return new JObject(
                     new JProperty("type", "any"),
