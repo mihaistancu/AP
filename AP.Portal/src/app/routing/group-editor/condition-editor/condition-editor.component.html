@@ -18,7 +18,7 @@
   <button (click)="addPredicate(condition)">+</button>
   <button (click)="addAggregate(condition)">...</button>
   <div *ngIf="condition.children.length == 0">
-    Please add a child condition
+    Add child conditions, otherwise this condition will be ignored
   </div>
   <div *ngFor="let child of condition.children; let i=index">
     <button (click)="deleteChild(condition, i)">x</button>
