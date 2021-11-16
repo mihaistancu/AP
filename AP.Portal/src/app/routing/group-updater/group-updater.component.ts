@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Group } from '../routing.model';
 import { RoutingService } from '../routing.service';
 
@@ -15,7 +15,8 @@ export class GroupUpdaterComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: RoutingService
+    private service: RoutingService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +25,9 @@ export class GroupUpdaterComponent implements OnInit {
   }
 
   update() {
-    this.service.update(this.id, this.group).subscribe(_ => { });
+    this.service.update(this.id, this.group).subscribe(_ => {
+      this.router.navigate(['/routing']);
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Group } from '../routing.model';
 import { RoutingService } from '../routing.service';
 
@@ -15,12 +16,17 @@ export class GroupCreatorComponent implements OnInit {
     endpoints: []
   }
 
-  constructor(public service: RoutingService) { }
+  constructor(
+    public service: RoutingService,
+    public router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
   create() {
-    this.service.create(this.group).subscribe(_ => { });
+    this.service.create(this.group).subscribe(_ => {
+      this.router.navigate(['/routing']);
+    });
   }
 }
