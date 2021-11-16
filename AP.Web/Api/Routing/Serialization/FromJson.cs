@@ -13,7 +13,7 @@ namespace AP.Web.Api.Routing.Serialization
             return new Group
             {
                 InstitutionIds = json["institutionIds"].Values<string>().ToList(),
-                Endpoints = json["rules"].Select(GetEndpoint).ToList()
+                Endpoints = json["endpoints"].Select(GetEndpoint).ToList()
             };
         }
 
@@ -26,7 +26,7 @@ namespace AP.Web.Api.Routing.Serialization
                 Url = json.Value<string>("type") == "push"
                     ? json.Value<string>("url")
                     : null,
-                BusinessMessageRule = json["businessMessageRule"].HasValues
+                BusinessMessageRule = json["businessMessageRule"] != null
                     ? GetBusinessMessageRule(json["businessMessageRule"])
                     : null
             };
