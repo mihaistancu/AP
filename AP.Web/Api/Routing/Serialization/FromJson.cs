@@ -31,6 +31,9 @@ namespace AP.Web.Api.Routing.Serialization
                     : null,
                 BusinessMessageRule = json["businessMessageRule"] != null
                     ? GetBusinessMessageRule(json["businessMessageRule"])
+                    : null,
+                SystemMessageSubscriptions = json["systemMessageSubscriptions"] != null
+                    ? json["systemMessageSubscriptions"].Values<string>().ToList()
                     : null
             };
         }

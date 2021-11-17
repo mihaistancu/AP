@@ -41,3 +41,18 @@
     <button (click)="createCompositeRule()">Create composite rule</button>
   </ng-template>
 </div>
+
+<div>
+  <ng-container *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
+    <ng-container *ngIf="endpoint.type == 'push'">
+      System messages are created and pushed to this endpoint for
+    </ng-container>
+    <ng-container *ngIf="endpoint.type == 'pull'">
+      System messages are created and can be pulled from this endpoint for
+    </ng-container>
+  </ng-container>
+  <ng-template #noSubscriptions>
+    System messages are not created for this endpoint
+  </ng-template>
+  <app-subscription-list-editor [(subscriptions)]="endpoint.systemMessageSubscriptions"></app-subscription-list-editor>
+</div>

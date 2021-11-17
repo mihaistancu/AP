@@ -10,6 +10,7 @@ export interface Endpoint {
   url: string;
   authorizationList?: string;
   businessMessageRule?: BusinessMessageRule;
+  systemMessageSubscriptions?: string[];
 }
 
 export interface Predicate {

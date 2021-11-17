@@ -41,4 +41,5 @@ export class EndpointEditorComponent implements OnInit {
     };
     this.notify();
   }
+
 }

@@ -30,6 +30,8 @@ namespace AP.Web.Api.Routing.Serialization
             json.Add("name", endpoint.Name);
             json.Add("type", endpoint.Type);
             json.Add("url", endpoint.Url);
+            json.Add("systemMessageSubscriptions", 
+                new JArray(endpoint.SystemMessageSubscriptions));
 
             if (endpoint.BusinessMessageRule != null)
             {

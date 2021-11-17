@@ -4,6 +4,6 @@
 </h3>
 <div *ngFor="let institutionId of institutionIds; let i=index; trackBy: trackByIndex">
   <input type="text" [(ngModel)]="institutionIds[i]" (input)="notify()"/>
-  <button (click)="delete(i)">Delete institution</button>
+  <button (click)="delete(i)">Delete Institution</button>
 </div>
 

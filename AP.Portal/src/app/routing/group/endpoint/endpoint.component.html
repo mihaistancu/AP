@@ -11,16 +11,29 @@
   Authorization list: {{endpoint.authorizationList}}
 </div>
 
-<ng-container *ngIf="endpoint.type=='push'">
-  Business messages for any of the institutions in this group are pushed to this endpoint
-</ng-container>
-<ng-container *ngIf="endpoint.type=='pull'">
-  Business messages for any of the institutions in this group can be pulled from this endpoint
-</ng-container>
+<div>
+  <ng-container *ngIf="endpoint.type=='push'">
+    Business messages for any of the institutions in this group are pushed to this endpoint
+  </ng-container>
+  <ng-container *ngIf="endpoint.type=='pull'">
+    Business messages for any of the institutions in this group can be pulled from this endpoint
+  </ng-container>
 
-<ng-container *ngIf="endpoint.businessMessageRule">
-  if
-  <div>
-    <app-business-message-rule [rule]="endpoint.businessMessageRule"></app-business-message-rule>
+  <ng-container *ngIf="endpoint.businessMessageRule">
+    if
+    <div>
+      <app-business-message-rule [rule]="endpoint.businessMessageRule"></app-business-message-rule>
+    </div>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
+  <div *ngIf="endpoint.type == 'push'">
+    System messages are created and pushed to this endpoint for
   </div>
+  <div *ngIf="endpoint.type == 'pull'">
+    System messages are created and can be pulled from this endpoint for
+  </div>
+  <ng-container *ngFor="let subscription of endpoint.systemMessageSubscriptions">{{subscription}} </ng-container>
 </ng-container>
+<ng-template #noSubscriptions>System messages are not created for this endpoint</ng-template>

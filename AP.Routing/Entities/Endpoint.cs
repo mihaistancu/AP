@@ -1,4 +1,5 @@
 ﻿using AP.Routing.Entities.BusinessMessageRules;
+using System.Collections.Generic;
 
 namespace AP.Routing.Entities
 {
@@ -9,5 +10,6 @@ namespace AP.Routing.Entities
         public string Url { get; set; }
         public string AuthorizationList { get; set; }
         public IBusinessMessageRule BusinessMessageRule { get; set; }
+        public List<string> SystemMessageSubscriptions { get; set; }
     }
 }

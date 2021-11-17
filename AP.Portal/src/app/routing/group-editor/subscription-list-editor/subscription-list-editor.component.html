@@ -1,0 +1,6 @@
+<button (click)="add()">Add Subscription</button>
+
+<div *ngFor="let subscription of subscriptions; let i=index; trackBy: trackByIndex">
+  <input type="text" [(ngModel)]="subscriptions[i]" (input)="notify()" />
+  <button (click)="delete(i)">Delete Subscription</button>
+</div>

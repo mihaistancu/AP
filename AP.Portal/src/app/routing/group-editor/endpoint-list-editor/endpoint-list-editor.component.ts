@@ -29,7 +29,8 @@ export class EndpointListEditorComponent implements OnInit {
     this.endpoints.unshift({
       name: '',
       type: 'pull',
-      url: ''
+      url: '',
+      systemMessageSubscriptions: []
     });
   }
 
