@@ -4,7 +4,7 @@
   Authorization list: {{endpoint.authorizationList}}
 </div>
 
-<div>
+<div class="business">
   Business messages for any of the institutions in this group can be pulled from this endpoint
   <ng-container *ngIf="endpoint.businessMessageRule">
     if
@@ -14,8 +14,10 @@
   </ng-container>
 </div>
 
-<ng-container *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
+<div class="system" *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
   System messages are created and can be pulled from this endpoint for
-  <ng-container *ngFor="let subscription of endpoint.systemMessageSubscriptions">{{subscription}} </ng-container>
-</ng-container>
+  <div>
+    <ng-container *ngFor="let subscription of endpoint.systemMessageSubscriptions">{{subscription}} </ng-container>
+  </div>
+</div>
 <ng-template #noSubscriptions>System messages are not created for this endpoint</ng-template>

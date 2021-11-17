@@ -1,10 +1,10 @@
 <h3>Institutions</h3>
-<span *ngFor="let institutionId of group.institutionIds">
+<div class="institution" *ngFor="let institutionId of group.institutionIds">
   {{institutionId}}
-</span>
+</div>
 
 <h3>Endpoints</h3>
-<div *ngFor="let endpoint of group.endpoints">
+<div class="endpoint" *ngFor="let endpoint of group.endpoints">
   <app-pull-endpoint *ngIf="endpoint.type=='pull'" [endpoint]="endpoint"></app-pull-endpoint>
   <app-push-endpoint *ngIf="endpoint.type=='push'" [endpoint]="endpoint"></app-push-endpoint>
 </div>
