@@ -1,0 +1,21 @@
+{{endpoint.name}}: pull from {{endpoint.url}}
+
+<div>
+  Authorization list: {{endpoint.authorizationList}}
+</div>
+
+<div>
+  Business messages for any of the institutions in this group can be pulled from this endpoint
+  <ng-container *ngIf="endpoint.businessMessageRule">
+    if
+    <div>
+      <app-business-message-rule [rule]="endpoint.businessMessageRule"></app-business-message-rule>
+    </div>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
+  System messages are created and can be pulled from this endpoint for
+  <ng-container *ngFor="let subscription of endpoint.systemMessageSubscriptions">{{subscription}} </ng-container>
+</ng-container>
+<ng-template #noSubscriptions>System messages are not created for this endpoint</ng-template>

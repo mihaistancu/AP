@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { EndpointComponent } from './endpoint.component';
+import { PullEndpointComponent } from './pull-endpoint.component';
 
 describe('EndpointComponent', () => {
-  let component: EndpointComponent;
-  let fixture: ComponentFixture<EndpointComponent>;
+  let component: PullEndpointComponent;
+  let fixture: ComponentFixture<PullEndpointComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [EndpointComponent ]
+      declarations: [PullEndpointComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EndpointComponent);
+    fixture = TestBed.createComponent(PullEndpointComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
