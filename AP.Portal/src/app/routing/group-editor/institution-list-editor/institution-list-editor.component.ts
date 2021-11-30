@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Group } from '../../routing.model';
 
 @Component({
   selector: 'app-institution-list-editor',
@@ -7,8 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class InstitutionListEditorComponent implements OnInit {
 
-  @Input() public institutionIds: string[];
-  @Output() public institutionIdsChange = new EventEmitter<string[]>();
+  @Input() public group: Group;
+  @Output() public groupChange = new EventEmitter<Group>();
 
   constructor() { }
 
@@ -16,17 +17,17 @@ export class InstitutionListEditorComponent implements OnInit {
   }
 
   delete(index: number) {
-    this.institutionIds.splice(index, 1);
+    this.group.institutionIds.splice(index, 1);
     this.notify();
   }
 
   add() {
-    this.institutionIds.unshift('');
+    this.group.institutionIds.unshift('');
     this.notify();
   }
 
   notify() {
-    this.institutionIdsChange.emit(this.institutionIds);
+    this.groupChange.emit(this.group);
   }
 
   trackByIndex(index: number) {

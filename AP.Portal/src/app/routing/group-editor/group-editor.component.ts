@@ -17,13 +17,7 @@ export class GroupEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  notifyInstitutionIds(institutionIds: string[]) {
-    this.group.institutionIds = institutionIds;
-    this.groupChange.emit(this.group);
-  }
-
-  notifyEndpoints(endpoints: (PushEndpoint | PullEndpoint)[]) {
-    this.group.endpoints = endpoints;
+  notify() {
     this.groupChange.emit(this.group);
   }
 }

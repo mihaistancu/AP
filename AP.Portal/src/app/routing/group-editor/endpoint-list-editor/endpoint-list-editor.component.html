@@ -3,7 +3,7 @@
   <button (click)="add()">Add Endpoint</button>
 </h3>
 
-<div class="endpoint" *ngFor="let endpoint of endpoints; let i=index; trackBy: trackByIndex">
+<div class="endpoint" *ngFor="let endpoint of group.endpoints; let i=index; trackBy: trackByIndex">
   <button (click)="delete(i)">Delete Endpoint</button>
-  <app-endpoint-editor [(endpoint)]="endpoints[i]"></app-endpoint-editor>
+  <app-endpoint-editor [(endpoint)]="group.endpoints[i]"></app-endpoint-editor>
 </div>

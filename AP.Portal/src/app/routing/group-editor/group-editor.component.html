@@ -1,5 +1,5 @@
-<app-institution-list-editor [institutionIds]="group.institutionIds" (institutionIdsChange)="notifyInstitutionIds($event)"></app-institution-list-editor>
+<app-institution-list-editor [(group)]="group" (groupChange)="notify()"></app-institution-list-editor>
 
-<app-endpoint-list-editor [endpoints]="group.endpoints" (endpointsChange)="notifyEndpoints($event)"></app-endpoint-list-editor>
+<app-endpoint-list-editor [(group)]="group" (groupChange)="notify()"></app-endpoint-list-editor>
 
 <button routerLink="/routing">Cancel</button>
