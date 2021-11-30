@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Endpoint } from '../../routing.model';
+import { PushEndpoint, PullEndpoint } from '../../routing.model';
 
 @Component({
   selector: 'app-endpoint-list-editor',
@@ -8,8 +8,8 @@ import { Endpoint } from '../../routing.model';
 })
 export class EndpointListEditorComponent implements OnInit {
 
-  @Input() public endpoints: Endpoint[];
-  @Output() public endpointsChange = new EventEmitter<Endpoint[]>();
+  @Input() public endpoints: (PushEndpoint | PullEndpoint)[];
+  @Output() public endpointsChange = new EventEmitter<(PushEndpoint | PullEndpoint)[]>();
 
   constructor() { }
 
@@ -27,10 +27,10 @@ export class EndpointListEditorComponent implements OnInit {
 
   add() {
     this.endpoints.unshift({
+      type: 'push',
       name: '',
-      type: 'pull',
-      url: '',
-      systemMessageSubscriptions: []
+      naUrl: '',
+      outboxUrl: '',
     });
   }
 

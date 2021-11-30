@@ -1,13 +1,23 @@
 export interface Group {
   groupId: string;
   institutionIds: string[];
-  endpoints: Endpoint[],
+  endpoints: (PushEndpoint | PullEndpoint) [],
 }
 
-export interface Endpoint {
+export interface PushEndpoint {
+  type: 'push';
   name: string;
-  type: string;
-  url: string;
+  naUrl: string;
+  outboxUrl: string;
+  businessMessageRule?: BusinessMessageRule;
+  systemMessageSubscriptions?: string[];
+}
+
+export interface PullEndpoint {
+  type: 'pull';
+  name: string;
+  inboxUrl: string;
+  outboxUrl: string;
   authorizationList?: string;
   businessMessageRule?: BusinessMessageRule;
   systemMessageSubscriptions?: string[];

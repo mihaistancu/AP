@@ -1,7 +1,15 @@
-{{endpoint.name}}: push to {{endpoint.url}}
+<h4>Endpoint {{endpoint.name}}</h4>
+
+<div>
+  NA/NG URL: {{endpoint.naUrl}}
+</div>
+
+<div>
+  AP Outbox URL: {{endpoint.outboxUrl}}
+</div>
 
 <div class="business">
-  Business messages for any of the institutions in this group are pushed to this endpoint
+  Business messages for any of the institutions in this group are pushed to the NA/NG URL
   <ng-container *ngIf="endpoint.businessMessageRule">
     if
     <div>
@@ -11,7 +19,7 @@
 </div>
 
 <div class="system" *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
-  System messages are created and pushed to this endpoint for
+  System messages are created and pushed to the NA/NG URL
   <div>
     <ng-container *ngFor="let subscription of endpoint.systemMessageSubscriptions">{{subscription}} </ng-container>
   </div>

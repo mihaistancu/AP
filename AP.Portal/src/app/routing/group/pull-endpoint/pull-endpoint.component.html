@@ -1,11 +1,19 @@
-{{endpoint.name}}: pull from {{endpoint.url}}
+<h4>Endpoint {{endpoint.name}}</h4>
+
+<div>
+  AP Inbox URL: {{endpoint.inboxUrl}}
+</div>
+
+<div>
+  AP Outbox URL: {{endpoint.outboxUrl}}
+</div>
 
 <div>
   Authorization list: {{endpoint.authorizationList}}
 </div>
 
 <div class="business">
-  Business messages for any of the institutions in this group can be pulled from this endpoint
+  Business messages for any of the institutions in this group can be pulled from the AP Inbox URL
   <ng-container *ngIf="endpoint.businessMessageRule">
     if
     <div>
@@ -15,7 +23,7 @@
 </div>
 
 <div class="system" *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
-  System messages are created and can be pulled from this endpoint for
+  System messages are created and can be pulled from the AP Inbox URL
   <div>
     <ng-container *ngFor="let subscription of endpoint.systemMessageSubscriptions">{{subscription}} </ng-container>
   </div>

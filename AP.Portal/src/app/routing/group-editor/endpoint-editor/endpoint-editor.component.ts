@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Endpoint } from '../../routing.model';
+import { PushEndpoint, PullEndpoint } from '../../routing.model';
 
 @Component({
   selector: 'app-endpoint-editor',
@@ -8,8 +8,8 @@ import { Endpoint } from '../../routing.model';
 })
 export class EndpointEditorComponent implements OnInit {
 
-  @Input() endpoint: Endpoint;
-  @Output() endpointChange = new EventEmitter<Endpoint>();
+  @Input() endpoint: PushEndpoint | PullEndpoint;
+  @Output() endpointChange = new EventEmitter<PushEndpoint | PullEndpoint>();
 
   constructor() { }
 

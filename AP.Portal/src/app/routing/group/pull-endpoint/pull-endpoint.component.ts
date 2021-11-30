@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Endpoint } from '../../routing.model';
+import { PullEndpoint } from '../../routing.model';
 
 @Component({
   selector: 'app-pull-endpoint',
@@ -8,7 +8,7 @@ import { Endpoint } from '../../routing.model';
 })
 export class PullEndpointComponent implements OnInit {
 
-  @Input() endpoint: Endpoint;
+  @Input() endpoint: PullEndpoint;
 
   constructor() { }
 

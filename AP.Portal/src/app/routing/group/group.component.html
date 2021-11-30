@@ -1,9 +1,10 @@
-<h3>Institutions</h3>
-<div class="institution" *ngFor="let institutionId of group.institutionIds">
-  {{institutionId}}
-</div>
+<h4>
+  Institutions: 
+  <ng-container *ngFor="let institutionId of group.institutionIds">
+    {{institutionId}}
+  </ng-container>
+</h4>
 
-<h3>Endpoints</h3>
 <div class="endpoint" *ngFor="let endpoint of group.endpoints">
   <app-pull-endpoint *ngIf="endpoint.type=='pull'" [endpoint]="endpoint"></app-pull-endpoint>
   <app-push-endpoint *ngIf="endpoint.type=='push'" [endpoint]="endpoint"></app-push-endpoint>

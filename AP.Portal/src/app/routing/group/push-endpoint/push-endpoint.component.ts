@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Endpoint } from '../../routing.model';
+import { PushEndpoint } from '../../routing.model';
 
 @Component({
   selector: 'app-push-endpoint',
@@ -8,7 +8,7 @@ import { Endpoint } from '../../routing.model';
 })
 export class PushEndpointComponent implements OnInit {
 
-  @Input() endpoint: Endpoint;
+  @Input() endpoint: PushEndpoint;
 
   constructor() { }
 
