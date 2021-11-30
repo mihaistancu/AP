@@ -56,6 +56,7 @@
     <Compile Include="Api\Routing\UpdateGroupApi.cs" />
     <Compile Include="Authorization\Authorizer.cs" />
     <Compile Include="Files\Login.cs" />
+    <Compile Include="Files\MimeTypes.cs" />
     <Compile Include="Files\Portal.cs" />
     <Compile Include="Routes\ApiRoutes.cs" />
     <Compile Include="Files\StaticFile.cs" />

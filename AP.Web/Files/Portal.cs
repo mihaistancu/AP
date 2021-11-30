@@ -13,6 +13,7 @@ namespace AP.Web.Files
 
             if (StaticFile.Exists(path))
             {
+                MimeTypes.Apply(path, output);
                 StaticFile.Serve(path, output);
             }
             else
