@@ -7,7 +7,9 @@ namespace AP.Routing.Entities
     {
         public string Name { get; set; }
         public string Type { get; set; }
-        public string Url { get; set; }
+        public string NaUrl { get; set; }
+        public string InboxUrl { get; set; }
+        public string OutboxUrl { get; set; }
         public string AuthorizationList { get; set; }
         public IBusinessMessageRule BusinessMessageRule { get; set; }
         public List<string> SystemMessageSubscriptions { get; set; }

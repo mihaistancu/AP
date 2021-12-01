@@ -23,8 +23,8 @@ namespace AP.Web.Api.Routing.Serialization
             {
                 Name = json.Value<string>("name"),
                 Type = json.Value<string>("type"),
-                Url = json.Value<string>("type") == "push"
-                    ? json.Value<string>("url")
+                NaUrl = json.Value<string>("type") == "push"
+                    ? json.Value<string>("naUrl")
                     : null,
                 AuthorizationList = json.Value<string>("type") == "pull"
                     ? json.Value<string>("authorizationList")

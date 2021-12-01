@@ -29,7 +29,14 @@ namespace AP.Web.Api.Routing.Serialization
             var json = new JObject();
             json.Add("name", endpoint.Name);
             json.Add("type", endpoint.Type);
-            json.Add("url", endpoint.Url);
+
+            if (endpoint.Type == "push")
+            {
+                json.Add("naUrl", endpoint.NaUrl);
+            }
+
+            json.Add("outboxUrl", endpoint.OutboxUrl);
+            
             json.Add("systemMessageSubscriptions", 
                 new JArray(endpoint.SystemMessageSubscriptions));
 

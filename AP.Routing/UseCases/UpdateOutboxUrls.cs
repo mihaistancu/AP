@@ -2,16 +2,13 @@
 
 namespace AP.Routing.UseCases
 {
-    public class UpdatePullEndpoints
+    public class UpdateOutboxUrls
     {
         public void Update(Group group)
         {
             foreach (var endpoint in group.Endpoints)
-            {
-                if (endpoint.Type == "pull")
-                {
-                    endpoint.Url = $"https://ap/{endpoint.Name}";
-                }
+            {   
+                endpoint.OutboxUrl = $"https://ap/outbox/{endpoint.Name}";
             }
         }
     }

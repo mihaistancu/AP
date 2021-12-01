@@ -5,17 +5,23 @@ namespace AP.Routing.UseCases
     public class UpdateGroup
     {
         private RoutingStorage storage;
-        private UpdatePullEndpoints updatePullEndpoints;
+        private UpdateInboxUrls updateInboxUrls;
+        private UpdateOutboxUrls updateOutboxUrls;
 
-        public UpdateGroup(RoutingStorage storage, UpdatePullEndpoints updatePullEndpoints)
+        public UpdateGroup(
+            RoutingStorage storage, 
+            UpdateInboxUrls updateInboxUrls,
+            UpdateOutboxUrls updateOutboxUrls)
         {
             this.storage = storage;
-            this.updatePullEndpoints = updatePullEndpoints;
+            this.updateInboxUrls = updateInboxUrls;
+            this.updateOutboxUrls = updateOutboxUrls;
         }
 
         public void Update(Group group)
         {
-            updatePullEndpoints.Update(group);
+            updateInboxUrls.Update(group);
+            updateOutboxUrls.Update(group);
             storage.Update(group);
         }
     }

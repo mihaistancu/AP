@@ -13,20 +13,20 @@
 
 <div *ngIf="endpoint.type == 'pull'">
   <label for="authorizationList">Authorization List</label>
-  <input id="authorizationList" [(ngModel)]="endpoint.authorizationList" />
+  <input id="authorizationList" type="text" [(ngModel)]="endpoint.authorizationList" />
 </div>
 
 <div *ngIf="endpoint.type == 'push'">
-  <label for="url">Destination url</label>
-  <input id="url" [(ngModel)]="endpoint.url" />
+  <label for="naUrl">NA/NG URL</label>
+  <input id="naUrl" type="text" [(ngModel)]="endpoint.naUrl" />
 </div>
 
 <div>
   <ng-container *ngIf="endpoint.type=='push'">
-    Business messages for any of the institutions in this group are pushed to this endpoint
+    Business messages for any of the institutions in this group are pushed to the NA/NG URL
   </ng-container>
   <ng-container *ngIf="endpoint.type=='pull'">
-    Business messages for any of the institutions in this group can be pulled from this endpoint
+    Business messages for any of the institutions in this group can be pulled from the AP Inbox URL
   </ng-container>
 
   <ng-container *ngIf="endpoint.businessMessageRule; else elseBlock">
