@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Validation", "AP.Validation\AP.Validation.csproj", "{4E640AB5-8EAA-4895-B30F-A9D922A12EDC}"
 EndProject
@@ -55,7 +55,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP.Web", "AP.Web\AP.Web.csp
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AP.Portal", "AP.Portal\", "{90B1C71F-68C1-452E-919C-7DE0334BE005}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_57512"
 		Debug.AspNetCompiler.PhysicalPath = "AP.Portal\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57512\"
@@ -82,7 +82,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{AA49
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AP.Login", "AP.Login\", "{91A5E02B-9B8A-421E-8D47-F49BDBA801CD}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51973"
 		Debug.AspNetCompiler.PhysicalPath = "AP.Login\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51973\"
