@@ -9,20 +9,14 @@ import { PushEndpoint, PullEndpoint, Group } from '../../routing.model';
 export class EndpointListEditorComponent implements OnInit {
 
   @Input() public group: Group;
-  @Output() public groupChange = new EventEmitter<Group>();
-
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  trackByIndex(index: number) {
-    return index;
-  }
-
   delete(index: number) {
     this.group.endpoints.splice(index, 1);
-    this.notify();
   }
 
   add() {
@@ -32,9 +26,5 @@ export class EndpointListEditorComponent implements OnInit {
       naUrl: '',
       outboxUrl: '',
     });
-  }
-
-  notify() {
-    this.groupChange.emit(this.group);
   }
 }
