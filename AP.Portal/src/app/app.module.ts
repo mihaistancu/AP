@@ -18,6 +18,7 @@ import { GroupCreatorComponent } from './routing/group-creator/group-creator.com
 import { BusinessMessageRuleEditorComponent } from './routing/group-editor/business-message-rule-editor/business-message-rule-editor.component';
 import { BusinessMessageRuleComponent } from './routing/group/business-message-rule/business-message-rule.component';
 import { SubscriptionListEditorComponent } from './routing/group-editor/subscription-list-editor/subscription-list-editor.component';
+import { BusinessMessageRoutingEditorComponent } from './routing/group-editor/business-message-routing-editor/business-message-routing-editor.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SubscriptionListEditorComponent } from './routing/group-editor/subscrip
     GroupCreatorComponent,
     BusinessMessageRuleEditorComponent,
     BusinessMessageRuleComponent,
-    SubscriptionListEditorComponent
+    SubscriptionListEditorComponent,
+    BusinessMessageRoutingEditorComponent
   ],
   imports: [
     BrowserModule,

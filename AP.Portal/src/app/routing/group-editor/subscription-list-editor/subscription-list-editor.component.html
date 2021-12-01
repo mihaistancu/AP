@@ -1,5 +1,5 @@
 <div>
-  <ng-container *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
+  <ng-container *ngIf="endpoint.systemMessageSubscriptions?.length > 0; else noSubscriptions">
     <ng-container *ngIf="endpoint.type == 'push'">
       System messages are created and pushed to this endpoint for
     </ng-container>
@@ -13,7 +13,7 @@
 
   <button (click)="add()">Add Subscription</button>
 
-  <div *ngFor="let subscription of endpoint.systemMessageSubscriptions; let i=index">
+  <div *ngFor="let subscription of endpoint.systemMessageSubscriptions; let i=index; trackBy: trackByIndex">
     <input type="text" [(ngModel)]="endpoint.systemMessageSubscriptions[i]" />
     <button (click)="delete(i)">Delete Subscription</button>
   </div>

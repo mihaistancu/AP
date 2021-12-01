@@ -21,25 +21,6 @@
   <input id="naUrl" type="text" [(ngModel)]="endpoint.naUrl" />
 </div>
 
-<div>
-  <ng-container *ngIf="endpoint.type=='push'">
-    Business messages for any of the institutions in this group are pushed to the NA/NG URL
-  </ng-container>
-  <ng-container *ngIf="endpoint.type=='pull'">
-    Business messages for any of the institutions in this group can be pulled from the AP Inbox URL
-  </ng-container>
-
-  <ng-container *ngIf="endpoint.businessMessageRule; else elseBlock">
-    if
-    <div>
-      <button (click)="deleteRule()">x</button>
-      <app-business-message-rule-editor [(rule)]="endpoint.businessMessageRule"></app-business-message-rule-editor>
-    </div>
-  </ng-container>
-  <ng-template #elseBlock>
-    <button (click)="createSimpleRule()">Create simple rule</button>
-    <button (click)="createCompositeRule()">Create composite rule</button>
-  </ng-template>
-</div>
+<app-business-message-routing-editor [endpoint]="endpoint"></app-business-message-routing-editor>
 
 <app-subscription-list-editor [endpoint]="endpoint"></app-subscription-list-editor>

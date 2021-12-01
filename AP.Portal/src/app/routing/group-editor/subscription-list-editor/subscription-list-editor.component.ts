@@ -20,6 +20,13 @@ export class SubscriptionListEditorComponent implements OnInit {
   }
 
   add() {
+    if (!this.endpoint.systemMessageSubscriptions) {
+      this.endpoint.systemMessageSubscriptions = [];
+    }
     this.endpoint.systemMessageSubscriptions.unshift('');
+  }
+
+  trackByIndex(index: number) {
+    return index;
   }
 }

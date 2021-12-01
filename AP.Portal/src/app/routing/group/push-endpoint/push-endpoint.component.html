@@ -18,7 +18,7 @@
   </ng-container>
 </div>
 
-<div class="system" *ngIf="endpoint.systemMessageSubscriptions.length; else noSubscriptions">
+<div class="system" *ngIf="endpoint.systemMessageSubscriptions?.length > 0; else noSubscriptions">
   System messages are created and pushed to the NA/NG URL
   <div>
     <ng-container *ngFor="let subscription of endpoint.systemMessageSubscriptions">{{subscription}} </ng-container>

@@ -15,23 +15,5 @@ export class EndpointEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteRule() {
-    delete this.endpoint.businessMessageRule;
-  }
-
-  createSimpleRule() {
-    this.endpoint.businessMessageRule = {
-      type: 'equals',
-      key: '',
-      value: ''
-    };
-  }
-
-  createCompositeRule() {
-    this.endpoint.businessMessageRule = {
-      type: 'any',
-      children: []
-    };
-  }
 
 }

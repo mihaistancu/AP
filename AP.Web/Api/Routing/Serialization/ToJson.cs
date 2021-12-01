@@ -28,25 +28,28 @@ namespace AP.Web.Api.Routing.Serialization
         {
             var json = new JObject();
             json.Add("name", endpoint.Name);
-            json.Add("type", endpoint.Type);
+            json.Add("type", endpoint.Type);                       
+            json.Add("outboxUrl", endpoint.OutboxUrl);
+            
+            if (endpoint.SystemMessageSubscriptions?.Count > 0)
+            {
+                json.Add("systemMessageSubscriptions",
+                    new JArray(endpoint.SystemMessageSubscriptions));
+            }
+            
+            if (endpoint.BusinessMessageRule != null)
+            {
+                json.Add("businessMessageRule", Map(endpoint.BusinessMessageRule));
+            }
 
             if (endpoint.Type == "push")
             {
                 json.Add("naUrl", endpoint.NaUrl);
             }
 
-            json.Add("outboxUrl", endpoint.OutboxUrl);
-            
-            json.Add("systemMessageSubscriptions", 
-                new JArray(endpoint.SystemMessageSubscriptions));
-
-            if (endpoint.BusinessMessageRule != null)
-            {
-                json.Add("businessMessageRule", Map(endpoint.BusinessMessageRule));
-            }
-
             if (endpoint.Type == "pull")
             {
+                json.Add("inboxUrl", endpoint.InboxUrl);
                 json.Add("authorizationList", endpoint.AuthorizationList);
             }
 
