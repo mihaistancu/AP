@@ -9,20 +9,14 @@ import { PushEndpoint, PullEndpoint } from '../../routing.model';
 export class EndpointEditorComponent implements OnInit {
 
   @Input() endpoint: PushEndpoint | PullEndpoint;
-  @Output() endpointChange = new EventEmitter<PushEndpoint | PullEndpoint>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  notify() {
-    this.endpointChange.emit(this.endpoint);
-  }
-
   deleteRule() {
     delete this.endpoint.businessMessageRule;
-    this.notify();
   }
 
   createSimpleRule() {
@@ -31,7 +25,6 @@ export class EndpointEditorComponent implements OnInit {
       key: '',
       value: ''
     };
-    this.notify();
   }
 
   createCompositeRule() {
@@ -39,7 +32,6 @@ export class EndpointEditorComponent implements OnInit {
       type: 'any',
       children: []
     };
-    this.notify();
   }
 
 }
