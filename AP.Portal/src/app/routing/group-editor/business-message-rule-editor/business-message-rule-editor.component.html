@@ -1,16 +1,16 @@
 <ng-container *ngIf="rule.type == 'equals' || rule.type == 'matches'">
-  <input [(ngModel)]="rule.key" (input)="notify()" />
+  <input [(ngModel)]="rule.key" />
   
-  <select [(ngModel)]="rule.type" (change)="notify()">
+  <select [(ngModel)]="rule.type">
     <option value="equals">is</option>
     <option value="matches">matches</option>
   </select>
 
-  <input [(ngModel)]="rule.value" (input)="notify()"/>
+  <input [(ngModel)]="rule.value"/>
 </ng-container>
 
 <ng-container *ngIf="rule.type == 'all' || rule.type == 'any'">
-  <select [(ngModel)]="rule.type" (change)="notify()">
+  <select [(ngModel)]="rule.type">
     <option value="any">any</option>
     <option value="all">all</option>
   </select>
@@ -22,6 +22,6 @@
   </div>
   <div *ngFor="let child of rule.children; let i=index">
     <button (click)="deleteChild(rule, i)">x</button>
-    <app-business-message-rule-editor [(rule)]="rule.children[i]"></app-business-message-rule-editor>
+    <app-business-message-rule-editor [rule]="rule.children[i]"></app-business-message-rule-editor>
   </div>
 </ng-container>

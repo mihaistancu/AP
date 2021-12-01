@@ -9,7 +9,6 @@ import { Aggregate, BusinessMessageRule } from '../../routing.model';
 export class BusinessMessageRuleEditorComponent implements OnInit {
 
   @Input() rule: BusinessMessageRule;
-  @Output() ruleChange = new EventEmitter<BusinessMessageRule>();
 
   constructor() { }
 
@@ -23,7 +22,6 @@ export class BusinessMessageRuleEditorComponent implements OnInit {
       key: '',
       value: ''
     });
-    this.notify();
   }
 
   addAggregate(rule: Aggregate) {
@@ -35,15 +33,10 @@ export class BusinessMessageRuleEditorComponent implements OnInit {
         value: ''
       }]
     });
-    this.notify();
   }
 
   deleteChild(rule: Aggregate, index: number) {
     rule.children.splice(index, 1);
-    this.notify();
   }
 
-  notify() {
-    this.ruleChange.emit(this.rule);
-  }
 }

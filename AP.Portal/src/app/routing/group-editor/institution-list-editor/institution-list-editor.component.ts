@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Group } from '../../routing.model';
 
 @Component({
@@ -9,7 +9,6 @@ import { Group } from '../../routing.model';
 export class InstitutionListEditorComponent implements OnInit {
 
   @Input() public group: Group;
-  @Output() public groupChange = new EventEmitter<Group>();
 
   constructor() { }
 
@@ -18,16 +17,10 @@ export class InstitutionListEditorComponent implements OnInit {
 
   delete(index: number) {
     this.group.institutionIds.splice(index, 1);
-    this.notify();
   }
 
   add() {
     this.group.institutionIds.unshift('');
-    this.notify();
-  }
-
-  notify() {
-    this.groupChange.emit(this.group);
   }
 
   trackByIndex(index: number) {
