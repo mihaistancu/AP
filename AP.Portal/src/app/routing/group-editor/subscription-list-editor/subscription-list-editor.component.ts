@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PullEndpoint, PushEndpoint } from '../../routing.model';
 
 @Component({
   selector: 'app-subscription-list-editor',
@@ -7,8 +8,7 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 })
 export class SubscriptionListEditorComponent implements OnInit {
 
-  @Input() public subscriptions: string[];
-  @Output() public subscriptionsChange = new EventEmitter<string[]>();
+  @Input() public endpoint: PushEndpoint | PullEndpoint;
 
   constructor() { }
 
@@ -16,20 +16,10 @@ export class SubscriptionListEditorComponent implements OnInit {
   }
 
   delete(index: number) {
-    this.subscriptions.splice(index, 1);
-    this.notify();
+    this.endpoint.systemMessageSubscriptions.splice(index, 1);
   }
 
   add() {
-    this.subscriptions.unshift('');
-    this.notify();
-  }
-
-  notify() {
-    this.subscriptionsChange.emit(this.subscriptions);
-  }
-
-  trackByIndex(index: number) {
-    return index;
+    this.endpoint.systemMessageSubscriptions.unshift('');
   }
 }
