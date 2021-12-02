@@ -34,6 +34,9 @@ namespace AP.Web.Api.Routing.Serialization
                     : null,
                 SystemMessageSubscriptions = json["systemMessageSubscriptions"] != null
                     ? json["systemMessageSubscriptions"].Values<string>().ToList()
+                    : null,
+                SystemMessageSubscriber = json["systemMessageSubscriber"] != null
+                    ? json.Value<string>("systemMessageSubscriber")
                     : null
             };
         }

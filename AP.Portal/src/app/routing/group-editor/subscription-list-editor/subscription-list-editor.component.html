@@ -18,4 +18,9 @@
     <button (click)="delete(i)">Delete Subscription</button>
   </div>
 
+  <div *ngIf="endpoint.systemMessageSubscriptions?.length > 0">
+    <label for="subscriber">Subscriber </label>
+    <input name="subscriber" type="text" [(ngModel)]="endpoint.systemMessageSubscriber" />
+  </div>
+  
 </div>

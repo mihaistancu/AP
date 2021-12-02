@@ -23,7 +23,7 @@
 </div>
 
 <div class="system" *ngIf="endpoint.systemMessageSubscriptions?.length > 0; else noSubscriptions">
-  System messages are created and can be pulled from the AP Inbox URL
+  System messages are created for {{endpoint.systemMessageSubscriber}} and can be pulled from the AP Inbox URL
   <div>
     <ng-container *ngFor="let subscription of endpoint.systemMessageSubscriptions">{{subscription}} </ng-container>
   </div>

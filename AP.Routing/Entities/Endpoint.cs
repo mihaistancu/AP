@@ -13,5 +13,6 @@ namespace AP.Routing.Entities
         public string AuthorizationList { get; set; }
         public IBusinessMessageRule BusinessMessageRule { get; set; }
         public List<string> SystemMessageSubscriptions { get; set; }
+        public string SystemMessageSubscriber { get; set; }
     }
 }
