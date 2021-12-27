@@ -95,10 +95,6 @@
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messages</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AP.Monitoring\AP.Monitoring.csproj">
-      <Project>{03f9eaeb-4e9d-4e69-bc36-c9ebad6ff26d}</Project>
-      <Name>AP.Monitoring</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Observability\AP.Observability.csproj">
       <Project>{C4ABA768-4B6E-497D-B7B9-71BB1113BAF3}</Project>
       <Name>AP.Observability</Name>
