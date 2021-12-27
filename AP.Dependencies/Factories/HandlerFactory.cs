@@ -11,9 +11,7 @@ using AP.Handlers.PullRequest;
 using AP.Handlers.Receipt;
 using AP.Handlers.SignatureValidation;
 using AP.Handlers.TlsCertificateValidation;
-using AP.Monitoring;
 using AP.Queue;
-using AP.Server;
 using AP.Signing;
 using AP.Validation;
 using System;
@@ -30,40 +28,48 @@ namespace AP.Dependencies.Factories
         {
             factories[Handler.ProcessAsync] =
                 () => new MonitoredHandler(
+                    Context.Log,
                     new AsyncProcessingHandler(Context.Orchestrator));
 
             factories[Handler.Decrypt] =
                 () => new MonitoredHandler(
+                    Context.Log,
                     new DecryptionHandler(new Decryptor()));
 
             factories[Handler.ValidateEnvelope] =
                 () => new MonitoredHandler(
+                    Context.Log,
                     new EnvelopeValidationHandler(
                         new EnvelopeValidator(),
                         new EnvelopeValidationErrorFactory()));
 
             factories[Handler.Persist] =
                 () => new MonitoredHandler(
+                    Context.Log,
                     new PersistenceHandler(Context.MessageStorage));
 
             factories[Handler.PullRequest] =
                 () => new MonitoredHandler(
+                    Context.Log,
                     new PullRequestHandler(
                         new MessageProvider(Context.MessageQueue)));
 
             factories[Handler.Receipt] =
                 () => new MonitoredHandler(
+                    Context.Log,
                     new ReceiptHandler(
                         new ReceiptFactory()));
 
             factories[Handler.ValidateSignature] =
                 () => new MonitoredHandler(
+                    Context.Log,
                     new SignatureValidationHandler(
                         new EnvelopeSignatureValidator(),
                         new EnvelopeSignatureValidationErrorFactory()));
 
             factories[Handler.ValidateTlsCertificate] =
                     () => new MonitoredHandler(
+                        Context.Log,
                         new TlsCertificateValidationHandler(
                             new CertificateValidator(),
                             new TlsCertificateValidationErrorFactory()));

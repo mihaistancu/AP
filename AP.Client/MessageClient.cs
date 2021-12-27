@@ -1,4 +1,4 @@
-﻿using AP.Gateways.Institution;
+﻿using AP.Gateways;
 using AP.Messages;
 
 namespace AP.Client

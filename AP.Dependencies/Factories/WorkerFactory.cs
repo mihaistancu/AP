@@ -8,7 +8,6 @@ using AP.Gateways.Institution;
 using AP.IR;
 using AP.IR.Request;
 using AP.IR.Subscriptions;
-using AP.Monitoring;
 using AP.Orchestration;
 using AP.Routing;
 using AP.Validation;
@@ -44,68 +43,83 @@ namespace AP.Dependencies.Factories
             var documentValidator = new DocumentValidator();
             var documentValidationErrorFactory = new DocumentValidationErrorFactory();
             var antimalwareErrorFactory = new AntimalwareErrorFactory();
-
+            
             factories[Worker.ScanMessageFromCsn] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, Context.MessageStorage, csnGateway));
 
             factories[Worker.ScanMessageFromAp] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, Context.MessageStorage, apGateway));
 
             factories[Worker.ScanMessageFromInstitution] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, Context.MessageStorage, institutionGateway));
 
             factories[Worker.ValidateDocumentFromCsn] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, Context.MessageStorage, csnGateway));
 
             factories[Worker.ValidateDocumentFromAp] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, Context.MessageStorage, apGateway));
 
             factories[Worker.ValidateDocumentFromInstitution] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, Context.MessageStorage, institutionGateway));
 
             factories[Worker.ForwardToAp] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new ForwardingWorker(apGateway));
 
             factories[Worker.ForwardToInstitution] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new ForwardingWorker(institutionGateway));
 
             factories[Worker.ImportCdm] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new CdmImportWorker(new CdmImporter()));
 
             factories[Worker.ReportCdm] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new CdmReportWorker(new CdmReporter(), csnGateway));
 
             factories[Worker.ProvideCdm] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new CdmRequestWorker(
                         new CdmProvider(new CdmRequestParser(), cdmStorage, Context.MessageStorage, csnGateway)));
 
             factories[Worker.PublishCdm] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new CdmSubscriptionsWorker(
                         new CdmPublisher(new CdmSubscriptionStorage(), cdmStorage, Context.MessageStorage, institutionGateway)));
 
             factories[Worker.ImportIr] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new IrImportWorker(new IrImporter()));
 
             factories[Worker.ProvideIr] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new IrRequestWorker(
                         new IrProvider(new IrRequestParser(), irStorage, Context.MessageStorage, institutionGateway)));
 
             factories[Worker.PublishIr] =
                 () => new MonitoredWorker(
+                    Context.Log,
                     new IrSubscriptionsWorker(
                         new IrPublisher(new IrSubscriptionStorage(), irStorage, Context.MessageStorage, institutionGateway)));
         }

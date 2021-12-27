@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{913E6E50-277D-4638-AD84-5196D0E033D8}</ProjectGuid>
+    <ProjectGuid>{C4ABA768-4B6E-497D-B7B9-71BB1113BAF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AP.Workers</RootNamespace>
-    <AssemblyName>AP.Workers</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RootNamespace>AP.Observability</RootNamespace>
+    <AssemblyName>AP.Observability</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -41,38 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Antimalware\AntimalwareWorker.cs" />
-    <Compile Include="Antimalware\IAntimalwareErrorFactory.cs" />
-    <Compile Include="Antimalware\IScanner.cs" />
-    <Compile Include="DocumentValidation\DocumentValidationWorker.cs" />
-    <Compile Include="DocumentValidation\IDocumentValidationErrorFactory.cs" />
-    <Compile Include="DocumentValidation\IDocumentValidator.cs" />
-    <Compile Include="DocumentValidation\ValidationResult.cs" />
-    <Compile Include="Forwarding\ForwardingWorker.cs" />
-    <Compile Include="IGateway.cs" />
-    <Compile Include="IWorker.cs" />
-    <Compile Include="MonitoredWorker.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Synchronization\CDM\Import\CdmImportWorker.cs" />
-    <Compile Include="Synchronization\CDM\Import\ICdmImporter.cs" />
-    <Compile Include="Synchronization\CDM\Report\CdmReportWorker.cs" />
-    <Compile Include="Synchronization\CDM\Report\ICdmReporter.cs" />
-    <Compile Include="Synchronization\CDM\Request\CdmRequestWorker.cs" />
-    <Compile Include="Synchronization\CDM\Request\ICdmProvider.cs" />
-    <Compile Include="Synchronization\CDM\Subscriptions\CdmSubscriptionsWorker.cs" />
-    <Compile Include="Synchronization\CDM\Subscriptions\ICdmPublisher.cs" />
-    <Compile Include="Synchronization\IR\Import\IIrImporter.cs" />
-    <Compile Include="Synchronization\IR\Import\IrImportWorker.cs" />
-    <Compile Include="Synchronization\IR\Request\IIrProvider.cs" />
-    <Compile Include="Synchronization\IR\Request\IrRequestWorker.cs" />
-    <Compile Include="Synchronization\IR\Subscriptions\IIrPublisher.cs" />
-    <Compile Include="Synchronization\IR\Subscriptions\IrSubscriptionsWorker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
-      <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
-      <Name>AP.Messages</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AP.Telemetry\AP.Telemetry.csproj">
       <Project>{8B3372ED-29C2-4CCE-8E23-87B6B2DEA617}</Project>
       <Name>AP.Telemetry</Name>

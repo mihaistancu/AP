@@ -2,12 +2,15 @@
 using AP.Client;
 using AP.Dependencies.Factories;
 using AP.Endpoints;
+using AP.Gateways;
 using AP.Monitoring;
+using AP.Observability;
 using AP.Orchestration;
 using AP.Queue;
 using AP.Routing;
 using AP.Routing.UseCases;
 using AP.Storage;
+using AP.Telemetry;
 using AP.Web.Api.Authentication;
 using AP.Web.Api.Routing;
 using AP.Web.Authentication;
@@ -20,11 +23,12 @@ namespace AP.Dependencies
 {
     public class Context
     {
-        public static MessageStorage MessageStorage { get; set; }
-        public static Orchestrator Orchestrator { get; set; }
-        public static MessageClient MessageClient { get; set; }
-        public static MessageQueue MessageQueue { get; set; }
+        public static ILog Log { get; set; }
         public static ClaimsStorage ClaimsStorage { get; set; }
+        public static MessageStorage MessageStorage { get; set; }
+        public static IMessageClient MessageClient { get; set; }
+        public static IMessageQueue MessageQueue { get; set; }
+        public static Orchestrator Orchestrator { get; set; }
         public static Authorizer Authorizer { get; set; }
         public static MessageEndpointRoutes MessageEndpoints { get; set; }
         public static ApiRoutes PortalApi { get; set; }
@@ -32,15 +36,26 @@ namespace AP.Dependencies
 
         public static void Build()
         {
-            MessageStorage = new MessageStorage();
-            MessageClient = new MonitoredMessageClient();
-            MessageQueue = new MonitoredMessageQueue();
+            Log = new Log();
             ClaimsStorage = new ClaimsStorage();
+            MessageStorage = new MessageStorage();
+            MessageClient = BuildMessageClient();
+            MessageQueue = BuildMessageQueue();
             Orchestrator = BuildOrchestrator();
             Authorizer = BuildAuthorizer();
             MessageEndpoints = BuildMessageEndpoints();
             PortalApi = BuildPortalApi();
             PortalSpa = BuildPortalSpa();
+        }
+
+        private static IMessageClient BuildMessageClient()
+        {
+            return new MonitoredMessageClient(Log, new MessageClient());
+        }
+
+        private static IMessageQueue BuildMessageQueue()
+        {
+            return new MonitoredMessageQueue(Log, new MessageQueue());
         }
 
         private static Authorizer BuildAuthorizer()

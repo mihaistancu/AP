@@ -1,13 +1,14 @@
-﻿using AP.Handlers.PullRequest;
+﻿using AP.Gateways;
+using AP.Handlers.PullRequest;
 using AP.Messages;
 
 namespace AP.Queue
 {
     public class MessageProvider : IMessageProvider
     {
-        private MessageQueue queue;
+        private IMessageQueue queue;
 
-        public MessageProvider(MessageQueue queue)
+        public MessageProvider(IMessageQueue queue)
         {
             this.queue = queue;
         }

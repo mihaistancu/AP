@@ -1,6 +1,6 @@
 ﻿using AP.Messages;
 
-namespace AP.Gateways.Institution
+namespace AP.Gateways
 {
     public interface IMessageClient
     {

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="MessageProvider.cs" />
     <Compile Include="MessageQueue.cs" />
+    <Compile Include="MonitoredMessageQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +58,10 @@
     <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Telemetry\AP.Telemetry.csproj">
+      <Project>{8B3372ED-29C2-4CCE-8E23-87B6B2DEA617}</Project>
+      <Name>AP.Telemetry</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

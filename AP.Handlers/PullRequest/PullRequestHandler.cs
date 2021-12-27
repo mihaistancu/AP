@@ -4,16 +4,16 @@ namespace AP.Handlers.PullRequest
 {
     public class PullRequestHandler : IHandler
     {
-        private IMessageProvider queue;
+        private IMessageProvider provider;
 
-        public PullRequestHandler(IMessageProvider queue)
+        public PullRequestHandler(IMessageProvider provider)
         {
-            this.queue = queue;
+            this.provider = provider;
         }
 
         public void Handle(Message message, IOutput output)
         {
-            var newMessage = queue.Get(message);
+            var newMessage = provider.Get(message);
             output.Send(newMessage);
         }
     }

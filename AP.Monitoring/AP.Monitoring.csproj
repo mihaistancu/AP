@@ -41,10 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MonitoredHandler.cs" />
-    <Compile Include="MonitoredMessageQueue.cs" />
-    <Compile Include="MonitoredMessageClient.cs" />
-    <Compile Include="MonitoredWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -99,6 +99,10 @@
       <Project>{03f9eaeb-4e9d-4e69-bc36-c9ebad6ff26d}</Project>
       <Name>AP.Monitoring</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Observability\AP.Observability.csproj">
+      <Project>{C4ABA768-4B6E-497D-B7B9-71BB1113BAF3}</Project>
+      <Name>AP.Observability</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>
       <Name>AP.Orchestration</Name>
@@ -126,6 +130,10 @@
     <ProjectReference Include="..\AP.Storage\AP.Storage.csproj">
       <Project>{ebdd1a1f-4f6b-4675-ba97-2688ce2c1bec}</Project>
       <Name>AP.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Telemetry\AP.Telemetry.csproj">
+      <Project>{8B3372ED-29C2-4CCE-8E23-87B6B2DEA617}</Project>
+      <Name>AP.Telemetry</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Validation\AP.Validation.csproj">
       <Project>{4e640ab5-8eaa-4895-b30f-a9d922a12edc}</Project>

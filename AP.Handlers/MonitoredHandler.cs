@@ -1,21 +1,22 @@
-﻿using AP.Handlers;
-using AP.Messages;
-using System;
+﻿using AP.Messages;
+using AP.Telemetry;
 
-namespace AP.Monitoring
+namespace AP.Handlers
 {
     public class MonitoredHandler : IHandler
     {
+        private ILog log;
         private IHandler handler;
 
-        public MonitoredHandler(IHandler handler)
+        public MonitoredHandler(ILog log, IHandler handler)
         {
+            this.log = log;
             this.handler = handler;
         }
 
         public void Handle(Message message, IOutput output)
         {
-            Console.WriteLine(handler.GetType().Name);
+            log.Debug(handler.GetType().Name);
             handler.Handle(message, output);
         }
     }

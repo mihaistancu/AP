@@ -1,21 +1,22 @@
 ﻿using AP.Messages;
-using AP.Workers;
-using System;
+using AP.Telemetry;
 
-namespace AP.Monitoring
+namespace AP.Workers
 {
     public class MonitoredWorker : IWorker
     {
+        private ILog log;
         private IWorker worker;
 
-        public MonitoredWorker(IWorker worker)
+        public MonitoredWorker(ILog log, IWorker worker)
         {
+            this.log = log;
             this.worker = worker;
         }
 
         public bool Handle(Message message)
         {
-            Console.WriteLine(worker.GetType().Name);
+            log.Debug(worker.GetType().Name);
             return worker.Handle(message);
         }
     }

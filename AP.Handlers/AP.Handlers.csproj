@@ -50,6 +50,7 @@
     <Compile Include="EnvelopeValidation\ValidationResult.cs" />
     <Compile Include="IHandler.cs" />
     <Compile Include="IOutput.cs" />
+    <Compile Include="MonitoredHandler.cs" />
     <Compile Include="Persistence\PersistenceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PullRequest\IMessageProvider.cs" />
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
       <Project>{FC82A9A8-EF95-45C8-A9C7-9E9054E97C05}</Project>
       <Name>AP.Orchestration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AP.Telemetry\AP.Telemetry.csproj">
+      <Project>{8B3372ED-29C2-4CCE-8E23-87B6B2DEA617}</Project>
+      <Name>AP.Telemetry</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
