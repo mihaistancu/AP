@@ -52,12 +52,12 @@ namespace AP.Dependencies
 
         private static IMessageClient BuildMessageClient()
         {
-            return new MonitoredMessageClient(Log, new MessageClient());
+            return new MonitoredMessageClient(Trace, new MessageClient());
         }
 
         private static IMessageQueue BuildMessageQueue()
         {
-            return new MonitoredMessageQueue(Log, new MessageQueue());
+            return new MonitoredMessageQueue(Trace, new MessageQueue());
         }
 
         private static Authorizer BuildAuthorizer()

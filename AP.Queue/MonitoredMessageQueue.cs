@@ -6,25 +6,29 @@ namespace AP.Monitoring
 {
     public class MonitoredMessageQueue: IMessageQueue
     {
-        private ILog log;
+        private ITrace trace;
         private IMessageQueue queue;
 
-        public MonitoredMessageQueue(ILog log, IMessageQueue queue)
+        public MonitoredMessageQueue(ITrace trace, IMessageQueue queue)
         {
-            this.log = log;
+            this.trace = trace;
             this.queue = queue;
         }
 
         public void Enqueue(string channel, Message message)
         {
-            log.Debug("Queue");
-            queue.Enqueue(channel, message);
+            using (trace.Start("Enqueue"))
+            {
+                queue.Enqueue(channel, message);
+            }
         }
 
         public Message Dequeue(string channel)
         {
-            log.Debug("Dequeue");
-            return queue.Dequeue(channel);
+            using (trace.Start("Dequeue"))
+            {
+                return queue.Dequeue(channel);
+            }
         }
     }
 }

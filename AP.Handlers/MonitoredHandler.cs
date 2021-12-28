@@ -5,19 +5,21 @@ namespace AP.Handlers
 {
     public class MonitoredHandler : IHandler
     {
-        private ILog log;
+        private ITrace trace;
         private IHandler handler;
 
-        public MonitoredHandler(ILog log, IHandler handler)
+        public MonitoredHandler(ITrace trace, IHandler handler)
         {
-            this.log = log;
+            this.trace = trace;
             this.handler = handler;
         }
 
         public void Handle(Message message, IOutput output)
         {
-            log.Debug(handler.GetType().Name);
-            handler.Handle(message, output);
+            using (trace.Start(handler.GetType().Name))
+            {
+                handler.Handle(message, output);
+            }
         }
     }
 }

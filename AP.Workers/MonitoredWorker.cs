@@ -5,19 +5,21 @@ namespace AP.Workers
 {
     public class MonitoredWorker : IWorker
     {
-        private ILog log;
+        private ITrace trace;
         private IWorker worker;
 
-        public MonitoredWorker(ILog log, IWorker worker)
+        public MonitoredWorker(ITrace trace, IWorker worker)
         {
-            this.log = log;
+            this.trace = trace;
             this.worker = worker;
         }
 
         public bool Handle(Message message)
         {
-            log.Debug(worker.GetType().Name);
-            return worker.Handle(message);
+            using (trace.Start(worker.GetType().Name))
+            {
+                return worker.Handle(message);
+            }
         }
     }
 }

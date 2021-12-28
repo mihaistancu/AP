@@ -46,80 +46,80 @@ namespace AP.Dependencies.Factories
             
             factories[Worker.ScanMessageFromCsn] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, Context.MessageStorage, csnGateway));
 
             factories[Worker.ScanMessageFromAp] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, Context.MessageStorage, apGateway));
 
             factories[Worker.ScanMessageFromInstitution] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new AntimalwareWorker(scanner, antimalwareErrorFactory, Context.MessageStorage, institutionGateway));
 
             factories[Worker.ValidateDocumentFromCsn] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, Context.MessageStorage, csnGateway));
 
             factories[Worker.ValidateDocumentFromAp] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, Context.MessageStorage, apGateway));
 
             factories[Worker.ValidateDocumentFromInstitution] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new DocumentValidationWorker(documentValidator, documentValidationErrorFactory, Context.MessageStorage, institutionGateway));
 
             factories[Worker.ForwardToAp] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new ForwardingWorker(apGateway));
 
             factories[Worker.ForwardToInstitution] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new ForwardingWorker(institutionGateway));
 
             factories[Worker.ImportCdm] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new CdmImportWorker(new CdmImporter()));
 
             factories[Worker.ReportCdm] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new CdmReportWorker(new CdmReporter(), csnGateway));
 
             factories[Worker.ProvideCdm] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new CdmRequestWorker(
                         new CdmProvider(new CdmRequestParser(), cdmStorage, Context.MessageStorage, csnGateway)));
 
             factories[Worker.PublishCdm] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new CdmSubscriptionsWorker(
                         new CdmPublisher(new CdmSubscriptionStorage(), cdmStorage, Context.MessageStorage, institutionGateway)));
 
             factories[Worker.ImportIr] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new IrImportWorker(new IrImporter()));
 
             factories[Worker.ProvideIr] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new IrRequestWorker(
                         new IrProvider(new IrRequestParser(), irStorage, Context.MessageStorage, institutionGateway)));
 
             factories[Worker.PublishIr] =
                 () => new MonitoredWorker(
-                    Context.Log,
+                    Context.Trace,
                     new IrSubscriptionsWorker(
                         new IrPublisher(new IrSubscriptionStorage(), irStorage, Context.MessageStorage, institutionGateway)));
         }

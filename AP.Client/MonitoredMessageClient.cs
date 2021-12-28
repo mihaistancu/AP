@@ -6,19 +6,21 @@ namespace AP.Client
 {
     public class MonitoredMessageClient : IMessageClient
     {
-        private ILog log;
+        private ITrace trace;
         private IMessageClient client;
 
-        public MonitoredMessageClient(ILog log, IMessageClient client)
+        public MonitoredMessageClient(ITrace trace, IMessageClient client)
         {
-            this.log = log;
+            this.trace = trace;
             this.client = client;
         }
 
         public void Send(string url, Message message)
         {
-            log.Debug("Push");
-            client.Send(url, message);
+            using (trace.Start("Send to URL"))
+            {
+                client.Send(url, message);
+            }
         }
     }
 }

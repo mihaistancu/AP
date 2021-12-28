@@ -28,48 +28,48 @@ namespace AP.Dependencies.Factories
         {
             factories[Handler.ProcessAsync] =
                 () => new MonitoredHandler(
-                    Context.Log,
+                    Context.Trace,
                     new AsyncProcessingHandler(Context.Orchestrator));
 
             factories[Handler.Decrypt] =
                 () => new MonitoredHandler(
-                    Context.Log,
+                    Context.Trace,
                     new DecryptionHandler(new Decryptor()));
 
             factories[Handler.ValidateEnvelope] =
                 () => new MonitoredHandler(
-                    Context.Log,
+                    Context.Trace,
                     new EnvelopeValidationHandler(
                         new EnvelopeValidator(),
                         new EnvelopeValidationErrorFactory()));
 
             factories[Handler.Persist] =
                 () => new MonitoredHandler(
-                    Context.Log,
+                    Context.Trace,
                     new PersistenceHandler(Context.MessageStorage));
 
             factories[Handler.PullRequest] =
                 () => new MonitoredHandler(
-                    Context.Log,
+                    Context.Trace,
                     new PullRequestHandler(
                         new MessageProvider(Context.MessageQueue)));
 
             factories[Handler.Receipt] =
                 () => new MonitoredHandler(
-                    Context.Log,
+                    Context.Trace,
                     new ReceiptHandler(
                         new ReceiptFactory()));
 
             factories[Handler.ValidateSignature] =
                 () => new MonitoredHandler(
-                    Context.Log,
+                    Context.Trace,
                     new SignatureValidationHandler(
                         new EnvelopeSignatureValidator(),
                         new EnvelopeSignatureValidationErrorFactory()));
 
             factories[Handler.ValidateTlsCertificate] =
                     () => new MonitoredHandler(
-                        Context.Log,
+                        Context.Trace,
                         new TlsCertificateValidationHandler(
                             new CertificateValidator(),
                             new TlsCertificateValidationErrorFactory()));
