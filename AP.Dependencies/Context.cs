@@ -34,6 +34,7 @@ namespace AP.Dependencies
         public static MessageEndpointRoutes MessageEndpoints { get; set; }
         public static ApiRoutes PortalApi { get; set; }
         public static SpaRoutes PortalSpa { get; set; }
+        public static ServerFactory ServerFactory { get; set; }
 
         public static void Build()
         {
@@ -41,6 +42,7 @@ namespace AP.Dependencies
             Trace = new Trace();
             ClaimsStorage = new ClaimsStorage();
             MessageStorage = new MessageStorage();
+            ServerFactory = new ServerFactory();
             MessageClient = BuildMessageClient();
             MessageQueue = BuildMessageQueue();
             Orchestrator = BuildOrchestrator();

@@ -1,5 +1,4 @@
 ﻿using AP.Dependencies;
-using AP.Server;
 using System;
 
 namespace AP.Host
@@ -32,14 +31,14 @@ namespace AP.Host
 
         private static IDisposable StartMessagingServer()
         {
-            var messaging = new OwinHttpServer();
+            var messaging = Context.ServerFactory.Create();
             Context.MessageEndpoints.Apply(messaging);
             return messaging.Start("http://localhost:9000");
         }
 
         private static IDisposable StartPortalServer()
         {
-            var portal = new OwinHttpServer();
+            var portal = Context.ServerFactory.Create();
             Context.PortalApi.Apply(portal);
             Context.PortalSpa.Apply(portal);
             return portal.Start("http://localhost:9090");

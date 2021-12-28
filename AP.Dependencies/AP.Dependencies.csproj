@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Factories\HandlerFactory.cs" />
+    <Compile Include="Factories\ServerFactory.cs" />
     <Compile Include="Factories\WorkerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

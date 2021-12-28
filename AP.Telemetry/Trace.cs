@@ -18,7 +18,7 @@ namespace AP.Telemetry
             provider = Sdk.CreateTracerProviderBuilder()
                 .SetSampler(new AlwaysOnSampler())
                 .AddSource(source.Name)
-                .AddConsoleExporter()
+                .AddJaegerExporter()
                 .Build();
 
             return this;
