@@ -1,7 +1,7 @@
-﻿using AP.Telemetry;
+﻿using AP.Instrumentation;
 using System;
 
-namespace AP.Observability
+namespace AP.Telemetry
 {
     public class Log : ILog
     {

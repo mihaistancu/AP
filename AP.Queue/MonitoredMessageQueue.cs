@@ -1,6 +1,7 @@
 ﻿using AP.Gateways;
+using AP.Instrumentation;
 using AP.Messages;
-using AP.Telemetry;
+
 namespace AP.Monitoring
 {
     public class MonitoredMessageQueue: IMessageQueue

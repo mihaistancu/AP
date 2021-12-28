@@ -1,17 +1,17 @@
-﻿using AP.Telemetry;
+﻿using AP.Instrumentation;
 
-namespace AP.Observability
+namespace AP.Telemetry
 {
     public class Tracer : ITrace
     {
         public void StartSpan()
         {
-            
+
         }
 
         public void EndSpan()
         {
-            
+
         }
     }
 }

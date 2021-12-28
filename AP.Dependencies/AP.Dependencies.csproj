@@ -87,6 +87,10 @@
       <Project>{c4764dd2-4abd-408d-96e7-451b15aa9025}</Project>
       <Name>AP.Http</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AP.Instrumentation\AP.Instrumentation.csproj">
+      <Project>{B1584519-5F14-4386-9310-5F5D7C91802A}</Project>
+      <Name>AP.Instrumentation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AP.IR\AP.IR.csproj">
       <Project>{b5638d18-9a42-41cf-94ba-7f6e018ea018}</Project>
       <Name>AP.IR</Name>
@@ -94,10 +98,6 @@
     <ProjectReference Include="..\AP.Messages\AP.Messages.csproj">
       <Project>{ef1676a4-4f7f-4dee-a147-b9e5ca608d17}</Project>
       <Name>AP.Messages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AP.Observability\AP.Observability.csproj">
-      <Project>{C4ABA768-4B6E-497D-B7B9-71BB1113BAF3}</Project>
-      <Name>AP.Observability</Name>
     </ProjectReference>
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj">
       <Project>{fc82a9a8-ef95-45c8-a9c7-9e9054e97c05}</Project>

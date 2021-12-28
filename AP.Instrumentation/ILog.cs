@@ -1,4 +1,4 @@
-﻿namespace AP.Telemetry
+﻿namespace AP.Instrumentation
 {
     public interface ILog
     {
