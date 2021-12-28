@@ -24,6 +24,7 @@ namespace AP.Dependencies
     public class Context
     {
         public static ILog Log { get; set; }
+        public static ITrace Trace { get; set; }
         public static ClaimsStorage ClaimsStorage { get; set; }
         public static MessageStorage MessageStorage { get; set; }
         public static IMessageClient MessageClient { get; set; }
@@ -37,6 +38,7 @@ namespace AP.Dependencies
         public static void Build()
         {
             Log = new Log();
+            Trace = new Trace();
             ClaimsStorage = new ClaimsStorage();
             MessageStorage = new MessageStorage();
             MessageClient = BuildMessageClient();

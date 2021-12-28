@@ -1,8 +1,10 @@
-﻿namespace AP.Instrumentation
+﻿using System;
+
+namespace AP.Instrumentation
 {
     public interface ITrace
     {
-        void StartSpan();
-        void EndSpan();
+        IDisposable Start();
+        IDisposable Start(string span);
     }
 }

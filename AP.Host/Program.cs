@@ -10,6 +10,7 @@ namespace AP.Host
         {
             Context.Build();
 
+            using (StartTrace())
             using (StartOrchestrator())
             using (StartMessagingServer())
             using (StartPortalServer())
@@ -17,6 +18,11 @@ namespace AP.Host
                 Console.WriteLine("Press [enter] to stop");
                 Console.ReadLine();
             }
+        }
+
+        public static IDisposable StartTrace()
+        {
+            return Context.Trace.Start();
         }
 
         private static IDisposable StartOrchestrator()
