@@ -2,6 +2,7 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AP.Broker
@@ -27,8 +28,13 @@ namespace AP.Broker
             var consumer = new AsyncEventingBasicConsumer(receiveChannel);
             consumer.Received += (sender, args) =>
             {
+                var headers = args.BasicProperties.Headers == null
+                   ? new Dictionary<string, object>()
+                   : new Dictionary<string, object>(args.BasicProperties.Headers);
+
                 return Task.Run(() => handler.Invoke(new Command
                 {
+                    Headers = headers,
                     Payload = args.Body.ToArray()
                 }));
             };
@@ -45,10 +51,13 @@ namespace AP.Broker
         {
             using (var sendChannel = connection.CreateModel())
             {
+                var properties = sendChannel.CreateBasicProperties();
+                properties.Headers = command.Headers;
+
                 sendChannel.BasicPublish(
                     exchange: "",
                     routingKey: "hello",
-                    basicProperties: null,
+                    basicProperties: properties,
                     body: command.Payload);
             }
         }
