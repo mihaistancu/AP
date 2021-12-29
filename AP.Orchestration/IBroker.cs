@@ -4,8 +4,8 @@ namespace AP.Orchestration
 {
     public interface IBroker
     {
-        IDisposable Start(Action<byte[]> handler);
+        IDisposable Start(Action<Command> handler);
 
-        void Send(byte[] bytes);
+        void Send(Command command);
     }
 }

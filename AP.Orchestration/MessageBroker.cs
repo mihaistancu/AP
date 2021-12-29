@@ -16,12 +16,12 @@ namespace AP.Orchestration
 
         public IDisposable Start(Action<string, Message> handler)
         {
-            return broker.Start(bytes => Handle(bytes, handler));
+            return broker.Start(command => Handle(command, handler));
         }
 
-        private void Handle(byte[] bytes, Action<string, Message> handler)
+        private void Handle(Command command, Action<string, Message> handler)
         {
-            var text = Encoding.UTF8.GetString(bytes);
+            var text = Encoding.UTF8.GetString(command.Payload);
             var json = JObject.Parse(text);
 
             var workerName = json.Value<string>("workerName");
@@ -47,9 +47,11 @@ namespace AP.Orchestration
                 new JProperty("documentType", message.DocumentType));
 
             var text = json.ToString();
-            var bytes = Encoding.UTF8.GetBytes(text);
 
-            broker.Send(bytes);
+            broker.Send(new Command
+            {
+                Payload = Encoding.UTF8.GetBytes(text)
+            });
         }
     }
 }

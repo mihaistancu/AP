@@ -72,7 +72,7 @@ namespace AP.Dependencies
             return new Orchestrator(
                 new OrchestratorConfig(),
                 MessageStorage,
-                new MessageBroker(new RabbitMqBroker()),
+                new MessageBroker(new MonitoredBroker(Trace, new RabbitMqBroker())),
                 new WorkerFactory());
         }
 

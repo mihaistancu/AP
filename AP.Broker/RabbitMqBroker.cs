@@ -11,7 +11,7 @@ namespace AP.Broker
         private IConnection connection;
         private IModel receiveChannel;
 
-        public IDisposable Start(Action<byte[]> handler)
+        public IDisposable Start(Action<Command> handler)
         {
             var factory = new ConnectionFactory() { DispatchConsumersAsync = true };
             connection = factory.CreateConnection();
@@ -27,7 +27,10 @@ namespace AP.Broker
             var consumer = new AsyncEventingBasicConsumer(receiveChannel);
             consumer.Received += (sender, args) =>
             {
-                return Task.Run(() => handler.Invoke(args.Body.ToArray()));
+                return Task.Run(() => handler.Invoke(new Command
+                {
+                    Payload = args.Body.ToArray()
+                }));
             };
 
             receiveChannel.BasicConsume(
@@ -38,7 +41,7 @@ namespace AP.Broker
             return new RabbitMqConnection(connection, receiveChannel);
         }
 
-        public void Send(byte[] bytes)
+        public void Send(Command command)
         {
             using (var sendChannel = connection.CreateModel())
             {
@@ -46,7 +49,7 @@ namespace AP.Broker
                     exchange: "",
                     routingKey: "hello",
                     basicProperties: null,
-                    body: bytes);
+                    body: command.Payload);
             }
         }
     }
