@@ -1,6 +1,7 @@
 ﻿using AP.Messages;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace AP.Orchestration
@@ -50,6 +51,7 @@ namespace AP.Orchestration
 
             broker.Send(new Command
             {
+                Headers = new Dictionary<string, object>(),
                 Payload = Encoding.UTF8.GetBytes(text)
             });
         }
