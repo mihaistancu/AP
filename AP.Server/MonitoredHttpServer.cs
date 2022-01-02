@@ -9,10 +9,13 @@ namespace AP.Server
         private ITrace trace;
         private IHttpServer server;
 
-        public MonitoredHttpServer(ITrace trace, IHttpServer server)
+        private int requestCount = 0;
+
+        public MonitoredHttpServer(ITrace trace, IMetrics metrics, IHttpServer server)
         {
             this.trace = trace;
             this.server = server;
+            metrics.Observe("request-count", () => requestCount);
         }
 
         public void Map(string method, string path, HttpHandler handle)
@@ -21,6 +24,7 @@ namespace AP.Server
             {
                 using (trace.Start("Handle Request"))
                 {
+                    requestCount++;
                     handle(input, output);
                 }
             });

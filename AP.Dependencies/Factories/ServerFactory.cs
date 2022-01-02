@@ -7,7 +7,7 @@ namespace AP.Dependencies.Factories
     {
         public IHttpServer Create()
         {
-            return new MonitoredHttpServer(Context.Trace, new OwinHttpServer());
+            return new MonitoredHttpServer(Context.Trace, Context.Metrics, new OwinHttpServer());
         }
     }
 }

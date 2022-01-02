@@ -23,6 +23,7 @@ namespace AP.Dependencies
 {
     public class Context
     {
+        public static IMetrics Metrics { get; set; }
         public static ILog Log { get; set; }
         public static ITrace Trace { get; set; }
         public static ClaimsStorage ClaimsStorage { get; set; }
@@ -38,6 +39,7 @@ namespace AP.Dependencies
 
         public static void Build()
         {
+            Metrics = new Metrics();
             Log = new Log();
             Trace = new Trace();
             ClaimsStorage = new ClaimsStorage();
