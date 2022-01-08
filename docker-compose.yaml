@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  app:
+    build: .
+    working_dir: /ap
+    volumes: 
+      - ./src/:/ap
+    environment:
+      DOTNET_EnableDiagnostics: 0
+      DOTNET_USE_POLLING_FILE_WATCHER: 1
