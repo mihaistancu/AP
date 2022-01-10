@@ -1,10 +1,22 @@
-version: "3.7"
+version: "3.8"
 
 services:
-  app:
-    build: .
+  messaging:
+    build:
+      context: .
+      dockerfile: messaging.dockerfile
     working_dir: /ap
     volumes: 
       - ./src/:/ap
     environment:
       DOTNET_EnableDiagnostics: 0
+
+  portal:
+    build: 
+      context: .
+      dockerfile: portal.dockerfile
+    working_dir: /portal
+    volumes:
+      - ./AP.Portal/:/portal
+    ports:
+      - "4200:4200"
