@@ -16,6 +16,7 @@ services:
       context: .
       dockerfile: portal.dockerfile
     working_dir: /portal
+    command: npm start -- --host 0.0.0.0 --poll 500
     volumes:
       - ./src/AP.Portal/:/portal
       - /portal/node_modules
