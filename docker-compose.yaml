@@ -17,6 +17,14 @@ services:
       dockerfile: portal.dockerfile
     working_dir: /portal
     volumes:
-      - ./AP.Portal/:/portal
+      - ./src/AP.Portal/:/portal
     ports:
       - "4200:4200"
+
+  ng:
+    build:
+      context: .
+      dockerfile: ng.dockerfile
+    working_dir: /portal
+    volumes:
+      - ./src/AP.Portal/:/portal
