@@ -2,6 +2,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AP.Messages\AP.Messages.csproj" />
+    <ProjectReference Include="..\AP.Dependencies\AP.Dependencies.csproj" />
+    <ProjectReference Include="..\AP.Endpoints\AP.Endpoints.csproj" />
+    <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj" />
+    <ProjectReference Include="..\AP.Http\AP.Http.csproj" />
+    <ProjectReference Include="..\AP.Instrumentation\AP.Instrumentation.csproj" />
+    <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj" />
+    <ProjectReference Include="..\AP.Server\AP.Server.csproj" />
+    <ProjectReference Include="..\AP.Web\AP.Web.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

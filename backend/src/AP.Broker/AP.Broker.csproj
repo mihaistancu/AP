@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="AP.Messages.csproj" />
-    <ProjectReference Include="..\AP.Workers\AP.Workers.csproj" />
+    <ProjectReference Include="..\AP.Instrumentation\AP.Instrumentation.csproj" />
+    <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
