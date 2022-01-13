@@ -1,9 +1,0 @@
-<h3>
-  Institutions
-  <button (click)="add()">Add Institution</button>
-</h3>
-<div *ngFor="let institutionId of group.institutionIds; let i=index; trackBy: trackByIndex">
-  <input type="text" [(ngModel)]="group.institutionIds[i]"/>
-  <button (click)="delete(i)">Delete Institution</button>
-</div>
-

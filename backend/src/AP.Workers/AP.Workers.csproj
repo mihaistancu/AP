@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AP.Instrumentation\AP.Instrumentation.csproj" />
+    <ProjectReference Include="..\AP.Messages\AP.Messages.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

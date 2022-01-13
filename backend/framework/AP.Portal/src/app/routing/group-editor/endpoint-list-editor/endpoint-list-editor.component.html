@@ -1,9 +1,0 @@
-<h3>
-  Endpoints
-  <button (click)="add()">Add Endpoint</button>
-</h3>
-
-<div class="endpoint" *ngFor="let endpoint of group.endpoints; let i=index">
-  <button (click)="delete(i)">Delete Endpoint</button>
-  <app-endpoint-editor [endpoint]="endpoint"></app-endpoint-editor>
-</div>

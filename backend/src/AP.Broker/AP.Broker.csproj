@@ -5,6 +5,10 @@
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

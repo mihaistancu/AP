@@ -1,6 +1,0 @@
-div::before{
-    content: " - "
-}
-div {
-  margin-left: 20px;
-}
