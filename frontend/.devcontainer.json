@@ -1,0 +1,10 @@
+{
+	"name": "Frontend",
+	"dockerComposeFile": ["../docker-compose.yaml"],
+	"service": "frontend",
+	"shutdownAction": "none",
+	"extensions": [
+		"angular.ng-template"
+	],
+	"workspaceFolder": "/workspace/frontend"
+}

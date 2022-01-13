@@ -2,23 +2,16 @@ version: "3.8"
 
 services:
   messaging:
-    build:
-      context: .
-      dockerfile: messaging.dockerfile
-    working_dir: /ap
+    build: ./backend
+    command: "sleep infinity"
     volumes: 
-      - ./src/:/ap
-    environment:
-      DOTNET_EnableDiagnostics: 0
-
+      - ./:/workspace
+    
   portal:
-    build: 
-      context: .
-      dockerfile: portal.dockerfile
-    working_dir: /portal
-    command: npm start -- --host 0.0.0.0 --poll 500
+    build: ./frontend
+    command: "sleep infinity"
     volumes:
-      - ./src/AP.Portal/:/portal
-      - /portal/node_modules
+      - ./:/workspace
+      - /workspace/frontend/node_modules
     ports:
-      - "80:4200"
+      - "4200:4200"
