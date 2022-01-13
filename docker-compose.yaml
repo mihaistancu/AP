@@ -1,13 +1,13 @@
 version: "3.8"
 
 services:
-  messaging:
+  backend:
     build: ./backend
     command: "sleep infinity"
     volumes: 
       - ./:/workspace
     
-  portal:
+  frontend:
     build: ./frontend
     command: "sleep infinity"
     volumes:
