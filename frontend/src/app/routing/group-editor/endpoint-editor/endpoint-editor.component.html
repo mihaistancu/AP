@@ -1,0 +1,26 @@
+<div>
+  <label for="name">Endpoint name</label>
+  <input id="name" type="text" [(ngModel)]="endpoint.name" />
+</div>
+
+<div>
+  <label for="type">Endpoint type</label>
+  <select id="name" [(ngModel)]="endpoint.type">
+    <option value="push">Push</option>
+    <option value="pull">Pull</option>
+  </select>
+</div>
+
+<div *ngIf="endpoint.type == 'pull'">
+  <label for="authorizationList">Authorization List</label>
+  <input id="authorizationList" type="text" [(ngModel)]="endpoint.authorizationList" />
+</div>
+
+<div *ngIf="endpoint.type == 'push'">
+  <label for="naUrl">NA/NG URL</label>
+  <input id="naUrl" type="text" [(ngModel)]="endpoint.naUrl" />
+</div>
+
+<app-business-message-routing-editor [endpoint]="endpoint"></app-business-message-routing-editor>
+
+<app-subscription-list-editor [endpoint]="endpoint"></app-subscription-list-editor>

@@ -1,0 +1,7 @@
+<h2>Update group</h2>
+
+<ng-container *ngIf="group">
+  <app-group-editor [(group)]="group"></app-group-editor>
+
+  <button (click)="update()">Update</button>
+</ng-container>
