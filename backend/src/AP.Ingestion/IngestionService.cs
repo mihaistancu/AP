@@ -16,10 +16,11 @@ namespace AP.Ingestion
 
         public void Start(string url) 
         {
+            MapRoutes();
             app.Run(url);
         }
 
-        private void Apply()
+        private void MapRoutes()
         {
             Map("/Business/Inbound", 
                 Handler.ValidateTlsCertificate,

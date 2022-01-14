@@ -1,27 +1,35 @@
 ﻿using AP.Instrumentation;
+using OpenTelemetry.Resources;
 using OpenTelemetry;
 using OpenTelemetry.Context.Propagation;
 using OpenTelemetry.Trace;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace AP.Telemetry
 {
     public class Trace : ITrace, IDisposable
     {
+        private string serviceName = "AP";
+        private string serviceVersion = "1.0";
         private TracerProvider provider;
         private ActivitySource source;
         private TextMapPropagator propagator; 
 
         public IDisposable Start()
         {   
-            source = new ActivitySource("AP");
+            source = new ActivitySource(serviceName);
 
             provider = Sdk.CreateTracerProviderBuilder()
                 .SetSampler(new AlwaysOnSampler())
                 .AddSource(source.Name)
-                .AddJaegerExporter()
+                .SetResourceBuilder(
+                    ResourceBuilder.CreateDefault()
+                        .AddService(serviceName: serviceName, serviceVersion: serviceVersion))
+                .AddHttpClientInstrumentation()
+                .AddAspNetCoreInstrumentation()
+                .AddJaegerExporter(options => {
+                    options.AgentHost = "jaeger";
+                })
                 .Build();
 
             propagator = Propagators.DefaultTextMapPropagator;

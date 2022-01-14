@@ -15,6 +15,7 @@ namespace AP.Broker
         public IDisposable Start(Action<Command> handler)
         {
             var factory = new ConnectionFactory() { DispatchConsumersAsync = true };
+            factory.HostName = "rabbitmq";
             connection = factory.CreateConnection();
             receiveChannel = connection.CreateModel();
 
