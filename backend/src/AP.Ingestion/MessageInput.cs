@@ -1,15 +1,15 @@
-﻿using AP.Http;
-using AP.Messages;
+﻿using AP.Messages;
+using Microsoft.AspNetCore.Http;
 
-namespace AP.Endpoints
+namespace AP.Ingestion
 {
     public class MessageInput
     {
-        private IHttpInput input;
+        private HttpRequest request;
 
-        public MessageInput(IHttpInput input)
+        public MessageInput(HttpRequest request)
         {
-            this.input = input;
+            this.request = request;
         }
 
         public Message GetMessage()
@@ -25,7 +25,7 @@ namespace AP.Endpoints
 
         public string GetPath()
         {
-            return input.GetPath();
+            return request.Path;
         }
     }
 }

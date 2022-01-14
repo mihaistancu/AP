@@ -22,10 +22,8 @@ using AP.Workers.Synchronization.CDM.Subscriptions;
 using AP.Workers.Synchronization.IR.Import;
 using AP.Workers.Synchronization.IR.Request;
 using AP.Workers.Synchronization.IR.Subscriptions;
-using System;
-using System.Collections.Generic;
 
-namespace AP.Dependencies.Factories
+namespace AP.Host.Factories
 {
     public class WorkerFactory: IWorkerFactory
     {

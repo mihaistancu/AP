@@ -1,14 +1,15 @@
 ﻿using AP.Handlers;
-using AP.Http;
 using AP.Messages;
+using Microsoft.AspNetCore.Http;
 
-namespace AP.Endpoints
+namespace AP.Ingestion
 {
     public class MessageOutput : IOutput
     {
-        public MessageOutput(IHttpOutput output)
+        private HttpResponse response; 
+        public MessageOutput(HttpResponse response)
         {
-
+            this.response = response;
         }
 
         private bool isMessageSent;

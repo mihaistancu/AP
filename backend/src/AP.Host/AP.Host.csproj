@@ -1,19 +1,32 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\AP.Messages\AP.Messages.csproj" />
-    <ProjectReference Include="..\AP.Dependencies\AP.Dependencies.csproj" />
-    <ProjectReference Include="..\AP.Endpoints\AP.Endpoints.csproj" />
+    <ProjectReference Include="..\AP.AS4\AP.AS4.csproj" />
+    <ProjectReference Include="..\AP.Broker\AP.Broker.csproj" />
+    <ProjectReference Include="..\AP.CDM\AP.CDM.csproj" />
+    <ProjectReference Include="..\AP.Certificates\AP.Certificates.csproj" />
+    <ProjectReference Include="..\AP.Client\AP.Client.csproj" />
+    <ProjectReference Include="..\AP.Cryptography\AP.Cryptography.csproj" />
+    <ProjectReference Include="..\AP.Gateways\AP.Gateways.csproj" />
     <ProjectReference Include="..\AP.Handlers\AP.Handlers.csproj" />
-    <ProjectReference Include="..\AP.Http\AP.Http.csproj" />
+    <ProjectReference Include="..\AP.Ingestion\AP.Ingestion.csproj" />
     <ProjectReference Include="..\AP.Instrumentation\AP.Instrumentation.csproj" />
+    <ProjectReference Include="..\AP.IR\AP.IR.csproj" />
+    <ProjectReference Include="..\AP.Messages\AP.Messages.csproj" />
     <ProjectReference Include="..\AP.Orchestration\AP.Orchestration.csproj" />
+    <ProjectReference Include="..\AP.Queue\AP.Queue.csproj" />
+    <ProjectReference Include="..\AP.Routing\AP.Routing.csproj" />
+    <ProjectReference Include="..\AP.Scanner\AP.Scanner.csproj" />
     <ProjectReference Include="..\AP.Server\AP.Server.csproj" />
-    <ProjectReference Include="..\AP.Web\AP.Web.csproj" />
+    <ProjectReference Include="..\AP.Signing\AP.Signing.csproj" />
+    <ProjectReference Include="..\AP.Storage\AP.Storage.csproj" />
+    <ProjectReference Include="..\AP.Telemetry\AP.Telemetry.csproj" />
+    <ProjectReference Include="..\AP.Validation\AP.Validation.csproj" />
+    <ProjectReference Include="..\AP.WebApi\AP.WebApi.csproj" />
+    <ProjectReference Include="..\AP.Workers\AP.Workers.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>

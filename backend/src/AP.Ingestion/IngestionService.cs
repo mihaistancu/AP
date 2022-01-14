@@ -1,40 +1,47 @@
-﻿using AP.Http;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 
-namespace AP.Endpoints
+namespace AP.Ingestion
 {
-    public class MessageEndpointRoutes
+    public class IngestionService
     {
+        WebApplication app;
         private IHandlerFactory factory;
 
-        public MessageEndpointRoutes(IHandlerFactory factory)
+        public IngestionService(IHandlerFactory factory)
         {
             this.factory = factory;
+            app = WebApplication.CreateBuilder().Build();
         }
 
-        public void Apply(IHttpServer server)
+        public void Start(string url) 
         {
-            Map(server, "/Business/Inbound", 
+            app.Run(url);
+        }
+
+        private void Apply()
+        {
+            Map("/Business/Inbound", 
                 Handler.ValidateTlsCertificate,
                 Handler.Decrypt,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
                 Handler.ProcessAsync);
 
-            Map(server, "/Business/Outbox", 
+            Map("/Business/Outbox", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.Persist,
                 Handler.ProcessAsync);
 
-            Map(server, "/Business/Inbox", 
+            Map("/Business/Inbox", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.PullRequest);
 
-            Map(server, "/System/Inbound", 
+            Map("/System/Inbound", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
@@ -42,7 +49,7 @@ namespace AP.Endpoints
                 Handler.ProcessAsync,
                 Handler.Receipt);
 
-            Map(server, "/System/Outbox", 
+            Map("/System/Outbox", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
@@ -50,19 +57,18 @@ namespace AP.Endpoints
                 Handler.ProcessAsync,
                 Handler.Receipt);
 
-            Map(server, "/System/Inbox", 
+            Map("/System/Inbox", 
                 Handler.ValidateTlsCertificate,
                 Handler.ValidateSignature,
                 Handler.ValidateEnvelope,
                 Handler.PullRequest);
         }
 
-        private void Map(IHttpServer server, string path, params string[] pipeline)
+        private void Map(string path, params string[] pipeline)
         {
-            server.Map("POST", path, (httpInput, httpOutput) =>
-            {
-                var input = new MessageInput(httpInput);
-                var output = new MessageOutput(httpOutput);
+            app.MapPost(path, (HttpRequest request, HttpResponse response) => {
+                var input = new MessageInput(request);
+                var output = new MessageOutput(response);
                 Process(input, output, pipeline);
             });
         }

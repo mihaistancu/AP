@@ -1,4 +1,4 @@
-﻿namespace AP.Endpoints
+﻿namespace AP.Ingestion
 {
     public class Handler
     {

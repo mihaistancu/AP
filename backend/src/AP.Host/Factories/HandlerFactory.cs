@@ -1,7 +1,6 @@
 ﻿using AP.AS4;
 using AP.Certificates;
 using AP.Cryptography;
-using AP.Endpoints;
 using AP.Handlers;
 using AP.Handlers.AsyncProcessing;
 using AP.Handlers.Decryption;
@@ -14,10 +13,9 @@ using AP.Handlers.TlsCertificateValidation;
 using AP.Queue;
 using AP.Signing;
 using AP.Validation;
-using System;
-using System.Collections.Generic;
+using AP.Ingestion;
 
-namespace AP.Dependencies.Factories
+namespace AP.Host.Factories
 {
     public class HandlerFactory: IHandlerFactory
     {
