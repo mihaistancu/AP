@@ -17,19 +17,37 @@ services:
     command: "sleep infinity"
     volumes: 
       - ./:/workspace
+    ports:
+      - "9000:9000"
     depends_on:
       - rabbitmq
       - jaeger
+      - prometheus
      
-
   rabbitmq:
     image: rabbitmq:3-management
     ports:
       - "5672:5672"
       - "15672:15672"
+    depends_on:
+      - prometheus
       
   jaeger:
     image: jaegertracing/all-in-one:latest
     ports:
       - "6831:6831/udp"
       - "16686:16686"
+
+  prometheus:
+    image: prom/prometheus
+    ports: 
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana-oss
+    ports:
+      - "3000:3000"
+    environment:
+      GF_INSTALL_PLUGINS: "flant-statusmap-panel,grafana-piechart-panel"
