@@ -18,7 +18,7 @@ services:
     volumes: 
       - ./:/workspace
     ports:
-      - "9000:9000"
+      - "8080:8080"
     depends_on:
       - rabbitmq
       - jaeger

@@ -1,6 +1,6 @@
 {
 	"name": "Frontend",
-	"dockerComposeFile": ["../docker-compose.yaml"],
+	"dockerComposeFile": ["../docker-compose.yml"],
 	"service": "frontend",
 	"shutdownAction": "none",
 	"extensions": [

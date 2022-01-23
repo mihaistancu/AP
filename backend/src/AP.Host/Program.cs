@@ -10,7 +10,7 @@
             using (Context.Trace.Start())
             using (Context.Orchestrator.Start())            
             {
-                Context.Ingestion.Start("http://localhost:9000");                
+                Context.Ingestion.Start("http://+:8080");                
             }
         }
     }
